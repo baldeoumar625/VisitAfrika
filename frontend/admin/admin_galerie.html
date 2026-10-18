@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: admin_galerie.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/admin_protection.js"></script>
+  <title>Galerie - Visit Afrika</title>
+  <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-profile">
+        <img src="../images/admin_avatar.png" alt="Admin Avatar">
+        <div class="user-name">Thierno Oumar Baldé</div>
+        <div class="user-role">Administrateur</div>
+      </div>
+      
+      <span class="sidebar-menu-label">Principal</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin.html"><i class="fas fa-grid-2"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="admin_pays.html"><i class="fas fa-globe-africa"></i> Gestion Pays</a>
+        </li>
+        
+        <li>
+          <a href="admin_reservations.html"><i class="fas fa-calendar-check"></i> Réservations</a>
+        </li>
+        <li>
+          <a href="admin_blog.html"><i class="fas fa-feather-pointed"></i> Gestion Blogs</a>
+        </li>
+        <li>
+          <a href="admin_galerie.html" class="active"><i class="fas fa-photo-film"></i> Galerie</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Utilisateurs & Messages</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_utilisateurs.html"><i class="fas fa-users-gear"></i> Utilisateurs</a>
+        </li>
+        <li>
+          <a href="admin_messages.html"><i class="fas fa-envelope-open-text"></i> Messages</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Système</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_parametres.html"><i class="fas fa-sliders"></i> Paramètres</a>
+        </li>
+        <li>
+          <a href="../index.html"><i class="fas fa-right-from-bracket"></i> Retour au site</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <div class="toggle-sidebar cursor-pointer" id="sidebarToggle">
+            <i class="fas fa-bars-staggered"></i>
+          </div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0 ms-3 d-none d-md-flex">
+              <li class="breadcrumb-item"><a href="admin.html" class="text-decoration-none">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Galerie</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="header-right header-icon-group">
+          <!-- Dropdown Notifications -->
+          <div class="dropdown">
+            <div class="position-relative cursor-pointer me-2" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-bell fs-notification hover-primary transition-all"></i>
+              <span class="position-absolute badge rounded-pill bg-danger border border-light notification-badge"></span>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-3" style="width: 320px; z-index: 1050;">
+              <li><h6 class="dropdown-header fw-bold text-dark border-bottom pb-3 mb-2 px-3"><i class="fas fa-bell me-2 text-primary"></i> Notifications (2)</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-start py-2 px-3 hover-bg-light" href="admin_reservations.html">
+                  <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;"><i class="fas fa-calendar-check"></i></div>
+                  <div>
+                    <p class="mb-0 fw-semibold text-dark" style="font-size: 0.9rem;">Nouvelle réservation</p>
+                    <p class="text-muted small mb-0">Tour Mont Nimba - 2 pers.</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-start py-2 px-3 hover-bg-light" href="admin_pays.html">
+                  <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;"><i class="fas fa-globe-africa"></i></div>
+                  <div>
+                    <p class="mb-0 fw-semibold text-dark" style="font-size: 0.9rem;">Nouveau pays ajouté</p>
+                    <p class="text-muted small mb-0">Sénégal ajouté avec succès.</p>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li><a class="dropdown-item text-center text-primary small fw-bold py-2" href="#">Voir toutes les notifications <i class="fas fa-arrow-right ms-1"></i></a></li>
+            </ul>
+          </div>
+          
+          <!-- Dropdown Messages -->
+          <div class="dropdown">
+            <div class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-message fs-notification hover-primary transition-all"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-3" style="width: 320px; z-index: 1050;">
+              <li><h6 class="dropdown-header fw-bold text-dark border-bottom pb-3 mb-2 px-3"><i class="fas fa-message me-2 text-primary"></i> Messages Récents</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center py-2 px-3 hover-bg-light" href="../contact.html">
+                  <div class="bg-info bg-opacity-10 text-info rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;"><i class="fas fa-user"></i></div>
+                  <div class="overflow-hidden">
+                    <p class="mb-0 fw-semibold text-dark" style="font-size: 0.9rem;">Jean Dupont</p>
+                    <p class="text-muted small mb-0 text-truncate">Demande d'information sur un circuit.</p>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li><a class="dropdown-item text-center text-primary small fw-bold py-2" href="../contact.html">Voir tous les messages <i class="fas fa-arrow-right ms-1"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="admin-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="fw-bold mb-1">Galerie Média</h2>
+            <p class="text-muted small">Gérez les visuels du site Visit Afrika</p>
+          </div>
+          <a href="admin.html" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-left me-2"></i> Dashboard</a>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="modern-card p-4">
+              <form action="#" method="POST" enctype="multipart/form-data">
+                <div class="row g-4">
+                  <div class="col-12 mt-0">
+                    <label class="form-label fw-semibold text-dark">Sélectionner les médias (Multi-sélection)</label>
+                    <div class="border rounded-3 p-5 text-center bg-light border-dashed">
+                      <i class="fas fa-cloud-arrow-up display-4 text-muted mb-3"></i>
+                      <p class="mb-3 text-muted">Transférez vos photos en JPG, PNG ou WEBP</p>
+                      <input class="form-control w-50 mx-auto" type="file" id="fichiersImages" accept="image/*" multiple required>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="titreImage" class="form-label fw-semibold text-dark">Titre de groupe / Image</label>
+                    <input type="text" class="form-control bg-light" id="titreImage" placeholder="Ex: Safari au Botswana">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lieuAssocie" class="form-label fw-semibold text-dark">Associer à une destination</label>
+                    <select class="form-select bg-light" id="lieuAssocie">
+                      <option value="" selected>Général (Aucun lieu spécifique)</option>
+                      <optgroup label="Pays">
+                        <option value="Guinée">Guinée</option>
+                        <option value="Sénégal">Sénégal</option>
+                        <option value="Botswana">Botswana</option>
+                      </optgroup>
+                      <optgroup label="Sites Touristiques">
+                        <option value="Îles de Loos">Îles de Loos</option>
+                        <option value="Okavango">Delta de l'Okavango</option>
+                      </optgroup>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="descriptionImage" class="form-label fw-semibold text-dark">Légende (SEO & Accessibilité)</label>
+                    <textarea class="form-control bg-light" id="descriptionImage" rows="3" placeholder="Décrivez l'image en quelques mots..."></textarea>
+                  </div>
+
+                  <div class="col-12 d-flex justify-content-end gap-2 mt-5">
+                    <button type="submit" class="btn btn-primary px-5"><i class="fas fa-upload me-2"></i> Uploader les Médias</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/admin_galerie.js"></script>
+  <script>
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('d-none');
+      } else {
+        sidebar.style.width = sidebar.style.width === '0px' ? '260px' : '0px';
+        sidebar.style.padding = sidebar.style.width === '0px' ? '0' : '1.5rem';
+        sidebar.style.overflow = 'hidden';
+      }
+    });
+  </script>
+</body>
+
+</html>
+

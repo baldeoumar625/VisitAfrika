@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: burkina_faso.html
+    DESCRIPTION: Page pays premium standardisée pour le Burkina Faso.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Burkina Faso, le pays des hommes intègres. De Tiebélé aux pics de Sindou, découvrez une culture riche, un artisanat d'exception et une hospitalité unique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Burkina Faso (Pays des Hommes Intègres)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/burkina_faso.jpg" alt="Le Burkina Faso" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Burkina Faso</h1>
+            <p class="hero-subtitle">Le cœur battant de l'art et de l'intégrité africaine</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Terre d'Accueil et de Culture</h2>
+            <p class="section-description">
+                Anciennement Haute-Volta, le Burkina Faso, ou "Pays des Hommes Intègres", est une destination fascinante pour les amoureux d'authenticité. Réputé pour son dynamisme culturel mondial (FESPACO, SIAO), le pays offre des paysages spectaculaires comme les pics de Sindou, une architecture unique à Tiebélé et une tradition artistique ancestrale. C'est une terre de rencontres où la fraternité et l'hospitalité ne sont pas de vains mots.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux du patrimoine burkinabé</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Exceptionnels</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une merveille...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Nature & Reliefs</span>
+                <span class="filter-tag" data-filter="culture">Architecture & Art</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Traditions</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="burkina-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Pics de Sindou -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Pics de Sindou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Banfora</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pics de Sindou</h3>
+                        <p class="location-text">Formations rocheuses sculptées par le vent</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sindou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Tiebélé -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&q=80&w=800" alt="Tiebele">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nahouri</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Village Royal de Tiebélé</h3>
+                        <p class="location-text">Architecture peinte par les femmes Kasséna</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tiebele">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Bobo-Dioulasso -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Bobo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bobo-Dioulasso</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grande Mosquée Dioulassoba</h3>
+                        <p class="location-text">Chef-d'œuvre de l'architecture de terre soudano-sahélienne</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bobo_mosquee">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Ruines de Loropéni -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Loropeni">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Poni</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ruines de Loropéni</h3>
+                        <p class="location-text">Forteresse millénaire classée à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="loropeni">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Chutes de Karfiguéla -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Karfiguela">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Banfora</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Karfiguéla</h3>
+                        <p class="location-text">Escale rafraîchissante au cœur des cascades</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="karfiguela">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Laongo -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Laongo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Oubritenga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Site de Laongo</h3>
+                        <p class="location-text">Musée de granit à ciel ouvert</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="laongo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Mare aux Crocodiles -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Sabou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sabou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Crocodiles Sacrés de Sabou</h3>
+                        <p class="location-text">Rencontre mystique avec les sauriens protégés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sabou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Musée National -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Musee">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouagadougou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National du Burkina</h3>
+                        <p class="location-text">Toute la diversité ethnographique du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="musee_bf">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Pobé-Mengao -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Pobe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Soum</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Gravures de Pobé-Mengao</h3>
+                        <p class="location-text">Traces d'une civilisation sahélienne antique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pobe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Parc d'Arly -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Arly">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National d'Arly</h3>
+                        <p class="location-text">Réserve de biosphère et refuge des lions</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="arly">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Palais du Moogho Naaba -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Palais">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouagadougou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais du Moogho Naaba</h3>
+                        <p class="location-text">Siège de l'empereur des Mossi</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="moogho">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Forêt de Bangr Weogo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Bangr">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouaga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Bangr Weogo</h3>
+                        <p class="location-text">Poumon vert urbain et parc zoologique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bangr">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Lac de Tengrela -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Tengrela">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Banfora</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac de Tengrela</h3>
+                        <p class="location-text">Sanctuaire des hippopotames</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tengrela">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Marché de Gorom-Gorom -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Gorom">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sahel</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grand Marché de Gorom-Gorom</h3>
+                        <p class="location-text">Carrefour des peuples du Sahel</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gorom">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Cathédrale de Ouagadougou -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Cathedrale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouaga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale de l'Immaculée Conception</h3>
+                        <p class="location-text">Majestueux édifice en briques rouges</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cathedrale_ouaga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un héritage de courage et de créativité.</p>
+                    <p>Le Burkina Faso est un carrefour culturel majeur en Afrique. De la puissance historique de l'Empire Mossi à l'effervescence artistique contemporaine, le pays a su préserver ses racines tout en devenant une capitale mondiale du cinéma (FESPACO) et de l'artisanat. L'intégrité, valeur fondamentale du pays, se reflète dans chaque interaction et chaque tradition préservée.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-film text-warning me-2"></i>FESPACO</h6>
+                                <p class="small text-muted mb-0">Le plus grand festival de cinéma africain, faisant de Ouaga la capitale du 7ème art.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-info me-2"></i>Masques Gourounsi</h6>
+                                <p class="small text-muted mb-0">Des traditions sacrées où les masques animaliers dansent pour protéger la communauté.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-palette text-danger me-2"></i>SIAO</h6>
+                                <p class="small text-muted mb-0">Le Salon International de l'Artisanat de Ouagadougou, vitrine de l'excellence africaine.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-hand-fist text-success me-2"></i>L'Esprit de Sankara</h6>
+                                <p class="small text-muted mb-0">Un héritage politique d'autosuffisance et de fierté nationale qui anime toujours la jeunesse.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Burkina" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Héritage</h2>
+        <p>L'excellence de l'artisanat burkinabé. Des bronzes célèbres aux tissus Bogolan, ramenez un morceau de l'intégrité burkinabé.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bronze_bf.png" alt="Bronze Ouaga" onerror="this.src='https://ui-avatars.com/api/?name=Bronze&background=cd7f32&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bronze de Ouagadougou</h3>
+                    <p class="product-desc">Statue traditionnelle fondue à la cire perdue, spécialité mondiale des artisans burkinabés.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bogolan_bf.png" alt="Bogolan" onerror="this.src='https://ui-avatars.com/api/?name=Bogolan&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bogolan Artisanal</h3>
+                    <p class="product-desc">Tissu teint avec de la terre et des décoctions de plantes, motifs géométriques symboliques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/balafon.png" alt="Balafon" onerror="this.src='https://ui-avatars.com/api/?name=Musique&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Petit Balafon du Sud</h3>
+                    <p class="product-desc">Instrument de musique mélodique en bois et calebasses, accordé par des maîtres luthiers.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cuir&background=8b4513&color=fff&size=200" alt="Cuir Kaya">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Maroquinerie de Kaya</h3>
+                    <p class="product-desc">Cuir souple et teint avec des colorants naturels, fabriqué à Kaya (Centre-Nord).</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Karite&background=f5f5dc&color=000&size=200" alt="Karite BF">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Karité Bio</h3>
+                    <p class="product-desc">Produit cosmétique 100% pur, issu de coopératives de femmes burkinabé.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">5 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Panier&background=daa520&color=fff&size=200" alt="Panier Nord">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers de Gorom-Gorom</h3>
+                    <p class="product-desc">Vannerie fine et colorée réalisée par les femmes nomades du Sahel.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/burkina_faso.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Prestige</span></h2>
+                    <p>Découvrez notre sélection des meilleures adresses du pays des hommes intègres.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="bravia">Bravia Hotel (Ouagadougou)</option>
+                            <option value="lancaster">Lancaster Ouaga 2000</option>
+                            <option value="sopatel">Sopatel Silmandé (Ouagadougou)</option>
+                            <option value="sikaba">Villa Sikaba (Ouagadougou)</option>
+                            <option value="relax">Hôtel Relax (Bobo-Dioulasso)</option>
+                            <option value="auberge">Hôtel Auberge (Bobo-Dioulasso)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Arrivée - Départ" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Bravia"></div>
+                    <div class="hotel-content">
+                        <h4>Bravia Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ouagadougou, Centre</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Lancaster"></div>
+                    <div class="hotel-content">
+                        <h4>Lancaster Ouaga 2000</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier Chic, Ouagadougou</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Sopatel"></div>
+                    <div class="hotel-content">
+                        <h4>Sopatel Silmandé</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bordure du barrage, Ouagadougou</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Sikaba"></div>
+                    <div class="hotel-content">
+                        <h4>Villa Sikaba</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Havres de paix, Ouaga</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Relax"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Relax</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bobo-Dioulasso, Centre</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Auberge"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Auberge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bobo-Dioulasso, Historique</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine burkinabé est généreuse et basée sur les produits du terroir. Le mil, le maïs et le sorgho en sont les piliers.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poulet&background=8b4513&color=fff&size=200" alt="Poulet"></div>
+                <div class="plat-content"><h4>Poulet Bicyclette</h4><p>Le poulet local grillé, emblème de la convivialité burkinabé.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Riz&background=8b4513&color=fff&size=200" alt="Riz Gras"></div>
+                <div class="plat-content"><h4>Riz Gras</h4><p>Riz à la tomate et aux épices, souvent servi avec du bœuf ou du poulet.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=To&background=f5f5dc&color=000&size=200" alt="To"></div>
+                <div class="plat-content"><h4>Le Tô</h4><p>Pâte de mil ou maïs, servie avec une sauce gombo ou sauce feuille.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Babenda&background=006400&color=fff&size=200" alt="Babenda"></div>
+                <div class="plat-content"><h4>Babenda</h4><p>Mélange de feuilles vertes, d'arachides et de riz, très nutritif.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Degue&background=f5f5dc&color=000&size=200" alt="Degue"></div>
+                <div class="plat-content"><h4>Le Dégué</h4><p>Mélange onctueux de yaourt (ou lait caillé) et de couscous de mil.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gonre&background=8b4513&color=fff&size=200" alt="Gonre"></div>
+                <div class="plat-content"><h4>Le Gonré</h4><p>Gâteaux de haricots à la vapeur, spécialité Mossi.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Soumbala&background=000&color=fff&size=200" alt="Soumbala"></div>
+                <div class="plat-content"><h4>Soumbala</h4><p>Condiment traditionnel issu de la graine de néré, pilier des sauces.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Capitaine&background=00008b&color=fff&size=200" alt="Capitaine"></div>
+                <div class="plat-content"><h4>Capitaine au Four</h4><p>Poisson de fleuve grillé ou braisé, très apprécié à Ouaga et Bobo.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Igname&background=f5f5dc&color=000&size=200" alt="Ragout"></div>
+                <div class="plat-content"><h4>Ragoût d'Igname</h4><p>Morceaux d'igname mijotés dans une sauce tomate onctueuse.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fonio&background=daa520&color=fff&size=200" alt="Fonio"></div>
+                <div class="plat-content"><h4>Couscous de Fonio</h4><p>Céréale ancestrale légère, servie avec une sauce aux légumes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gombo&background=006400&color=fff&size=200" alt="Sauce Gombo"></div>
+                <div class="plat-content"><h4>Sauce Gombo</h4><p>Sauce gluante très parfumée, l'accompagnement idéal du Tô.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=8b0000&color=fff&size=200" alt="Bissap"></div>
+                <div class="plat-content"><h4>Jus de Bissap</h4><p>Infusion de fleurs d'hibiscus rouge, servie bien glacée.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Le Burkina est le centre culturel de l'Afrique de l'Ouest avec des événements de renommée mondiale.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-film"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Cinéma</span>
+                    <h4>FESPACO</h4>
+                    <p>Le plus grand festival de cinéma du continent (Tous les 2 ans à Ouagadougou).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Artisanat</span>
+                    <h4>SIAO</h4>
+                    <p>Salon International de l'Artisanat de Ouagadougou, vitrine de l'artisanat africain.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>SNC</h4>
+                    <p>Semaine Nationale de la Culture à Bobo-Dioulasso, célébration des arts traditionnels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Fraîche (Nov. à Février)</h5>
+                    <p class="small mb-0">La période la plus agréable. L'harmattan souffle, le ciel est clair et les températures sont douces pour explorer le pays.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Fin d'hivernage (Sept.-Oct.)</h5>
+                    <p class="small mb-0">La nature est verdoyante, les cascades de Banfora sont à leur débit maximum. Paysages magnifiques.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez les zones de voyage conseillées. Les grandes villes comme Ouaga et Bobo sont accueillantes, mais restez vigilant.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludéen impératif. Hydratez-vous bien (chaleur sahélienne).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-handshake fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Savoir-vivre</h6>
+                    <p class="small text-muted">Le Burkina est le pays de la parenté à plaisanterie. L'humour et le respect des aînés sont au cœur de la vie sociale.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-plug fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Pratique</h6>
+                    <p class="small text-muted">Prises type C/E. Wi-Fi disponible dans les hôtels. Le Franc CFA (XOF) est la monnaie. Pourboires appréciés.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Idrissa+Traore&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Idrissa">
+                        <h5 class="fw-bold mb-1">Idrissa Traoré</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Bobo & Traditions</p>
+                        <p class="small text-muted">Idrissa vous fera découvrir Bobo-Dioulasso et les falaises de Banfora avec une passion contagieuse pour son terroir.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:idrissa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Idrissa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Awa+Sawadogo&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Awa">
+                        <h5 class="fw-bold mb-1">Awa Sawadogo</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturelle Ouaga</p>
+                        <p class="small text-muted">Awa connaît l'histoire des Mossi et les meilleurs coins artistiques de la capitale pour une immersion totale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:awa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Awa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lamine+Barry&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lamine">
+                        <h5 class="fw-bold mb-1">Lamine Barry</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Tiebélé & Sud</p>
+                        <p class="small text-muted">Spécialiste de l'architecture Kasséna, Lamine vous accompagnera à Tiebélé pour comprendre l'art de ces villages.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lamine@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Lamine</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Burkina Faso, terre de dignité et de culture. Vivez une expérience authentique au pays des hommes intègres.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact BF</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +226 25 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> ouaga@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Burkina Faso - Pays des Hommes Intègres</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/burkina_faso.js"></script>
+</body>
+
+</html>

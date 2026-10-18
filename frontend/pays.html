@@ -1,0 +1,250 @@
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: pays.html
+    DESCRIPTION: Page listant tous les pays d'Afrique avec recherche et filtrage par région.
+-->
+﻿
+<!DOCTYPE html>
+<html lang="fr-FR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pays.css">
+    <link rel="stylesheet" href="css/home-new.css">
+    <title>Visiter les pays d'Afrique</title>
+    <link rel="icon" type="image/jpg" href="images/logo/logo.png">
+</head>
+
+<body>
+  <!-- HEADER MODERNISÉ -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <!-- LOGO -->
+      <div class="navbar-brand">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+          <span class="logo-text">VISIT AFRIKA</span>
+        </a>
+      </div>
+
+      <!-- MENU TOGGLE BUTTON (MOBILE) -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVIGATION -->
+      <nav class="navbar-menu" id="navbarMenu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i> Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pays.html" class="nav-link active">
+              <i class="fas fa-globe"></i> Pays
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="blogs.html" class="nav-link">
+              <i class="fas fa-map"></i> Blogs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="informations.html" class="nav-link">
+              <i class="fas fa-info-circle"></i> Informations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="galerie.html" class="nav-link">
+              <i class="fas fa-images"></i> Galerie
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="propos.html" class="nav-link">
+              <i class="fas fa-user"></i> À Propos
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container" id="main">
+    <section class="controls" aria-labelledby="controls-title">
+      <h1 id="controls-title">Explorer les pays</h1>
+
+      <div class="controls-row">
+        <div class="search">
+          <label for="searchInput" class="visually-hidden">Rechercher un pays</label>
+          <input id="searchInput" placeholder="Rechercher" />
+        </div>
+
+        <div class="filters">
+          <label for="regionSelect">Région</label>
+          <select id="regionSelect">
+            <option value="all">Toutes</option>
+            <option value="Afrique du Nord">Afrique du Nord</option>
+            <option value="Afrique de l'Ouest">Afrique de l'Ouest</option>
+            <option value="Afrique Centrale">Afrique Centrale</option>
+            <option value="Afrique de l'Est">Afrique de l'Est</option>
+            <option value="Afrique Australe">Afrique Australe</option>
+          </select>
+        </div>
+
+        <div class="perpage">
+          <label for="perPage">Afficher</label>
+          <select id="perPage">
+            <option value="6">6</option>
+            <option value="9" selected>9</option>
+            <option value="12">12</option>
+          </select>
+          <span>par page</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS GRID -->
+    <section id="countriesSection" class="grid" aria-live="polite"></section>
+
+    <!-- PAGINATION -->
+    <nav class="pagination" aria-label="Pagination">
+      <button id="prevBtn" aria-label="Page précédente">Préc.</button>
+      <div id="pages" class="pages" role="navigation" aria-hidden="true"></div>
+      <button id="nextBtn" aria-label="Page suivante">Suiv.</button>
+    </nav>
+  </main>
+
+  <!-- MODAL DÉTAIL -->
+  <div id="countryModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-content" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Fermer la fenêtre">×</button>
+      <header class="modal-header">
+        <h2 id="modalTitle"></h2>
+        <p id="modalSubtitle"></p>
+      </header>
+      <div class="modal-body">
+        <img id="modalFlag" alt="" class="modal-flag" />
+        <div class="modal-info">
+          <p><strong>Région :</strong> <span id="modalRegion"></span></p>
+          <p><strong>Capitale :</strong> <span id="modalCapital"></span></p>
+          <p><strong>Population :</strong> <span id="modalPopulation"></span></p>
+          <p id="modalDesc"></p>
+          <!-- Placeholder pour carte / lien -->
+          <p><a id="moreLink" href="#" target="_blank" rel="noopener">Visiter</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LE FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <!-- SECTION 1 : À PROPOS -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-globe"></i> À Propos de Visit Afrika
+        </h4>
+        <p class="footer-desc">
+          Visit Afrika vous invite à découvrir les merveilles du continent africain.
+          Nous organisons des voyages authentiques et mémorables pour explorer la nature,
+          la culture et les traditions d'Afrique.
+        </p>
+      </div>
+
+      <!-- SECTION 2 : SERVICES -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-concierge-bell"></i> Nos Services
+        </h4>
+        <ul class="footer-list">
+          <li><a href="#"><i class="fas fa-check"></i> Excursions Nature</a></li>
+          <li><a href="#"><i class="fas fa-check"></i> Visites Culturelles</a></li>
+          <li><a href="#"><i class="fas fa-check"></i> Circuits Gastronomiques</a></li>
+          <li><a href="#"><i class="fas fa-check"></i> Guides Experts</a></li>
+          <li><a href="#"><i class="fas fa-check"></i> Séjours Balnéaires</a></li>
+          <li><a href="#"><i class="fas fa-check"></i> Hébergement</a></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 3 : INFORMATIONS -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-info-circle"></i> Informations
+        </h4>
+        <ul class="footer-list">
+          <li><a href="#"><i class="fas fa-book"></i> Culturelles</a></li>
+          <li><a href="#"><i class="fas fa-futbol"></i> Sportives</a></li>
+          <li><a href="#"><i class="fas fa-flag"></i> Politiques</a></li>
+          <li><a href="#"><i class="fas fa-users"></i> Populations</a></li>
+          <li><a href="#"><i class="fas fa-leaf"></i> Environnementales</a></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 4 : CONTACTS -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-phone"></i> Nous Contacter
+        </h4>
+        <div class="contact-info">
+          <p class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>(+224) 625 34 30 39<br>(+224) 663 86 44 87</span>
+          </p>
+          <p class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+          </p>
+          <p class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Labé, Dakar, Dombya - Guinée</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-social">
+      <h5>Suivez-nous sur les réseaux sociaux</h5>
+      <ul class="social-links">
+        <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+      </ul>
+    </div>
+
+    <!-- DROITS D'AUTEUR -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+    </div>
+  </footer>
+
+  <script src="js/pays.js"></script>
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menuToggle').addEventListener('click', function () {
+      this.classList.toggle('active');
+      document.getElementById('navbarMenu').classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('menuToggle').classList.remove('active');
+        document.getElementById('navbarMenu').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

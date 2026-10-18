@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: sierra_leone.html
+    DESCRIPTION: Page pays premium standardisée pour la Sierra Leone.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Sierra Leone, le joyau caché de l'Afrique de l'Ouest. Des plages de sable blanc de Tokeh au patrimoine historique de l'île de Bunce, vivez une aventure authentique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Sierra Leone (Salone)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/sierra_leone.jpg" alt="La Sierra Leone" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Sierra Leone</h1>
+            <p class="hero-subtitle">Le pays du "Lion Mountain" et des plages de rêve infinies</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Renaissance entre Azur et Forêt</h2>
+            <p class="section-description">
+                La Sierra Leone est l'un des trésors les plus éclatants de l'Afrique de l'Ouest, offrant un mélange rare de beauté naturelle brute et d'histoire profonde. Connue pour ses plages de sable blanc d'une pureté exceptionnelle, comme River No. 2 et Tokeh, elle abrite également des forêts tropicales denses où règnent les chimpanzés et une faune unique. Freetown, sa capitale vibrante au pied des montagnes, témoigne d'un passé lié à la liberté, tandis que l'île de Bunce raconte avec émotion l'histoire de la traite transatlantique. C'est une destination d'une résilience admirable, prête à émerveiller les voyageurs en quête d'authenticité et de paradis préservés.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles incontournables de "Salone"</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Référencés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plage">Plages & Côte</span>
+                <span class="filter-tag" data-filter="nature">Nature & Faune</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Villes</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="sierra-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Bunce Island -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Bunce Island">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Freetown Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Bunce</h3>
+                        <p class="location-text">Site historique majeur de la traite négrière (UNESCO Tentative)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bunce">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. River No. 2 Beach -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="River No. 2">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Peninsule</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 95k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de River No. 2</h3>
+                        <p class="location-text">Considérée comme l'une des plus belles plages d'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="river_2">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Tacugama Chimpanzee Sanctuary -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Tacugama">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Western Area</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Sanctuaire de Tacugama</h3>
+                        <p class="location-text">Protection des chimpanzés au cœur d'une forêt luxuriante</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tacugama">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Tokeh Beach -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Tokeh">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 60k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Tokeh</h3>
+                        <p class="location-text">Eaux turquoises et resorts de luxe pour un séjour paradisiaque</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tokeh">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Tiwai Island -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Tiwai">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Fleuve Moa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Tiwai</h3>
+                        <p class="location-text">Sanctuaire de primates et biodiversité exceptionnelle (UNESCO Tentative)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tiwai">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Freetown (Cotton Tree) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Cotton Tree">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Freetown</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cotton Tree</h3>
+                        <p class="location-text">Symbole historique de la liberté et de l'indépendance</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cotton_tree">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Banana Islands -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Banana Islands">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Au large de la péninsule</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Îles Banana</h3>
+                        <p class="location-text">Plongée, pêche et histoire coloniale sur cet archipel paisible</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="banana_islands">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Outamba-Kilimi National Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Outamba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Province du Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc Outamba-Kilimi</h3>
+                        <p class="location-text">Savane et forêt, refuge pour les éléphants et les hippopotames pygmées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="outamba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Mont Bintumani -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Bintumani">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Monts Loma</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Bintumani</h3>
+                        <p class="location-text">Le plus haut sommet de Sierra Leone (1 945m) pour la randonnée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bintumani">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Bureh Beach -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Bureh">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Péninsule Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Bureh</h3>
+                        <p class="location-text">Le spot de surf par excellence avec une ambiance bohème unique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bureh">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Bo (Ville Culturelle) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Bo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Province du Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Bo</h3>
+                        <p class="location-text">La deuxième plus grande ville, riche en culture Mendé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Kenema (Cité des Diamants) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Kenema">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Province de l'Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Kenema</h3>
+                        <p class="location-text">Porte d'entrée vers les zones minières et la forêt de Gola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kenema">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Hamilton Beach -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Hamilton">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Péninsule Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage d'Hamilton</h3>
+                        <p class="location-text">Plage paisible idéale pour admirer le coucher du soleil</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hamilton">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Sulima (Côte Sauvage) -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Sulima">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Frontière Libéria</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Sulima</h3>
+                        <p class="location-text">Espaces sauvages et plages désertes à l'extrême sud du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sulima">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Musée National de Sierra Leone -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="SL Museum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Freetown</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National</h3>
+                        <p class="location-text">Trésors culturels et histoire des peuples de Sierra Leone</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="museum_sl">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La terre de la liberté et de l'harmonie Krio.</p>
+                    <p>L'histoire de la Sierra Leone est intimement liée à la fin de l'esclavage et à la fondation de Freetown comme foyer pour les esclaves libérés. Cette identité unique s'exprime à travers la culture Krio, mélange fascinant d'influences africaines et européennes. Le pays est fier de son harmonie religieuse exemplaire et de ses traditions tribales riches, notamment celles des Mende et des Temne. De l'élégance du Cotton Tree aux danses masquées secrètes, la Sierra Leone offre une profondeur culturelle qui vibre dans chaque rue de ses villes colorées.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-tree text-warning me-2"></i>Cotton Tree Heritage</h6>
+                                <p class="small text-muted mb-0">Le symbole vivant de la liberté où les premiers esclaves libérés ont prié à leur arrivée.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-language text-info me-2"></i>Culture Krio</h6>
+                                <p class="small text-muted mb-0">Une langue et une identité vibrantes issues de la fusion des peuples revenus de la diaspora.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-gem text-danger me-2"></i>Cité des Diamants</h6>
+                                <p class="small text-muted mb-0">L'histoire minière complexe qui a façonné l'économie et le destin de la province de l'Est.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-success me-2"></i>Sociétés Secrètes</h6>
+                                <p class="small text-muted mb-0">Les traditions Poro et Sande qui perpétuent les rites de passage et la sagesse ancestrale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture SL" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de Freetown</h2>
+        <p>L'artisanat authentique de Salone. Des tissus Gara teints à la main aux sculptures en bois raffinées.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/gara_cloth.png" alt="Gara Cloth" onerror="this.src='https://ui-avatars.com/api/?name=Gara&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Tissage</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Gara Teint Main</h3>
+                    <p class="product-desc">Textile traditionnel coloré avec des teintures naturelles (indigo) selon des techniques ancestrales.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">250 000 SLL</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/sl_wood_sculpture.png" alt="Sculpture" onerror="this.src='https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Bois de Rose</h3>
+                    <p class="product-desc">Figurine finement sculptée par les artisans de Kenema, représentant la faune ou la vie quotidienne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">450 000 SLL</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/sl_basket.png" alt="Panier" onerror="this.src='https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Utile</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vannerie de Bo</h3>
+                    <p class="product-desc">Paniers et sets de table robustes tissés avec des fibres de palmier, durables et élégants.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">120 000 SLL</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Soap&background=000&color=fff&size=200" alt="Savon Noir">
+                    <span class="stock-badge">Soin</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Savon Noir Traditionnel</h3>
+                    <p class="product-desc">Savon artisanal purifiant fabriqué à base de cendres de plantes et d'huiles végétales locales.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 SLL</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coconut&background=f5f5dc&color=000&size=200" alt="Huile Coco">
+                    <span class="stock-badge">Bio</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Coco Vierge</h3>
+                    <p class="product-desc">Huile pressée à froid issue des cocoteraies de la côte, idéale pour la peau et les cheveux.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 000 SLL</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Beads&background=ff4500&color=fff&size=200" alt="Perles">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Perles Mendé</h3>
+                    <p class="product-desc">Colliers et bracelets colorés faits à la main, portés lors des cérémonies traditionnelles.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">150 000 SLL</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/sierra_leone.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Évasion <span>Tropicale</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels de Freetown et des eco-resorts sur les plages de rêve.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="radisson">Radisson Blu Mammy Yoko</option>
+                            <option value="atlantic">Atlantic Lumley Hotel</option>
+                            <option value="tokeh_resort">The Place Resort Tokeh</option>
+                            <option value="barmoi">Hotel Barmoi</option>
+                            <option value="country">Country Lodge Hotel</option>
+                            <option value="home_suites">Home Suites Hotel</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Radisson Blu"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu Mammy Yoko</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Aberdeen, Freetown</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="The Place"></div>
+                    <div class="hotel-content">
+                        <h4>The Place Resort Tokeh</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tokeh Beach, Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Atlantic Lumley"></div>
+                    <div class="hotel-content">
+                        <h4>Atlantic Lumley Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lumley Beach, Freetown</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Hotel Barmoi"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Barmoi</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Aberdeen, Bord de Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Country Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Country Lodge Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Hill Station, Vue Panoramique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Home Suites"></div>
+                    <div class="hotel-content">
+                        <h4>Home Suites Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Aberdeen, Freetown</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine de Salone est un festin épicé mettant à l'honneur les feuilles vertes, les tubercules et les trésors de l'Atlantique.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cassava&background=006400&color=fff&size=200" alt="Cassava Leaves"></div>
+                <div class="plat-content"><h4>Cassava Leaves</h4><p>Feuilles de manioc pilées et mijotées avec du poisson fumé ou de la viande, le plat roi.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Jollof&background=8b0000&color=fff&size=200" alt="Jollof Rice"></div>
+                <div class="plat-content"><h4>Riz Jollof</h4><p>Version locale savoureuse du riz rouge africain, souvent servie avec du poulet grillé.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Granat&background=daa520&color=fff&size=200" alt="Granat Soup"></div>
+                <div class="plat-content"><h4>Granat Soup</h4><p>Une soupe crémeuse à base d'arachides, riche en saveurs et très nutritive.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Cundi"></div>
+                <div class="plat-content"><h4>Poisson Cundi</h4><p>Poisson frit ou grillé servi avec une sauce tomate pimentée et du riz.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice+Bread&background=f5f5dc&color=000&size=200" alt="Rice Bread"></div>
+                <div class="plat-content"><h4>Rice Bread</h4><p>Pain sucré à base de farine de riz et de bananes mûres, un délice pour le goûter.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Crain&background=006400&color=fff&size=200" alt="Crain Crain"></div>
+                <div class="plat-content"><h4>Sauce Crain Crain</h4><p>Feuilles de jute finement hachées et cuisinées, servies avec du riz.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Akara&background=daa520&color=fff&size=200" alt="Akara"></div>
+                <div class="plat-content"><h4>Akara</h4><p>Beignets de haricots frits, croustillants à l'extérieur et fondants à l'intérieur.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ginger&background=daa520&color=fff&size=200" alt="Ginger Beer"></div>
+                <div class="plat-content"><h4>Ginger Beer Maison</h4><p>Boisson artisanale très forte au gingembre, rafraîchissante et tonique.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=8b0000&color=fff&size=200" alt="Bissap"></div>
+                <div class="plat-content"><h4>Jus de Bissap</h4><p>Infusion froide de fleurs d'hibiscus, sucrée et parfumée.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Papaye&background=daa520&color=fff&size=200" alt="Fruit"></div>
+                <div class="plat-content"><h4>Plateau de Fruits Tropicaux</h4><p>Papayes géantes, mangues et bananes "Ladies Finger" d'une douceur exceptionnelle.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Star&background=00008b&color=fff&size=200" alt="Bière Star"></div>
+                <div class="plat-content"><h4>Bière Star</h4><p>La bière blonde locale emblématique, parfaite au bord de l'eau.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pepper&background=8b0000&color=fff&size=200" alt="Pepper Soup"></div>
+                <div class="plat-content"><h4>Pepper Soup</h4><p>Bouillon de poisson ou de viande très pimenté et médicinal.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Découvrez l'énergie vibrante de la Sierra Leone à travers ses carnavals et ses fêtes traditionnelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Carnaval</span>
+                    <h4>Freetown Lantern Parade</h4>
+                    <p>Grand défilé de lanternes géantes et de chars colorés pour célébrer l'Aïd ou les fêtes nationales.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Jour de l'Indépendance</h4>
+                    <p>Célébrations massives le 27 avril avec défilés, danses et musique dans tout le pays.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-water"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Festival</span>
+                    <h4>Maid in Salone Music Festival</h4>
+                    <p>Festival célébrant la musique locale et la mode sur la plage de Lumley (Décembre).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Mai)</h5>
+                    <p class="small mb-0">C'est la période idéale pour les plages et les parcs nationaux. Le ciel est dégagé et l'humidité est plus supportable, surtout entre décembre et février.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Juin à Octobre)</h5>
+                    <p class="small mb-0">Les averses peuvent être très intenses (août est le mois le plus pluvieux). La nature est cependant verdoyante et luxuriante, idéale pour les photographes de paysage.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">La Sierra Leone est l'un des pays les plus sûrs d'Afrique de l'Ouest. Vigilance normale requise dans les zones fréquentées de Freetown.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Traitement antipaludéen indispensable. Vaccin Fièvre Jaune obligatoire. Buvez exclusivement de l'eau en bouteille.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire. Peut être obtenu à l'arrivée (Visa on arrival) pour de nombreuses nationalités. Vérifiez les conditions en ligne.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Le Leone (SLL). Le change est facile à Freetown. Les cartes bancaires sont de plus en plus acceptées dans les grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lamin+Safari&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lamin">
+                        <h5 class="fw-bold mb-1">Lamin Kamara</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Nature & Faune</p>
+                        <p class="small text-muted">Lamin est un passionné des primates et de la forêt de Gola. Il vous fera découvrir la richesse écologique du pays.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lamin@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Lamin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Culture&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Sarah">
+                        <h5 class="fw-bold mb-1">Sarah Koroma</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Histoire & Patrimoine</p>
+                        <p class="small text-muted">Spécialiste de l'île de Bunce et de l'histoire Krio, Sarah vous racontera le destin fascinant de Freetown.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:sarah@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Sarah</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ibrahim+Coast&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ibrahim">
+                        <h5 class="fw-bold mb-1">Ibrahim Sesay</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Plages & Surf</p>
+                        <p class="small text-muted">Natif de Bureh, Ibrahim connaît chaque spot de la côte et vous guidera vers les plages les plus secrètes de Salone.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ibrahim@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ibrahim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Sierra Leone, le joyau caché de l'Afrique de l'Ouest. Plongez dans une nature sauvage et des plages infinies avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Salone</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +232 76 000 000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> freetown@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Sierra Leone - Lion Mountain</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/sierra_leone.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: somalie.html
+    DESCRIPTION: Page pays premium standardisée pour la Somalie.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Somalie, la corne de l'Afrique. De l'art rupestre millénaire de Laas Geel aux plages immaculées de Mogadiscio, explorez une terre d'histoire et de résilience.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Somalie (La Corne de l'Afrique)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/somalie.jpg" alt="La Somalie" onerror="this.src='../images/pays/Afrique_Est/somali.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Somalie</h1>
+            <p class="hero-subtitle">Le berceau des civilisations maritimes et le souffle du désert</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre de Patrimoine et d'Azur</h2>
+            <p class="section-description">
+                La Somalie, située à la pointe stratégique de la Corne de l'Afrique, est une destination d'une richesse historique et naturelle insoupçonnée. Avec la plus longue côte du continent, elle offre des plages de sable blanc d'une beauté époustouflante comme Lido à Mogadiscio. Terre de commerce millénaire, elle abrite des trésors archéologiques mondiaux comme les peintures rupestres de Laas Geel, miraculeusement préservées. Entre montagnes verdoyantes au nord et cités historiques ottomanes, la Somalie entame une renaissance touristique, offrant aux voyageurs audacieux une expérience authentique au cœur d'une culture de poésie et d'hospitalité.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux de la Corne de l'Afrique</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Sélectionnés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plage">Plages & Côte</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Culture</span>
+                <span class="filter-tag" data-filter="nature">Nature & Montagnes</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="somalie-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Laas Geel -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Laas Geel">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Hargeisa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Laas Geel</h3>
+                        <p class="location-text">Peintures rupestres datant de 5 000 à 9 000 ans, joyau du Néolithique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="laas_geel">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Plage de Lido -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Lido Beach">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mogadiscio</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Lido</h3>
+                        <p class="location-text">Symbole de la renaissance de la capitale, eaux cristallines et ambiance festive</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lido">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Vieille ville de Hamar Weyne -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Hamar Weyne">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mogadiscio</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Hamar Weyne</h3>
+                        <p class="location-text">Le cœur historique médiéval avec son architecture unique en corail</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hamar_weyne">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Berbera (Architecture Ottomane) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Berbera">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mer Rouge</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Port de Berbera</h3>
+                        <p class="location-text">Vestiges de l'époque ottomane et britannique sur les rives du Golfe d'Aden</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="berbera">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Monts Cal Madow -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Cal Madow">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sanaag</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monts Cal Madow</h3>
+                        <p class="location-text">Chaîne de montagnes abritant des forêts de genévriers et une biodiversité unique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cal_madow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Hargeisa (Marché du Bétail) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Hargeisa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Hargeisa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Marché aux Chameaux</h3>
+                        <p class="location-text">L'un des plus grands marchés de bétail d'Afrique, spectacle vibrant de la culture nomade</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hargeisa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Parc National de Daallo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Daallo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Erigavo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt de Daallo</h3>
+                        <p class="location-text">Escarpements vertigineux plongeant vers la mer et arbres à encens millénaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="daallo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Zeila (Cité Historique) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Zeila">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Nord-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Zeila</h3>
+                        <p class="location-text">Ancien port du Sultanat d'Adal abritant l'une des plus vieilles mosquées d'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zeila">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Chutes de Lamadaya -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Lamadaya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cal Madow</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Lamadaya</h3>
+                        <p class="location-text">Sept cascades spectaculaires nichées au cœur des montagnes du nord</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lamadaya">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Baie de Gara'ad -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Gara'ad">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mudug</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baie de Gara'ad</h3>
+                        <p class="location-text">Port en plein essor avec des plages sauvages et une vie marine riche</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="garaad">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Kismayo -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Kismayo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Basse-Juba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Kismayo</h3>
+                        <p class="location-text">Ville portuaire du sud réputée pour ses plages et son climat tropical</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kismayo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Plage de Warsheikh -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Warsheikh">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moyen-Shabelle</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Warsheikh</h3>
+                        <p class="location-text">Destination balnéaire paisible et historique au nord de Mogadiscio</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="warsheikh">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Île de Sa'ad ad-Din -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Saad ad Din">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Archipel de Zeila</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Sa'ad ad-Din</h3>
+                        <p class="location-text">Récifs coralliens spectaculaires et eaux turquoises pour la plongée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="saad_din">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Parc National de Lag Badana -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Lag Badana">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud Somalie</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National Lag Badana</h3>
+                        <p class="location-text">La première zone protégée du pays, où la brousse rencontre l'océan</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lag_badana">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Musée de Mogadiscio -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Mogadishu Museum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mogadiscio</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National de Somalie</h3>
+                        <p class="location-text">Collection retrouvée d'art africain, de manuscrits et de reliques maritimes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="museum_moga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La nation des poètes et des navigateurs de l'Océan Indien.</p>
+                    <p>La culture somalienne est une fusion unique d'influences africaines, arabes et indiennes, forgée par des millénaires de commerce maritime. Connue comme la "Nation des Poètes", la Somalie possède une tradition littéraire orale d'une richesse incroyable. L'identité somalienne est aussi profondément marquée par le nomadisme pastoral, symbolisé par le noble chameau, et par un héritage islamique ancien visible dans les mosquées de Zeila et de Mogadiscio. Aujourd'hui, la créativité somalienne s'exprime à travers une diaspora dynamique et une jeunesse locale résiliente qui réinvente l'art et la musique.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-feather-alt text-warning me-2"></i>La Nation des Poètes</h6>
+                                <p class="small text-muted mb-0">La poésie est l'âme de la Somalie, utilisée pour résoudre les conflits, célébrer l'amour et transmettre l'histoire.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-anchor text-info me-2"></i>Empire d'Adal</h6>
+                                <p class="small text-muted mb-0">Le glorieux héritage des sultanats maritimes qui dominaient le commerce entre l'Afrique et l'Asie.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-camel text-danger me-2"></i>Héritage Nomade</h6>
+                                <p class="small text-muted mb-0">Le chameau est le pilier de la vie et de l'économie, symbole de richesse et de survie dans le désert.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-success me-2"></i>Hiddiyo Dhaqan</h6>
+                                <p class="small text-muted mb-0">Les danses traditionnelles et la musique moderne qui animent les mariages et les fêtes somaliennes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Somalie" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de la Corne d'Afrique</h2>
+        <p>L'artisanat somalien d'exception. De l'encens sacré aux tissus Alindi tissés à la main.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/frankincense.png" alt="Encens" onerror="this.src='https://ui-avatars.com/api/?name=Encens&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Encens (Frankincense) Royal</h3>
+                    <p class="product-desc">Le meilleur encens du monde, récolté dans les montagnes de Cal Madow. Pur et intensément parfumé.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/alindi_fabric.png" alt="Alindi" onerror="this.src='https://ui-avatars.com/api/?name=Alindi&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Mode</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Alindi Traditionnel</h3>
+                    <p class="product-desc">Tissage somalien iconique réalisé à la main sur des métiers anciens, utilisé pour les vêtements de fête.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/somali_jewelry.png" alt="Bijoux" onerror="this.src='https://ui-avatars.com/api/?name=Gold&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Luxe</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Argent Hamar</h3>
+                    <p class="product-desc">Colliers et bracelets ciselés selon le savoir-faire des orfèvres de la vieille ville de Mogadiscio.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">120 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Myrrh&background=8b4513&color=fff&size=200" alt="Myrrhe">
+                    <span class="stock-badge">Bien-être</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Résine de Myrrhe Sauvage</h3>
+                    <p class="product-desc">Récoltée de manière durable dans le désert somalien, connue pour ses propriétés médicinales et son parfum.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=006400&color=fff&size=200" alt="Vannerie">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tissé de Gedo</h3>
+                    <p class="product-desc">Vannerie robuste et décorative aux motifs géométriques, faite de fibres de palme séchées.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Oil&background=8b0000&color=fff&size=200" alt="Huile Somalie">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile Essentielle de Sésame</h3>
+                    <p class="product-desc">Huile pressée à froid de manière artisanale, base de la cuisine et des soins de beauté somaliens.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/somalie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>L'Élégance de la <span>Corne</span></h2>
+                    <p>Découvrez notre sélection des meilleurs établissements offrant confort et sécurité au cœur de la renaissance somalienne.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="decale">Decale Hotel (Mogadishu)</option>
+                            <option value="jazeera">Jazeera Palace (Mogadishu)</option>
+                            <option value="damal">Damal Hotel (Hargeisa)</option>
+                            <option value="ambassador">Ambassador Hotel (Hargeisa)</option>
+                            <option value="oriental">Oriental Hotel (Berbera)</option>
+                            <option value="elite">Elite Hotel (Mogadishu)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Decale"></div>
+                    <div class="hotel-content">
+                        <h4>Decale Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mogadiscio, Luxe & Aéroport</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Jazeera"></div>
+                    <div class="hotel-content">
+                        <h4>Jazeera Palace Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mogadiscio, Prestige Diplomatique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Damal"></div>
+                    <div class="hotel-content">
+                        <h4>Damal Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Hargeisa, Centre-ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Ambassador"></div>
+                    <div class="hotel-content">
+                        <h4>Ambassador Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Hargeisa, Moderne & Spacieux</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Oriental"></div>
+                    <div class="hotel-content">
+                        <h4>Oriental Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Berbera, Charme historique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Elite"></div>
+                    <div class="hotel-content">
+                        <h4>Elite Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lido Beach, Mogadiscio</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine somalienne est un festin d'épices et de saveurs métissées, reflet de sa position de carrefour entre l'Afrique et l'Asie.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Riz&background=daa520&color=fff&size=200" alt="Bariis"></div>
+                <div class="plat-content"><h4>Bariis Iskukaris</h4><p>Le riz épicé national, cuit avec du cumin, de la cannelle et servi avec du mouton ou de la chèvre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sambousa&background=daa520&color=fff&size=200" alt="Sambousa"></div>
+                <div class="plat-content"><h4>Sambousa</h4><p>Petits triangles de pâte frits fourrés à la viande hachée épicée, incontournables.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Canjeero&background=f5f5dc&color=000&size=200" alt="Canjeero"></div>
+                <div class="plat-content"><h4>Canjeero</h4><p>Crêpe somalienne fermentée, base du petit-déjeuner servie avec du miel ou du foie.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Suqaar&background=8b0000&color=fff&size=200" alt="Suqaar"></div>
+                <div class="plat-content"><h4>Suqaar</h4><p>Dés de viande (bœuf ou chèvre) sautés avec des poivrons et des oignons.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Kaluun"></div>
+                <div class="plat-content"><h4>Kaluun (Poisson Grillé)</h4><p>Poisson frais de l'océan, mariné aux épices somaliennes et grillé sur le feu.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Muufo&background=daa520&color=fff&size=200" alt="Muufo"></div>
+                <div class="plat-content"><h4>Muufo</h4><p>Pain plat traditionnel cuit dans un four en terre cuite (tinnour).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pasta&background=daa520&color=fff&size=200" alt="Baasta"></div>
+                <div class="plat-content"><h4>Baasta (Pâtes Somali)</h4><p>Héritage italien, pâtes servies avec une sauce tomate épicée et souvent une banane.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Shaah&background=8b4513&color=fff&size=200" alt="Tea"></div>
+                <div class="plat-content"><h4>Shaah Hawaash (Thé)</h4><p>Thé somalien infusé avec de la cardamome, du gingembre, du girofle et du lait.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Halwa&background=8b4513&color=fff&size=200" alt="Halwa"></div>
+                <div class="plat-content"><h4>Halwa Somalienne</h4><p>Confiserie sucrée et épicée faite pour les grandes occasions et mariages.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Goyave&background=daa520&color=fff&size=200" alt="Jus"></div>
+                <div class="plat-content"><h4>Jus de Goyave Frais</h4><p>Boisson rafraîchissante issue des vergers des rives du fleuve Chabelle.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sabayad&background=daa520&color=fff&size=200" alt="Sabayad"></div>
+                <div class="plat-content"><h4>Sabayad</h4><p>Pain plat feuilleté croustillant, proche du paratha indien.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Soor&background=f5f5dc&color=000&size=200" alt="Soor"></div>
+                <div class="plat-content"><h4>Soor</h4><p>Bouillie de maïs consistante, servie avec du lait frais ou un ragoût.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Découvrez la vitalité culturelle somalienne à travers ses foires littéraires et ses célébrations nationales.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-book"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Littérature</span>
+                    <h4>Hargeisa Book Fair</h4>
+                    <p>Le plus grand festival littéraire de la Corne de l'Afrique, célébrant les poètes et auteurs (Juillet).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Festivités massives marquant l'unification de la Somalie (1er Juillet) dans toutes les villes.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Mogadishu Music Festival</h4>
+                    <p>Célébration annuelle de la musique somalienne contemporaine sur la plage de Lido.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Décembre à Mars)</h5>
+                    <p class="small mb-0">C'est la période idéale pour visiter les côtes. Le temps est ensoleillé et les brises marines rendent la chaleur supportable.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Saison des Pluies (Avril à Juin)</h5>
+                    <p class="small mb-0">Appelée "Gu", cette saison apporte la vie aux plateaux et aux montagnes. Les paysages deviennent luxuriants mais les déplacements peuvent être plus lents.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">La situation s'améliore mais reste complexe. Voyagez toujours avec un service de sécurité local reconnu et suivez les conseils de votre ambassade.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire. Les procédures varient selon que vous visitez Mogadiscio ou Hargeisa. Vérifiez les régulations avant tout voyage.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-vest text-warning fa-2x mb-3"></i>
+                    <h6 class="fw-bold">Code Vestimentaire</h6>
+                    <p class="small text-muted">Pays conservateur. Une tenue décente couvrant les épaules et les jambes est requise. Le voile est recommandé pour les femmes par respect local.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Le Shilling Somalien est utilisé, mais les Dollars US et le paiement mobile (EVC Plus) sont les moyens de paiement dominants.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ahmed+Moga&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ahmed">
+                        <h5 class="fw-bold mb-1">Ahmed Warsame</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Mogadiscio & Histoire</p>
+                        <p class="small text-muted">Ahmed est un historien local passionné qui vous fera découvrir les secrets de Hamar Weyne et l'histoire maritime de la capitale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ahmed@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ahmed</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Fahma+Hargeisa&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Fahma">
+                        <h5 class="fw-bold mb-1">Fahma Jama</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culturelle & Laas Geel</p>
+                        <p class="small text-muted">Spécialiste de l'art rupestre et des traditions nomades, Fahma vous guidera dans les paysages majestueux du nord.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fahma@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Fahma</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Omar+Coast&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Omar">
+                        <h5 class="fw-bold mb-1">Omar Farah</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Plongée & Côte</p>
+                        <p class="small text-muted">Passionné par l'Océan Indien, Omar vous fera découvrir les meilleurs spots de snorkeling autour de Zeila et Warsheikh.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:omar@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Omar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Somalie, la Corne de l'Afrique. Découvrez une terre de résilience, d'histoire maritime et de beauté naturelle avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Somalie</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +252 61 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> mogadishu@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Somalia - Horn of Africa</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/somalie.js"></script>
+</body>
+
+</html>

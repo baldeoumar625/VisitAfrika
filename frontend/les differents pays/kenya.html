@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: kenya.html
+    DESCRIPTION: Page pays premium standardisée pour le Kenya.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Kenya, la terre du Safari original. Du Masai Mara aux plages de Diani et au sommet du Mont Kenya, vivez une aventure sauvage et culturelle inoubliable.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Kenya (Terre de Safari)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/kenya.jpg" alt="Le Kenya" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Kenya</h1>
+            <p class="hero-subtitle">Le berceau de l'humanité et le cœur sauvage de l'Afrique</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Magical Kenya</h2>
+            <p class="section-description">
+                Le Kenya est la destination safari par excellence. C'est ici que le mot "Safari" (voyage en swahili) a pris tout son sens. Des plaines infinies du Masai Mara, théâtre de la grande migration, aux sommets enneigés du Mont Kenya et aux eaux cristallines de l'Océan Indien à Diani, le pays offre un condensé de l'Afrique sauvage. Avec ses 42 ethnies, dont les célèbres Massaï, le Kenya est une terre de traditions ancestrales alliée à un dynamisme urbain époustouflant à Nairobi.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 merveilles incontournables du Kenya</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Exceptionnels</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une aventure...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Safari & Parcs</span>
+                <span class="filter-tag" data-filter="eau">Plages & Lacs</span>
+                <span class="filter-tag" data-filter="culture">Culture & Villes</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="kenya-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Masai Mara -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Masai Mara">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Narok</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 120k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Masai Mara</h3>
+                        <p class="location-text">Le théâtre de la Grande Migration des Gnous</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mara">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Mont Kenya -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Mount Kenya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Kenya</h3>
+                        <p class="location-text">Le deuxième plus haut sommet d'Afrique (5199m)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mt_kenya">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Amboseli -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Amboseli">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kajiado</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc d'Amboseli</h3>
+                        <p class="location-text">Éléphants majestueux face au Kilimandjaro</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="amboseli">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Diani Beach -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Diani">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kwale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Diani Beach</h3>
+                        <p class="location-text">Sable blanc et eaux turquoises de l'Océan Indien</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="diani">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Lac Nakuru -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Nakuru">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rift Valley</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Nakuru</h3>
+                        <p class="location-text">Le paradis rose des milliers de flamants roses</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nakuru">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Lamu -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Lamu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lamu Island</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vieille ville de Lamu</h3>
+                        <p class="location-text">La plus ancienne cité Swahili classée à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lamu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Tsavo West -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Tsavo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Coast</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Tsavo</h3>
+                        <p class="location-text">Terre sauvage des "éléphants rouges" et des sources de Mzima</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tsavo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Hell's Gate -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Hells Gate">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Naivasha</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Hell's Gate National Park</h3>
+                        <p class="location-text">Safari à vélo au milieu des zèbres et des falaises</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hells_gate">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Mombasa (Fort Jesus) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Mombasa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mombasa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fort Jesus</h3>
+                        <p class="location-text">Forteresse portugaise historique dominant l'océan</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fort_jesus">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Giraffe Centre -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Giraffe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nairobi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Giraffe Centre</h3>
+                        <p class="location-text">Rencontre inoubliable avec les girafes de Rothschild</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="giraffe_centre">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. David Sheldrick -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Sheldrick">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nairobi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Orphelinat d'Éléphants Sheldrick</h3>
+                        <p class="location-text">Sauvetage et réhabilitation des jeunes éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sheldrick">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Lac Naivasha -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Naivasha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rift Valley</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Naivasha</h3>
+                        <p class="location-text">Balade en bateau parmi les hippopotames et aigles pêcheurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="naivasha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Aberdare -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Aberdare">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central Highlands</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National des Aberdare</h3>
+                        <p class="location-text">Forêts brumeuses et cascades spectaculaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="aberdare">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Valle du Rift -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Rift">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rift Valley</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée du Grand Rift</h3>
+                        <p class="location-text">Panorama époustouflant sur la fracture géologique de l'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rift_valley">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Nairobi (Parc National) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Nairobi National Park">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nairobi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Nairobi</h3>
+                        <p class="location-text">Le seul safari au monde avec les gratte-ciel en toile de fond</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nairobi_park">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une mosaïque de peuples et de fierté.</p>
+                    <p>Le Kenya est une terre de résilience et de diversité culturelle. Des guerriers Massaï gardiens de la savane aux navigateurs Swahili des côtes, le pays vibre d'un héritage pluriel. L'histoire du Kenya est marquée par la lutte pour l'indépendance (Mau Mau) et l'unité autour du concept de "Harambee" (tous ensemble). La culture swahili, mélange d'influences africaines, arabes et indiennes, imprègne l'art de vivre kenyan.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-shield-alt text-warning me-2"></i>Guerriers Massaï</h6>
+                                <p class="small text-muted mb-0">Une culture emblématique préservée, vivant en harmonie avec la faune sauvage.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-ship text-info me-2"></i>Culture Swahili</h6>
+                                <p class="small text-muted mb-0">L'âme des côtes, une fusion millénaire de cultures marchandes de l'Océan Indien.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-running text-success me-2"></i>Champions d'Endurance</h6>
+                                <p class="small text-muted mb-0">Le Kenya domine l'athlétisme mondial, symbole de force et de détermination nationale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-laptop-code text-danger me-2"></i>Silicon Savannah</h6>
+                                <p class="small text-muted mb-0">Nairobi est le hub technologique majeur d'Afrique, pionnier du paiement mobile (M-Pesa).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Kenya" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Kenya</h2>
+        <p>Ramenez l'excellence de l'artisanat Kenyan. Des perles Massaï au café AA le plus réputé.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/jewelry_masai.png" alt="Bijoux Masai" onerror="this.src='https://ui-avatars.com/api/?name=Masai&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Collier Massaï en Perles</h3>
+                    <p class="product-desc">Bijou traditionnel réalisé à la main, chaque couleur symbolisant une valeur (rouge pour le courage).</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">3 500 KSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/coffee_kenya.png" alt="Cafe Kenya" onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Kenyan Pur AA</h3>
+                    <p class="product-desc">Un des meilleurs cafés au monde, réputé pour son acidité vive et ses notes fruitées.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">2 500 KSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/shuka.png" alt="Shuka" onerror="this.src='https://ui-avatars.com/api/?name=Shuka&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Mode</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Couverture Shuka Massaï</h3>
+                    <p class="product-desc">Tissu à carreaux rouges emblématique, chaud et résistant, devenu une icône de mode.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">1 800 KSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Kiondo&background=daa520&color=fff&size=200" alt="Kiondo">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Kiondo Tressé</h3>
+                    <p class="product-desc">Sac artisanal en sisal et cuir, réalisé avec un savoir-faire ancestral des femmes Kikuyu.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">2 200 KSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Kisii&background=f5f5dc&color=000&size=200" alt="Pierre Savon">
+                    <span class="stock-badge">Déco</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statue en Pierre de Savon</h3>
+                    <p class="product-desc">Sculpture fine réalisée par les artisans de Kisii, bois pétrifié ou pierre de savon polie.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">4 500 KSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200" alt="Sculpture Bois">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Figurine d'Animal Sculpté</h3>
+                    <p class="product-desc">Sculpture en bois de jacaranda ou d'ébène représentant les "Big Five" de la savane.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">3 000 KSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/kenya.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Rêve</span></h2>
+                    <p>Découvrez notre sélection des lodges les plus exclusifs et des hôtels historiques du Kenya.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Lodge / Hôtel</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="giraffe">Giraffe Manor (Nairobi)</option>
+                            <option value="serena">Mara Serena Safari Lodge</option>
+                            <option value="stanley">Sarova Stanley (Nairobi)</option>
+                            <option value="medina">Medina Palms (Watamu)</option>
+                            <option value="fairmont">Fairmont Mt Kenya Safari Club</option>
+                            <option value="hemingways">Hemingways Watamu</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Giraffe Manor"></div>
+                    <div class="hotel-content">
+                        <h4>Giraffe Manor</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nairobi, Karen</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Mara Serena"></div>
+                    <div class="hotel-content">
+                        <h4>Mara Serena Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Masai Mara Reserve</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Stanley"></div>
+                    <div class="hotel-content">
+                        <h4>Sarova Stanley</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nairobi CBD</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Medina"></div>
+                    <div class="hotel-content">
+                        <h4>Medina Palms</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Watamu, Côte</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Fairmont"></div>
+                    <div class="hotel-content">
+                        <h4>Fairmont Safari Club</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nanyuki, Mont Kenya</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Hemingways"></div>
+                    <div class="hotel-content">
+                        <h4>Hemingways Watamu</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Watamu, Ocean View</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine kenyane est généreuse et se base sur des produits locaux frais. C'est une fusion d'influences africaines et d'épices indiennes sur la côte.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ugali&background=f5f5dc&color=000&size=200" alt="Ugali"></div>
+                <div class="plat-content"><h4>Ugali</h4><p>Le pilier de l'alimentation : pâte de maïs ferme servant d'accompagnement.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Nyama&background=8b4513&color=fff&size=200" alt="Nyama Choma"></div>
+                <div class="plat-content"><h4>Nyama Choma</h4><p>Viande grillée (chèvre ou bœuf), emblème de la convivialité kenyane.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sukuma&background=006400&color=fff&size=200" alt="Sukuma Wiki"></div>
+                <div class="plat-content"><h4>Sukuma Wiki</h4><p>Chou cavalier sauté avec des oignons, le compagnon inséparable de l'Ugali.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pilau&background=daa520&color=fff&size=200" alt="Pilau"></div>
+                <div class="plat-content"><h4>Kenyan Pilau</h4><p>Riz épicé parfumé aux clous de girofle, cardamome et cumin.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chapati&background=daa520&color=fff&size=200" alt="Chapati"></div>
+                <div class="plat-content"><h4>Chapati</h4><p>Galette de blé souple d'influence indienne, très populaire partout.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Samosa&background=daa520&color=fff&size=200" alt="Samosa"></div>
+                <div class="plat-content"><h4>Samosas Kenyans</h4><p>Petits triangles croquants farcis à la viande ou aux légumes épicés.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Irio&background=006400&color=fff&size=200" alt="Irio"></div>
+                <div class="plat-content"><h4>Irio</h4><p>Purée de pommes de terre, maïs et pois, spécialité des hauts plateaux.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Githeri&background=8b4513&color=fff&size=200" alt="Githeri"></div>
+                <div class="plat-content"><h4>Githeri</h4><p>Mélange nutritif de maïs et de haricots rouges bouillis ensemble.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mutura&background=000&color=fff&size=200" alt="Mutura"></div>
+                <div class="plat-content"><h4>Mutura</h4><p>Saucisse traditionnelle kenyane riche en épices, grillée au charbon.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tilapia&background=00008b&color=fff&size=200" alt="Tilapia"></div>
+                <div class="plat-content"><h4>Tilapia Grillé</h4><p>Poisson frais du lac Victoria, servi avec une sauce tomate (Kachumbari).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chai&background=daa520&color=fff&size=200" alt="Chai"></div>
+                <div class="plat-content"><h4>Chai (Thé Kenyan)</h4><p>Thé au lait sucré et bouilli, boisson nationale par excellence.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mandazi&background=daa520&color=fff&size=200" alt="Mandazi"></div>
+                <div class="plat-content"><h4>Mandazi</h4><p>Beignets triangulaires légèrement sucrés et parfumés à la cardamome.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Vivez l'énergie du Kenya à travers ses grands rassemblements sportifs et culturels.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-horse"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Nature</span>
+                    <h4>La Grande Migration</h4>
+                    <p>Spectacle naturel unique (Juillet-Octobre) où des millions de gnous traversent la rivière Mara.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-running"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sport</span>
+                    <h4>Marathon de Nairobi</h4>
+                    <p>Événement majeur réunissant les meilleurs coureurs de fond du monde (Octobre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Culture</span>
+                    <h4>Festival de Lamu</h4>
+                    <p>Célébration de la culture swahili avec courses d'ânes et de boutres traditionnels (Novembre).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Grande Saison Sèche (Juin à Octobre)</h5>
+                    <p class="small mb-0">La période idéale pour le safari et la Grande Migration. Les animaux sont faciles à observer car ils se regroupent autour des points d'eau.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella-beach text-primary me-2"></i>Saison de la Plage (Janvier à Mars)</h5>
+                    <p class="small mb-0">Le meilleur moment pour profiter des côtes. Le ciel est dégagé, l'eau est chaude et parfaite pour la plongée.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Soyez prudent à Nairobi (Nairobbery). Évitez d'afficher des objets de valeur et utilisez des taxis officiels ou Uber.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune conseillé. Traitement antipaludéen impératif pour la côte et les zones de savane. Buvez de l'eau purifiée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-binoculars fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Safari Étiquette</h6>
+                    <p class="small text-muted">Ne descendez jamais de voiture dans les parcs. Respectez le silence et la distance avec les animaux. Portez des couleurs neutres.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Shilling Kenyan (KES). Le paiement mobile (M-Pesa) est utilisé partout, même au marché. Prévoyez du cash pour les pourboires.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Joseph+Mara&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Joseph">
+                        <h5 class="fw-bold mb-1">Joseph Ole Mara</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari & Culture Massaï</p>
+                        <p class="small text-muted">Guerrier Massaï et guide certifié KPSGA, Joseph a une connaissance innée de la faune et de la brousse.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:joseph@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Joseph</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Faith+Coast&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Faith">
+                        <h5 class="fw-bold mb-1">Faith Mwangi</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Littoral & Mombasa</p>
+                        <p class="small text-muted">Experte de la culture Swahili et de l'histoire côtière, Faith vous fera découvrir les secrets de Mombasa et Lamu.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:faith@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Faith</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Samson+Rift&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Samson">
+                        <h5 class="fw-bold mb-1">Samson Kimani</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Montagne & Rift</p>
+                        <p class="small text-muted">Spécialiste du Mont Kenya et des randonnées dans la Vallée du Rift. Un accompagnateur chevronné pour l'aventure.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:samson@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Samson</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Kenya, berceau du safari. Vivez une expérience authentique au cœur de la savane avec nos experts locaux.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../blogs.html">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Kenya</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +254 20 000 000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> nairobi@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Kenya - Magical Safari</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/kenya.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: capVert.html
+    DESCRIPTION: Page pays premium standardisée pour le Cap-Vert.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Cap-Vert, l'archipel de la Morabeza. Des volcans de Fogo aux plages de sable blanc de Sal, explorez un paradis créole au cœur de l'Atlantique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Cap-Vert (L'Archipel de la Morabeza)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/capVert.jpg" alt="Le Cap-Vert" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Cap-Vert</h1>
+            <p class="hero-subtitle">Dix îles de caractère, un souffle de liberté au milieu de l'océan</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Éclat Créole et la Douceur de la Morabeza</h2>
+            <p class="section-description">
+                Le Cap-Vert, archipel volcanique au large des côtes sénégalaises, est une destination où le temps semble s'être arrêté pour laisser place à la "Morabeza" – ce concept unique d'hospitalité et de douceur de vivre capverdienne. Chaque île possède sa propre âme : des plages infinies de sable blanc à Sal et Boa Vista aux sommets escarpés et luxuriants de Santo Antão, en passant par le volcan majestueux de Fogo et l'effervescence culturelle de Mindelo à São Vicente. Terre de métissage et berceau de la Morna, l'archipel offre une expérience sensorielle inoubliable, mêlant saveurs de l'Atlantique et rythmes envoûtants.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux de l'archipel capverdien</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une île ou un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plage">Plages & Eau</span>
+                <span class="filter-tag" data-filter="nature">Volcans & Montagnes</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="capvert-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Pico do Fogo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Fogo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Fogo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pico do Fogo</h3>
+                        <p class="location-text">Volcan actif majestueux et sa caldeira habitée (Chã das Caldeiras)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pico_fogo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Plage de Santa Maria -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Sal">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Sal</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 120k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Santa Maria</h3>
+                        <p class="location-text">Eaux turquoises et sable blanc, le paradis des sports nautiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="santamaria">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Cidade Velha -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Cidade Velha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Santiago</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cidade Velha</h3>
+                        <p class="location-text">Ancienne capitale coloniale et site classé à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cidadevelha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Vallée de Paul -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Paul Valley">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Santo Antão</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 38k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée de Paul</h3>
+                        <p class="location-text">Jardin luxuriant suspendu entre montagnes et océan, idéal pour la randonnée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="paul_valley">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Mindelo (Baía de Porto Grande) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Mindelo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de São Vicente</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 60k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baie de Mindelo</h3>
+                        <p class="location-text">Capitale culturelle, berceau de la musique capverdienne et de Cesária Évora</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mindelo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Buracona (Oeil Bleu) -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Buracona">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Sal</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 70k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oeil Bleu de Buracona</h3>
+                        <p class="location-text">Piscine naturelle et grotte où le soleil crée un reflet bleu magique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="buracona">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Désert de Viana -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Viana">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Boa Vista</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Désert de Viana</h3>
+                        <p class="location-text">Champ de dunes blanches de sable fin portées par les alizés du Sahara</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="viana_desert">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Shark Bay -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Shark Bay">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Sal</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Shark Bay</h3>
+                        <p class="location-text">Vivez l'expérience unique de marcher au milieu des requins citrons (inoffensifs)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="shark_bay">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Plateau de Praia -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Praia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Santiago</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plateau de Praia</h3>
+                        <p class="location-text">Centre historique coloré de la capitale, architecture coloniale et marchés vibrants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="praia_plateau">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Praia de Santa Mónica -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Santa Monica">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Boa Vista</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 48k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Santa Mónica</h3>
+                        <p class="location-text">Une plage infinie de 18km de sable doré, l'une des plus belles du monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="santa_monica">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Ponta do Sol -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Ponta do Sol">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Santo Antão</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ponta do Sol</h3>
+                        <p class="location-text">Charmant village de pêcheurs aux maisons colorées, point de départ de treks épiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ponta_sol">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Chã das Caldeiras -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Cha das Caldeiras">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Fogo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chã das Caldeiras</h3>
+                        <p class="location-text">Vivre au pied du volcan, entre coulées de lave et vignobles uniques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cha_caldeiras">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Tarrafal -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Tarrafal">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Santiago</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Tarrafal</h3>
+                        <p class="location-text">Baie protégée par des palmiers, sable fin et eaux calmes au nord de Santiago</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tarrafal">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Baía das Gatas -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Baia das Gatas">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de São Vicente</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baía das Gatas</h3>
+                        <p class="location-text">Lagon naturel cristallin, célèbre pour son festival de musique en août</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="baia_gatas">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Sal Rei -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Sal Rei">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Boa Vista</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Sal Rei</h3>
+                        <p class="location-text">Capitale paisible de Boa Vista, entre architecture créole et plages de rêve</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sal_rei">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un pont entre l'Afrique, l'Europe et les Amériques.</p>
+                    <p>Le Cap-Vert possède une identité créole unique au monde, née du métissage entre les cultures africaines et portugaises. Cette richesse s'exprime avant tout par la musique : la Morna (rendue célèbre par Cesária Évora), la Coladeira et le Funaná rythment la vie quotidienne. La "Morabeza", art de vivre capverdien fondé sur l'accueil chaleureux et la sérénité, imprègne chaque interaction. L'histoire du pays est aussi celle d'une résilience face aux éléments, d'une lutte pour l'indépendance et d'une culture littéraire foisonnante, faisant de cet archipel un véritable carrefour de l'Atlantique.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-warning me-2"></i>La Morna</h6>
+                                <p class="small text-muted mb-0">Le blues du Cap-Vert, chant de nostalgie (Sodade) classé au patrimoine immatériel de l'UNESCO.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-utensils text-info me-2"></i>Cuisine Créole</h6>
+                                <p class="small text-muted mb-0">Un mélange savoureux de poissons frais, de maïs et de produits locaux comme le café de Fogo.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-landmark text-danger me-2"></i>Héritage UNESCO</h6>
+                                <p class="small text-muted mb-0">Cidade Velha, première ville coloniale européenne sous les tropiques, témoin d'une histoire mondiale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-smile text-success me-2"></i>Morabeza</h6>
+                                <p class="small text-muted mb-0">Plus qu'une simple hospitalité, une philosophie de vie basée sur la gentillesse et le partage.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Cap-Vert" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Archipel</h2>
+        <p>L'excellence de l'artisanat capverdien. Du café volcanique de Fogo aux tissus traditionnels.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/fogo_coffee.png" alt="Cafe Fogo" onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café de Fogo Premium</h3>
+                    <p class="product-desc">Café Arabica d'exception cultivé sur les pentes volcaniques fertiles de l'île de Fogo.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/grogue.png" alt="Grogue" onerror="this.src='https://ui-avatars.com/api/?name=Grogue&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Grogue de Santo Antão</h3>
+                    <p class="product-desc">Rhum agricole traditionnel distillé artisanalement à partir de canne à sucre fraîchement pressée.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/pano_obra.png" alt="Pano Obra" onerror="this.src='https://ui-avatars.com/api/?name=Pano&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Pano d'Obra (Tissage)</h3>
+                    <p class="product-desc">Tissage traditionnel en coton noir et blanc, symbole fort de l'identité et du prestige capverdien.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Vinyl&background=000&color=fff&size=200" alt="Musique">
+                    <span class="stock-badge">Culture</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vinyle "Morna Classics"</h3>
+                    <p class="product-desc">Sélection des plus grandes Mornas, incluant les chefs-d'œuvre de la Diva aux pieds nus.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">30 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Stone&background=424242&color=fff&size=200" alt="Sculpture">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Pierre Volcanique</h3>
+                    <p class="product-desc">Petites œuvres d'art taillées à la main dans la lave de Fogo par des artistes locaux.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Shells&background=f5f5dc&color=000&size=200" alt="Bijoux">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Coquillages</h3>
+                    <p class="product-desc">Colliers et bracelets artisanaux réalisés avec des coquillages collectés sur les plages de Boa Vista.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/capVert.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales de <span>Charme</span></h2>
+                    <p>Découvrez notre sélection des plus beaux resorts de Sal et des lodges de montagne à Santo Antão.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="riu">Hotel RIU Cabo Verde (Sal)</option>
+                            <option value="hilton">Hilton Cabo Verde Sal Resort</option>
+                            <option value="oasis">Oasis Atlantic (Boa Vista)</option>
+                            <option value="odjo">Odjo d'Agua (Santa Maria)</option>
+                            <option value="morabeza">Hotel Morabeza (Sal)</option>
+                            <option value="pestana">Pestana Tropico (Praia)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="RIU"></div>
+                    <div class="hotel-content">
+                        <h4>RIU Cabo Verde</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sal, Tout Inclus de Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Hilton"></div>
+                    <div class="hotel-content">
+                        <h4>Hilton Sal Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sal, Élégance & Spa</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Odjo d'Agua"></div>
+                    <div class="hotel-content">
+                        <h4>Odjo d'Agua</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Santa Maria, Charme & Vue Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Morabeza"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Morabeza</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sal, Historique & Familial</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Oasis"></div>
+                    <div class="hotel-content">
+                        <h4>Oasis Atlantic</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Boa Vista, Détente Absolue</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Pestana"></div>
+                    <div class="hotel-content">
+                        <h4>Pestana Tropico</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Praia, City & Océan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine capverdienne est une célébration des produits de la mer et du terroir, riche en saveurs créoles authentiques.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cachupa&background=daa520&color=fff&size=200" alt="Cachupa"></div>
+                <div class="plat-content"><h4>La Cachupa</h4><p>Le plat national : un ragoût de maïs, haricots, légumes et viande ou poisson (Cachupa Rica).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pastel&background=daa520&color=fff&size=200" alt="Pastel"></div>
+                <div class="plat-content"><h4>Pastel com Diablo</h4><p>Beignets épicés frits, fourrés au thon frais, oignons et piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Peixe&background=00008b&color=fff&size=200" alt="Bol de Peixe"></div>
+                <div class="plat-content"><h4>Bol de Peixe</h4><p>Soupe de poisson onctueuse servie avec des légumes racines et des herbes fraîches.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cheese&background=f5f5dc&color=000&size=200" alt="Queijo"></div>
+                <div class="plat-content"><h4>Fromage de Fogo</h4><p>Fromage de chèvre artisanal produit sur l'île volcanique, un délice à la texture unique.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tuna&background=00008b&color=fff&size=200" alt="Thon"></div>
+                <div class="plat-content"><h4>Thon grillé (Bife de Atum)</h4><p>Steak de thon frais mariné au vin blanc et à l'ail, grillé à la perfection.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Shrimp&background=ff4500&color=fff&size=200" alt="Crevettes"></div>
+                <div class="plat-content"><h4>Crevettes à la Capverdienne</h4><p>Gambas flambées au Grogue et à l'ail, une spécialité de côte.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banana&background=daa520&color=fff&size=200" alt="Banane"></div>
+                <div class="plat-content"><h4>Bananes Frites</h4><p>Bananes plantains mûres frites, accompagnement incontournable de nombreux plats.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Papaya&background=ff4500&color=fff&size=200" alt="Papaya"></div>
+                <div class="plat-content"><h4>Papaye au Fromage</h4><p>Le dessert classique : tranches de papaye mûre servies avec du fromage de chèvre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Coffee"></div>
+                <div class="plat-content"><h4>Café de Fogo</h4><p>Un café noir intense et aromatique, fierté de l'archipel.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tamarind&background=daa520&color=fff&size=200" alt="Tamarind"></div>
+                <div class="plat-content"><h4>Jus de Tamarin</h4><p>Boisson naturelle acidulée et rafraîchissante, parfaite contre la chaleur.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Morreia&background=8b4513&color=fff&size=200" alt="Morreia"></div>
+                <div class="plat-content"><h4>Morreia Frita</h4><p>Congre (anguille de mer) frit, une spécialité croustillante servie en apéritif.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Grogue&background=daa520&color=fff&size=200" alt="Grogue"></div>
+                <div class="plat-content"><h4>Grogue Pontche</h4><p>Cocktail à base de Grogue, miel et citron, l'âme de la fête capverdienne.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vibrez au rythme du Cap-Vert à travers ses carnavals et festivals de musique légendaires.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Carnaval</span>
+                    <h4>Carnaval de Mindelo</h4>
+                    <p>Le plus grand carnaval de l'archipel (Février), un mélange de Rio et de traditions locales à São Vicente.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Festival de Baía das Gatas</h4>
+                    <p>Grand rassemblement musical sur la plage de São Vicente lors de la pleine lune d'août.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-sun"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Solaire</span>
+                    <h4>Festival Sete Sóis Sete Luas</h4>
+                    <p>Festival international de musique et de culture méditerranéenne et lusophone (Plusieurs îles).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Juin)</h5>
+                    <p class="small mb-0">La période idéale pour le soleil et les sports nautiques. Les alizés soufflent, offrant une chaleur agréable. Parfait pour Sal et Boa Vista.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Saison des "Pluies" (Août à Octobre)</h5>
+                    <p class="small mb-0">Le climat est plus humide et chaud. C'est le moment où les îles deviennent incroyablement vertes, idéal pour la randonnée à Santo Antão.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays très sûr. Vigilance habituelle à Praia et Mindelo contre les petits vols. Respectez les courants marins parfois forts.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Pas de vaccins obligatoires. Buvez de l'eau en bouteille. La protection solaire est indispensable sous le soleil tropical.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Exemption de visa pour l'UE et le Royaume-Uni (moins de 30 jours). Pré-enregistrement en ligne (EASE) obligatoire avant le départ.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">L'Escudo Capverdien (CVE). L'Euro est largement accepté partout (taux fixe : 1€ ≈ 110 CVE). Cartes bancaires acceptées dans les hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Jose+Fogo&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Jose">
+                        <h5 class="fw-bold mb-1">José Silva</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Trekking & Volcan</p>
+                        <p class="small text-muted">Natif de Fogo, José vous guidera en toute sécurité vers le sommet du volcan et à travers les sentiers de Santo Antão.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:jose@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec José</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Maria+Music&background=daa520&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Maria">
+                        <h5 class="fw-bold mb-1">Maria Evora</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture & Mindelo</p>
+                        <p class="small text-muted">Spécialiste de la musique et de l'histoire créole, Maria vous fera découvrir l'âme de São Vicente et de Santiago.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:maria@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Maria</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Tiago+Ocean&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Tiago">
+                        <h5 class="fw-bold mb-1">Tiago Lopes</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Sports Nautiques (Sal)</p>
+                        <p class="small text-muted">Expert en Kite-surf et plongée, Tiago connaît les meilleurs spots de l'île de Sal et de Boa Vista.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:tiago@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Tiago</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Cap-Vert, l'archipel de la Morabeza. Plongez dans une culture créole vibrante et des paysages volcaniques avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Cap-Vert</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +238 261 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> praia@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Cape Verde - Land of Morabeza</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/capVert.js"></script>
+</body>
+
+</html>

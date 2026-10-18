@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: cameroun.html
+    DESCRIPTION: Page pays premium standardisée pour le Cameroun.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Cameroun, l'Afrique en miniature. Des plages de Kribi au sommet du Mont Cameroun et aux savanes du Nord, explorez une terre de contrastes et de saveurs.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Cameroun (L'Afrique en Miniature)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Centrale/cameroun.jpg" alt="Le Cameroun" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Cameroun</h1>
+            <p class="hero-subtitle">Le carrefour des cultures et des paysages africains</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Afrique en miniature</h2>
+            <p class="section-description">
+                Le Cameroun est une destination unique surnommée "L'Afrique en Miniature". C'est l'un des rares pays au monde à offrir sur un même territoire toute la diversité du continent : des plages de sable fin à Kribi, des montagnes volcaniques à l'Ouest, une forêt équatoriale dense au Sud et des savanes sahéliennes au Nord. Avec plus de 250 ethnies et une gastronomie mondialement réputée, le Cameroun est une terre de passion, de football et d'accueil.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 merveilles du patrimoine camerounais</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Nature & Montagnes</span>
+                <span class="filter-tag" data-filter="eau">Plages & Chutes</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="cameroun-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Mont Cameroun -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Mont Cameroun">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Buea</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Cameroun (Le Char des Dieux)</h3>
+                        <p class="location-text">Le plus haut sommet d'Afrique de l'Ouest (4095m)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mont_cameroun">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Chutes de la Lobe -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Chutes Lobe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kribi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de la Lobé</h3>
+                        <p class="location-text">Seules chutes au monde se jetant directement dans l'océan</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lobe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Parc de Waza -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Waza">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Extrême-Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Waza</h3>
+                        <p class="location-text">Safari mythique à la rencontre des lions et éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="waza">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Foumban -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Foumban">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais Royal de Foumban</h3>
+                        <p class="location-text">Le cœur de l'art et du sultanat Bamoun</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="foumban">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Limbe -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Limbe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Jardin Botanique de Limbe</h3>
+                        <p class="location-text">Oasis de verdure face aux plages de sable noir</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="limbe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Yaoundé (Musée) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Yaounde">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Yaoundé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National du Cameroun</h3>
+                        <p class="location-text">Trésors historiques dans l'ancien palais présidentiel</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="yaounde">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Rhumsiki -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Rhumsiki">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Monts Mandara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pics de Rhumsiki</h3>
+                        <p class="location-text">Paysage lunaire spectaculaire de l'Extrême-Nord</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rhumsiki">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Ebogo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Ebogo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nyong</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Site Touristique d'Ebogo</h3>
+                        <p class="location-text">Pirogue sur le fleuve Nyong et arbres millénaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ebogo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Ekom Nkam -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Ekom Nkam">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nkongsamba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes d'Ekom Nkam</h3>
+                        <p class="location-text">Majestueuses chutes ayant servi au film "Greystoke"</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ekom_nkam">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Douala (Pagode) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Douala">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Douala</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>La Pagode (Palais des Rois Bell)</h3>
+                        <p class="location-text">Icône architecturale de la capitale économique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="douala_pagode">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Reserve du Dja -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Dja">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud / Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Faune du Dja</h3>
+                        <p class="location-text">Sanctuaire de biodiversité inscrit à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dja">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Korup -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Korup">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Korup</h3>
+                        <p class="location-text">L'une des plus anciennes forêts humides d'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="korup">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Dschang -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Dschang">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée des Civilisations</h3>
+                        <p class="location-text">Plongée au cœur de l'histoire et des chefferies Bamiléké</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dschang">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Plages de Kribi -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Kribi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kribi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages du Littoral (Kribi)</h3>
+                        <p class="location-text">Sable blanc et dégustation de crevettes grillées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kribi_beach">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Monument Réunification -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Monument">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Yaoundé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monument de la Réunification</h3>
+                        <p class="location-text">Symbole fort de l'histoire politique du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="reunification">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La puissance d'une nation plurielle.</p>
+                    <p>Le Cameroun est une terre de traditions vivantes, où les chefferies séculaires de l'Ouest (Bamiléké, Bamoun) côtoient les sultanats du Nord et les peuples de la forêt au Sud. L'histoire du pays est marquée par une double influence coloniale (française et anglaise) qui a forgé son identité bilingue unique. C'est aussi une nation de culture urbaine dynamique, berceau du Makossa et du Bikutsi.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Chefferies de l'Ouest</h6>
+                                <p class="small text-muted mb-0">Un système monarchique traditionnel puissant et respecté, gardien des valeurs ancestrales.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Makossa & Bikutsi</h6>
+                                <p class="small text-muted mb-0">Les rythmes endiablés qui font vibrer les nuits de Douala et Yaoundé.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-futbol text-success me-2"></i>Lions Indomptables</h6>
+                                <p class="small text-muted mb-0">Le football est une religion nationale, symbole d'unité et de résilience.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-language text-info me-2"></i>Bilinguisme Unique</h6>
+                                <p class="small text-muted mb-0">Seul pays d'Afrique officiellement bilingue (Français/Anglais), une richesse diplomatique.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Cameroun" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Héritage</h2>
+        <p>L'artisanat camerounais est l'un des plus riches du continent. Découvrez notre sélection d'objets authentiques.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/masque_bamoun.png" alt="Masque Bamoun" onerror="this.src='https://ui-avatars.com/api/?name=Bamoun&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque de Danse Bamoun</h3>
+                    <p class="product-desc">Masque en bois orné de perles colorées, emblématique de l'art du sultanat de Foumban.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/poivre_penja.png" alt="Poivre Penja" onerror="this.src='https://ui-avatars.com/api/?name=Poivre&background=f5f5dc&color=000&size=200'">
+                    <span class="stock-badge">IGP</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poivre de Penja (Blanc)</h3>
+                    <p class="product-desc">Considéré comme l'un des meilleurs poivres au monde, premier produit africain labellisé IGP.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tissu_ndop.png" alt="Ndop" onerror="this.src='https://ui-avatars.com/api/?name=Ndop&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Rare</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Ndop Traditionnel</h3>
+                    <p class="product-desc">Tissu sacré des chefferies Bamiléké, teint à l'indigo naturel avec des motifs rituels.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cafe&background=3e2723&color=fff&size=200" alt="Cafe Ouest">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Arabica de l'Ouest</h3>
+                    <p class="product-desc">Un café d'altitude aux arômes riches, cultivé sur les terres volcaniques de Dschang.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">5 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Sculpture&background=8b4513&color=fff&size=200" alt="Sculpture Bois">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statuette en Ébène</h3>
+                    <p class="product-desc">Sculpture fine réalisée par les artisans d'Abang-Mbang, bois précieux noir intense.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Maroc&background=4b2c20&color=fff&size=200" alt="Sac Cuir">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sac en Cuir de Maroua</h3>
+                    <p class="product-desc">Maroquinerie d'exception en cuir de chèvre, tannage naturel et finitions main.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">14 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Centrale/cameroun.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Luxe</span></h2>
+                    <p>Découvrez notre sélection des adresses les plus prestigieuses du Cameroun.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="hilton">Hilton Yaoundé</option>
+                            <option value="starland">Star Land Hotel (Douala)</option>
+                            <option value="akwa">Hotel Akwa Palace (Douala)</option>
+                            <option value="falaise">Hotel de la Falaise (Yaoundé/Douala)</option>
+                            <option value="kribibeach">Kribi Beach Hotel</option>
+                            <option value="gites">Les Gîtes de Kribi</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Dates</label>
+                        <input type="text" placeholder="Arrivée - Départ" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Hilton"></div>
+                    <div class="hotel-content">
+                        <h4>Hilton Yaoundé</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Yaoundé, Centre</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Starland"></div>
+                    <div class="hotel-content">
+                        <h4>Star Land Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Douala, Bonapriso</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Akwa"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Akwa Palace</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Douala, Akwa</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Kribibeach"></div>
+                    <div class="hotel-content">
+                        <h4>Kribi Beach Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kribi, Bord de mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Gites"></div>
+                    <div class="hotel-content">
+                        <h4>Les Gîtes de Kribi</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kribi, Route des chutes</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Falaise"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel de la Falaise</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Yaoundé / Douala</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine camerounaise est l'une des plus riches du continent. Chaque région a sa spécialité phare, du Ndolé littoral au Taro des hauts plateaux.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ndole&background=006400&color=fff&size=200" alt="Ndole"></div>
+                <div class="plat-content"><h4>Le Ndolé</h4><p>Le plat national : feuilles de ndolé, arachides, viande ou crevettes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poulet&background=8b4513&color=fff&size=200" alt="Poulet DG"></div>
+                <div class="plat-content"><h4>Poulet DG</h4><p>Poulet frit avec plantains mûrs et légumes. Le plat des "Directeurs Généraux".</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Koki&background=FFD700&color=000&size=200" alt="Koki"></div>
+                <div class="plat-content"><h4>Le Koki</h4><p>Gâteau de haricots cornille à l'huile de palme, cuit à la vapeur.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Achu&background=daa520&color=fff&size=200" alt="Achu"></div>
+                <div class="plat-content"><h4>Achu (Sauce Jaune)</h4><p>Taro pilé avec une sauce jaune épicée, spécialité du Nord-Ouest.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Eru&background=006400&color=fff&size=200" alt="Eru"></div>
+                <div class="plat-content"><h4>Eru & Waterleaf</h4><p>Mélange de feuilles sauvages et fufu de manioc, très populaire au Sud-Ouest.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mbongo&background=000&color=fff&size=200" alt="Mbongo"></div>
+                <div class="plat-content"><h4>Mbongo Tchobi</h4><p>Ragoût de poisson à la sauce noire d'épices brûlées, spécialité Bassa.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Soya&background=8b4513&color=fff&size=200" alt="Soya"></div>
+                <div class="plat-content"><h4>Le Soya</h4><p>Brochettes de viande grillées au feu de bois avec du piment en poudre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kondre&background=8b4513&color=fff&size=200" alt="Kondre"></div>
+                <div class="plat-content"><h4>Le Kondré</h4><p>Ragoût de plantain à la chèvre ou au porc, spécialité Bamiléké.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Folere&background=8b0000&color=fff&size=200" alt="Folere"></div>
+                <div class="plat-content"><h4>Jus de Foléré</h4><p>Infusion d'hibiscus sucrée et parfumée à la menthe.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bebbe&background=daa520&color=fff&size=200" alt="BHB"></div>
+                <div class="plat-content"><h4>Beignets-Haricots-Bouillie</h4><p>Le petit-déjeuner populaire des rues camerounaises.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Taro&background=daa520&color=fff&size=200" alt="Taro"></div>
+                <div class="plat-content"><h4>Taro Pilé</h4><p>Base solide pour accompagner les meilleures sauces de l'Ouest.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Crevette&background=8b0000&color=fff&size=200" alt="Crevette"></div>
+                <div class="plat-content"><h4>Crevettes de Kribi</h4><p>Le Cameroun ("Rivières des crevettes") offre les meilleures de la côte.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Le Cameroun célèbre ses traditions à travers des festivals hauts en couleur.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Le Ngondo</h4>
+                    <p>Grande fête culturelle des peuples de l'eau (Sawa) sur les berges du Wouri à Douala.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-crown"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sultanat</span>
+                    <h4>Le Nguon</h4>
+                    <p>Festival ancestral du peuple Bamoun à Foumban, célébrant l'histoire et le sultanat.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mountain"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sport</span>
+                    <h4>Course de l'Espoir</h4>
+                    <p>Ascension annuelle du Mont Cameroun à Buea par des athlètes du monde entier.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Nov. à Février)</h5>
+                    <p class="small mb-0">La période idéale pour le safari au nord (Waza) et les randonnées à l'ouest. Le temps est sec et ensoleillé partout.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella-beach text-primary me-2"></i>Petite Saison Sèche (Août)</h5>
+                    <p class="small mb-0">Une accalmie dans les pluies, parfaite pour profiter des plages de Kribi sans la grande chaleur de décembre.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez les conseils aux voyageurs pour les zones frontalières. Yaoundé, Douala et Kribi sont sûres en respectant les règles d'usage.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludéen indispensable. Ne buvez que de l'eau capsulée (Tangui, Sémé).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-language fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Bilinguisme</h6>
+                    <p class="small text-muted">Le pays est bilingue Français/Anglais. En ville, vous vous ferez comprendre dans les deux langues sans difficulté.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XAF). Les distributeurs sont omniprésents à Douala et Yaoundé. Prévoyez du cash pour les villages.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Samuel+Eto&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Samuel">
+                        <h5 class="fw-bold mb-1">Samuel Njoh</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Littoral & Kribi</p>
+                        <p class="small text-muted">Samuel vous fera découvrir les secrets de la côte et les meilleures pirogues pour explorer la Lobé.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:samuel@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Samuel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Marie+Finke&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Marie">
+                        <h5 class="fw-bold mb-1">Marie Finke</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturelle Ouest</p>
+                        <p class="small text-muted">Marie est experte des chefferies Bamiléké et de l'art Bamoun. Elle vous ouvrira les portes des palais.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:marie@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Marie</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Abdou+Waza&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Abdou">
+                        <h5 class="fw-bold mb-1">Abdou Boukar</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari Nord</p>
+                        <p class="small text-muted">Abdou connaît le parc de Waza et Rhumsiki sur le bout des doigts. Un traqueur d'animaux exceptionnel.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:abdou@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Abdou</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Cameroun, une terre de passion et de diversité. Découvrez l'Afrique en miniature avec nos experts locaux.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../blogs.html">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Cameroun</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +237 22 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> douala@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Cameroun - L'Afrique en Miniature</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/cameroun.js"></script>
+</body>
+
+</html>

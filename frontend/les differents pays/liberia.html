@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: liberia.html
+    DESCRIPTION: Page pays premium standardisée pour le Libéria.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Libéria, la terre de la liberté. Des vagues de surf de Robertsport à la jungle dense du parc de Sapo, explorez une destination sauvage et historique en Afrique de l'Ouest.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Libéria (The Love of Liberty)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/liberia.jpg" alt="Le Libéria" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Libéria</h1>
+            <p class="hero-subtitle">La terre de la liberté et les joyaux de la côte poivrée</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Aube de la Liberté et une Nature Indomptée</h2>
+            <p class="section-description">
+                Le Libéria, la plus ancienne république d'Afrique, est une destination d'une authenticité rare, où l'histoire de la liberté rencontre une nature sauvage et préservée. Bordé par l'océan Atlantique, le pays offre des spots de surf de classe mondiale à Robertsport et des lagunes paisibles comme le lac Piso. À l'intérieur des terres, le parc national de Sapo abrite l'une des dernières forêts tropicales primaires d'Afrique de l'Ouest, refuge d'hippopotames pygmées et de chimpanzés. Monrovia, sa capitale dynamique, raconte le destin des pionniers revenus du Nouveau Monde, offrant un mélange unique de culture africaine et d'influences afro-américaines.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 sites emblématiques du Libéria</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une merveille...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plage">Plages & Surf</span>
+                <span class="filter-tag" data-filter="nature">Parcs & Jungle</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Culture</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="liberia-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Parc National de Sapo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Sapo NP">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sinoe County</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Sapo</h3>
+                        <p class="location-text">Forêt tropicale primaire, sanctuaire de l'hippopotame pygmée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sapo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Robertsport (Surf) -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Robertsport">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Cape Mount</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Robertsport</h3>
+                        <p class="location-text">Vagues légendaires et plages sauvages, paradis du surf ouest-africain</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="robertsport">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Île de Providence -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Providence Island">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Monrovia</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Providence</h3>
+                        <p class="location-text">Le lieu de débarquement historique des premiers colons affranchis</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="providence">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Lac Piso -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Lake Piso">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Robertsport</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Piso</h3>
+                        <p class="location-text">Une vaste lagune côtière entourée de montagnes et de mangrove</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="piso">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Mont Nimba -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Mount Nimba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Frontière Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve du Mont Nimba</h3>
+                        <p class="location-text">Sommets embrumés et biodiversité unique (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nimba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Monrovia (Musée National) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Monrovia Museum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Monrovia</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National du Libéria</h3>
+                        <p class="location-text">Trésors ethnographiques et archives de la fondation de la République</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="museum_liberia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Chutes de Kpatawee -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Kpatawee">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bong County</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Kpatawee</h3>
+                        <p class="location-text">Cascades rafraîchissantes et piscines naturelles en pleine jungle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kpatawee">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Marshall (Île des Singes) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Marshall">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Margibi County</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Îles des Singes</h3>
+                        <p class="location-text">Observation de chimpanzés réhabilités sur des îles fluviales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="monkey_island">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Libassa Eco Lodge & Plage -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Libassa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Marshall Coast</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Libassa Eco Resort</h3>
+                        <p class="location-text">Détente entre forêt tropicale et océan, plage immaculée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="libassa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Harper (Architecture Coloniale) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Harper">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Maryland County</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Harper</h3>
+                        <p class="location-text">Bâtiments coloniaux décrépis mais magnifiques et phares historiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="harper">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Forêt de Gola -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Gola Forest">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Cape Mount</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt de Gola (Liberia)</h3>
+                        <p class="location-text">Corridor écologique transfrontalier riche en biodiversité</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gola">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Île de Blue Lake -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Blue Lake">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bomi County</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Blue Lake (Bomi)</h3>
+                        <p class="location-text">Lac d'un bleu profond formé dans une ancienne mine, entouré de verdure</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="blue_lake">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Buchanan (Port & Plages) -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Buchanan">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Bassa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Buchanan</h3>
+                        <p class="location-text">Port maritime et plages de détente au sud de Monrovia</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="buchanan">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Plage de CeCe -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="CeCe Beach">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bushrod Island</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de CeCe</h3>
+                        <p class="location-text">Plage populaire pour l'ambiance locale et les sorties dominicales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cece_beach">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Greenville (Côte du Sud) -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Greenville">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sinoe County</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Greenville</h3>
+                        <p class="location-text">Port historique et porte d'accès sauvage au sud-est du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="greenville">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Le pionnier de la souveraineté africaine.</p>
+                    <p>Le Libéria occupe une place unique dans l'histoire de l'Afrique en tant que première république indépendante du continent (1847). Sa culture est un mélange fascinant de l'héritage des "Americo-Liberians" (anciens esclaves revenus des États-Unis) et des 16 groupes ethniques autochtones. Cette dualité se reflète dans l'architecture coloniale de Harper et les traditions ancestrales des masques Gio et Mano. L'identité libérienne est forgée par la résilience, la poésie et une gastronomie riche où le beurre de palme et le riz Jollof sont les rois de la table.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-flag text-warning me-2"></i>Indépendance 1847</h6>
+                                <p class="small text-muted mb-0">Le Libéria n'a jamais été formellement colonisé, restant un phare de liberté pendant l'ère coloniale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-info me-2"></i>Art des Masques</h6>
+                                <p class="small text-muted mb-0">La tradition sculpturale raffinée des peuples Nimba, mondialement reconnue pour son expressivité.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Musique Liberian Hipco</h6>
+                                <p class="small text-muted mb-0">Un genre musical urbain unique utilisant le dialecte local pour exprimer la réalité sociale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Société Poro & Sande</h6>
+                                <p class="small text-muted mb-0">Les institutions culturelles traditionnelles qui assurent la transmission de la morale et des savoirs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Libéria" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de la Côte Poivrée</h2>
+        <p>L'artisanat authentique libérien. Du tissu "Country Cloth" aux masques sculptés du mont Nimba.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/country_cloth.png" alt="Country Cloth" onerror="this.src='https://ui-avatars.com/api/?name=Country&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Tissage</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Country Cloth</h3>
+                    <p class="product-desc">Tissage traditionnel en coton lourd réalisé par les artisans Lofa, aux motifs bleus et blancs iconiques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/liberian_mask.png" alt="Masque" onerror="this.src='https://ui-avatars.com/api/?name=Mask&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Sculpté Gio</h3>
+                    <p class="product-desc">Réplique authentique sculptée dans du bois dur noirci, emblématique du comté de Nimba.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/palm_butter.png" alt="Beurre Palme" onerror="this.src='https://ui-avatars.com/api/?name=Palm&background=ff4500&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Palme Artisanal</h3>
+                    <p class="product-desc">Base onctueuse et riche pour cuisiner les ragoûts traditionnels libériens, extraite à la main.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Beads&background=daa520&color=fff&size=200" alt="Bijou">
+                    <span class="stock-badge">Style</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Collier en Perles de Monrovia</h3>
+                    <p class="product-desc">Bijou artisanal coloré réalisé par les créatrices locales de Waterside Market.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Soap&background=000&color=fff&size=200" alt="Savon Noir">
+                    <span class="stock-badge">Soin</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Savon Noir Liberian Pure</h3>
+                    <p class="product-desc">Savon naturel hydratant fabriqué avec de l'écorce de bananier et des huiles végétales.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=006400&color=fff&size=200" alt="Vannerie">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers de Lofa County</h3>
+                    <p class="product-desc">Vannerie robuste et décorative faite de fibres de raphia séchées au soleil.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/liberia.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjours de <span>Prestige</span></h2>
+                    <p>Découvrez notre sélection des meilleurs établissements de Monrovia et nos eco-lodges en bord de mer.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="farmington">Farmington Hotel</option>
+                            <option value="royal">Royal Grand Hotel</option>
+                            <option value="libassa">Libassa Eco Lodge</option>
+                            <option value="mamba">Mamba Point Hotel</option>
+                            <option value="bella">Bella Casa Hotel</option>
+                            <option value="boulevard">Boulevard Palace Hotel</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Farmington"></div>
+                    <div class="hotel-content">
+                        <h4>Farmington Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Aéroport RIA, Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Libassa"></div>
+                    <div class="hotel-content">
+                        <h4>Libassa Eco Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Marshall, Nature & Plage</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Royal Grand"></div>
+                    <div class="hotel-content">
+                        <h4>Royal Grand Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sinkor, Monrovia</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Mamba Point"></div>
+                    <div class="hotel-content">
+                        <h4>Mamba Point Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mamba Point, Vue Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Bella Casa"></div>
+                    <div class="hotel-content">
+                        <h4>Bella Casa Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sinkor, Monrovia</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Boulevard"></div>
+                    <div class="hotel-content">
+                        <h4>Boulevard Palace</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sinkor, Central</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine libérienne est un mélange généreux d'influences africaines et américaines, riche en épices et en beurre de palme.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dumboy&background=f5f5dc&color=000&size=200" alt="Dumboy"></div>
+                <div class="plat-content"><h4>Le Dumboy</h4><p>Manioc pilé frais, servi avec un bouillon de viande ou de poisson épicé (Pepper Soup).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Jollof&background=8b0000&color=fff&size=200" alt="Jollof"></div>
+                <div class="plat-content"><h4>Jollof Rice Liberian</h4><p>Version locale du riz rouge, riche en viandes et légumes sautés.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Palm&background=ff4500&color=fff&size=200" alt="Palm Butter"></div>
+                <div class="plat-content"><h4>Palm Butter Soup</h4><p>Soupe onctueuse à base de pulpe de palme, plat de fête par excellence.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cassava&background=006400&color=fff&size=200" alt="Cassava Leaf"></div>
+                <div class="plat-content"><h4>Cassava Leaf</h4><p>Feuilles de manioc finement broyées et cuisinées avec de l'huile de palme et du poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fufu&background=f5f5dc&color=000&size=200" alt="Fufu"></div>
+                <div class="plat-content"><h4>Fufu & Soup</h4><p>Boule de manioc fermenté servie avec une soupe pimentée aux abats ou poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Fried Fish"></div>
+                <div class="plat-content"><h4>Fried Fish & Gravy</h4><p>Poisson frais frit nappé d'une sauce tomate pimentée aux oignons.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pepper&background=8b0000&color=fff&size=200" alt="Pepper Soup"></div>
+                <div class="plat-content"><h4>Pepper Soup</h4><p>Bouillon épicé très relevé, réputé pour ses vertus médicinales.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ginger&background=daa520&color=fff&size=200" alt="Ginger Beer"></div>
+                <div class="plat-content"><h4>Ginger Beer</h4><p>Boisson forte et rafraîchissante au gingembre frais et au citron.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=8b0000&color=fff&size=200" alt="Bissap"></div>
+                <div class="plat-content"><h4>Jus de Bissap</h4><p>Infusion de fleurs d'hibiscus sucrée, servie très fraîche.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banana&background=daa520&color=fff&size=200" alt="Fritters"></div>
+                <div class="plat-content"><h4>Beignets de Bananes</h4><p>Petites douceurs frites à base de bananes très mûres et de farine.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chicken&background=daa520&color=fff&size=200" alt="Chicken"></div>
+                <div class="plat-content"><h4>Poulet au Beurre de Palme</h4><p>Poulet braisé puis mijoté dans une sauce onctueuse à la palme.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Seafood&background=00008b&color=fff&size=200" alt="Seafood"></div>
+                <div class="plat-content"><h4>Plateau de l'Atlantique</h4><p>Langoustes et crevettes grillées, pécées sur les côtes de Buchanan.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Découvrez la joie de vivre libérienne à travers ses fêtes nationales et culturelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Independence Day</h4>
+                    <p>La plus grande fête du pays (26 Juillet) célébrant la fondation de la République avec défilés et concerts.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Gedeh Cultural Festival</h4>
+                    <p>Rassemblement des groupes ethniques du sud-est pour célébrer les danses et chants ancestraux.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-water"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Loisirs</span>
+                    <h4>Robertsport Surf Competition</h4>
+                    <p>Compétition annuelle attirant les surfeurs internationaux sur les vagues de Cape Mount.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Avril)</h5>
+                    <p class="small mb-0">C'est la période idéale pour voyager. Les routes sont praticables, les ciels sont dégagés et c'est le moment parfait pour le surf à Robertsport et le trekking à Sapo.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Mai à Octobre)</h5>
+                    <p class="small mb-0">Le Libéria reçoit l'une des plus fortes pluviométries d'Afrique. La nature est verdoyante, mais de nombreuses pistes en province peuvent devenir très difficiles d'accès.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Libéria est globalement sûr pour les touristes. Évitez les déplacements nocturnes à pied à Monrovia. Soyez respectueux des traditions locales.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin Fièvre Jaune obligatoire. Traitement antipaludéen indispensable. Ne buvez que de l'eau en bouteille ou purifiée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour la plupart des nationalités. Faites vos démarches à l'avance auprès des ambassades libériennes.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">Double monnaie : Dollar Libérien (LRD) et Dollar US. Le Dollar US est largement accepté. Prévoyez des espèces car les DAB sont limités.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Joseph+Sapo&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Joseph">
+                        <h5 class="fw-bold mb-1">Joseph Cooper</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Jungle & Sapo NP</p>
+                        <p class="small text-muted">Expert en survie et pistage, Joseph vous emmènera en toute sécurité au cœur de la jungle dense de Sapo.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:joseph@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Joseph</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Princess+Culture&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Princess">
+                        <h5 class="fw-bold mb-1">Princess Johnson</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Histoire & Monrovia</p>
+                        <p class="small text-muted">Spécialiste de la fondation de la république, Princess vous fera revivre l'épopée des pionniers sur l'île de Providence.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:princess@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Princess</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Morris+Surf&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Morris">
+                        <h5 class="fw-bold mb-1">Morris Kromah</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Surf & Côte</p>
+                        <p class="small text-muted">Surfeur local de Robertsport, Morris connaît chaque vague et chaque courant de la péninsule de Cape Mount.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:morris@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Morris</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Libéria, la terre de la liberté. Découvrez une nature indomptée et une histoire unique avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Libéria</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +231 88 000 000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> monrovia@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Liberia - The Love of Liberty</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/liberia.js"></script>
+</body>
+
+</html>

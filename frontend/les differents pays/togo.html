@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: togo.html
+    DESCRIPTION: Page pays premium standardisée pour le Togo.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Togo, le sourire de l'Afrique de l'Ouest. Des plages de Lomé aux montagnes de Kpalimé et aux Tatas Somba du Koutammakou, explorez une terre de traditions.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Togo</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/togo.jpg" alt="Le Togo" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Togo</h1>
+            <p class="hero-subtitle">La perle du golfe de Guinée, terre de diversité</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Afrique en miniature</h2>
+            <p class="section-description">
+                Le Togo est souvent décrit comme l'Afrique en miniature en raison de la diversité incroyable de ses paysages et de ses cultures sur un territoire étroit. Des plages bordées de cocotiers de Lomé aux plateaux verdoyants de Kpalimé, en passant par les montagnes du nord et les célèbres Tatas Somba du Koutammakou, le Togo offre une hospitalité légendaire et une authenticité préservée.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles du patrimoine togolais</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un lieu...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Nature & Montagnes</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+                <span class="filter-tag" data-filter="eau">Plages & Lacs</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="togo-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Lomé (Grand Marché) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Lomé">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grand Marché de Lomé</h3>
+                        <p class="location-text">Le royaume des célèbres "Nana Benz"</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lome">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Koutammakou -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Koutammakou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Koutammakou</h3>
+                        <p class="location-text">Les Tatas Somba, patrimoine de l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="koutammakou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Kpalimé -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Kpalime">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Plateaux</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kpalimé & Forêt de Missahoé</h3>
+                        <p class="location-text">Paradis des randonneurs et des papillons</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kpalime">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Lac Togo -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Lac Togo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Togoville</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Togo & Togoville</h3>
+                        <p class="location-text">Navigation paisible et histoire spirituelle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lactogo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Aneho -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Aneho">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Maritime</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Aneho</h3>
+                        <p class="location-text">La cité historique aux deux visages</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="aneho">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Mont Agou -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Agou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kpalimé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Agou</h3>
+                        <p class="location-text">Le point culminant du Togo (986m)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="agou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Marché des Fétiches -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80&w=800" alt="Fetiche">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Akodesséwa</h3>
+                        <p class="location-text">Le plus grand marché aux fétiches du monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="akodessewa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Cascade d'Aklowa -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Aklowa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Badou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cascade d'Aklowa</h3>
+                        <p class="location-text">Une chute d'eau majestueuse de 80m</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="aklowa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Parc de Fazao-Malfakassa -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Fazao">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Centrale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Fazao-Malfakassa</h3>
+                        <p class="location-text">Le plus grand parc national du Togo</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fazao">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Vallée de Tamberma -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&q=80&w=800" alt="Tamberma">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Koutammakou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée de Tamberma</h3>
+                        <p class="location-text">Architecture fortifiée traditionnelle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tamberma">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Sarakawa -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Sarakawa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Sarakawa</h3>
+                        <p class="location-text">Faune sauvage préservée au nord du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sarakawa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Cascade de Kpimé -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800" alt="Kpime">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kpalimé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cascade de Kpimé</h3>
+                        <p class="location-text">Escale rafraîchissante sur la route de Kpalimé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kpime">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Togoville -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Togoville">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lac Togo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale de Togoville</h3>
+                        <p class="location-text">Lieu historique du protectorat et apparitions mariales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="togoville_city">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Kara -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Kara">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Les Monts Kara</h3>
+                        <p class="location-text">Paysages escarpés et traditions des Kabyé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kara">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Plage de Lomé -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=800" alt="Plage Lome">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages du Littoral</h3>
+                        <p class="location-text">Sable fin et animations balnéaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="plagelome">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un peuple fier, accueillant et enraciné.</p>
+                    <p>Le Togo possède une mosaïque culturelle fascinante composée de plus de 40 ethnies. Des guerriers Kabyé du nord aux commerçants Ewe du sud, chaque peuple contribue à la richesse du pays. L'histoire du Togo est marquée par les influences coloniales successives mais surtout par la force de ses traditions, comme les luttes Evala ou les cérémonies Vaudou du littoral.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-warning me-2"></i>Luttes Evala</h6>
+                                <p class="small text-muted mb-0">Rite de passage traditionnel chez les Kabyé, symbole de force et de courage.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-store text-info me-2"></i>Nana Benz</h6>
+                                <p class="small text-muted mb-0">Puissantes femmes d'affaires togolaises ayant bâti leur empire sur le commerce du Wax.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-danger me-2"></i>Zangbéto</h6>
+                                <p class="small text-muted mb-0">Les "Gardiens de la Nuit", société secrète protectrice de la communauté côtière.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-success me-2"></i>Agbadja & Kamou</h6>
+                                <p class="small text-muted mb-0">Rythmes et danses traditionnelles qui animent chaque célébration de la vie.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Togo" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Héritage</h2>
+        <p>Découvrez l'artisanat togolais. Des batiks colorés de Kpalimé aux sculptures sacrées, emportez un souvenir authentique.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/batik.png" alt="Batik Kpalime" onerror="this.src='https://ui-avatars.com/api/?name=Batik&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Batik de Kpalimé</h3>
+                    <p class="product-desc">Tissu teint à la main représentant des scènes de vie africaine, fait par les artisans de Kpalimé.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/poterie_togo.png" alt="Poterie" onerror="this.src='https://ui-avatars.com/api/?name=Poterie&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Bolou</h3>
+                    <p class="product-desc">Céramique traditionnelle façonnée à la main et cuite au feu de bois selon des méthodes ancestrales.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bois_togo.png" alt="Sculpture" onerror="this.src='https://ui-avatars.com/api/?name=Sculpture&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Ébène</h3>
+                    <p class="product-desc">Masques et figurines sculptés dans du bois d'ébène véritable par les maîtres du centre artisanal.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cafe&background=3e2723&color=fff&size=200" alt="Cafe Togo">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café & Cacao de Kpalimé</h3>
+                    <p class="product-desc">Sélection de grains torréfiés artisanalement dans la région fertile des plateaux.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">4 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Bijou&background=FFD700&color=000&size=200" alt="Bijou Togo">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Os & Corne</h3>
+                    <p class="product-desc">Colliers et bracelets raffinés utilisant des matériaux naturels de manière artistique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">6 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Panier&background=8b4513&color=fff&size=200" alt="Panier">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tressé de Kara</h3>
+                    <p class="product-desc">Vannerie robuste et décorative réalisée par les communautés du nord-Togo.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">7 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/togo.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escale <span>Sereine</span></h2>
+                    <p>Découvrez notre sélection des meilleures adresses pour votre séjour au Togo.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un hôtel...</option>
+                            <option value="fevrier">Hôtel 2 Février (Lomé)</option>
+                            <option value="sarakawa">Hôtel Sarakawa (Lomé)</option>
+                            <option value="onomo">Onomo Hotel (Lomé)</option>
+                            <option value="lac">Hôtel du Lac (Lac Togo)</option>
+                            <option value="robinson">Robinson Plage (Lomé)</option>
+                            <option value="pure">Pure Plage (Lomé/Baguidan)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Séjour</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Voir les tarifs</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="2 Fevrier"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel 2 Février</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lomé, Centre CBD</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Sarakawa"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Sarakawa</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lomé, Bord de mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Onomo"></div>
+                    <div class="hotel-content">
+                        <h4>Onomo Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lomé, Près Aéroport</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Robinson"></div>
+                    <div class="hotel-content">
+                        <h4>Robinson Plage</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Plage, Lomé</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Pure Plage"></div>
+                    <div class="hotel-content">
+                        <h4>Pure Plage</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Baguida, Lomé Est</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Hotel Lac"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel du Lac</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Agbodrafo, Lac Togo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine togolaise est savoureuse et diversifiée. Elle repose sur les céréales, les tubercules et des sauces riches en arômes.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fufu&background=8b4513&color=fff&size=200" alt="Fufu"></div>
+                <div class="plat-content"><h4>Fufu d'igname</h4><p>L'incontournable : igname pilée servie avec une sauce graine ou arachide.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Akoume&background=f5f5dc&color=000&size=200" alt="Akoume"></div>
+                <div class="plat-content"><h4>Akoumé</h4><p>Pâte de maïs ferme, base de nombreux repas togolais.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ayimolou&background=8b4513&color=fff&size=200" alt="Ayimolou"></div>
+                <div class="plat-content"><h4>Ayimolou</h4><p>Riz et haricots cuits ensemble, un classique du petit-déjeuner.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Koliko&background=daa520&color=fff&size=200" alt="Koliko"></div>
+                <div class="plat-content"><h4>Koliko</h4><p>Frites d'igname croustillantes, souvent vendues dans les rues.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Djinkoume&background=8b4513&color=fff&size=200" alt="Djinkoume"></div>
+                <div class="plat-content"><h4>Djinkoumé</h4><p>Pâte de maïs à la tomate et aux épices, servie avec du poulet.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ablo&background=f5f5dc&color=000&size=200" alt="Ablo"></div>
+                <div class="plat-content"><h4>Ablo</h4><p>Petits gâteaux de riz à la vapeur, tendres et légèrement sucrés.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kom&background=f5f5dc&color=000&size=200" alt="Kom"></div>
+                <div class="plat-content"><h4>Kom</h4><p>Pâte de maïs fermentée enveloppée dans des feuilles, servie avec du poisson frit.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ademe&background=006400&color=fff&size=200" alt="Ademe"></div>
+                <div class="plat-content"><h4>Sauce Adémè</h4><p>Sauce gluante à base de feuilles vertes, délicieuse avec l'akoumé.</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ouagassi&background=FFD700&color=000&size=200" alt="Ouagassi"></div>
+                <div class="plat-content"><h4>Ouagassi</h4><p>Fromage de vache traditionnel des Peuls, frit ou en sauce.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gboma&background=006400&color=fff&size=200" alt="Gboma"></div>
+                <div class="plat-content"><h4>Gboma Dessi</h4><p>Ragoût riche à base de feuilles de gboma (épinards amers) et de viande.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Riz&background=daa520&color=fff&size=200" alt="Riz Gras"></div>
+                <div class="plat-content"><h4>Riz au gras</h4><p>Riz cuisiné avec de la tomate, des épices et de la viande ou du poisson.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson Braise"></div>
+                <div class="plat-content"><h4>Poisson Braisé</h4><p>Poisson frais grillé au charbon de bois, spécialité des bords de plage.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Le Togo vibre au rythme de festivals traditionnels qui marquent les saisons et l'histoire.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Rite</span>
+                    <h4>Evala</h4>
+                    <p>Célèbres luttes traditionnelles en pays Kabyé (Juillet), rite de passage des jeunes.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-seedling"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Moisson</span>
+                    <h4>Agbogbo-Zan</h4>
+                    <p>La plus grande fête traditionnelle du peuple Ewe, célébrée à Notsé (Septembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Art</span>
+                    <h4>Festival des Divinités Noires</h4>
+                    <p>Grand rassemblement des cultures et spiritualités ancestrales (Aného).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Nov. à Février)</h5>
+                    <p class="small mb-0">La période idéale pour visiter tout le pays. Le temps est ensoleillé et sec, avec l'harmattan qui apporte un peu de fraîcheur la nuit.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Petite Saison Sèche (Août-Sept.)</h5>
+                    <p class="small mb-0">Une accalmie dans les pluies au sud, idéale pour profiter des cascades et des paysages verdoyants des plateaux.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Togo est un pays sûr et accueillant. Les précautions d'usage s'appliquent dans les zones urbaines denses. Respectez les autorités.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludéen recommandé. Ne buvez que de l'eau capsulée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-language fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">Le Français est la langue officielle. L'Ewe (sud) et le Kabyé (nord) sont les langues nationales les plus parlées.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XOF). Les banques et distributeurs sont nombreux à Lomé. Le cash est roi dans les marchés.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Messan+Agbeyome&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Messan">
+                        <h5 class="fw-bold mb-1">Messan Agbeyome</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Culture & Lomé</p>
+                        <p class="small text-muted">Messan connaît Lomé comme sa poche. Il vous fera découvrir les secrets du Grand Marché et l'histoire de la capitale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:messan@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver Messan</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Komi+Kpade&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Komi">
+                        <h5 class="fw-bold mb-1">Komi Kpade</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Nature & Plateaux</p>
+                        <p class="small text-muted">Expert en randonnées à Kpalimé, Komi vous fera découvrir les cascades cachées et la biodiversité des montagnes.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:komi@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver Komi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ali+Koro&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ali">
+                        <h5 class="fw-bold mb-1">Ali Koro</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Nord & Koutammakou</p>
+                        <p class="small text-muted">Ali est le guide idéal pour explorer le nord-Togo et comprendre l'architecture unique des Tatas Somba.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ali@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver Ali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Togo, une expérience humaine et naturelle inoubliable. Découvrez le sourire de l'Afrique avec nous.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Togo</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +228 22 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> lome@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Togo - Le Sourire de l'Afrique</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/togo.js"></script>
+</body>
+
+</html>

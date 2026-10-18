@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: namibie.html
+    DESCRIPTION: Page pays premium standardisée pour la Namibie.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez la Namibie, une terre de contrastes infinis. Des dunes rouges de Sossusvlei aux plaines d'Etosha, vivez l'aventure dans l'un des plus vieux déserts du monde.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Namibie (Terre de Contrastes)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Australe/namibie.jpg" alt="La Namibie" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Namibie</h1>
+            <p class="hero-subtitle">Le silence du désert et l'éclat des dunes rouges</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Éclat du Vieux Désert</h2>
+            <p class="section-description">
+                La Namibie est une terre de superlatifs. Abritant le Namib, considéré comme le plus vieux désert du monde, elle offre des paysages d'une beauté irréelle où les dunes de sable rouge plongent directement dans les eaux glacées de l'Atlantique. Entre le parc national d'Etosha, l'un des plus grands sanctuaires de faune d'Afrique, et les mystères de la Skeleton Coast, la Namibie est la destination ultime pour les amoureux de grands espaces et de solitude majestueuse. Un pays où les cultures ancestrales Himbas rencontrent un héritage colonial singulier dans un cadre de nature brute.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles absolues de la Namibie</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une merveille...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="desert">Désert & Dunes</span>
+                <span class="filter-tag" data-filter="safari">Safari & Nature</span>
+                <span class="filter-tag" data-filter="cote">Côte & Océan</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="namibie-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Sossusvlei -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Sossusvlei">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Namib-Naukluft</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 150k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Sossusvlei & Deadvlei</h3>
+                        <p class="location-text">Dunes rouges géantes et arbres pétrifiés millénaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sossusvlei">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Etosha National Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Etosha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 110k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National d'Etosha</h3>
+                        <p class="location-text">Le "Grand Lieu Blanc", paradis de la faune sauvage africaine</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="etosha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Swakopmund -->
+            <article class="attraction" data-category="cote">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Swakopmund">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Erongo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Swakopmund</h3>
+                        <p class="location-text">Ville côtière au charme allemand entre désert et océan</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="swakopmund">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Skeleton Coast -->
+            <article class="attraction" data-category="cote">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Skeleton Coast">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kunene</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Skeleton Coast</h3>
+                        <p class="location-text">"La terre que Dieu a créée dans un jour de colère"</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="skeleton">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Fish River Canyon -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Fish River Canyon">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Karas</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fish River Canyon</h3>
+                        <p class="location-text">Le deuxième plus grand canyon au monde, vertigineux et sauvage</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fish_river">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Twyfelfontein (UNESCO) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Twyfelfontein">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Damaraland</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Twyfelfontein</h3>
+                        <p class="location-text">Plus de 2 500 gravures rupestres datant de 6 000 ans</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="twyfelfontein">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Damaraland -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Damaraland">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kunene</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Damaraland</h3>
+                        <p class="location-text">Montagnes de basalte et éléphants du désert insaisissables</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="damaraland">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Kaokoland (Himbas) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Himbas">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Opuwo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 38k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kaokoland & Peuple Himba</h3>
+                        <p class="location-text">Rencontre avec le peuple ocre dans l'une des régions les plus reculées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kaokoland">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Luderitz & Kolmanskop -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Kolmanskop">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Luderitz</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kolmanskop</h3>
+                        <p class="location-text">La ville fantôme ensablée, vestige de l'époque des diamants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kolmanskop">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Spitzkoppe -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Spitzkoppe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Damaraland</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Spitzkoppe</h3>
+                        <p class="location-text">Le "Cervin de Namibie", dômes de granit spectaculaires et arches</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="spitzkoppe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Caprivi Strip (Zambezi Region) -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Caprivi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Katima Mulilo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Bande de Caprivi</h3>
+                        <p class="location-text">Une oasis tropicale luxuriante irriguée par les fleuves Okavango et Zambèze</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="caprivi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Walvis Bay (Flamants Roses) -->
+            <article class="attraction" data-category="cote">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Walvis Bay">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Erongo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Walvis Bay</h3>
+                        <p class="location-text">Lagune peuplée de milliers de flamants roses et otaries de Cape Cross</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="walvis_bay">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Windhoek (Christuskirche) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Windhoek">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Windhoek</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Windhoek</h3>
+                        <p class="location-text">Capitale moderne mêlant influences européennes et culture africaine</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="windhoek">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Brandberg Mountain -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Brandberg">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Damaraland</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Brandberg & Dame Blanche</h3>
+                        <p class="location-text">Le plus haut sommet de Namibie et ses peintures rupestres sacrées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="brandberg">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Waterberg Plateau -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Waterberg">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Otjiwarongo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plateau du Waterberg</h3>
+                        <p class="location-text">Forteresse de grès rouge abritant des espèces rares (rhinocéros blancs)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="waterberg">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un héritage pluriel gravé dans la pierre et le sable.</p>
+                    <p>La culture namibienne est une mosaïque fascinante où cohabitent traditions millénaires et modernité. Les Himbas du Kaokoland et les Héréros perpétuent des modes de vie ancestraux et des codes vestimentaires uniques. L'influence coloniale allemande est encore visible dans l'architecture de Swakopmund et Luderitz, créant un contraste saisissant au cœur de l'Afrique. La Namibie est aussi le berceau de l'art rupestre Bushmen, témoignant de la connexion spirituelle profonde de l'homme avec cette terre aride depuis des millénaires.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-user-circle text-warning me-2"></i>Peuple Himba</h6>
+                                <p class="small text-muted mb-0">Éleveurs nomades célèbres pour leur peau enduite d'otjize (ocre et graisse) et leurs parures complexes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-chess-rook text-info me-2"></i>Héritage Germanique</h6>
+                                <p class="small text-muted mb-0">Une influence unique visible dans la gastronomie (pâtisseries, bières) et l'architecture "Fachwerk".</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-paint-brush text-danger me-2"></i>Art Bushmen (San)</h6>
+                                <p class="small text-muted mb-0">Les peintures rupestres de Twyfelfontein et du Brandberg racontent l'histoire de la chasse et des mythes San.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-gem text-success me-2"></i>L'Épopée du Diamant</h6>
+                                <p class="small text-muted mb-0">L'histoire fascinante de la "Sperrgebiet" qui a forgé le destin économique et historique du sud.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Namibie" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Désert</h2>
+        <p>L'excellence namibienne. Des parures Himbas aux cosmétiques précieux à l'huile de Marula.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/himba_jewelry.png" alt="Bijoux Himba" onerror="this.src='https://ui-avatars.com/api/?name=Himba&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Culture</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Cuir & Perles Himba</h3>
+                    <p class="product-desc">Colliers et bracelets artisanaux authentiques, réalisés selon les techniques ancestrales du Kaokoland.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">850 NAD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/marula_oil.png" alt="Huile Marula" onerror="this.src='https://ui-avatars.com/api/?name=Marula&background=006400&color=fff&size=200'">
+                    <span class="stock-badge">Soin</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Marula Pure</h3>
+                    <p class="product-desc">L'élixir de beauté namibien. Huile pressée à froid, ultra-nourrissante et antioxydante pour la peau.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">450 NAD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/karakul_wool.png" alt="Laine Karakul" onerror="this.src='https://ui-avatars.com/api/?name=Karakul&background=000&color=fff&size=200'">
+                    <span class="stock-badge">Mode</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Étole en Laine de Karakul</h3>
+                    <p class="product-desc">Tissage luxueux issu des élevages du sud, réputé pour sa douceur et sa robustesse incomparable.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">2 500 NAD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Salt&background=f5f5dc&color=000&size=200" alt="Sel Swakopmund">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Fleur de Sel de Swakopmund</h3>
+                    <p class="product-desc">Sel pur récolté dans les marais salants de la côte atlantique, séché au soleil et au vent du désert.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">120 NAD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200" alt="Bois Kavango">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Bois de Kavango</h3>
+                    <p class="product-desc">Objets décoratifs sculptés à la main dans du bois local, représentant la faune du Zambèze.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">1 100 NAD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Baskets&background=daa520&color=fff&size=200" alt="Paniers">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers Tissés de l'Owambo</h3>
+                    <p class="product-desc">Vannerie traditionnelle robuste aux teintes naturelles, héritage des femmes du nord.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">550 NAD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Australe/namibie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Dormir sous <span>les Étoiles</span></h2>
+                    <p>Découvrez notre sélection des éco-lodges les plus spectaculaires, nichés au cœur du désert.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon lodge</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="little_kulala">Little Kulala (Sossusvlei)</option>
+                            <option value="ongava">Ongava Lodge (Etosha)</option>
+                            <option value="strand">Strand Hotel Swakopmund</option>
+                            <option value="shipwreck">Shipwreck Lodge (Skeleton Coast)</option>
+                            <option value="fish_river_lodge">Fish River Lodge</option>
+                            <option value="omaanda">Zannier Hotels Omaanda</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Little Kulala"></div>
+                    <div class="hotel-content">
+                        <h4>Little Kulala</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sossusvlei, Design Désertique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Ongava"></div>
+                    <div class="hotel-content">
+                        <h4>Ongava Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bordure du Parc d'Etosha</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Strand"></div>
+                    <div class="hotel-content">
+                        <h4>Strand Hotel Swakopmund</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Swakopmund, Face à l'Océan</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Shipwreck"></div>
+                    <div class="hotel-content">
+                        <h4>Shipwreck Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Skeleton Coast, insolite</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Fish River Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Fish River Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bord du Canyon, vue vertigineuse</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Omaanda"></div>
+                    <div class="hotel-content">
+                        <h4>Zannier Hotels Omaanda</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Windhoek, Luxe en Savane</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine namibienne est un mélange robuste d'influences germaniques, de traditions locales et de produits d'exception.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Oryx&background=8b0000&color=fff&size=200" alt="Oryx"></div>
+                <div class="plat-content"><h4>Steak d'Oryx Grillé</h4><p>Viande de gibier maigre et savoureuse, spécialité des Braais namibiens.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Biltong&background=8b0000&color=fff&size=200" alt="Biltong"></div>
+                <div class="plat-content"><h4>Biltong Namibien</h4><p>Viande séchée aux épices (bœuf ou gibier), le snack national par excellence.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Huitres&background=00008b&color=fff&size=200" alt="Huitres"></div>
+                <div class="plat-content"><h4>Huîtres de Walvis Bay</h4><p>Parmi les meilleures au monde, grâce aux eaux froides et riches de l'Atlantique.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Potjie&background=8b4513&color=fff&size=200" alt="Potjiekos"></div>
+                <div class="plat-content"><h4>Potjiekos</h4><p>Ragoût traditionnel mijoté lentement dans une marmite en fonte sur les braises.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Strudel&background=daa520&color=fff&size=200" alt="Apfelstrudel"></div>
+                <div class="plat-content"><h4>Apfelstrudel</h4><p>L'héritage allemand : strudel aux pommes croustillant, souvent servi à Swakopmund.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kapana&background=8b0000&color=fff&size=200" alt="Kapana"></div>
+                <div class="plat-content"><h4>Kapana (Street Meat)</h4><p>Viande de bœuf grillée au feu de bois dans les marchés de Windhoek, servie avec du piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Oshifima&background=f5f5dc&color=000&size=200" alt="Oshifima"></div>
+                <div class="plat-content"><h4>Oshifima</h4><p>Bouillie consistante à base de mil (Mahangu), base de l'alimentation au nord.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Burger&background=daa520&color=fff&size=200" alt="Raft Burger"></div>
+                <div class="plat-content"><h4>Raft Burger</h4><p>Icone culinaire de Swakopmund, dégusté sur la jetée face à l'océan.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mopane&background=8b4513&color=fff&size=200" alt="Mopane"></div>
+                <div class="plat-content"><h4>Chenilles de Mopane</h4><p>Délice traditionnel riche en protéines, consommé frit ou en ragoût.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Beer&background=daa520&color=fff&size=200" alt="Biere Namibie"></div>
+                <div class="plat-content"><h4>Bière Windhoek Lager</h4><p>Brassée selon la "Reinheitsgebot" (loi de pureté allemande), fierté nationale.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Nara&background=daa520&color=fff&size=200" alt="Nara"></div>
+                <div class="plat-content"><h4>Fruits de !Nara</h4><p>Fruit endémique du désert, dont les graines sont utilisées comme snack ou en huile.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sausage&background=8b4513&color=fff&size=200" alt="Boerewors"></div>
+                <div class="plat-content"><h4>Boerewors</h4><p>Saucisse épicée traditionnelle, indispensable pour tout pique-nique ou safari.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez l'ambiance festive de la Namibie à travers ses carnavals et ses fêtes traditionnelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-beer"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Fête</span>
+                    <h4>Windhoek Oktoberfest</h4>
+                    <p>La plus grande fête de la bière d'Afrique (Octobre), célébrée avec passion dans la capitale.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Carnaval</span>
+                    <h4>WIKA (Windhoek Carnival)</h4>
+                    <p>Défilés colorés, bals masqués et humour satyrique hérités de la tradition rhénane (Avril).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-bullhorn"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Maherero Day</h4>
+                    <p>Grand rassemblement Herero à Okahandja (Août) pour honorer les chefs ancestraux.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Mai à Octobre)</h5>
+                    <p class="small mb-0">La période idéale pour le safari à Etosha (les animaux se regroupent aux points d'eau). Les journées sont ensoleillées et les nuits fraîches. Visibilité parfaite au Fish River Canyon.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Saison des Pluies (Janvier à Mars)</h5>
+                    <p class="small mb-0">Le désert fleurit miraculeusement. C'est la période de naissance des antilopes. Les photographes adorent les contrastes de lumière après les orages soudains.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-car fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Conduite</h6>
+                    <p class="small text-muted">Conduite à gauche. Les routes de gravier exigent une grande prudence (4x4 recommandé). Toujours faire le plein dès que possible.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-tint fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Eau</h6>
+                    <p class="small text-muted">La Namibie est un pays aride. Économisez l'eau. L'eau du robinet est potable dans les villes mais préférez l'eau embouteillée en safari.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">La Namibie est l'un des pays les plus sûrs d'Afrique. Vigilance normale requise dans les centres urbains comme Windhoek.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-sun fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Soleil</h6>
+                    <p class="small text-muted">L'indice UV est extrêmement élevé. Crème solaire haute protection, chapeau et lunettes sont obligatoires toute l'année.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Johannes+Etosha&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Johannes">
+                        <h5 class="fw-bold mb-1">Johannes Shikongo</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari (Etosha)</p>
+                        <p class="small text-muted">Avec 20 ans d'expérience à Etosha, Johannes possède un don pour débusquer les lions et les rhinocéros noirs les plus secrets.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:johannes@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Johannes</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ua+Himba&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ua">
+                        <h5 class="fw-bold mb-1">Ua Kavejandja</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturelle & Kaokoland</p>
+                        <p class="small text-muted">Native du Kaokoland, Ua facilite des rencontres éthiques et profondes avec le peuple Himba et partage sa culture passionnante.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ua@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ua</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Dieter+Desert&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Dieter">
+                        <h5 class="fw-bold mb-1">Dieter Von Namibia</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Géologie & Désert</p>
+                        <p class="small text-muted">Passionné par la formation des dunes de Sossusvlei et les paysages de la Skeleton Coast, Dieter rend le désert vivant.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:dieter@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Dieter</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/namibie.js"></script>
+</body>
+
+</html>

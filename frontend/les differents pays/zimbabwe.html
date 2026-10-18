@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: zimbabwe.html
+    DESCRIPTION: Page pays premium standardisée pour le Zimbabwe.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Zimbabwe, une terre d'histoire et de nature sauvage. Des majestueuses chutes Victoria aux ruines millénaires du Grand Zimbabwe, explorez une destination unique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Zimbabwe (La Terre de Pierre)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/zimbabwe.jpg" alt="Le Zimbabwe" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Zimbabwe</h1>
+            <p class="hero-subtitle">Des merveilles tonnantes aux mystères de pierre millénaires</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Éclat de l'Afrique Australe</h2>
+            <p class="section-description">
+                Le Zimbabwe, dont le nom signifie "Maison de Pierre" en langue Shona, est une destination d'une richesse exceptionnelle. Célèbre pour abriter la plus grande chute d'eau du monde, Victoria Falls, il est aussi le gardien des ruines du Grand Zimbabwe, témoignage d'un empire médiéval puissant. Avec des parcs nationaux comme Hwange et Mana Pools, le Zimbabwe offre des safaris parmi les plus qualitatifs du continent, portés par des guides dont la formation est mondialement reconnue comme l'une des plus exigeantes.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles incontournables du Zimbabwe</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Sélectionnés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="chutes">Chutes & Eau</span>
+                <span class="filter-tag" data-filter="safari">Safari & Nature</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Culture</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="zimbabwe-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Victoria Falls -->
+            <article class="attraction" data-category="chutes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Vic Falls">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Victoria Falls Town</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 150k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes Victoria</h3>
+                        <p class="location-text">Mosi-oa-Tunya : La plus grande lame d'eau tombante du monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="vic_falls_zim">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Hwange National Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Hwange">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Matabeleland North</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Hwange</h3>
+                        <p class="location-text">Terre de géants abritant l'une des plus grandes populations d'éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hwange">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Great Zimbabwe Ruins -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Great Zimbabwe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Masvingo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ruines du Grand Zimbabwe</h3>
+                        <p class="location-text">Cité médiévale de pierre, patrimoine mondial de l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="great_zim">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Mana Pools National Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Mana Pools">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zambezi Valley</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Mana Pools</h3>
+                        <p class="location-text">Safari sauvage en canoë et rencontres intimes avec la faune</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mana_pools">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Matobo National Park -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Matobo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bulawayo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Collines de Matobo</h3>
+                        <p class="location-text">Paysages lunaires de rochers équilibristes et art rupestre ancien</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="matobo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Lac Kariba (Matusadona) -->
+            <article class="attraction" data-category="chutes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Kariba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kariba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 38k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Kariba & Matusadona</h3>
+                        <p class="location-text">Couchers de soleil légendaires et arbres pétrifiés émergeant des eaux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kariba_zim">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Chutes de Mutarazi -->
+            <article class="attraction" data-category="chutes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Mutarazi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Eastern Highlands</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Mutarazi</h3>
+                        <p class="location-text">Le plus haut Skywalk d'Afrique avec une vue vertigineuse</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mutarazi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Gonarezhou National Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Gonarezhou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Chiredzi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Gonarezhou</h3>
+                        <p class="location-text">"Le lieu des éléphants", falaises rouges de Chilojo spectaculaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gonarezhou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Khami Ruins -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Khami">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bulawayo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ruines de Khami</h3>
+                        <p class="location-text">Ancienne capitale de l'État de Torwa, un site archéologique majeur</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="khami">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Parc National de Nyanga -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Nyanga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Eastern Highlands</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Nyanga</h3>
+                        <p class="location-text">Montagnes fraîches, cascades et truites dans les lacs d'altitude</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nyanga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Antelope Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Antelope Park">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Gweru</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Antelope Park</h3>
+                        <p class="location-text">Conservation des lions et expériences de safari interactives</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="antelope">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Vumba Mountains -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Vumba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mutare</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Montagnes de Vumba</h3>
+                        <p class="location-text">"Les Montagnes de la Brume", jardins botaniques et forêts d'altitude</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="vumba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Bulawayo (Musée d'Histoire Naturelle) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Bulawayo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bulawayo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée d'Histoire Naturelle</h3>
+                        <p class="location-text">L'un des meilleurs musées d'Afrique pour la faune et la culture</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bulawayo_museum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Harare (Kopje & Sculpture Park) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Harare">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Harare</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Harare & Chapungu Park</h3>
+                        <p class="location-text">La "Cité ensoleillée" et son jardin de sculptures Shona mondialement connu</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="harare">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Chizarira National Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Chizarira">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Binga District</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Chizarira</h3>
+                        <p class="location-text">L'un des parcs les plus reculés et sauvages du Zimbabwe sur l'escarpement</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chizarira">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'héritage d'un empire et l'âme de la pierre.</p>
+                    <p>La culture zimbabwéenne est profondément enracinée dans son passé impérial, comme en témoignent les ruines monumentales du Grand Zimbabwe. L'art de la sculpture sur pierre Shona est aujourd'hui reconnu mondialement pour son esthétique contemporaine et spirituelle. Les traditions musicales, portées par la Mbira (piano à pouces), accompagnent une vie sociale riche où le respect des anciens et le sens de la communauté ("Ubuntu") restent des piliers fondamentaux.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-gem text-warning me-2"></i>Sculpture Shona</h6>
+                                <p class="small text-muted mb-0">Un mouvement artistique majeur utilisant la serpentine et la stéatite pour créer des formes modernes et spirituelles.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Musique Mbira</h6>
+                                <p class="small text-muted mb-0">L'instrument sacré du peuple Shona, dont les notes cristallines accompagnent les cérémonies ancestrales.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-danger me-2"></i>Empire Monomotapa</h6>
+                                <p class="small text-muted mb-0">L'héritage d'une civilisation brillante qui commerçait avec l'Orient bien avant l'arrivée des Européens.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Philosophie Ubuntu</h6>
+                                <p class="small text-muted mb-0">"Je suis parce que nous sommes" : une valeur de solidarité et de respect mutuel au cœur du pays.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Zimbabwe" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de la Maison de Pierre</h2>
+        <p>L'excellence artistique du Zimbabwe. Des sculptures de maîtres aux paniers Binga finement tissés.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/shona_sculpture.png" alt="Sculpture Shona" onerror="this.src='https://ui-avatars.com/api/?name=Shona&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture Shona Originale</h3>
+                    <p class="product-desc">Pièce unique sculptée à la main dans de la pierre serpentine, signée par un artiste local.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">350 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/binga_basket.png" alt="Panier Binga" onerror="this.src='https://ui-avatars.com/api/?name=Binga&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Binga Tissé</h3>
+                    <p class="product-desc">Vannerie traditionnelle du peuple Tonga, célèbre pour ses motifs géométriques noirs et naturels.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/zim_mbira.png" alt="Mbira" onerror="this.src='https://ui-avatars.com/api/?name=Mbira&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Musique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Mbira Traditionnelle</h3>
+                    <p class="product-desc">Instrument de musique sacré monté sur une planche de bois avec des touches métalliques accordées.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Beads&background=ff4500&color=fff&size=200" alt="Bijou Zimbabwe">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Perles Matabele</h3>
+                    <p class="product-desc">Colliers et bracelets colorés inspirés des traditions du sud du Zimbabwe.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Cafe Zim">
+                    <span class="stock-badge">Premium</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café du Zimbabwe Nyanga</h3>
+                    <p class="product-desc">Café Arabica de haute altitude aux arômes délicats, cultivé dans les Eastern Highlands.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Poterie&background=8b4513&color=fff&size=200" alt="Poterie">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie en Terre Cuite</h3>
+                    <p class="product-desc">Vases et bols décoratifs façonnés selon les méthodes traditionnelles Shona.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">40 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/zimbabwe.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjours de <span>Légende</span></h2>
+                    <p>Découvrez notre sélection des palaces coloniaux et des lodges de brousse les plus exclusifs.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="vic_falls_hotel">Victoria Falls Hotel</option>
+                            <option value="meikles">Meikles Hotel (Harare)</option>
+                            <option value="pamushana">Singita Pamushana (Gonarezhou)</option>
+                            <option value="ruckomechi">Ruckomechi Camp (Mana Pools)</option>
+                            <option value="elephant_eye">Elephant's Eye (Hwange)</option>
+                            <option value="nesbitt">Nesbitt Castle (Bulawayo)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Voir les prix</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Vic Falls Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Victoria Falls Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Victoria Falls, Style Colonial</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Singita"></div>
+                    <div class="hotel-content">
+                        <h4>Singita Pamushana</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Gonarezhou National Park</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Meikles"></div>
+                    <div class="hotel-content">
+                        <h4>Meikles Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Harare, Centre-ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Ruckomechi"></div>
+                    <div class="hotel-content">
+                        <h4>Ruckomechi Camp</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mana Pools, Bord du Zambèze</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Elephant Eye"></div>
+                    <div class="hotel-content">
+                        <h4>Elephant's Eye</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Hwange National Park</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Nesbitt"></div>
+                    <div class="hotel-content">
+                        <h4>Nesbitt Castle</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bulawayo, Boutique Hotel</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine zimbabwéenne est copieuse, savoureuse et basée sur les produits locaux du jardin et de la brousse.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sadza&background=f5f5dc&color=000&size=200" alt="Sadza"></div>
+                <div class="plat-content"><h4>Le Sadza</h4><p>Base alimentaire nationale à base de maïs, servie avec des légumes et de la viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Nyama&background=8b0000&color=fff&size=200" alt="Nyama"></div>
+                <div class="plat-content"><h4>Nyama (Ragoût)</h4><p>Viande mijotée (bœuf, chèvre ou gibier) dans une sauce onctueuse.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dovi&background=daa520&color=fff&size=200" alt="Dovi"></div>
+                <div class="plat-content"><h4>Dovi</h4><p>Ragoût traditionnel à base de beurre de cacahuète, légumes et viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kapenta&background=00008b&color=fff&size=200" alt="Kapenta"></div>
+                <div class="plat-content"><h4>Poisson Kapenta</h4><p>Petites sardines du lac Kariba, frites avec des oignons et des tomates.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mopane&background=8b4513&color=fff&size=200" alt="Mopane"></div>
+                <div class="plat-content"><h4>Vers de Mopane</h4><p>Une source de protéines célèbre et savoureuse, récoltée sur les arbres Mopane.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Biltong&background=8b0000&color=fff&size=200" alt="Biltong"></div>
+                <div class="plat-content"><h4>Biltong de Gibier</h4><p>Viande de kudu, d'impala ou de bœuf séchée aux épices, snack incontournable.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Maheu&background=f5f5dc&color=000&size=200" alt="Maheu"></div>
+                <div class="plat-content"><h4>Maheu</h4><p>Boisson fermentée à base de maïs, rafraîchissante et nourrissante.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Covo&background=006400&color=fff&size=200" alt="Covo"></div>
+                <div class="plat-content"><h4>Covo (Légumes Verts)</h4><p>Feuilles de chou ou de violier sautées avec de l'ail et des oignons.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Boerewors&background=8b4513&color=fff&size=200" alt="Boerewors"></div>
+                <div class="plat-content"><h4>Boerewors</h4><p>Saucisse traditionnelle épicée, pilier du Braai (barbecue) zimbabwéen.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mais&background=daa520&color=fff&size=200" alt="Chibage"></div>
+                <div class="plat-content"><h4>Chibage (Maïs Grillé)</h4><p>Épis de maïs grillés au feu de bois, vendus à chaque coin de rue.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mapopo&background=ff4500&color=fff&size=200" alt="Mapopo"></div>
+                <div class="plat-content"><h4>Bonbons de Mapopo</h4><p>Papaye confite et ragoût de papaye sucré, un dessert délicat.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mazhanje&background=daa520&color=fff&size=200" alt="Mazhanje"></div>
+                <div class="plat-content"><h4>Fruits Mazhanje</h4><p>Fruits sauvages sucrés récoltés en forêt à la fin de la saison sèche.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Le Zimbabwe célèbre sa culture et sa créativité à travers des rendez-vous internationaux majeurs.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-theater-masks"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Arts</span>
+                    <h4>HIFA (Harare Int. Festival of Arts)</h4>
+                    <p>Le plus grand festival d'arts multidisciplinaires du pays (Avril/Mai), vibrant et coloré.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Vic Falls Carnival</h4>
+                    <p>La plus grande fête de fin d'année d'Afrique australe au son de l'Afrobeats et de l'Electro.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-bullhorn"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festivités de l'Indépendance</h4>
+                    <p>Célébrations nationales massives (18 Avril) avec danses traditionnelles et parades.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Mai à Octobre)</h5>
+                    <p class="small mb-0">La meilleure période pour le safari. Les animaux se concentrent aux points d'eau. C'est aussi le moment idéal pour voir les chutes Victoria (débit maximal vers mai/juin).</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison Verte (Novembre à Mars)</h5>
+                    <p class="small mb-0">La nature est resplendissante. C'est la période de reproduction des oiseaux et de naissance des jeunes antilopes. Les paysages sont d'un vert émeraude magnifique.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Zimbabwe est l'une des destinations les plus sûres d'Afrique pour les voyageurs. L'accueil est chaleureux et respectueux partout.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Le Dollar US (USD) est la monnaie de référence. Prévoyez des petites coupures. Les paiements par carte sont courants en ville.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Traitement antipaludéen conseillé pour les zones de parcs. Eau en bouteille recommandée. Vaccin fièvre jaune si pays à risque.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-camera fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Photographie</h6>
+                    <p class="small text-muted">Ne photographiez pas les bâtiments gouvernementaux, militaires ou la police. Demandez toujours l'avis des gens avant de les filmer.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Charles+Safari&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Charles">
+                        <h5 class="fw-bold mb-1">Charles Moyo</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari Guide (Hwange)</p>
+                        <p class="small text-muted">Guide professionnel certifié avec 25 ans d'expérience. Charles est un traqueur d'élite et un expert de la faune sauvage.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:charles@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Charles</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+History&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Sarah">
+                        <h5 class="fw-bold mb-1">Sarah Sibanda</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Patrimoine & Histoire</p>
+                        <p class="small text-muted">Passionnée par l'empire du Grand Zimbabwe et Khami, Sarah vous fera voyager à travers les siècles de l'histoire africaine.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:sarah@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Sarah</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Tinashe+Vic&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Tinashe">
+                        <h5 class="fw-bold mb-1">Tinashe Ndlovu</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Chutes Victoria & Aventures</p>
+                        <p class="small text-muted">Expert des activités aux chutes et de la vie locale à Livingstone, Tinashe saura vous conseiller les meilleures expériences.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:tinashe@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Tinashe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Zimbabwe, la terre de pierre. Explorez un patrimoine millénaire et une nature sauvage d'exception avec nos guides certifiés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Zimbabwe</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +263 24 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> harare@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Zimbabwe - Stone House</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/zimbabwe.js"></script>
+</body>
+
+</html>

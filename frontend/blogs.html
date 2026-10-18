@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: blogs.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/vendors/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Blogs - Visit Afrika</title>
+  <link rel="icon" type="image/jpg" href="images/logo/logo.png">
+</head>
+
+<body>
+  <!-- Header : L'entete de la page Blogs -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-brand">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+          <span class="logo-text">VISIT AFRIKA</span>
+        </a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="navbar-menu" id="navbarMenu">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home"></i> Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pays.html" class="nav-link">
+              <i class="fas fa-globe"></i> Pays
+            </a>
+          </li>
+          <!--  -->
+          <li class="nav-item">
+            <a href="blogs.html" class="nav-link active">
+              <i class="fas fa-blog"></i> Blogs
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="informations.html" class="nav-link">
+              <i class="fas fa-info-circle"></i> Informations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="galerie.html" class="nav-link">
+              <i class="fas fa-images"></i> Galerie
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="propos.html" class="nav-link">
+              <i class="fas fa-user"></i>  Propos
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Fin de l'entete -->
+
+  <!-- La section Blogs et Articles -->
+  <main class="sections blog-articles">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">Blogs & Articles</h2>
+        <div class="line"><span></span></div>
+        <p>Guides, récits et conseils pour préparer votre voyage en
+          Afrique.</p>
+      </div>
+
+      <div class="blog-controls">
+        <div class="search-wrap">
+          <input id="blogSearch" type="search" placeholder="Rechercher un article..." />
+        </div>
+      </div>
+
+      <div class="blog-grid" id="blogGrid">
+        <article class="blog-card" id="culture-et-patrimoine-africain">
+          <div class="blog-image">
+            <img src="images/articles/culture_patrimoine.jpg" alt="Culture et Patrimoine" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Culture & Patrimoine</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Trésors et traditions d'Afrique : Un patrimoine immatériel inestimable</h3>
+            <p class="blog-desc">Des contes des grands griots sous l'arbre à palabres aux sculptures royales et danses rituelles, découvrez l'âme vivante du continent.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 05 octobre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="faune-et-safaris-afrique">
+          <div class="blog-image">
+            <img src="images/articles/faune_safari.jpg" alt="Faune & Safaris" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Faune & Safaris</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Les plus beaux safaris d'Afrique : À la rencontre de la faune sauvage</h3>
+            <p class="blog-desc">Partez explorer le Serengeti, le cratère du Ngorongoro et le delta de l'Okavango pour une immersion spectaculaire.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 04 octobre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="gastronomie-et-saveurs-africaines">
+          <div class="blog-image">
+            <img src="images/articles/gastronomie.jpg" alt="Gastronomie Africaine" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Gastronomie</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Gastronomie africaine : Les 12 plats emblématiques à déguster absolument</h3>
+            <p class="blog-desc">Du Thiéboudienne du Sénégal au Jollof Rice nigérian, en passant par le Ndolé camerounais et les tajines du Maghreb.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 03 octobre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="musique-danse-et-art-africain">
+          <div class="blog-image">
+            <img src="images/articles/musique_art.jpg" alt="Musique & Art" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Musique & Art</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Rythmes et vibrations du continent : La Rumba, l'Afrobeats et l'essor mondial</h3>
+            <p class="blog-desc">Comment la créativité musicale africaine, de Kinshasa à Lagos et Johannesburg, fait vibrer les scènes de la planète.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 02 octobre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="merveilles-naturelles-afrique">
+          <div class="blog-image">
+            <img src="images/articles/nature_paysages.jpg" alt="Nature & Paysages" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Nature & Paysages</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Des volcans majestueux aux déserts infinis : Les merveilles naturelles</h3>
+            <p class="blog-desc">Du sommet enneigé du Kilimandjaro aux spectaculaires Chutes Victoria et dunes rouges du Namib, explorez des géants naturels.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 01 octobre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="economie-et-innovation-afrique">
+          <div class="blog-image">
+            <img src="images/articles/innovation_tech.jpg" alt="Économie & Tech" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Économie & Tech</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">L'Afrique de demain : Silicon Savannah, hubs d'innovation et jeunesse</h3>
+            <p class="blog-desc">Paiement mobile, énergies renouvelables et écosystème numérique : comment les entrepreneurs façonnent le futur.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 30 septembre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="mode-artisanat-et-elegance">
+          <div class="blog-image">
+            <img src="images/articles/festivals.jpg" alt="Mode & Artisanat" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Mode & Artisanat</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Mode et élégance africaine : De la SAPE mythique aux étoffes traditionnelles</h3>
+            <p class="blog-desc">Découvrez l'art du dandyzme congolais avec la SAPE, les textiles d'exception comme le Kente et le Bogolan, et la haute couture.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 28 septembre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="plages-et-iles-paradisiaques">
+          <div class="blog-image">
+            <img src="images/articles/plages.jpg" alt="Plages & Îles" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Plages & Îles</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">Top des plus belles plages et îles paradisiaques du continent africain</h3>
+            <p class="blog-desc">Zanzibar, Maurice, les Seychelles et le Cap-Vert : conseils et secrets pour des vacances balnéaires d'exception.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 25 septembre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="histoire-et-grands-empires">
+          <div class="blog-image">
+            <img src="images/articles/pays_accueillants.jpg" alt="Histoire" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Histoire</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">L'héritage des royaumes africains : De l'Égypte antique aux empires du Mali</h3>
+            <p class="blog-desc">Une traversée passionnante à travers l'histoire du continent, des cités de Tombouctou aux murailles du Grand Zimbabwe.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 20 septembre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" id="sports-et-athletes-africains">
+          <div class="blog-image">
+            <img src="images/articles/sport.jpg" alt="Sports" onerror="this.src='images/articles/default.jpg'">
+            <span class="blog-category">Sports</span>
+          </div>
+          <div class="blog-content">
+            <h3 class="blog-title">La passion du sport en Afrique : Du football légendaire aux rois du marathon</h3>
+            <p class="blog-desc">Ferveur de la Coupe d'Afrique des Nations (CAN), suprématie des marathoniens et traditions de luttes ancestrales.</p>
+            <div class="blog-footer">
+              <span class="blog-date"><i class="fas fa-calendar"></i> 15 septembre 2026</span>
+              <a href="#" class="blog-link">Lire l'article →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+  <!-- Fin de la section Blogs et Articls -->
+
+  <!-- LE FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <!-- SECTION 1 : Ã€ PROPOS -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-globe"></i> Ã€ Propos de Visit
+          Afrika
+        </h4>
+        <p class="footer-desc">
+          Visit Afrika vous invite à découvrir les
+          merveilles du continent africain.
+          Nous organisons des voyages authentiques et
+          mémorables pour explorer la nature,
+          la culture et les traditions d'Afrique.
+        </p>
+      </div>
+
+      <!-- SECTION 2 : SERVICES -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-concierge-bell"></i> Nos
+          Services
+        </h4>
+        <ul class="footer-list">
+          <li><a href="#"><i class="fas fa-check"></i>
+              Excursions Nature</a></li>
+          <li><a href="#"><i class="fas fa-check"></i>
+              Visites Culturelles</a></li>
+          <li><a href="#"><i class="fas fa-check"></i>
+              Circuits Gastronomiques</a></li>
+          <li><a href="#"><i class="fas fa-check"></i>
+              Guides Experts</a></li>
+          <li><a href="#"><i class="fas fa-check"></i>
+              Séjours Balnéaires</a></li>
+          <li><a href="#"><i class="fas fa-check"></i>
+              Hébergement</a></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 3 : INFORMATIONS -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-info-circle"></i> Informations
+        </h4>
+        <ul class="footer-list">
+          <li><a href="#"><i class="fas fa-book"></i>
+              Culturelles</a></li>
+          <li><a href="#"><i class="fas fa-futbol"></i>
+              Sportives</a></li>
+          <li><a href="#"><i class="fas fa-flag"></i>
+              Politiques</a></li>
+          <li><a href="#"><i class="fas fa-users"></i>
+              Populations</a></li>
+          <li><a href="#"><i class="fas fa-leaf"></i>
+              Environnementales</a></li>
+        </ul>
+      </div>
+
+      <!-- SECTION 4 : CONTACTS -->
+      <div class="footer-section">
+        <h4 class="footer-title">
+          <i class="fas fa-phone"></i> Nous Contacter
+        </h4>
+        <div class="contact-info">
+          <p class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <span>(+224) 625 34 30 39<br>(+224) 663 86
+              44 87</span>
+          </p>
+          <p class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+          </p>
+          <p class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Université de Labé/Labé -
+              Guinée</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+    <!-- DROITS D'AUTEUR -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+    </div>
+  </footer>
+
+  <script src="js/vendors/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog_dynamic.js"></script>
+</body>
+
+</html>

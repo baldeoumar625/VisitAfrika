@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: ouganda.html
+    DESCRIPTION: Page pays premium standardisée pour l'Ouganda.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'Ouganda, la Perle de l'Afrique. Des gorilles de Bwindi aux sources du Nil à Jinja et aux paysages du Rwenzori, explorez une nature sauvage et généreuse.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - L'Ouganda (La Perle de l'Afrique)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/ouganda.jpg" alt="L'Ouganda" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">L'Ouganda</h1>
+            <p class="hero-subtitle">La Perle de l'Afrique, là où le Nil prend sa source</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Éden de l'Afrique de l'Est</h2>
+            <p class="section-description">
+                L'Ouganda, surnommé la "Perle de l'Afrique" par Winston Churchill, est une destination d'une biodiversité époustouflante. C'est ici que se rencontrent la savane est-africaine et la forêt tropicale d'Afrique centrale. Terre d'accueil des gorilles de montagne à Bwindi et des chimpanzés à Kibale, l'Ouganda est aussi le berceau du Nil, dont les eaux bouillonnent aux chutes Murchison. Des cimes enneigées du Rwenzori aux eaux paisibles du lac Bunyonyi, le pays offre une aventure sauvage authentique et une hospitalité sans pareille.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles de la Perle de l'Afrique</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une aventure...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Safari & Primates</span>
+                <span class="filter-tag" data-filter="eau">Nil & Lacs</span>
+                <span class="filter-tag" data-filter="culture">Villes & Palais</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="ouganda-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Bwindi Impenetrable -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Bwindi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 90k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Bwindi</h3>
+                        <p class="location-text">Forêt impénétrable et trekking des gorilles de montagne</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bwindi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Source du Nil -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Jinja">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Jinja</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Source du Nil Blanc</h3>
+                        <p class="location-text">Le point de départ du plus long fleuve du monde et capitale de l'aventure</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="jinja">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Murchison Falls -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Murchison">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes Murchison</h3>
+                        <p class="location-text">Là où le Nil se fracasse dans une gorge étroite de 7m</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="murchison">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Queen Elizabeth NP -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Queen Elizabeth">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kasese</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 48k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc Queen Elizabeth</h3>
+                        <p class="location-text">Safari savane célèbre pour ses lions grimpeurs d'arbres à Ishasha</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="queen_elizabeth">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Rwenzori Mountains -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Rwenzori">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Frontière RDC</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Montagnes de la Lune</h3>
+                        <p class="location-text">Cimes enneigées et paysages alpins au cœur de l'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rwenzori">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Kibale Forest -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Kibale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Fort Portal</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Kibale</h3>
+                        <p class="location-text">La capitale mondiale des primates et des chimpanzés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kibale">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Lac Bunyonyi -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Bunyonyi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kabale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Bunyonyi</h3>
+                        <p class="location-text">Le lac aux 29 îles, lieu de repos paisible et sans hippopotames</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bunyonyi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Kidepo Valley -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Kidepo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Karamoja</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée de Kidepo</h3>
+                        <p class="location-text">Safari sauvage et isolé dans l'une des plus belles savanes d'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kidepo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Kampala (Mosquée Kadhafi) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Kampala">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kampala</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mosquée Nationale d'Ouganda</h3>
+                        <p class="location-text">Vue panoramique sur les sept collines de la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kampala">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Palais de Kabaka -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Kabaka">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mengo, Kampala</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais de Kabaka</h3>
+                        <p class="location-text">Le siège historique du Royaume du Buganda et son histoire fascinante</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kabaka">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Ssese Islands -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Ssese">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lac Victoria</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Îles Ssese</h3>
+                        <p class="location-text">Archipel de 84 îles tropicales au milieu du lac géant</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ssese">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Mount Elgon -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Elgon">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mbale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Elgon</h3>
+                        <p class="location-text">Ancien volcan avec l'une des plus grandes caldeiras au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="elgon">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Ziwa Rhino Sanctuary -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ziwa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nakasongola</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Sanctuaire de Rhino Ziwa</h3>
+                        <p class="location-text">Le seul endroit en Ouganda pour voir des rhinocéros blancs à pied</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ziwa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Lac Mburo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Mburo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kiruhura</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 16k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National du Lac Mburo</h3>
+                        <p class="location-text">Le royaume des zèbres et des impalas, idéal pour les safaris à cheval</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mburo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Entebbe (Jardin Botanique) -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Entebbe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Entebbe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Jardin Botanique d'Entebbe</h3>
+                        <p class="location-text">Un havre de paix sur les rives du lac Victoria, riche en oiseaux et singes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="entebbe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une terre de royaumes et de diversité ethnique.</p>
+                    <p>L'Ouganda est une mosaïque culturelle composée de plus de 50 ethnies. Le Royaume du Buganda, le plus puissant, préserve des traditions séculaires. La culture ougandaise s'exprime dans les danses énergiques Kiganda, dans l'art de l'écorce tissée (Bark Cloth) classé à l'UNESCO, et dans une gastronomie généreuse. Pays à forte majorité chrétienne, il vibre aussi au son des percussions et du dynamisme de sa jeunesse urbaine à Kampala.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Royaume du Buganda</h6>
+                                <p class="small text-muted mb-0">Une institution royale millénaire qui structure encore la vie sociale et politique du pays.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-leaf text-info me-2"></i>Bark Cloth (Ecorce)</h6>
+                                <p class="small text-muted mb-0">Tissu ancestral fabriqué à partir d'écorce de figuier, un patrimoine immatériel unique.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Musique & Danses</h6>
+                                <p class="small text-muted mb-0">Du rythme Kadodi au dynamisme de la pop locale, la musique est l'âme de l'Ouganda.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-smile text-success me-2"></i>Hospitalité Ougandaise</h6>
+                                <p class="small text-muted mb-0">Réputé comme l'un des peuples les plus accueillants d'Afrique de l'Est.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Ouganda" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de la Perle</h2>
+        <p>L'excellence ougandaise entre vos mains. Du café de montagne à l'artisanat éco-responsable.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ugandan_coffee.png" alt="Cafe" onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Origine</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Bugisu Arabica</h3>
+                    <p class="product-desc">Café de haute altitude cultivé sur les pentes du Mont Elgon, aux arômes riches et chocolatés.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 UGX</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bark_cloth.png" alt="Ecorce" onerror="this.src='https://ui-avatars.com/api/?name=Bark&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Rare</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Accessoire en Bark Cloth</h3>
+                    <p class="product-desc">Objet en tissu d'écorce ancestrale, un matériau durable et chargé d'histoire royale.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 UGX</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/woven_basket.png" alt="Panier" onerror="this.src='https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tissé Ougandais</h3>
+                    <p class="product-desc">Vannerie fine aux motifs géométriques, réalisée par les coopératives de femmes rurales.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 UGX</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200" alt="The Portal">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Thé Noir de Fort Portal</h3>
+                    <p class="product-desc">Un thé robuste et parfumé issu des grandes plantations de l'ouest du pays.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 000 UGX</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Beads&background=8b0000&color=fff&size=200" alt="Bijou Papier">
+                    <span class="stock-badge">Eco-Friendly</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Collier en Perles de Papier</h3>
+                    <p class="product-desc">Bijou coloré fabriqué à partir de papier recyclé, spécialité de l'artisanat solidaire de Kampala.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 000 UGX</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Statue&background=4b2c20&color=fff&size=200" alt="Sculpture">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Bois de Mvule</h3>
+                    <p class="product-desc">Statue représentant la faune locale, taillée dans un bois noble et durable.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 UGX</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/ouganda.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjours de <span>Rêve</span></h2>
+                    <p>Découvrez notre sélection de lodges de safari et de palaces urbains d'exception.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="kampala_serena">Kampala Serena Hotel</option>
+                            <option value="sheraton">Sheraton Kampala</option>
+                            <option value="clouds">Clouds Gorilla Lodge (Bwindi)</option>
+                            <option value="paraa">Paraa Safari Lodge (Murchison)</option>
+                            <option value="latitude">Latitude 0 Degrees (Kampala)</option>
+                            <option value="mihingo">Mihingo Lodge (Lake Mburo)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Kampala Serena"></div>
+                    <div class="hotel-content">
+                        <h4>Kampala Serena Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kampala, Centre-ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Clouds Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Clouds Mountain Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bwindi Impenetrable</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Paraa Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Paraa Safari Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Murchison Falls</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Latitude 0"></div>
+                    <div class="hotel-content">
+                        <h4>Latitude 0 Degrees</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Makindye, Kampala</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Mihingo"></div>
+                    <div class="hotel-content">
+                        <h4>Mihingo Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lake Mburo National Park</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Sheraton"></div>
+                    <div class="hotel-content">
+                        <h4>Sheraton Kampala</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kampala, District des Affaires</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine ougandaise est généreuse, utilisant les produits frais des jardins et des lacs. Le Matooke en est le roi incontesté.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Matooke&background=daa520&color=fff&size=200" alt="Matooke"></div>
+                <div class="plat-content"><h4>Le Matooke</h4><p>Bananes plantains vertes cuites à la vapeur dans leurs feuilles, base de l'alimentation ougandaise.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rolex&background=ff4500&color=fff&size=200" alt="Rolex"></div>
+                <div class="plat-content"><h4>Le Rolex</h4><p>Street food iconique : une omelette aux légumes roulée dans un chapati chaud.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Luwombo&background=8b4513&color=fff&size=200" alt="Luwombo"></div>
+                <div class="plat-content"><h4>Luwombo</h4><p>Ragoût royal de poulet ou bœuf cuit à la vapeur dans une feuille de bananier avec sauce arachide.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Muchomo&background=8b0000&color=fff&size=200" alt="Muchomo"></div>
+                <div class="plat-content"><h4>Muchomo</h4><p>Viande grillée (chèvre, bœuf ou porc) servie avec des bananes frites, un délice de rue.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Katogo&background=daa520&color=fff&size=200" alt="Katogo"></div>
+                <div class="plat-content"><h4>Katogo</h4><p>Petit-déjeuner traditionnel mêlant bananes cuites, tripes ou haricots.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson"></div>
+                <div class="plat-content"><h4>Poisson du Lac Victoria</h4><p>Tilapia ou Perche du Nil grillé ou frit, d'une fraîcheur absolue.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Malewa&background=006400&color=fff&size=200" alt="Malewa"></div>
+                <div class="plat-content"><h4>Malewa</h4><p>Pousses de bambou fumées, spécialité de la région de l'est (Mont Elgon).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Posho&background=f5f5dc&color=000&size=200" alt="Posho"></div>
+                <div class="plat-content"><h4>Posho</h4><p>Pâte consistante de maïs, servie comme base pour les ragoûts et soupes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kalo&background=4b2c20&color=fff&size=200" alt="Kalo"></div>
+                <div class="plat-content"><h4>Kalo (Millet)</h4><p>Pâte de millet noir, très appréciée dans le nord et l'ouest du pays.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Eshabwe&background=f5f5dc&color=000&size=200" alt="Eshabwe"></div>
+                <div class="plat-content"><h4>Eshabwe</h4><p>Beurre de lait clarifié blanc et crémeux, délice du peuple Ankole.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ananas&background=daa520&color=fff&size=200" alt="Ananas"></div>
+                <div class="plat-content"><h4>Ananas de l'Ouganda</h4><p>Réputés pour être les plus sucrés et juteux au monde.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kikomando&background=daa520&color=fff&size=200" alt="Kikomando"></div>
+                <div class="plat-content"><h4>Kikomando</h4><p>Repas rapide et populaire de chapatis coupés mélangés avec des haricots.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>L'Ouganda célèbre sa diversité à travers des festivals vibrants et des rendez-vous culturels uniques.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Nyege Nyege</h4>
+                    <p>Le plus grand festival de musique électronique et alternative d'Afrique de l'Est (Septembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-running"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sport</span>
+                    <h4>MTN Kampala Marathon</h4>
+                    <p>Grand événement caritatif réunissant des milliers de coureurs dans les rues de la capitale.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-theater-masks"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Bayimba Festival</h4>
+                    <p>Célébration pluridisciplinaire des arts et de la culture ougandaise sur l'île de Lunkulu.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Juin-Août & Décembre-Février)</h5>
+                    <p class="small mb-0">La période idéale pour le safari et le trekking des gorilles. Les animaux se rassemblent autour des points d'eau et les pistes sont sèches.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison Verte (Mars-Mai & Octobre-Novembre)</h5>
+                    <p class="small mb-0">Les paysages sont d'un vert luxuriant. C'est le moment idéal pour l'observation des oiseaux et pour profiter de tarifs plus bas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">L'Ouganda est globalement sûr. Évitez les déplacements nocturnes en dehors des villes et restez informé des conseils locaux.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Prophylaxie antipaludique vivement conseillée. Buvez de l'eau en bouteille uniquement.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-motorcycle fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Boda Boda</h6>
+                    <p class="small text-muted">Les motos-taxis sont rapides mais demandent de la prudence. Utilisez des applications comme SafeBoda pour plus de sécurité.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Shilling Ougandais (UGX). Le dollar US est accepté pour les permis de gorille et les grands hôtels (billets récents).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Samuel+Gorilles&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Samuel">
+                        <h5 class="fw-bold mb-1">Samuel Mukasa</h5>
+                        <p class="text-primary small fw-bold mb-3">Chef Guide Gorilla Trekking</p>
+                        <p class="small text-muted">Samuel arpente la forêt de Bwindi depuis 15 ans. Il est le garant d'une rencontre inoubliable avec les primates.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:samuel@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Samuel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Grace+Jinja&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Grace">
+                        <h5 class="fw-bold mb-1">Grace Akello</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Nil & Aventures</p>
+                        <p class="small text-muted">Spécialiste de la région de Jinja, Grace vous fera découvrir la source du Nil sous un angle historique et sportif.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:grace@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Grace</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=David+Kampala&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="David">
+                        <h5 class="fw-bold mb-1">David Kato</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturel & Patrimoine</p>
+                        <p class="small text-muted">David est passionné par l'histoire du Buganda et les secrets de Kampala. Un conteur exceptionnel.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:david@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec David</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">L'Ouganda, la Perle de l'Afrique. Explorez une nature sauvage d'une richesse infinie avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Ouganda</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +256 41 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> kampala@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Ouganda - Pearl of Africa</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/ouganda.js"></script>
+</body>
+
+</html>

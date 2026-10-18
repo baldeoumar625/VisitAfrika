@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: admin_reservations.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+  <link rel="stylesheet" href="../css/admin.css?v=2">
+  <script src="../js/admin_protection.js"></script>
+  <title>Réservations - Visit Afrika</title>
+  <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-profile">
+        <img src="../images/admin_avatar.png" alt="Admin Avatar">
+        <div class="user-name">Bah Oumar</div>
+        <div class="user-role">Administrateur</div>
+      </div>
+      
+      <span class="sidebar-menu-label">Principal</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin.html"><i class="fas fa-grid-2"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="admin_pays.html"><i class="fas fa-globe-africa"></i> Gestion Pays</a>
+        </li>
+        
+        <li>
+          <a href="admin_reservations.html" class="active"><i class="fas fa-calendar-check"></i> Réservations</a>
+        </li>
+        <li>
+          <a href="admin_blog.html"><i class="fas fa-feather-pointed"></i> Gestion Blogs</a>
+        </li>
+        <li>
+          <a href="admin_galerie.html"><i class="fas fa-photo-film"></i> Galerie</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Utilisateurs & Messages</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_utilisateurs.html"><i class="fas fa-users-gear"></i> Utilisateurs</a>
+        </li>
+        <li>
+          <a href="admin_messages.html"><i class="fas fa-envelope-open-text"></i> Messages</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Système</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_parametres.html"><i class="fas fa-sliders"></i> Paramètres</a>
+        </li>
+        <li>
+          <a href="../index.html"><i class="fas fa-right-from-bracket"></i> Retour au site</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <div class="toggle-sidebar cursor-pointer" id="sidebarToggle">
+            <i class="fas fa-bars-staggered"></i>
+          </div>
+          <div class="header-search">
+            <i class="fas fa-search"></i>
+            <input type="text" id="resSearch" placeholder="Rechercher une réservation...">
+          </div>
+        </div>
+        <div class="header-right header-icon-group">
+          <div class="position-relative cursor-pointer me-3">
+            <i class="fas fa-bell fs-notification"></i>
+            <span class="position-absolute badge rounded-pill bg-danger border border-light notification-badge"></span>
+          </div>
+          <div class="cursor-pointer">
+            <i class="fas fa-message fs-notification"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Reservations Content -->
+      <div class="admin-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="fw-bold mb-1">Gestion des Réservations</h2>
+            <p class="text-muted small">Suivez et gérez les demandes de visite et de séjour.</p>
+          </div>
+          <div class="d-flex gap-2">
+            <select class="form-select form-select-sm" id="filterStatus">
+               <option value="all">Tous les statuts</option>
+               <option value="En attente">En attente</option>
+               <option value="Confirmé">Confirmé</option>
+               <option value="Annulé">Annulé</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Système d'onglets -->
+        <div class="admin-tabs mb-4">
+            <button class="tab-btn active" data-tab="sites"><i class="fas fa-map-location-dot me-2"></i> Sites Touristiques</button>
+            <button class="tab-btn" data-tab="hotels"><i class="fas fa-hotel me-2"></i> Hôtels</button>
+        </div>
+
+        <div class="modern-card">
+          <div class="table-responsive">
+            <table class="activity-table" id="tableSites">
+              <thead>
+                <tr>
+                  <th style="width: 60px;">N°</th>
+                  <th>Client</th>
+                  <th>Site Touristique</th>
+                  <th>Date prévue</th>
+                  <th>Pers.</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reservationsTableBody">
+                <tr><td colspan="7" class="text-center py-5">Chargement...</td></tr>
+              </tbody>
+            </table>
+
+            <table class="activity-table d-none" id="tableHotels">
+                <thead>
+                  <tr>
+                    <th style="width: 60px;">N°</th>
+                    <th>Client</th>
+                    <th>Hôtel</th>
+                    <th>Pays</th>
+                    <th>Check-in / Check-out</th>
+                    <th>Voyageurs</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="hotelReservationsTableBody">
+                  <tr><td colspan="8" class="text-center py-5">Chargement...</td></tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/admin_reservations.js?v=3"></script>
+  <script>
+    // Sidebar Toggle
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('d-none');
+      } else {
+        sidebar.style.width = sidebar.style.width === '0px' ? '260px' : '0px';
+        sidebar.style.padding = sidebar.style.width === '0px' ? '0' : '1.5rem';
+        sidebar.style.overflow = 'hidden';
+      }
+    });
+  </script>
+</body>
+
+</html>

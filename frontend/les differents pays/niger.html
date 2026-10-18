@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: niger.html
+    DESCRIPTION: Page pays premium standardisée pour le Niger.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Niger, le carrefour des cultures sahariennes. De la mosquée historique d'Agadez aux dunes infinies du Ténéré, explorez l'âme du désert.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Niger (Le Carrefour des Déserts)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/niger.jpg" alt="Le Niger" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Niger</h1>
+            <p class="hero-subtitle">Terre d'hospitalité millénaire entre fleuve majestueux et dunes d'or</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Immensité Sauvage aux Portes du Sahara</h2>
+            <p class="section-description">
+                Le Niger est une terre de légendes, un trait d'union fascinant entre l'Afrique subsaharienne et le monde méditerranéen. Dominé par l'immensité du Sahara, le pays abrite des joyaux architecturaux comme la Grande Mosquée d'Agadez, classée à l'UNESCO, et les dunes spectaculaires du Ténéré. Au sud, le fleuve Niger irrigue des plaines fertiles et abrite les dernières girafes blanches d'Afrique de l'Ouest à Kouré. Le Niger est également un sanctuaire de biodiversité avec le Parc National du W, où lions, léopards et éléphants s'épanouissent en toute liberté. C'est surtout un pays de rencontres, où les peuples Touareg, Haoussa, Peul et Djerma partagent une culture de l'hospitalité unique au monde.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 sites légendaires du Niger</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une ville ou un parc...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="desert">Désert & Sahara</span>
+                <span class="filter-tag" data-filter="nature">Nature & Fleuve</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="niger-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Niamey (Musée National) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Niamey">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Niamey</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National Boubou Hama</h3>
+                        <p class="location-text">Un musée en plein air exceptionnel présentant les habitats et l'artisanat du Niger</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="niamey_museum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Parc National du W -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Parc W">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Frontière Sud (UNESCO)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National du W</h3>
+                        <p class="location-text">Le plus grand sanctuaire de faune sauvage d'Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="parc_w">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Agadez (Grande Mosquée) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Agadez">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Agadez (UNESCO)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grande Mosquée d'Agadez</h3>
+                        <p class="location-text">Un chef-d'œuvre de l'architecture soudanaise en banco culminant à 27m</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="agadez_mosque">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Massif de l'Aïr -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Air">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord Niger</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Massif de l'Aïr</h3>
+                        <p class="location-text">Montagnes de granit noir contrastant avec les sables dorés, terre des Touaregs</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="air_mountains">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Désert du Ténéré -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Tenere">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Désert du Ténéré</h3>
+                        <p class="location-text">L'"Océan de sable" et ses dunes infinies, l'un des déserts les plus mythiques au monde</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tenere_desert">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Zinder (Palais du Sultan) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Zinder">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zinder</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais du Sultan de Zinder</h3>
+                        <p class="location-text">Demeure historique richement décorée au coeur du quartier traditionnel de Birni</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zinder_palace">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Réserve de Girafes de Kouré -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Koure">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Niamey</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 48k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Les Girafes de Kouré</h3>
+                        <p class="location-text">Dernier troupeau de girafes blanches d'Afrique de l'Ouest vivant en liberté</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="koure_giraffes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Falaise de Tiguidit -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Tiguidit">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud Agadez</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Falaise de Tiguidit</h3>
+                        <p class="location-text">Rempart naturel impressionnant marquant l'entrée dans le grand désert du Ténéré</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tiguidit">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Oasis de Bilma -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Bilma">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kaouar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oasis de Bilma</h3>
+                        <p class="location-text">Ancien carrefour caravanier célèbre pour ses salines et ses palmeraies</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bilma">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Monts Bagzane -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Bagzane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Massif de l'Aïr</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monts Bagzane</h3>
+                        <p class="location-text">Point culminant du pays à 2022m, oasis de verdure au milieu des cimes</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bagzane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Tahoua -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Tahoua">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tahoua</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Tahoua</h3>
+                        <p class="location-text">Carrefour entre le monde sédentaire et nomade, célèbre pour son artisanat</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tahoua">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Maradi -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Maradi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Capitale Économique</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Maradi</h3>
+                        <p class="location-text">Le centre du commerce et de la culture Haoussa au Niger</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="maradi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. In-Gall (Cure Salée) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="In-Gall">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près d'Agadez</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>In-Gall</h3>
+                        <p class="location-text">Lieu du célèbre rassemblement annuel des éleveurs nomades, la Cure Salée</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ingall">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Dosso -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Dosso">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud Niamey</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Dosso et le Palais du Djermakoye</h3>
+                        <p class="location-text">Haut lieu de la culture Djerma et siège d'un sultanat historique</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dosso">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Diffa (Lac Tchad) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Diffa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Extrême Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Région de Diffa</h3>
+                        <p class="location-text">Une zone humide unique aux portes du désert, influencée par le Lac Tchad</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="diffa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'harmonie entre fleuve et désert, le coeur battant du Sahel.</p>
+                    <p>Le Niger est une mosaïque culturelle fascinante où se côtoient agriculteurs sédentaires et pasteurs nomades. La culture haoussa au sud, djerma-songhaï le long du fleuve, et touarègue et toubou au nord, créent une identité nationale riche de sa diversité. L'histoire du Niger est marquée par les grands empires sahéliens et les cités-états caravanières comme Agadez, véritable porte du Sahara. L'artisanat, de la maroquinerie fine à la joaillerie en argent, témoigne d'un savoir-faire millénaire. La Cure Salée à In-Gall ou le Gerewol des Peuls Wodaabe sont des célébrations spectaculaires qui illustrent la vivacité des traditions nigériennes.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-camel text-warning me-2"></i>Culture Nomade</h6>
+                                <p class="small text-muted mb-0">La résilience et la noblesse des Touaregs, les "Hommes Bleus" du désert, maîtres de l'Aïr et du Ténéré.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mosque text-info me-2"></i>Patrimoine Soudanais</h6>
+                                <p class="small text-muted mb-0">L'architecture unique en terre (banco) d'Agadez et de Zinder, classée au patrimoine mondial.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Rythmes du Sahel</h6>
+                                <p class="small text-muted mb-0">Les polyphonies nomades et la musique moderne inspirée des traditions ancestrales, comme le Blues Touareg.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Parenté à Plaisanterie</h6>
+                                <p class="small text-muted mb-0">Un pilier de la cohésion sociale nigérienne, favorisant la paix et l'humour entre les différentes ethnies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Niger" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Sahara</h2>
+        <p>L'excellence de l'artisanat nigérien. De l'argent ciselé d'Agadez à la maroquinerie Touareg.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/croix_agadez.png" alt="Croix" onerror="this.src='https://ui-avatars.com/api/?name=Croix&background=c0c0c0&color=000&size=200'">
+                    <span class="stock-badge">Emblème</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Croix d'Agadez en Argent</h3>
+                    <p class="product-desc">Pendentif traditionnel touareg en argent pur, ciselé à la main par les maîtres orfèvres d'Agadez.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/maroquinerie_touareg.png" alt="Sac" onerror="this.src='https://ui-avatars.com/api/?name=Leather&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Besace en Cuir Touareg</h3>
+                    <p class="product-desc">Maroquinerie fine en peau de chèvre, ornée de motifs géométriques traditionnels et de franges.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/zinder_tissage.png" alt="Tissage" onerror="this.src='https://ui-avatars.com/api/?name=Tissage&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissage 'Tera-Tera' de Zinder</h3>
+                    <p class="product-desc">Couverture traditionnelle tissée en bandes de coton colorées, spécialité de la ville de Zinder.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Pottery&background=daa520&color=fff&size=200" alt="Poterie">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Boubon</h3>
+                    <p class="product-desc">Vases décoratifs en terre cuite réalisés par les potières du village de Boubon au bord du fleuve Niger.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Kilishi&background=8b0000&color=fff&size=200" alt="Kilishi">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Kilishi Premium de Niamey</h3>
+                    <p class="product-desc">Fines tranches de bœuf séchées au soleil et assaisonnées aux épices et à la pâte d'arachide.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Tea&background=000&color=fff&size=200" alt="The">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Kit Thé Touareg Complet</h3>
+                    <p class="product-desc">Service à thé traditionnel (théière, verres) pour revivre la cérémonie du thé saharienne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">30 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/niger.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales au <span>Sahel</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels pour un confort absolu à Niamey et un séjour authentique à Agadez.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="radisson">Radisson Blu Niamey</option>
+                            <option value="noom">Noom Hotel Niamey</option>
+                            <option value="bravia">Bravia Hotel Niamey</option>
+                            <option value="gaweye">Hôtel Gaweye Niamey</option>
+                            <option value="grand_hotel">Grand Hôtel du Niger</option>
+                            <option value="paix_agadez">Hôtel de la Paix Agadez</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Radisson Blu"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Niamey, Luxe & Spa</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Noom Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Noom Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Niamey, Moderne & Chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Bravia Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Bravia Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Niamey, Grand Standing</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Hotel Gaweye"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Gaweye</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Niamey, Bord du Fleuve</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Grand Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Grand Hôtel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Niamey, Historique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Paix Agadez"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel de la Paix</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Agadez, Charme Saharien</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine nigérienne est savoureuse et nourrissante, basée sur les céréales locales comme le mil et le sorgho, ainsi que la viande grillée.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Djerma&background=8b0000&color=fff&size=200" alt="Stew"></div>
+                <div class="plat-content"><h4>Djerma Stew</h4><p>Ragoût de viande épicé avec des oignons, des tomates et du piment, un classique du fleuve.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kilishi&background=8b0000&color=fff&size=200" alt="Kilishi"></div>
+                <div class="plat-content"><h4>Kilishi</h4><p>Le snack national : viande de bœuf séchée et épicée, à la fois croquante et savoureuse.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Massa&background=daa520&color=fff&size=200" alt="Massa"></div>
+                <div class="plat-content"><h4>Massa</h4><p>Petites galettes de riz fermenté, frites et servies avec du sucre ou une sauce épicée.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice&background=daa520&color=fff&size=200" alt="Rice"></div>
+                <div class="plat-content"><h4>Riz à la Sauce Arachide</h4><p>Riz blanc nappé d'une sauce onctueuse aux cacahuètes pilées et à la viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Takoula&background=daa520&color=fff&size=200" alt="Takoula"></div>
+                <div class="plat-content"><h4>Takoula</h4><p>Boule de mil consistante servie avec une sauce de légumes ou de viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Couscous&background=daa520&color=fff&size=200" alt="Couscous"></div>
+                <div class="plat-content"><h4>Couscous de Mil</h4><p>Fine semoule de mil servie avec des légumes du désert et de la viande séchée.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=000&color=fff&size=200" alt="Tea"></div>
+                <div class="plat-content"><h4>Thé Touareg</h4><p>La boisson de l'hospitalité : trois thés successifs (amer, sucré, suave) servis sous la tente.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=8b0000&color=fff&size=200" alt="Bissap"></div>
+                <div class="plat-content"><h4>Jus de Bissap</h4><p>Infusion d'hibiscus fraîche et parfumée, la boisson préférée pour se désaltérer au Sahel.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Brochettes&background=8b0000&color=fff&size=200" alt="Brochettes"></div>
+                <div class="plat-content"><h4>Brochettes de Niamey</h4><p>Viande grillée au feu de bois avec des épices Kankankan, omniprésentes dans les rues.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dates&background=daa520&color=fff&size=200" alt="Dates"></div>
+                <div class="plat-content"><h4>Dattes de l'Aïr</h4><p>Dattes fraîches ou séchées provenant des oasis du nord, un concentré d'énergie.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Salad&background=006400&color=fff&size=200" alt="Salade"></div>
+                <div class="plat-content"><h4>Salade de Niébé</h4><p>Salade de haricots locaux (cornilles) assaisonnée à l'huile et au piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Goat&background=8b0000&color=fff&size=200" alt="Soupe"></div>
+                <div class="plat-content"><h4>Soupe de Chèvre</h4><p>Soupe revigorante très épicée, appréciée pour les grandes occasions.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez la ferveur des grandes rencontres traditionnelles du Niger.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-camel"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Nomade</span>
+                    <h4>La Cure Salée</h4>
+                    <p>Le plus grand rassemblement de nomades à In-Gall (Septembre), avec courses de chameaux et danses Gerewol.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sultanat</span>
+                    <h4>Le Bianou d'Agadez</h4>
+                    <p>Célébration traditionnelle spectaculaire de la fin du ramadan avec défilés et musiques touarègues.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-horse"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Royauté</span>
+                    <h4>La Hawan Sallah de Zinder</h4>
+                    <p>Le grand défilé équestre du Sultan de Zinder, une démonstration de faste et de tradition Haoussa.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Novembre à Février</h5>
+                    <p class="small mb-0">La période idéale. Les journées sont chaudes mais supportables et les nuits sont fraîches. C'est le moment parfait pour les expéditions dans le désert et les visites de parcs.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Septembre à Octobre</h5>
+                    <p class="small mb-0">Fin de la saison des pluies. La nature est verdoyante au sud et c'est la période des grandes fêtes nomades comme la Cure Salée. Attention toutefois à la chaleur résiduelle.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Consultez les recommandations de voyage. Niamey est généralement calme. Pour le désert, utilisez exclusivement des agences de voyage certifiées avec escorte.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Prévention du paludisme fortement recommandée. Buvez exclusivement de l'eau en bouteille ou filtrée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour la plupart des nationalités. Obtenez votre visa auprès de l'ambassade du Niger avant le départ.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XOF). L'économie repose sur l'espèce. Quelques distributeurs à Niamey acceptant les cartes internationales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Moussa+Desert&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Moussa">
+                        <h5 class="fw-bold mb-1">Moussa Ag Intaka</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Sahara & Aïr</p>
+                        <p class="small text-muted">Natif d'Agadez, Moussa est un guide touareg chevronné qui connaît chaque dune du Ténéré et secret du massif de l'Aïr.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:moussa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Moussa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Fati+Culture&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Fati">
+                        <h5 class="fw-bold mb-1">Fati Maïga</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture & Artisanat</p>
+                        <p class="small text-muted">Spécialiste de l'histoire des empires sahéliens, Fati vous fera découvrir les richesses de Niamey et de Zinder.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fati@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Fati</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Abdou+Nature&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Abdou">
+                        <h5 class="fw-bold mb-1">Abdou Salam</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Safari & Parc W</p>
+                        <p class="small text-muted">Pisteur passionné, Abdou vous accompagnera dans le Parc National du W pour une observation inoubliable de la faune.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:abdou@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Abdou</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Niger, le carrefour des déserts. Découvrez l'âme du Sahara et une nature sauvage préservée avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Niamey</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +227 20 73 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> niamey@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Niger - Crossroads of Deserts</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/niger.js"></script>
+</body>
+
+</html>

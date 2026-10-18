@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: maroc.html
+    DESCRIPTION: Page pays premium standardisée pour Le Maroc.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Maroc, le Royaume des mille contrastes. Des médinas de Marrakech aux dunes du Sahara, explorez une culture millénaire et des paysages à couper le souffle.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Maroc (Royaume de Lumière)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Nord/maroc.jpg" alt="Le Maroc" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Maroc</h1>
+            <p class="hero-subtitle">Le Royaume des sens, entre désert d'ocre et cités impériales</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Émotion du Couchant</h2>
+            <p class="section-description">
+                Le Maroc est une terre de magie où l'histoire s'écrit dans les méandres des médinas millénaires. Des sommets enneigés de l'Atlas aux dunes dorées du Sahara, en passant par les côtes atlantiques ventées, le Royaume offre une diversité de paysages unique. Terre d'hospitalité légendaire, le Maroc est une invitation permanente au voyage, à la découverte de saveurs épicées et d'un artisanat d'une finesse absolue.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux du Royaume</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un lieu...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="villes">Villes Impériales</span>
+                <span class="filter-tag" data-filter="nature">Nature & Atlas</span>
+                <span class="filter-tag" data-filter="desert">Sahara</span>
+                <span class="filter-tag" data-filter="cote">Côtes</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="maroc-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Marrakech -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1597212618440-806262de498b?auto=format&fit=crop&q=80&w=800" alt="Marrakech">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Place Jemaa el-Fna</h3>
+                        <p class="location-text">Le cœur battant de la ville rouge</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="marrakech">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Fès -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Fes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Fès</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Médina de Fès el-Bali</h3>
+                        <p class="location-text">Plus grande zone piétonne au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Chefchaouen -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1548661763-7413c9ef3c68?auto=format&fit=crop&q=80&w=800" alt="Chefchaouen">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rif</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>La Ville Bleue</h3>
+                        <p class="location-text">Un labyrinthe azur dans les montagnes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chefchaouen">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Merzouga -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&q=80&w=800" alt="Merzouga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Dunes de l'Erg Chebbi</h3>
+                        <p class="location-text">Le désert à perte de vue</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="merzouga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Essaouira -->
+            <article class="attraction" data-category="cote">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1563227448-9366f0761280?auto=format&fit=crop&q=80&w=800" alt="Essaouira">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Atlantique</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mogador (Essaouira)</h3>
+                        <p class="location-text">La cité des vents et des artistes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="essaouira">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Casablanca -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Casablanca">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Casablanca</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mosquée Hassan II</h3>
+                        <p class="location-text">Chef-d'œuvre de l'architecture marocaine</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="casablanca">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Ouarzazate -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1489493585363-d69421e0dee3?auto=format&fit=crop&q=80&w=800" alt="Ait Ben Haddou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouarzazate</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Aït-Ben-Haddou</h3>
+                        <p class="location-text">Ksar légendaire classé à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ouarzazate">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Rabat -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1548661763-7413c9ef3c68?auto=format&fit=crop&q=80&w=800" alt="Rabat">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rabat</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tour Hassan & Mausolée</h3>
+                        <p class="location-text">Symboles de la capitale impériale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rabat">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Volubilis -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&q=80&w=800" alt="Volubilis">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Meknès</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité de Volubilis</h3>
+                        <p class="location-text">Vestiges de l'Empire Romain au Maroc</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="volubilis">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Gorges du Todra -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Todra">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tinghir</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Gorges du Todra</h3>
+                        <p class="location-text">Falaises vertigineuses de l'Atlas</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="todra">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Vallée de l'Ourika -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1528498033053-35608b21c67c?auto=format&fit=crop&q=80&w=800" alt="Ourika">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Atlas</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée de l'Ourika</h3>
+                        <p class="location-text">Fraîcheur et cascades près de Marrakech</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ourika">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Agadir -->
+            <article class="attraction" data-category="cote">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=800" alt="Agadir">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Souss</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baie d'Agadir</h3>
+                        <p class="location-text">Soleil 300 jours par an</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="agadir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Tanger -->
+            <article class="attraction" data-category="cote">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Tanger">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Détroit</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grottes d'Hercule</h3>
+                        <p class="location-text">Là où la Méditerranée rencontre l'Atlantique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tanger">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Meknès -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Meknes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Meknès</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Bab Mansour</h3>
+                        <p class="location-text">La plus belle porte du monde arabe</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="meknes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Cascades d'Akchour -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Akchour">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rif</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cascades d'Akchour</h3>
+                        <p class="location-text">Paradis naturel caché près de Chefchaouen</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="akchour">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un carrefour de civilisations entre l'Afrique, l'Europe et l'Orient.</p>
+                    <p>L'histoire du Maroc est une épopée millénaire portée par de grandes dynasties (Idrissides, Almoravides, Almohades, Mérinides, Saadiens, Alaouites). Ce riche passé a forgé une identité plurielle où les racines berbères, les apports arabes, andalous et subsahariens s'entremêlent pour créer un patrimoine matériel et immatériel d'une valeur inestimable.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-gem text-warning me-2"></i>Artisanat Millénaire</h6>
+                                <p class="small text-muted mb-0">Zellige, tadelakt, poterie de Fès ou tapis berbères : un savoir-faire transmis de génération en génération.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Rythmes Pluriels</h6>
+                                <p class="small text-muted mb-0">De la musique Gnaoua spirituelle au Malhoun poétique, les sons du Maroc racontent son âme métissée.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-chess-rook text-danger me-2"></i>Villes Impériales</h6>
+                                <p class="small text-muted mb-0">Rabat, Meknès, Fès et Marrakech : quatre cités témoins de la grandeur des empires marocains.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-leaf text-success me-2"></i>Savoir-faire Berbère</h6>
+                                <p class="small text-muted mb-0">L'Arganier, "l'or liquide" du Maroc, et la sagesse des populations de l'Atlas et du désert.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=600" alt="Culture Maroc" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Artisanat Local</h2>
+        <p>L'excellence marocaine s'invite chez vous. Des pièces uniques façonnées avec passion par nos maîtres artisans.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tapis.png" alt="Tapis Berbere" onerror="this.src='https://ui-avatars.com/api/?name=Tapis&background=b22222&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tapis Beni Ouarain</h3>
+                    <p class="product-desc">Tapis en laine pure, tissé à la main par les femmes berbères du Moyen-Atlas.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/huile.png" alt="Huile Argan" onerror="this.src='https://ui-avatars.com/api/?name=Argan&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile d'Argan Bio</h3>
+                    <p class="product-desc">100% pure et pressée à froid. L'or liquide pour vos soins cosmétiques ou culinaires.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/lanterne.png" alt="Lanterne Marocaine" onerror="this.src='https://ui-avatars.com/api/?name=Lampe&background=444&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Lanterne en Cuivre Ciselé</h3>
+                    <p class="product-desc">Travail de dinanderie fine pour créer une ambiance magique avec des jeux d'ombre.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">28 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Babouche&background=daa520&color=fff&size=200" alt="Babouches">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Babouches en Cuir de Fès</h3>
+                    <p class="product-desc">Cuir de chèvre tanné naturellement, brodé avec soin pour un confort absolu.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Poterie&background=4682b4&color=fff&size=200" alt="Poterie Fes">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Plat à Tagine en Céramique</h3>
+                    <p class="product-desc">Poterie peinte à la main avec les motifs traditionnels bleus de Fès ou multicolores de Safi.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">22 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Epices&background=ff4500&color=fff&size=200" alt="Epices">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Coffret Épices du Souk</h3>
+                    <p class="product-desc">Ras-el-hanout, safran de Taliouine et cumin de l'Atlas pour sublimer vos plats.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">9 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Nord/maroc.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Légende</span></h2>
+                    <p>Découvrez notre sélection des plus beaux palaces, riads de charme et kasbahs au Maroc.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un établissement...</option>
+                            <option value="mamounia">La Mamounia (Marrakech)</option>
+                            <option value="palais-faraj">Palais Faraj (Fès)</option>
+                            <option value="sultana">La Sultana (Oualidia/Marrakech)</option>
+                            <option value="tamadot">Kasbah Tamadot (Atlas)</option>
+                            <option value="royal-mansour">Royal Mansour (Marrakech)</option>
+                            <option value="sofitel">Sofitel Agadir Thalassa</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Arrivée - Départ" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Disponibilités</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Mamounia"></div>
+                    <div class="hotel-content">
+                        <h4>La Mamounia</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Médina, Marrakech</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Palais Faraj"></div>
+                    <div class="hotel-content">
+                        <h4>Palais Faraj Suites</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Fès Médina</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Royal Mansour"></div>
+                    <div class="hotel-content">
+                        <h4>Royal Mansour</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Hivernage, Marrakech</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Sultana"></div>
+                    <div class="hotel-content">
+                        <h4>La Sultana</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Médina Kasbah</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Tamadot"></div>
+                    <div class="hotel-content">
+                        <h4>Kasbah Tamadot</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Montagnes de l'Atlas</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Sofitel Agadir"></div>
+                    <div class="hotel-content">
+                        <h4>Sofitel Agadir</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Baie d'Agadir</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine marocaine est une symphonie de saveurs. Épices, fruits secs, herbes fraîches et cuissons lentes se marient pour créer l'une des gastronomies les plus réputées au monde.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Couscous&background=FFD700&color=000&size=200" alt="Couscous"></div>
+                <div class="plat-content"><h4>Le Couscous Royal</h4><p>Semoule fine avec sept légumes et viande fondante.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tagine&background=FFD700&color=000&size=200" alt="Tagine"></div>
+                <div class="plat-content"><h4>Tagine d'Agneau</h4><p>Mijoté aux pruneaux, amandes grillées et miel.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pastilla&background=FFD700&color=000&size=200" alt="Pastilla"></div>
+                <div class="plat-content"><h4>Pastilla de Fès</h4><p>Fine pâte feuilletée au pigeon ou poulet, amandes et cannelle.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Harira&background=8b0000&color=fff&size=200" alt="Harira"></div>
+                <div class="plat-content"><h4>La Harira</h4><p>Soupe traditionnelle réconfortante aux lentilles et pois chiches.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mechoui&background=FFD700&color=000&size=200" alt="Mechoui"></div>
+                <div class="plat-content"><h4>Le Méchoui</h4><p>Agneau entier rôti à la broche, fondant à l'intérieur.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tanjia&background=8b4513&color=fff&size=200" alt="Tanjia"></div>
+                <div class="plat-content"><h4>Tanjia Marrakchia</h4><p>Plat cuit 12h dans un pot de terre sous les cendres du hammam.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Brio&background=FFD700&color=000&size=200" alt="Briouates"></div>
+                <div class="plat-content"><h4>Briouates</h4><p>Petits triangles croustillants à la viande ou au fromage.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Zaalouk&background=556b2f&color=fff&size=200" alt="Zaalouk"></div>
+                <div class="plat-content"><h4>Le Zaalouk</h4><p>Salade cuite d'aubergines et de tomates aux épices.</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rfissa&background=FFD700&color=000&size=200" alt="Rfissa"></div>
+                <div class="plat-content"><h4>La Rfissa</h4><p>Plat à base de crêpes émincées, poulet, lentilles et fenugrec.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=The&background=006400&color=fff&size=200" alt="The"></div>
+                <div class="plat-content"><h4>Thé à la Menthe</h4><p>"Le whisky marocain", symbole de l'hospitalité.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cornes&background=f5f5dc&color=000&size=200" alt="Cornes"></div>
+                <div class="plat-content"><h4>Cornes de Gazelle</h4><p>Pâtisserie fine à la pâte d'amande et eau de fleur d'oranger.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chebak&background=8b4513&color=fff&size=200" alt="Chebakia"></div>
+                <div class="plat-content"><h4>La Chebakia</h4><p>Gâteau de fête au miel, sésame et épices.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Le Maroc vit au rythme de célébrations grandioses alliant art, musique et traditions.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Festival Mawazine</h4>
+                    <p>L'un des plus grands festivals de musique au monde à Rabat.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Culturel</span>
+                    <h4>Festival Gnaoua</h4>
+                    <p>Rencontres musicales et spirituelles magiques à Essaouira.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-film"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Cinéma</span>
+                    <h4>Festival de Marrakech</h4>
+                    <p>Le rendez-vous glamour du septième art international.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Printemps & Automne</h5>
+                    <p class="small mb-0">Les saisons idéales (Avril-Juin et Septembre-Novembre). Les températures sont parfaites pour visiter les villes impériales et l'Atlas.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella text-primary me-2"></i>Hiver (Déc. à Fév.)</h5>
+                    <p class="small mb-0">Parfait pour le désert du Sahara (nuits fraîches mais journées ensoleillées) et pour skier dans l'Atlas à Oukaïmeden.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays très sûr. Vigilance habituelle dans les souks (rabatteurs). Le Maroc est réputé pour sa stabilité.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Aucun vaccin obligatoire. Privilégiez l'eau en bouteille capsulée. Réseau de cliniques privées excellent.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Dirham Marocain (MAD). Le paiement par carte est généralisé en ville, mais prévoyez du cash pour les souks.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comments fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">L'Arabe (Darija) et l'Amazigh sont officiels. Le Français est parlé partout. L'Anglais progresse vite.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Driss+Alaoui&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Driss">
+                        <h5 class="fw-bold mb-1">Driss Alaoui</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Villes Impériales</p>
+                        <p class="small text-muted">Driss vous fera découvrir les secrets des palais et les trésors cachés des médinas de Fès et Marrakech.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:driss@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Driss</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Yassine+Sahraoui&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Yassine">
+                        <h5 class="fw-bold mb-1">Yassine Sahraoui</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Désert & Atlas</p>
+                        <p class="small text-muted">Expert des dunes de Merzouga et des sentiers de l'Atlas pour une aventure authentique et sécurisée.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:yassine@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Yassine</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Malika+Idrissi&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Malika">
+                        <h5 class="fw-bold mb-1">Malika Idrissi</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Gastronomie & Art</p>
+                        <p class="small text-muted">Malika vous initiera aux saveurs marocaines avec des ateliers de cuisine et des visites d'ateliers d'artisanat.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:malika@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Malika</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Votre passerelle vers les merveilles du continent. Voyagez avec excellence, découvrez avec passion.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Nos Pays</a></li>
+                    <li><a href="../blogs.html">Blogs Voyage</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Maroc</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +212 5 00 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> maroc@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Maroc - Royaume de Lumière</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/maroc.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: sao_tome_principe.html
+    DESCRIPTION: Page pays premium standardisée pour Sao Tomé-et-Principe.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Découvrez Sao Tomé-et-Principe, les îles chocolat au cœur du Golfe de Guinée. Des plages sauvages au pic Cão Grande, explorez un paradis vert préservé.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Sao Tomé-et-Principe (Les Îles Chocolat)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i>
+                            Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i>
+                            Pays</a></li>
+
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a>
+                    </li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i>
+                            Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Centrale/sao_tome_principe.jpg" alt="Sao Tome et Principe"
+            onerror="this.src='../images/pays/Afrique_Centrale/saotome.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Sao Tomé-et-Principe</h1>
+            <p class="hero-subtitle">Une symphonie de chocolat, de café et de nature sauvage</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Éden Préservé du Golfe de Guinée</h2>
+            <p class="section-description">
+                Sao Tomé-et-Principe, surnommées les "Îles Chocolat", sont un joyau méconnu flottant sur l'équateur. Cet
+                archipel volcanique offre l'un des paysages les plus spectaculaires d'Afrique Centrale. Dominé par
+                l'emblématique Pico Cão Grande, une aiguille volcanique perçant la canopée, le pays est une jungle
+                luxuriante bordée de plages de sable doré où les tortues viennent pondre. Anciennes terres de
+                plantations de cacao et de café (les Roças), les îles conservent un charme colonial unique mêlé à une
+                douceur de vivre légendaire, le fameux "Leve Leve". Que vous exploriez les profondeurs du Parc National
+                d'Obo ou que vous goûtiez au meilleur chocolat du monde directement à la source, Sao Tomé-et-Principe
+                promet une déconnexion absolue.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 merveilles des Îles Chocolat</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une plage ou une Roça...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plages">Plages & Baies</span>
+                <span class="filter-tag" data-filter="nature">Nature & Reliefs</span>
+                <span class="filter-tag" data-filter="culture">Culture & Roças</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span
+                    class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="saotome-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Lagoa Azul -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800"
+                        alt="Lagoa Azul">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord Sao Tomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lagoa Azul</h3>
+                        <p class="location-text">Un lagon aux eaux turquoises bordé de baobabs millénaires, idéal pour
+                            le snorkeling</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lagoa_azul">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Pico Cão Grande -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800"
+                        alt="Pico Cao Grande">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud Sao Tomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pico Cão Grande</h3>
+                        <p class="location-text">Une aiguille phonolithique spectaculaire s'élevant à 370m au-dessus de
+                            la jungle</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cao_grande">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Boca do Inferno -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800"
+                        alt="Boca do Inferno">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Boca do Inferno</h3>
+                        <p class="location-text">Un spectacle naturel où les vagues s'engouffrent dans un tunnel de
+                            basalte créant d'immenses jets d'eau</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="boca_inferno">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Roça Agostinho Neto -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+                        alt="Roca Neto">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord Sao Tomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Roça Agostinho Neto</h3>
+                        <p class="location-text">La plus majestueuse des anciennes plantations, témoin de l'âge d'or du
+                            cacao</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="roca_neto">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Praia Jalé -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+                        alt="Praia Jale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Extrême Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Praia Jalé</h3>
+                        <p class="location-text">Une plage sauvage réputée pour l'observation de la ponte des tortues
+                            marines</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="jale">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Ilhéu das Rolas (Équateur) -->
+            <article class="attraction" data-category="iles">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800"
+                        alt="Ilheu Rolas">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud archipel</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ilhéu das Rolas</h3>
+                        <p class="location-text">Traversez la ligne de l'Équateur sur cet îlot paradisiaque aux plages
+                            immaculées</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rolas">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Cascade São Nicolau -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800"
+                        alt="Sao Nicolau">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Centre Sao Tomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cascade São Nicolau</h3>
+                        <p class="location-text">Une chute d'eau rafraîchissante au cœur d'une forêt de fougères
+                            arborescentes</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nicolau">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Parc National d'Obo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800"
+                        alt="Parc Obo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> National</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National d'Obo</h3>
+                        <p class="location-text">Un sanctuaire de biodiversité unique abritant de nombreuses espèces
+                            endémiques</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="obo">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Ville de São Tomé (Marché) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800"
+                        alt="Ville Sao Tome">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Capitale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de São Tomé</h3>
+                        <p class="location-text">Une capitale à taille humaine avec son marché coloré et sa cathédrale
+                            portugaise</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="saotome_city">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Praia Piscina -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800"
+                        alt="Praia Piscina">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud Sao Tomé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Praia Piscina</h3>
+                        <p class="location-text">Une piscine naturelle formée par les rochers de basalte noir, face à
+                            l'océan</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="piscina">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Roça Monte Café -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800"
+                        alt="Monte Cafe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Hauts plateaux</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 26k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Roça Monte Café</h3>
+                        <p class="location-text">Le berceau du café Arabica et Robusta, avec son musée et ses
+                            dégustations</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="monte_cafe">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Príncipe (Santo António) -->
+            <article class="attraction" data-category="iles">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+                        alt="Principe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Príncipe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Santo António do Príncipe</h3>
+                        <p class="location-text">La plus petite ville du monde, capitale paisible de l'île de Príncipe
+                            (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="santo_antonio">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Baía des Agulhas -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800"
+                        alt="Baia Agulhas">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Príncipe (UNESCO)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baía des Agulhas</h3>
+                        <p class="location-text">Un panorama époustouflant sur les pics volcaniques de Príncipe
+                            plongeant dans la mer</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="agulhas">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Praia Banana -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800"
+                        alt="Praia Banana">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Príncipe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Praia Banana</h3>
+                        <p class="location-text">La plage iconique de Príncipe en forme de croissant, rendue célèbre par
+                            les publicités Bacardi</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="banana">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Cascade de l'Abade -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800"
+                        alt="Cascade Abade">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Príncipe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cascade de l'Abade</h3>
+                        <p class="location-text">Une chute d'eau cachée dans la forêt tropicale de Príncipe, accessible
+                            par un sentier sauvage</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="abade">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'esprit "Leve Leve", l'art de vivre au rythme de
+                        l'équateur.</p>
+                    <p>La culture de Sao Tomé-et-Principe est un mélange unique de racines africaines (Angola, Cap-Vert,
+                        Mozambique) et d'héritage portugais. Cette identité s'exprime à travers le "Tchiloli", une forme
+                        de théâtre de rue médiéval unique au monde, et les rythmes entraînants de la Puxa et du Socopé.
+                        L'histoire des îles est indissociable de celle du cacao et du café, dont elles furent les
+                        premiers producteurs mondiaux au début du XXe siècle. Aujourd'hui, les "Roças" (anciennes
+                        plantations) forment le cœur social et historique du pays. L'esprit "Leve Leve" (doucement,
+                        doucement) n'est pas qu'une devise, c'est une philosophie de vie basée sur la patience, la
+                        courtoisie et le respect du temps naturel.</p>
+
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-theater-masks text-warning me-2"></i>Le Tchiloli
+                                </h6>
+                                <p class="small text-muted mb-0">Un spectacle de rue fascinant mêlant théâtre, danse et
+                                    musique, héritage des mystères médiévaux portugais.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mug-hot text-info me-2"></i>Héritage des Roças</h6>
+                                <p class="small text-muted mb-0">La vie communautaire au cœur des anciennes plantations,
+                                    véritables villes dans la ville avec leur architecture unique.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-clock text-danger me-2"></i>Leve Leve</h6>
+                                <p class="small text-muted mb-0">Une philosophie de vie apaisée qui invite à savourer
+                                    chaque instant et à respecter le rythme de la nature.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-utensils text-success me-2"></i>Gastronomie Créole
+                                </h6>
+                                <p class="small text-muted mb-0">Une cuisine généreuse basée sur le poisson frais, les
+                                    fruits tropicaux et l'omniprésent chocolat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600"
+                            alt="Culture Sao Tome" class="img-fluid rounded-4 shadow-sm w-100"
+                            style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique des Îles Chocolat</h2>
+        <p>Les saveurs et l'artisanat d'exception de Sao Tomé-et-Principe. Du chocolat pur au café des montagnes.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/st_chocolate.png" alt="Chocolat"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Choco&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Chocolat Noir 75% Bio</h3>
+                    <p class="product-desc">Produit artisanalement à partir des fèves natives de l'île, considéré comme
+                        l'un des meilleurs au monde.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/st_coffee.png" alt="Cafe"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Prestige</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Arabica de Monte Café</h3>
+                    <p class="product-desc">Café de haute altitude aux arômes intenses et délicats, cultivé de manière
+                        biologique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/st_vanilla.png" alt="Vanille"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Vanilla&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Rare</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gousses de Vanille Bourbon</h3>
+                    <p class="product-desc">Vanille d'exception cultivée à l'ombre de la forêt tropicale, au parfum
+                        floral et intense.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coco&background=f5f5dc&color=000&size=200" alt="Huile">
+                    <span class="stock-badge">Naturel</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Coco Vierge</h3>
+                    <p class="product-desc">Huile de coco pressée à froid de manière traditionnelle, idéale pour les
+                        soins de la peau et des cheveux.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200"
+                        alt="Vannerie">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tressé en Osier</h3>
+                    <p class="product-desc">Vannerie traditionnelle robuste réalisée à la main par les artisans des
+                        villages côtiers.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Soap&background=daa520&color=fff&size=200" alt="Savon">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Savon au Beurre de Cacao</h3>
+                    <p class="product-desc">Savon naturel hydratant fabriqué à partir du pur beurre de cacao de
+                        l'archipel.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">10 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg"
+                    style="background-image: url('../images/pays/Afrique_Centrale/sao_tome_principe.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Évasion <span>Leve Leve</span></h2>
+                    <p>Découvrez notre sélection des plus beaux écolodges et hôtels de charme pour une immersion totale
+                        dans l'archipel.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="sundy">Sundy Praia (Príncipe)</option>
+                            <option value="bom_bom">Bom Bom Island Resort</option>
+                            <option value="pestana">Pestana São Tomé</option>
+                            <option value="omali">Omali Lodge</option>
+                            <option value="mucumbli">Mucumbli Ecolodge</option>
+                            <option value="santana">Club Santana Island Resort</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600"
+                            alt="Sundy Praia"></div>
+                    <div class="hotel-content">
+                        <h4>Sundy Praia</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Príncipe, Ultra-Luxe & Design</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600"
+                            alt="Bom Bom"></div>
+                    <div class="hotel-content">
+                        <h4>Bom Bom Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Príncipe, Île Privée</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600"
+                            alt="Pestana"></div>
+                    <div class="hotel-content">
+                        <h4>Pestana São Tomé</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> São Tomé, Luxe en ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600"
+                            alt="Omali Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Omali Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> São Tomé, Confort & Chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600"
+                            alt="Mucumbli"></div>
+                    <div class="hotel-content">
+                        <h4>Mucumbli Ecolodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Côte Nord, Nature Brute</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600"
+                            alt="Club Santana"></div>
+                    <div class="hotel-content">
+                        <h4>Club Santana</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Côte Sud, Charme Tropical</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine santoméenne est une explosion de saveurs créoles, mélangeant poissons frais, herbes aromatiques
+            et produits de la terre.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Calulu&background=006400&color=fff&size=200" alt="Calulu">
+                </div>
+                <div class="plat-content">
+                    <h4>Calulu</h4>
+                    <p>Le plat national : poisson ou viande séchée mijoté avec de nombreuses herbes, légumes et huile de
+                        palme.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Peixe&background=00008b&color=fff&size=200"
+                        alt="Peixe Grelhado"></div>
+                <div class="plat-content">
+                    <h4>Peixe Grelhado</h4>
+                    <p>Poisson du jour fraîchement pêché, grillé au feu de bois et servi avec une sauce pimentée.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Arroz&background=f5f5dc&color=000&size=200"
+                        alt="Arroz Doce"></div>
+                <div class="plat-content">
+                    <h4>Arroz Doce de Coco</h4>
+                    <p>Riz au lait crémeux au lait de coco frais et à la cannelle, un dessert réconfortant.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Banana&background=daa520&color=fff&size=200"
+                        alt="Banana Frita"></div>
+                <div class="plat-content">
+                    <h4>Banana Frita</h4>
+                    <p>Bananes plantains frites, l'accompagnement sucré-salé indispensable de tous les repas.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Polvo&background=8b0000&color=fff&size=200" alt="Polvo">
+                </div>
+                <div class="plat-content">
+                    <h4>Polvo à moda</h4>
+                    <p>Poulpe préparé de manière traditionnelle, tendre et parfumé aux herbes locales.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Molho&background=8b0000&color=fff&size=200"
+                        alt="Molho Fogo"></div>
+                <div class="plat-content">
+                    <h4>Molho de Fogo</h4>
+                    <p>Une sauce pimentée ultra-forte qui accompagne presque tous les plats pour les amateurs de
+                        sensations.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Fruta&background=daa520&color=fff&size=200"
+                        alt="Fruta Pao"></div>
+                <div class="plat-content">
+                    <h4>Fruta-pão Assada</h4>
+                    <p>Fruit à pain grillé, une base énergétique délicieuse qui remplace souvent le pain.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Feijoada&background=8b4513&color=fff&size=200"
+                        alt="Feijoada"></div>
+                <div class="plat-content">
+                    <h4>Feijoada local</h4>
+                    <p>Ragoût de haricots et viandes variées, version santoméenne du classique lusophone.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Djogo&background=daa520&color=fff&size=200" alt="Djogo">
+                </div>
+                <div class="plat-content">
+                    <h4>Djogo</h4>
+                    <p>Un dessert à base de noix de coco et de sucre, typique des fêtes de village.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Omelete&background=daa520&color=fff&size=200"
+                        alt="Omelete Camarao"></div>
+                <div class="plat-content">
+                    <h4>Omelete de Camarão</h4>
+                    <p>Omelette généreuse aux crevettes fraîches et herbes aromatiques de l'île.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Doce&background=daa520&color=fff&size=200"
+                        alt="Doce Goiaba"></div>
+                <div class="plat-content">
+                    <h4>Doce de Goiaba</h4>
+                    <p>Confiture ou pâte de goyave artisanale, à déguster avec du fromage frais local.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Cha&background=006400&color=fff&size=200" alt="Cha"></div>
+                <div class="plat-content">
+                    <h4>Chá de Erva-Príncipe</h4>
+                    <p>Infusion de citronnelle fraîche (herbe prince), la boisson bien-être de l'archipel.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Partagez les traditions vivantes de Sao Tomé-et-Principe.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-theater-masks"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Théâtre</span>
+                    <h4>Le Tchiloli</h4>
+                    <p>Spectacles de rue uniques à travers les villages (Août/Septembre), mêlant tragédie et célébration
+                        populaire.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Auto de Floripes</h4>
+                    <p>La grande fête traditionnelle de l'île de Príncipe (15 Août), un événement communautaire majeur.
+                    </p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Célébrations nationales (12 Juillet) avec musique, danses Socopé et festivités sur tout
+                        l'archipel.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Juin à Septembre (Gravana)</h5>
+                    <p class="small mb-0">La saison sèche "Gravana". Le climat est plus frais, avec peu de pluie, idéal
+                        pour la randonnée et l'exploration des Roças. C'est aussi la saison des baleines.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella text-primary me-2"></i>Novembre à Mars</h5>
+                    <p class="small mb-0">Saison plus chaude et humide. C'est la période idéale pour l'observation des
+                        tortues marines (ponte et éclosion) et pour voir les cascades à leur débit maximum.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">L'archipel est extrêmement sûr et paisible. Les vols sont rares. Les
+                        habitants sont d'une gentillesse et d'une hospitalité sincères.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Prévention contre le paludisme conseillée. Buvez exclusivement de l'eau
+                        en bouteille. Pas de vaccins obligatoires mais mise à jour conseillée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Exemption de visa pour de nombreuses nationalités (UE, USA, Canada) pour
+                        des séjours de moins de 15 jours. Passeport valide 6 mois.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Dobra (STN). L'Euro est largement accepté. Quelques distributeurs à São
+                        Tomé ville. Les cartes bancaires sont peu utilisées hors grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Joao+Cocoa&background=3e2723&color=fff&size=128"
+                            class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Joao">
+                        <h5 class="fw-bold mb-1">Joao de Jesus</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Cacao & Roças</p>
+                        <p class="small text-muted">Né dans une Roça, Joao vous fera découvrir l'histoire passionnante
+                            du chocolat et les secrets des anciennes plantations.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:joao@visitafrika.com"
+                            class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Joao</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lina+Nature&background=006400&color=fff&size=128"
+                            class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lina">
+                        <h5 class="fw-bold mb-1">Lina Rodrigues</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Nature & Biodiversité</p>
+                        <p class="small text-muted">Biologiste passionnée, Lina vous guidera dans le parc d'Obo pour
+                            observer les oiseaux et plantes rares de l'archipel.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lina@visitafrika.com"
+                            class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Lina</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Marco+Principe&background=00008b&color=fff&size=128"
+                            class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Marco">
+                        <h5 class="fw-bold mb-1">Marco Gomes</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Île de Príncipe</p>
+                        <p class="small text-muted">Guide local sur Príncipe, Marco vous emmènera explorer cette île
+                            sauvage classée réserve de biosphère par l'UNESCO.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:marco@visitafrika.com"
+                            class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Marco</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Sao Tomé-et-Principe, les îles chocolat. Découvrez un paradis vert préservé et
+                    une douceur de vivre unique avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact São Tomé</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +239 222 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> saotome@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Sao Tome - The Chocolate Islands</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/sao_tome_principe.js"></script>
+</body>
+
+</html>

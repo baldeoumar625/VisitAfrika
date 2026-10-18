@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: guinee_bissau.html
+    DESCRIPTION: Page pays premium standardisée pour la Guinée-Bissau.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Guinée-Bissau, le sanctuaire sauvage de l'Afrique de l'Ouest. De l'archipel des Bijagós aux hippopotames marins d'Orango, explorez une nature préservée.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Guinée-Bissau (L'Archipel des Bijagós)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/guinee_bissau.jpg" alt="La Guinée-Bissau" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Guinée-Bissau</h1>
+            <p class="hero-subtitle">Un labyrinthe d'îles sacrées et de mangroves sauvages</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Immersion Authentique au Cœur de la Biosphère</h2>
+            <p class="section-description">
+                La Guinée-Bissau est l'un des secrets les mieux gardés d'Afrique de l'Ouest, une terre où la nature et les traditions ancestrales règnent en maîtres. Son joyau absolu est l'archipel des Bijagós, composé de 88 îles dont la richesse écologique est classée Réserve de Biosphère par l'UNESCO. Ici, vous découvrirez les rares hippopotames marins de l'île d'Orango, les sites de ponte des tortues vertes à João Vieira et une culture matriarcale unique au monde. Entre les vestiges coloniaux mélancoliques de Bolama, l'effervescence du Gumbe à Bissau et les forêts primaires de Cantanhez abritant des chimpanzés, la Guinée-Bissau offre une aventure humaine et sauvage d'une rare intensité.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 sites légendaires de Guinée-Bissau</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une île ou un parc...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="iles">Îles Bijagós</span>
+                <span class="filter-tag" data-filter="nature">Parcs & Nature</span>
+                <span class="filter-tag" data-filter="culture">Histoire & Villes</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="guineebissau-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Archipel des Bijagós -->
+            <article class="attraction" data-category="iles">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Bijagos">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> UNESCO Biosphère</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Archipel des Bijagós</h3>
+                        <p class="location-text">88 îles magiques, sanctuaire de biodiversité et de cultures sacrées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bijagos">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Île de Bubaque -->
+            <article class="attraction" data-category="iles">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Bubaque">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bijagós</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Bubaque</h3>
+                        <p class="location-text">Le centre névralgique de l'archipel, ses plages de rêve et son ambiance locale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bubaque">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Île d'Orango (Hippos marins) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Orango">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Parc National d'Orango</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île d'Orango</h3>
+                        <p class="location-text">Le seul endroit au monde pour observer les rares hippopotames marins</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="orango">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Bolama (Ancienne Capitale) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Bolama">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Bolama</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville Fantôme de Bolama</h3>
+                        <p class="location-text">Ruines coloniales mélancoliques et architecture portugaise déclinante</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bolama">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Bissau (Vieille Ville) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Bissau">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bissau Velho</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Bissau Velho</h3>
+                        <p class="location-text">Le coeur historique de la capitale avec ses maisons colorées et son port</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bissau_velho">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Île de Rubane -->
+            <article class="attraction" data-category="iles">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Rubane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bijagós</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Rubane</h3>
+                        <p class="location-text">L'île du luxe et de la détente, offrant les plus beaux éco-lodges de l'archipel</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rubane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Parc National de Cantanhez -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Cantanhez">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Jemberem</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt de Cantanhez</h3>
+                        <p class="location-text">Forêt primaire abritant des chimpanzés, des singes et une flore luxuriante</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cantanhez">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Île de João Vieira -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Joao Vieira">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Parc Marin</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>João Vieira & Poilão</h3>
+                        <p class="location-text">Principal site de nidification des tortues vertes en Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="joao_vieira">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Varela (Plages) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Varela">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Région de Cacheu</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de Varela</h3>
+                        <p class="location-text">Plages sauvages et isolées bordées de dunes et de forêts de pins</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="varela">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Cacheu (Fort Historique) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Cacheu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cacheu</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fort de Cacheu</h3>
+                        <p class="location-text">Ancien comptoir colonial et centre de mémoire de la traite transatlantique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cacheu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Quinhamel -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Quinhamel">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Biombo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Quinhamel</h3>
+                        <p class="location-text">Centre de la culture Pepel, réputé pour ses tissages traditionnels 'Pano de Pente'</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="quinhamel">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Parc National de Cufada -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Cufada">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Région de Quinara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lagunes de Cufada</h3>
+                        <p class="location-text">La plus grande réserve d'eau douce du pays, refuge pour les oiseaux migrateurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cufada">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Praia de Bruce -->
+            <article class="attraction" data-category="iles">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Bruce">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bubaque</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Praia de Bruce</h3>
+                        <p class="location-text">Une étendue infinie de sable blanc et de cocotiers au sud de Bubaque</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bruce">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Gabu -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Gabu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Gabu</h3>
+                        <p class="location-text">Carrefour commercial majeur et coeur de la culture Fula</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gabu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Farim -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Farim">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Farim</h3>
+                        <p class="location-text">Ville historique sur les rives du fleuve Cacheu, riche en traditions locales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="farim">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'âme des Bijagós et les rythmes du Gumbe.</p>
+                    <p>La Guinée-Bissau est une mosaïque culturelle fascinante où coexistent plus de 20 ethnies (Balantes, Fulas, Mandingues, Pepels, Bijagós, etc.). L'archipel des Bijagós conserve une culture animiste puissante, structurée par des rituels d'initiation et un respect profond pour le monde des esprits. À Bissau, la capitale, le Gumbe (musique et danse) exprime la joie de vivre et la résilience du peuple bissau-guinéen. L'histoire du pays est marquée par une lutte héroïque pour l'indépendance menée par Amílcar Cabral, faisant de cette nation un symbole de fierté et de liberté en Afrique.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-warning me-2"></i>Culture Bijagó</h6>
+                                <p class="small text-muted mb-0">Une société matriarcale unique, où les femmes jouent un rôle prédominant dans la vie sociale et religieuse.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Le Gumbe</h6>
+                                <p class="small text-muted mb-0">Rythme national mélangeant percussions traditionnelles et influences créoles, l'âme des fêtes locales.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-history text-danger me-2"></i>Lutte de Libération</h6>
+                                <p class="small text-muted mb-0">L'héritage d'Amílcar Cabral et l'une des luttes anticoloniales les plus marquantes du XXe siècle.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-tshirt text-success me-2"></i>Pano de Pente</h6>
+                                <p class="small text-muted mb-0">Tissages traditionnels d'une finesse rare, porteurs de symboles et utilisés lors des cérémonies sacrées.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Bissau" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Archipel</h2>
+        <p>L'artisanat authentique de Guinée-Bissau. Des masques Bijagós aux tissages sacrés.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bijago_mask.png" alt="Masque" onerror="this.src='https://ui-avatars.com/api/?name=Masque&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Sacré</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Bijagó 'Vaca Bruto'</h3>
+                    <p class="product-desc">Réplique artisanale des masques zoomorphes utilisés lors des cérémonies d'initiation dans l'archipel.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/pano_pente.png" alt="Tissage" onerror="this.src='https://ui-avatars.com/api/?name=Pano&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissage 'Pano de Pente'</h3>
+                    <p class="product-desc">Tissu traditionnel tissé à la main, symbole de prestige et d'identité culturelle en Guinée-Bissau.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bissau_cashew.png" alt="Noix Cajou" onerror="this.src='https://ui-avatars.com/api/?name=Cajou&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Noix de Cajou Premium</h3>
+                    <p class="product-desc">La Guinée-Bissau produit parmi les meilleures noix de cajou au monde, grillées et salées à la perfection.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Sculpture&background=8b4513&color=fff&size=200" alt="Sculpture">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statue en Bois Précieux</h3>
+                    <p class="product-desc">Sculpture fine représentant des scènes de la vie quotidienne ou des divinités Bijagós.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Oil&background=ff4500&color=fff&size=200" alt="Huile">
+                    <span class="stock-badge">Terroir</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Palme Artisanale</h3>
+                    <p class="product-desc">Huile de palme rouge pure, base indispensable de la gastronomie bissau-guinéenne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">10 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Gumbe&background=000&color=fff&size=200" alt="Musique">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Compilation Gumbe Classics</h3>
+                    <p class="product-desc">Sélection des meilleurs rythmes Gumbe pour emporter l'ambiance de Bissau avec vous.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/guinee_bissau.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales <span>Sauvages</span> & Luxe</h2>
+                    <p>Découvrez notre sélection des meilleurs éco-lodges dans les îles et des hôtels de prestige à Bissau.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="ledger">Ledger Plaza Bissau</option>
+                            <option value="ceiba">Ceiba Hotel Bissau</option>
+                            <option value="pontachaca">Eco-Lodge Ponta Anchaca (Rubane)</option>
+                            <option value="bob_fishing">Bob Fishing Club (Bubaque)</option>
+                            <option value="dakosta">Dakosta Eco-Retreat</option>
+                            <option value="azalai">Azalai 24 de Setembro</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Ledger Plaza"></div>
+                    <div class="hotel-content">
+                        <h4>Ledger Plaza</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bissau, Grand Standing</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Ceiba Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Ceiba Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bissau, Moderne & Chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Ponta Anchaca"></div>
+                    <div class="hotel-content">
+                        <h4>Ponta Anchaca</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Rubane, Paradis Éco-Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Bob Fishing"></div>
+                    <div class="hotel-content">
+                        <h4>Bob Fishing Club</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bubaque, Pêche & Détente</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Dakosta"></div>
+                    <div class="hotel-content">
+                        <h4>Dakosta Retreat</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bijagós, Immersion Nature</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Azalai"></div>
+                    <div class="hotel-content">
+                        <h4>Azalai Bissau</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bissau, Confort & Histoire</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine bissau-guinéenne est un mélange savoureux de produits de la mer et de sauces onctueuses à base de palme et de cacahuètes.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Caldo&background=daa520&color=fff&size=200" alt="Caldo"></div>
+                <div class="plat-content"><h4>Caldo de Mancarra</h4><p>Ragoût de viande ou poisson dans une sauce onctueuse à la cacahuète (mancarra).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cafriela&background=daa520&color=fff&size=200" alt="Cafriela"></div>
+                <div class="plat-content"><h4>Cafriela de Frango</h4><p>Poulet mariné au citron, à l'ail et au piment, puis grillé ou mijoté.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson"></div>
+                <div class="plat-content"><h4>Poisson à la Bissau</h4><p>Poisson frais du jour grillé au feu de bois et servi avec une sauce oignons-citron.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice&background=daa520&color=fff&size=200" alt="Riz"></div>
+                <div class="plat-content"><h4>Riz à la Palme</h4><p>Riz cuit avec de l'huile de palme rouge, un accompagnement riche et coloré.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Jereba&background=8b4513&color=fff&size=200" alt="Jereba"></div>
+                <div class="plat-content"><h4>Jereba</h4><p>Ragoût de poisson séché et fumé avec des légumes et de l'huile de palme.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Siga&background=daa520&color=fff&size=200" alt="Siga"></div>
+                <div class="plat-content"><h4>Sigá</h4><p>Riz blanc servi avec une sauce gombo et de la viande ou du poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Seafood&background=ff4500&color=fff&size=200" alt="Seafood"></div>
+                <div class="plat-content"><h4>Fruits de Mer Bijagós</h4><p>Langoustes, crabes et crevettes géantes fraîchement pêchés dans l'archipel.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Palm&background=ff4500&color=fff&size=200" alt="Vin Palme"></div>
+                <div class="plat-content"><h4>Vin de Palme</h4><p>Boisson traditionnelle récoltée à la cime des palmiers, douce et rafraîchissante.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Baobab&background=f5f5dc&color=000&size=200" alt="Baobab"></div>
+                <div class="plat-content"><h4>Jus de Ditakh</h4><p>Boisson verte et vitaminée réalisée à partir du fruit du baobab local.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cashew&background=daa520&color=fff&size=200" alt="Cajou"></div>
+                <div class="plat-content"><h4>Noix de Cajou grillées</h4><p>Le snack national : noix de cajou locales, croquantes et pleines de saveurs.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coco&background=f5f5dc&color=000&size=200" alt="Coco"></div>
+                <div class="plat-content"><h4>Gateau au Coco</h4><p>Douceur sucrée à base de noix de coco fraîche râpée, héritage de la pâtisserie créole.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Goat&background=8b4513&color=fff&size=200" alt="Goat"></div>
+                <div class="plat-content"><h4>Cafriela de Cabrito</h4><p>Chèvre marinée et cuite lentement aux épices, un plat de fête très apprécié.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vibrez au rythme de la Guinée-Bissau à travers ses célébrations colorées.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Carnaval</span>
+                    <h4>Carnaval de Bissau</h4>
+                    <p>Le plus grand événement du pays (Février), explosion de couleurs, de masques ethniques et de rythmes Gumbe.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-leaf"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Cérémonies du Fanado</h4>
+                    <p>Rituels d'initiation sacrés pratiqués dans les villages, coeur de la transmission culturelle Balante et Bijagó.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Célébration nationale (24 Septembre) avec défilés et concerts hommage à Amílcar Cabral.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Mai)</h5>
+                    <p class="small mb-0">La période idéale pour visiter l'archipel des Bijagós et les parcs nationaux. Le ciel est bleu, la mer est calme et les températures sont agréables.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Juin à Octobre)</h5>
+                    <p class="small mb-0">Pluies tropicales intenses, surtout en août. La nature devient luxuriante, mais certains déplacements vers les îles peuvent être difficiles en raison de la houle.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays accueillant. Vigilance normale à Bissau (marchés). Dans les îles, respectez les lieux sacrés ('Iran') et demandez toujours l'autorisation avant de photographier.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludique indispensable. Buvez exclusivement de l'eau en bouteille. Infrastructures médicales limitées.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour la plupart des nationalités. Peut s'obtenir aux ambassades ou parfois à l'arrivée (vérifiez les conditions actuelles).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XOF). L'économie repose sur l'espèce. Peu de distributeurs acceptant les cartes internationales. Prévoyez des Euros pour le change.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Domingos+Bijago&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Domingos">
+                        <h5 class="fw-bold mb-1">Domingos Sanhá</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Archipel & Bijagós</p>
+                        <p class="small text-muted">Natif de Bubaque, Domingos connaît chaque île et secret de l'archipel. Il vous guidera dans le respect des traditions sacrées.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:domingos@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Domingos</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Aissatou+Nature&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Aissatou">
+                        <h5 class="fw-bold mb-1">Aissatou Baldé</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Faune & Cantanhez</p>
+                        <p class="small text-muted">Spécialiste de l'observation des chimpanzés et des oiseaux, Aissatou vous fera découvrir la richesse des parcs nationaux.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:aissatou@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Aissatou</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Joao+History&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Joao">
+                        <h5 class="fw-bold mb-1">João Gomes</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturel & Bissau</p>
+                        <p class="small text-muted">Passionné par l'histoire coloniale et la musique Gumbe, João vous fera vivre l'âme vibrante de Bissau Velho et Bolama.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:joao@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec João</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Guinée-Bissau, l'archipel des Bijagós. Plongez dans une nature sauvage et une culture ancestrale avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Bissau</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +245 95 000 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> bissau@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Guinea-Bissau - Bijagós Archipelago</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/guinee_bissau.js"></script>
+</body>
+
+</html>

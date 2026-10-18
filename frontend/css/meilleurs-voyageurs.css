@@ -1,0 +1,134 @@
+/**
+ * PROJET: VISIT AFRIKA
+ * FICHIER: meilleurs-voyageurs.css
+ * DESCRIPTION: Composant du projet Visit Afrika.
+ */
+
+/* SECTION: Travelers Page Specific Styles */
+
+.travelers-main {
+    padding-top: 20px;
+    background-color: #f8f9fa;
+}
+
+.travelers-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=1500');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.travelers-hero .hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 15px;
+}
+
+.travelers-hero .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+.traveler-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.traveler-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.traveler-image {
+    position: relative;
+    height: 250px;
+}
+
+.traveler-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.traveler-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #FFD700;
+    color: #1a1a1a;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.traveler-content {
+    padding: 25px;
+}
+
+.traveler-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.traveler-country {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.traveler-country i {
+    color: #FFD700;
+    margin-right: 5px;
+}
+
+.traveler-stats {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+}
+
+.traveler-stats span {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.traveler-stats strong {
+    color: #1a1a1a;
+}
+
+.traveler-bio {
+    font-size: 0.9rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* SECTION: Responsive adjustments */
+@media (max-width: 768px) {
+    .travelers-hero .hero-title {
+        font-size: 2rem;
+    }
+
+    .traveler-card {
+        margin-bottom: 20px;
+    }
+}

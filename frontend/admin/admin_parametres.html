@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: admin_parametres.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/admin_protection.js"></script>
+  <title>Paramètres - Visit Afrika</title>
+  <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+  <style>
+    /* Spécificités pour les onglets des paramètres */
+    .tabs {
+        display: flex; gap: 4px; border-bottom: 1px solid #e5e7eb; margin-bottom: 24px; overflow-x: auto; padding-bottom: 0;
+    }
+    .tab {
+        padding: 10px 18px; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 13px; font-weight: 500;
+        color: #6b7280; border: 1px solid transparent; border-bottom: none; white-space: nowrap; transition: all 0.15s; background: transparent;
+    }
+    .tab:hover { color: #1a1f2e; background: rgba(0,0,0,0.03); }
+    .tab.active { color: #4361ee; background: #fff; border-color: #e5e7eb; border-bottom: 2px solid #fff; margin-bottom: -1px; }
+    .section { display: none; }
+    .section.active { display: block; }
+    .settings-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+    .settings-card-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 8px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .form-grid.cols-1 { grid-template-columns: 1fr; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group.full { grid-column: 1 / -1; }
+    label { font-size: 12px; font-weight: 500; color: #6b7280; }
+    .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid #e5e7eb; }
+    .toggle-row:last-child { border-bottom: none; }
+    .toggle-label { font-size: 13px; font-weight: 500; }
+    .toggle-desc { font-size: 11px; color: #9ca3af; margin-top: 2px; }
+    .toggle { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #d1d5db; border-radius: 22px; cursor: pointer; transition: 0.2s; }
+    .toggle-slider::before { content: ''; position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #fff; top: 3px; left: 3px; transition: 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+    .toggle input:checked + .toggle-slider { background: #4361ee; }
+    .toggle input:checked + .toggle-slider::before { transform: translateX(18px); }
+    .upload-zone { border: 2px dashed #e5e7eb; border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; transition: border-color 0.15s; }
+    .upload-zone:hover { border-color: #4361ee; }
+    .info-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #1e40af; margin-bottom: 16px; }
+    .warn-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #92400e; margin-bottom: 16px; }
+    .toast { position: fixed; bottom: 24px; right: 24px; background: #1a1f2e; color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); transform: translateY(80px); opacity: 0; transition: all 0.3s ease; z-index: 999; }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .color-swatch { width: 36px; height: 36px; border-radius: 7px; border: 2px solid #e5e7eb; cursor: pointer; overflow: hidden; }
+    .color-swatch input[type="color"] { width: 50px; height: 50px; border: none; cursor: pointer; transform: translate(-7px,-7px); }
+  </style>
+</head>
+
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-profile">
+        <img src="../images/admin_avatar.png" alt="Admin Avatar">
+        <div class="user-name">Thierno Oumar Baldé</div>
+        <div class="user-role">Administrateur</div>
+      </div>
+      
+      <span class="sidebar-menu-label">Principal</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin.html"><i class="fas fa-grid-2"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="admin_pays.html"><i class="fas fa-globe-africa"></i> Gestion Pays</a>
+        </li>
+        
+        <li>
+          <a href="admin_reservations.html"><i class="fas fa-calendar-check"></i> Réservations</a>
+        </li>
+        <li>
+          <a href="admin_blog.html"><i class="fas fa-feather-pointed"></i> Gestion Blogs</a>
+        </li>
+        <li>
+          <a href="admin_galerie.html"><i class="fas fa-photo-film"></i> Galerie</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Utilisateurs & Messages</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_utilisateurs.html"><i class="fas fa-users-gear"></i> Utilisateurs</a>
+        </li>
+        <li>
+          <a href="admin_messages.html"><i class="fas fa-envelope-open-text"></i> Messages</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Système</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_parametres.html" class="active"><i class="fas fa-sliders"></i> Paramètres</a>
+        </li>
+        <li>
+          <a href="../index.html"><i class="fas fa-right-from-bracket"></i> Retour au site</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <div class="toggle-sidebar cursor-pointer" id="sidebarToggle">
+            <i class="fas fa-bars-staggered"></i>
+          </div>
+          <div class="header-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher dans les paramètres...">
+          </div>
+        </div>
+        <div class="header-right header-icon-group">
+          <div class="position-relative cursor-pointer me-3">
+            <i class="fas fa-bell fs-notification"></i>
+            <span class="position-absolute badge rounded-pill bg-danger border border-light notification-badge"></span>
+          </div>
+          <div class="cursor-pointer">
+            <i class="fas fa-message fs-notification"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Paramètres Content -->
+      <div class="admin-content">
+        <div class="mb-4">
+            <h2 class="fw-bold mb-1">Paramètres du Système</h2>
+            <p class="text-muted small">Configurez les options globales de votre plateforme.</p>
+        </div>
+
+        <!-- TABS -->
+        <div class="tabs">
+          <div class="tab active" onclick="switchTab('general', this)"><i class="fas fa-globe me-2"></i> Général</div>
+          <div class="tab" onclick="switchTab('email', this)"><i class="fas fa-envelope me-2"></i> Email</div>
+          <div class="tab" onclick="switchTab('apparence', this)"><i class="fas fa-palette me-2"></i> Apparence</div>
+          <div class="tab" onclick="switchTab('medias', this)"><i class="fas fa-images me-2"></i> Médias</div>
+          <div class="tab" onclick="switchTab('seo', this)"><i class="fas fa-search me-2"></i> SEO</div>
+          <div class="tab" onclick="switchTab('securite', this)"><i class="fas fa-lock me-2"></i> Sécurité</div>
+          <div class="tab" onclick="switchTab('maintenance', this)"><i class="fas fa-tools me-2"></i> Maintenance</div>
+        </div>
+
+        <!-- === GÉNÉRAL === -->
+        <div class="section active" id="section-general">
+          <div class="settings-card">
+            <div class="settings-card-title"><i class="fas fa-info-circle"></i> Informations du site</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Nom du site</label>
+                <input type="text" class="form-control form-control-sm" value="Visit Afrika">
+              </div>
+              <div class="form-group">
+                <label>Slogan</label>
+                <input type="text" class="form-control form-control-sm" value="Découvrez la beauté de l'Afrique">
+              </div>
+              <div class="form-group">
+                <label>Email de contact public</label>
+                <input type="email" class="form-control form-control-sm" placeholder="contact@visitafrika.com">
+              </div>
+              <div class="form-group">
+                <label>Téléphone de contact</label>
+                <input type="text" class="form-control form-control-sm" placeholder="+224 625 34 30 39">
+              </div>
+              <div class="form-group full">
+                <label>Description du site</label>
+                <textarea class="form-control form-control-sm" rows="3">Visit Afrika est la plateforme de référence pour découvrir les destinations touristiques africaines.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-title"><i class="fas fa-language"></i> Langue & Région</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Langue par défaut</label>
+                <select class="form-select form-select-sm">
+                  <option selected>Français</option>
+                  <option>English</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Fuseau horaire</label>
+                <select class="form-select form-select-sm">
+                  <option>Africa/Conakry (UTC+0)</option>
+                  <option>Africa/Lagos (UTC+1)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-primary" onclick="saveSettings()">Sauvegarder</button>
+            <button class="btn btn-light">Annuler</button>
+          </div>
+        </div>
+
+        <!-- === EMAIL === -->
+        <div class="section" id="section-email">
+          <div class="info-box"><i class="fas fa-info-circle me-2"></i> Configuration SMTP pour les notifications.</div>
+          <div class="settings-card">
+            <div class="settings-card-title"><i class="fas fa-paper-plane"></i> Serveur SMTP</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Hôte SMTP</label>
+                <input type="text" class="form-control form-control-sm" placeholder="smtp.gmail.com">
+              </div>
+              <div class="form-group">
+                <label>Port</label>
+                <input type="text" class="form-control form-control-sm" value="587">
+              </div>
+              <div class="form-group">
+                <label>Utilisateur</label>
+                <input type="text" class="form-control form-control-sm" placeholder="admin@test.com">
+              </div>
+              <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" class="form-control form-control-sm" value="********">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="saveSettings()">Enregistrer Email</button>
+        </div>
+
+        <!-- === APPARENCE === -->
+        <div class="section" id="section-apparence">
+          <div class="settings-card">
+            <div class="settings-card-title"><i class="fas fa-image"></i> Logos & Images</div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Logo principal</label>
+                <div class="upload-zone">
+                  <i class="fas fa-cloud-upload-alt fa-2x mb-2"></i>
+                  <p class="small m-0">Glisser le logo ici</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Favicon</label>
+                <div class="upload-zone">
+                  <i class="fas fa-star fa-2x mb-2"></i>
+                  <p class="small m-0">Upload Favicon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" onclick="saveSettings()">Enregistrer Apparence</button>
+        </div>
+        
+        <!-- === MEDIAS (Simplifié pour l'exemple) === -->
+        <div class="section" id="section-medias">
+            <div class="settings-card">
+                <div class="settings-card-title"><i class="fas fa-upload"></i> Gestion des Uploads</div>
+                <div class="form-grid cols-3">
+                    <div class="form-group">
+                        <label>Taille Max (Mo)</label>
+                        <input type="number" class="form-control form-control-sm" value="5">
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()">Enregistrer Médias</button>
+        </div>
+
+        <!-- === SEO === -->
+        <div class="section" id="section-seo">
+            <div class="settings-card">
+                <div class="settings-card-title"><i class="fas fa-search"></i> Métadonnées</div>
+                <div class="form-grid cols-1">
+                    <div class="form-group">
+                        <label>Meta Titre</label>
+                        <input type="text" class="form-control form-control-sm" value="Visit Afrika - Tourisme">
+                    </div>
+                    <div class="form-group">
+                        <label>Meta Description</label>
+                        <textarea class="form-control form-control-sm">Description SEO du site...</textarea>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()">Enregistrer SEO</button>
+        </div>
+
+        <!-- === SÉCURITÉ === -->
+        <div class="section" id="section-securite">
+            <div class="warn-box"><i class="fas fa-exclamation-triangle me-2"></i> Attention aux changements de sécurité.</div>
+            <div class="settings-card">
+                <div class="settings-card-title"><i class="fas fa-key"></i> Authentification</div>
+                <div class="toggle-row">
+                    <div>
+                        <div class="toggle-label">Double Authentification (2FA)</div>
+                        <div class="toggle-desc">Activer pour tous les admins</div>
+                    </div>
+                    <label class="toggle"><input type="checkbox"><span class="toggle-slider"></span></label>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()">Enregistrer Sécurité</button>
+        </div>
+
+        <!-- === MAINTENANCE === -->
+        <div class="section" id="section-maintenance">
+            <div class="settings-card">
+                <div class="settings-card-title"><i class="fas fa-hammer"></i> État du Site</div>
+                <div class="toggle-row">
+                    <div>
+                        <div class="toggle-label">Mode Maintenance</div>
+                        <div class="toggle-desc">Rends le site inaccessible aux visiteurs</div>
+                    </div>
+                    <label class="toggle"><input type="checkbox" onchange="toggleMaintenance(this)"><span class="toggle-slider"></span></label>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="saveSettings()">Enregistrer Maintenance</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle me-2"></i>
+    <span id="toast-msg">Paramètres enregistrés !</span>
+  </div>
+
+  <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+  <script>
+    // Sidebar Toggle
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('d-none');
+      } else {
+        sidebar.style.width = sidebar.style.width === '0px' ? '260px' : '0px';
+        sidebar.style.padding = sidebar.style.width === '0px' ? '0' : '1.5rem';
+        sidebar.style.overflow = 'hidden';
+      }
+    });
+
+    // Tab Switching
+    function switchTab(name, el) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('section-' + name).classList.add('active');
+    }
+
+    // Toast
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    function saveSettings() {
+      showToast('Paramètres enregistrés avec succès !');
+    }
+
+    function toggleMaintenance(el) {
+        // Logique de maintenance si nécessaire
+    }
+  </script>
+</body>
+
+</html>

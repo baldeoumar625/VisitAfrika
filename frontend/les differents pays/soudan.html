@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: soudan.html
+    DESCRIPTION: Page pays premium standardisée pour le Soudan.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Soudan, la terre des pharaons noirs. Des pyramides de Méroé aux récifs de la Mer Rouge, découvrez un patrimoine archéologique unique au monde.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Soudan (La Terre de Koush)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/soudan.jpg" alt="Le Soudan" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Soudan</h1>
+            <p class="hero-subtitle">Le royaume des pharaons noirs et les mystères du Nil</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre d'Éternité et de Confluence</h2>
+            <p class="section-description">
+                Le Soudan est l'un des secrets les plus fascinants du continent africain. Terre de l'ancien Royaume de Koush, il abrite plus de pyramides que l'Égypte, dressées majestueusement dans le désert de Méroé. Traversé par le Nil Bleu et le Nil Blanc qui se rejoignent à Khartoum, le pays offre un contraste saisissant entre les vestiges archéologiques millénaires, les marchés vibrants d'Omdurman et les eaux turquoises de la Mer Rouge à Port-Soudan. Voyager au Soudan, c'est remonter le temps à la rencontre d'une civilisation grandiose et d'un peuple dont l'hospitalité est gravée dans la légende.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles historiques et naturelles du Soudan</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un site antique...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="pyramides">Pyramides & Temples</span>
+                <span class="filter-tag" data-filter="nil">Nil & Villes</span>
+                <span class="filter-tag" data-filter="mer">Mer Rouge & Nature</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="soudan-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Pyramides de Méroé -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Meroe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Méroé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 95k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pyramides de Méroé</h3>
+                        <p class="location-text">Nécropole royale du royaume de Koush (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="meroe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Gebel Barkal -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Gebel Barkal">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Karima</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 62k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Gebel Barkal</h3>
+                        <p class="location-text">La montagne sacrée et ses temples dédiés à Amon (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="barkal">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Temple de Soleb -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Soleb">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nubie</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Temple de Soleb</h3>
+                        <p class="location-text">Le plus beau temple égyptien de Nubie, bâti par Amenhotep III</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="soleb">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Confluence des Nils -->
+            <article class="attraction" data-category="nil">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Confluence">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Khartoum</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Mogran</h3>
+                        <p class="location-text">Le point de rencontre spectaculaire du Nil Bleu et du Nil Blanc</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mogran">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Musawwarat es-Sufra -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Musawwarat">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Nagaa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musawwarat es-Sufra</h3>
+                        <p class="location-text">Vaste complexe cultuel méroïtique aux sculptures d'éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="musawwarat">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Temple de Nagaa -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Nagaa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Désert de Shendi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Temple de Nagaa</h3>
+                        <p class="location-text">Temples bien préservés dédiés à Apedemak, le dieu lion</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nagaa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Port-Soudan (Récifs de Sanganeb) -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Sanganeb">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mer Rouge</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Atoll de Sanganeb</h3>
+                        <p class="location-text">Paradis de la plongée et parc national marin (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sanganeb">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Old Dongola -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Old Dongola">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Province du Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vieux Dongola</h3>
+                        <p class="location-text">Ancienne capitale du royaume chrétien de Makurie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dongola">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Suakin (Cité de Corail) -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Suakin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité de Suakin</h3>
+                        <p class="location-text">Ancien port ottoman bâti en pierre de corail sur la Mer Rouge</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="suakin">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Cataractes du Nil -->
+            <article class="attraction" data-category="nil">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Cataractes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord du Soudan</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Sixième Cataracte</h3>
+                        <p class="location-text">Rapides majestueux du Nil traversant les gorges de Sabaloka</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cataractes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Khartoum (Musée National) -->
+            <article class="attraction" data-category="nil">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Khartoum Museum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Khartoum</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National du Soudan</h3>
+                        <p class="location-text">Trésors de Koush et temples nubiens sauvés des eaux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="museum_khartoum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Parc National de Dinder -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Dinder">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Dinder</h3>
+                        <p class="location-text">Vaste réserve de biosphère abritant lions, léopards et gazelles</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dinder">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Île de Saï -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Sai Island">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Haut Nil</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Saï</h3>
+                        <p class="location-text">Sites archéologiques couvrant du Paléolithique à l'ère Ottomane</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sai">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Temple d'Amon (Naqa) -->
+            <article class="attraction" data-category="pyramides">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Amon Temple">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nagaa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 19k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Temple d'Amon</h3>
+                        <p class="location-text">Splendeur architecturale mêlant influences égyptiennes et méroïtiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="amon_naqa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Désert de Nubie -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Nubian Desert">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Désert de Nubie</h3>
+                        <p class="location-text">Étendues de sable doré et d'histoire enfouie sous le vent</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nubie_desert">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'héritage des Pharaons Noirs et le souffle du soufisme.</p>
+                    <p>Le Soudan possède l'une des histoires les plus profondes et les plus méconnues au monde. Pendant des siècles, le royaume de Koush a rivalisé avec l'Égypte, donnant même naissance aux "Pharaons Noirs" de la 25e dynastie. Cette grandeur passée se mêle aujourd'hui à une culture vivante marquée par l'influence du soufisme, visible lors des cérémonies des derviches tourneurs à Omdurman. L'identité soudanaise est une mosaïque d'influences arabes et africaines, unifiée par une tradition d'hospitalité sans égale où le café "Jebena" partagé est un rituel sacré de bienvenue.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-monument text-warning me-2"></i>Pharaons Noirs</h6>
+                                <p class="small text-muted mb-0">Le règne glorieux de Piye et Taharqa, rois de Koush qui ont gouverné toute la vallée du Nil.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-sync-alt text-info me-2"></i>Soufisme Vivant</h6>
+                                <p class="small text-muted mb-0">Les rituels mystiques et les danses des derviches à la mosquée de Hamed al-Nil.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-store text-danger me-2"></i>Souq Omdurman</h6>
+                                <p class="small text-muted mb-0">L'un des plus grands et anciens marchés d'Afrique, carrefour des cultures et du commerce.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-coffee text-success me-2"></i>Tradition du Jebena</h6>
+                                <p class="small text-muted mb-0">L'art millénaire de préparer le café soudanais, parfumé au gingembre et à la cannelle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Soudan" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de Nubie</h2>
+        <p>L'artisanat ancestral du Soudan. De l'or nubien aux épices rares du Nil.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/nubian_gold.png" alt="Or Nubien" onerror="this.src='https://ui-avatars.com/api/?name=Gold&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Luxe</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Or Nubien</h3>
+                    <p class="product-desc">Colliers et boucles d'oreilles inspirés des parures antiques des reines de Méroé, travaillés à la main.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">250 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tabag_basket.png" alt="Tabag" onerror="this.src='https://ui-avatars.com/api/?name=Tabag&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers Tressés (Tabag)</h3>
+                    <p class="product-desc">Vannerie nubienne colorée aux motifs géométriques, utilisée traditionnellement pour couvrir les plats.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/sudan_leather.png" alt="Cuir" onerror="this.src='https://ui-avatars.com/api/?name=Cuir&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Style</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Maroquinerie de Chameau</h3>
+                    <p class="product-desc">Sacs et sandales en cuir de chameau robuste, teints avec des pigments naturels du désert.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Spices&background=ff4500&color=fff&size=200" alt="Epices">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Épices d'Omdurman</h3>
+                    <p class="product-desc">Coffret de cardamome, gingembre et karkadé séché, les saveurs authentiques du Soudan.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cotton&background=f5f5dc&color=000&size=200" alt="Coton">
+                    <span class="stock-badge">Bio</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Cotonnade Soudanaise</h3>
+                    <p class="product-desc">Écharpes en coton fin tissé, léger et respirant, idéal pour les climats chauds.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Bakhour&background=3e2723&color=fff&size=200" alt="Encens">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Encens Bakhour de Luxe</h3>
+                    <p class="product-desc">Mélange secret de bois précieux et d'huiles essentielles, utilisé pour parfumer les demeures soudanaises.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/soudan.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escale sur le <span>Nil</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels offrant confort et vue panoramique au Soudan.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="corinthia">Corinthia Hotel Khartoum</option>
+                            <option value="salam">Al Salam Hotel</option>
+                            <option value="holiday_villa">Grand Holiday Villa</option>
+                            <option value="acropole">Acropole Hotel</option>
+                            <option value="regency">Regency Hotel</option>
+                            <option value="coral_port">Coral Port Sudan</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Corinthia"></div>
+                    <div class="hotel-content">
+                        <h4>Corinthia Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Khartoum, Luxe Iconique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Al Salam"></div>
+                    <div class="hotel-content">
+                        <h4>Al Salam Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Khartoum, Excellence & Business</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Holiday Villa"></div>
+                    <div class="hotel-content">
+                        <h4>Grand Holiday Villa</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Khartoum, Style Colonial</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Acropole"></div>
+                    <div class="hotel-content">
+                        <h4>Acropole Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Khartoum, Accueil de tradition</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Regency"></div>
+                    <div class="hotel-content">
+                        <h4>Regency Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Khartoum, Centre-ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Coral Port"></div>
+                    <div class="hotel-content">
+                        <h4>Coral Port Sudan</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Port-Soudan, Bord de Mer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine soudanaise est généreuse, authentique et riche de ses produits du fleuve et de la terre nubienne.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ful&background=8b4513&color=fff&size=200" alt="Ful"></div>
+                <div class="plat-content"><h4>Ful Medames</h4><p>Le plat national : fèves mijotées servies avec de l'huile, de l'oignon et souvent du fromage blanc.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kisra&background=f5f5dc&color=000&size=200" alt="Kisra"></div>
+                <div class="plat-content"><h4>Le Kisra</h4><p>Fine crêpe de sorgho fermenté, base de l'alimentation soudanaise servant d'accompagnement.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gurasa&background=daa520&color=fff&size=200" alt="Gurasa"></div>
+                <div class="plat-content"><h4>La Gurasa</h4><p>Pain épais et moelleux, idéal pour saucer les ragoûts de viande ou de légumes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Meat&background=8b0000&color=fff&size=200" alt="Shaiya"></div>
+                <div class="plat-content"><h4>El-Shaiya</h4><p>Viande d'agneau ou de bœuf frite avec des oignons et beaucoup d'ail.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mullah&background=006400&color=fff&size=200" alt="Mullah"></div>
+                <div class="plat-content"><h4>Sauce Mullah</h4><p>Une sauce onctueuse aux légumes et à la viande hachée, servie sur l'Asida.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Asida&background=f5f5dc&color=000&size=200" alt="Asida"></div>
+                <div class="plat-content"><h4>L'Asida</h4><p>Bouillie de farine de blé ou de maïs, servie en dôme et accompagnée de ragoût.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Salad&background=daa520&color=fff&size=200" alt="Dakwa"></div>
+                <div class="plat-content"><h4>Salade Dakwa</h4><p>Salade fraîche de crudités avec une sauce onctueuse au beurre d'arachide.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Poisson Nil"></div>
+                <div class="plat-content"><h4>Poisson du Nil</h4><p>Capitaine ou Tilapia grillé sur le feu de bois, péché le jour même dans le Nil.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=daa520&color=fff&size=200" alt="Ginger Tea"></div>
+                <div class="plat-content"><h4>Thé au Gingembre</h4><p>Thé rouge fort, très sucré et généreusement parfumé au gingembre frais.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Hibiscus&background=8b0000&color=fff&size=200" alt="Karkade"></div>
+                <div class="plat-content"><h4>Jus de Karkadé</h4><p>Boisson rafraîchissante à base de fleurs d'hibiscus infusées, servie froide ou chaude.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Jebena"></div>
+                <div class="plat-content"><h4>Café Jebena</h4><p>Café traditionnel préparé dans une cafetière en argile noire et servi avec de l'encens.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Basbousa&background=daa520&color=fff&size=200" alt="Basbousa"></div>
+                <div class="plat-content"><h4>Basbousa</h4><p>Gâteau de semoule moelleux imbibé de sirop, parsemé d'amandes.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez le Soudan à travers ses traditions spirituelles et ses célébrations culturelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-sync-alt"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Spiritualité</span>
+                    <h4>Derviches Tourneurs</h4>
+                    <p>Chaque vendredi après-midi à Omdurman, assistez aux rituels mystiques et danses soufies.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-horse"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Indépendance du Soudan</h4>
+                    <p>Festivités nationales marquant l'accès à la souveraineté (1er Janvier).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Art</span>
+                    <h4>Khartoum International Fair</h4>
+                    <p>Grand rendez-vous commercial et culturel annuel de la capitale (Janvier).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Fraîche (Novembre à Février)</h5>
+                    <p class="small mb-0">C'est le moment idéal pour visiter les sites archéologiques. Les températures sont clémentes (25-30°C) et les nuits sont fraîches dans le désert.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Saison de Transition (Mars à Avril)</h5>
+                    <p class="small mb-0">Encore propice au voyage, bien que la chaleur commence à monter. Idéal pour la plongée en Mer Rouge car l'eau est parfaitement tempérée.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez les recommandations officielles de voyage. Le pays traverse des périodes complexes, privilégiez les voyages organisés avec des agences certifiées.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire et souvent complexe à obtenir. Anticipez vos démarches auprès des ambassades soudanaises plusieurs semaines avant le départ.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-vest fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Tradition</h6>
+                    <p class="small text-muted">Société conservatrice. Une tenue pudique (bras et jambes couverts) est de rigueur. Demandez l'autorisation avant de photographier des personnes.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">Livre Soudanaise (SDG). Apportez suffisamment d'espèces (Dollars US ou Euros) car les cartes de crédit internationales sont rarement acceptées.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Mohamed+Nubia&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Mohamed">
+                        <h5 class="fw-bold mb-1">Mohamed Ahmed</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Archéologie Nubienne</p>
+                        <p class="small text-muted">Érudit du royaume de Koush, Mohamed vous fera revivre l'histoire fascinante des pyramides de Méroé.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:mohamed@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Mohamed</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Fatima+Culture&background=8b4513&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Fatima">
+                        <h5 class="fw-bold mb-1">Fatima Hassan</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culturelle & Souk</p>
+                        <p class="small text-muted">Spécialiste de Khartoum et d'Omdurman, Fatima vous fera découvrir l'âme vibrante des marchés et des traditions locales.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fatima@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Fatima</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Osman+Sea&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Osman">
+                        <h5 class="fw-bold mb-1">Osman Ali</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Plongée Mer Rouge</p>
+                        <p class="small text-muted">Maître-plongeur à Port-Soudan, Osman vous guidera vers les récifs vierges et les épaves mythiques du Sanganeb.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:osman@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Osman</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Soudan, la terre des pharaons noirs. Découvrez un patrimoine archéologique unique au monde et l'âme du Nil avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Soudan</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +249 18 300 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> khartoum@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Sudan - Land of Kush</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/soudan.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: mauritanie.html
+    DESCRIPTION: Page pays premium standardisée pour la Mauritanie.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explorez la Mauritanie, la terre des cités caravanières. Des dunes dorées de Chinguetti aux côtes sauvages du Banc d'Arguin, découvrez l'âme du Sahara et l'hospitalité nomade.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Mauritanie</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i>
+                            Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i>
+                            Pays</a></li>
+
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a>
+                    </li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i>
+                            Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/mauritanie.jpg" alt="La Mauritanie"
+            onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Mauritanie</h1>
+            <p class="hero-subtitle">Le carrefour des sables et des vagues de l'Atlantique</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Infini du Sahara et l'Âme Nomade</h2>
+            <p class="section-description">
+                La Mauritanie est une terre de contrastes saisissants, où les dunes majestueuses du Sahara viennent
+                mourir dans les eaux bleues de l'Atlantique. Nation de poètes et de nomades, elle abrite des trésors
+                inestimables comme les cités caravanières de Chinguetti et Ouadane, bibliothèques du désert classées à
+                l'UNESCO. De l'oasis luxuriante de Terjit aux côtes sauvages du Banc d'Arguin, sanctuaire mondial pour
+                les oiseaux migrateurs, la Mauritanie offre une expérience de voyage spirituelle et brute. C'est ici,
+                sous un ciel étoilé d'une pureté absolue, que l'on découvre le véritable sens de l'hospitalité maure
+                autour du traditionnel rituel des trois thés.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles du patrimoine mauritanien</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une oasis...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="sahara">Sahara & Cités</span>
+                <span class="filter-tag" data-filter="mer">Océan & Nature</span>
+                <span class="filter-tag" data-filter="oasis">Oasis & Adrar</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span
+                    class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="mauritanie-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Chinguetti -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800"
+                        alt="Chinguetti">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Adrar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 95k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité de Chinguetti</h3>
+                        <p class="location-text">La septième ville sainte de l'islam et ses bibliothèques du désert
+                            (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chinguetti">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Banc d'Arguin -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800"
+                        alt="Banc d'Arguin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc du Banc d'Arguin</h3>
+                        <p class="location-text">Vaste réserve côtière, paradis des oiseaux migrateurs (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="arguin">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Oasis de Terjit -->
+            <article class="attraction" data-category="oasis">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800"
+                        alt="Terjit">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Adrar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oasis de Terjit</h3>
+                        <p class="location-text">Une source d'eau fraîche nichée dans un canyon spectaculaire</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="terjit">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Ouadane -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+                        alt="Ouadane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Adrar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ancienne cité d'Ouadane</h3>
+                        <p class="location-text">Ruines majestueuses d'un ancien comptoir caravanier (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ouadane">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Oualata -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+                        alt="Oualata">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Hodh Ech Chargui</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité d'Oualata</h3>
+                        <p class="location-text">La cité des peintures murales et du raffinement architectural (UNESCO)
+                        </p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="oualata">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Train du Minerai de Fer -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800"
+                        alt="Iron Train">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zouérat - Nouadhibou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Train du Désert</h3>
+                        <p class="location-text">L'un des trains les plus longs du monde traversant l'immensité du
+                            Sahara</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="iron_train">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Nouakchott (Marché aux Poissons) -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800"
+                        alt="Nouakchott">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nouakchott</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Port de Pêche</h3>
+                        <p class="location-text">Spectacle vibrant du retour des pirogues colorées sur la côte
+                            atlantique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nouakchott_port">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Ben Amera (Monolithe) -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800"
+                        alt="Ben Amera">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tiris Zemmour</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monolithe de Ben Amera</h3>
+                        <p class="location-text">Le deuxième plus grand monolithe au monde, dressé au milieu du désert
+                        </p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ben_amera">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Tichitt -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800"
+                        alt="Tichitt">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tagant</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité de Tichitt</h3>
+                        <p class="location-text">Architecture de pierre sèche et histoire caravanière (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tichitt">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Passe d'Amogjar -->
+            <article class="attraction" data-category="oasis">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800"
+                        alt="Amogjar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Atar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Passe d'Amogjar</h3>
+                        <p class="location-text">Site rupestre et paysages de plateaux spectaculaires dans l'Adrar</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="amogjar">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Atar (Adrar) -->
+            <article class="attraction" data-category="oasis">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800"
+                        alt="Atar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Capitale de l'Adrar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville d'Atar</h3>
+                        <p class="location-text">Carrefour historique et porte d'entrée des merveilles de l'Adrar</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="atar">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Port de Nouadhibou -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+                        alt="Nouadhibou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Nouadhibou</h3>
+                        <p class="location-text">Cité portuaire entre désert et océan, célèbre pour ses épaves</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nouadhibou">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Oasis de Mhaireth -->
+            <article class="attraction" data-category="oasis">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800"
+                        alt="Mhaireth">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Adrar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oasis de Mhaireth</h3>
+                        <p class="location-text">Une des plus grandes palmeraies du pays, un écrin de verdure</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mhaireth">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Tidjikja -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800"
+                        alt="Tidjikja">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tagant</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Tidjikja</h3>
+                        <p class="location-text">Réputée pour sa palmeraie de qualité supérieure et son architecture</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tidjikja">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Akjoujt -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800"
+                        alt="Akjoujt">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Inchiri</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Akjoujt</h3>
+                        <p class="location-text">Ville minière historique et point de passage vers le grand nord</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="akjoujt">Découvrir <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La sagesse du désert et l'art de l'accueil.</p>
+                    <p>La culture mauritanienne est une fusion raffinée entre les traditions arabes et subsahariennes,
+                        portée par un peuple de nomades dont le désert est le jardin. L'identité du pays est marquée par
+                        sa piété, sa poésie (la Mauritanie est le pays des millions de poètes) et son hospitalité
+                        sacrée. Le rituel du thé, servi trois fois, symbolise la vie, l'amour et la mort. Chinguetti,
+                        jadis phare de la science islamique, témoigne de ce passé glorieux où les caravanes
+                        transportaient autant de livres que de sel. Aujourd'hui, cette âme nomade survit dans chaque
+                        "khaïma" (tente traditionnelle) et dans la grâce des "melhafas" colorées des femmes
+                        mauritaniennes.</p>
+
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mug-hot text-warning me-2"></i>Le Rituel du Thé
+                                </h6>
+                                <p class="small text-muted mb-0">Trois verres successifs : le premier amer comme la vie,
+                                    le deuxième doux comme l'amour, le troisième suave comme la mort.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-book-open text-info me-2"></i>Savoirs Anciens</h6>
+                                <p class="small text-muted mb-0">Les manuscrits séculaires de Chinguetti, gardiens de la
+                                    science, de l'astronomie et de la théologie au cœur des dunes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-campground text-danger me-2"></i>Vie Nomade</h6>
+                                <p class="small text-muted mb-0">La résilience du peuple maure qui a su dompter
+                                    l'immensité du Sahara par sa connaissance des étoiles et des puits.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-feather-alt text-success me-2"></i>Pays de la
+                                    Poésie</h6>
+                                <p class="small text-muted mb-0">Une tradition orale et écrite d'une richesse
+                                    exceptionnelle, où le verbe est le premier art de la nation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600"
+                            alt="Culture Mauritanie" class="img-fluid rounded-4 shadow-sm w-100"
+                            style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Sahara</h2>
+        <p>L'artisanat authentique des Maures. Des bijoux en argent gravés aux maroquineries du Tagant.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/maure_silver.png" alt="Bijoux Maures"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Silver&background=c0c0c0&color=000&size=200'">
+                    <span class="stock-badge">Luxe</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Croix d'Agadez Mauritanienne</h3>
+                    <p class="product-desc">Pendentif traditionnel en argent finement ciselé par les orfèvres de
+                        Nouakchott, symbole de protection.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/maure_leather.png" alt="Cuir"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Leather&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sacoche de Voyage (Raouda)</h3>
+                    <p class="product-desc">Maroquinerie d'excellence en cuir de chèvre teinté, ornée de franges et de
+                        broderies géométriques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/maure_melhafa.png" alt="Melhafa"
+                        onerror="this.src='https://ui-avatars.com/api/?name=Melhafa&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Style</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Voile Melhafa Premium</h3>
+                    <p class="product-desc">Tissu léger et coloré porté par les femmes mauritaniennes, offrant élégance
+                        et protection contre le vent.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Incense&background=3e2723&color=fff&size=200"
+                        alt="Encens">
+                    <span class="stock-badge">Aromatique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Encens Bakhour Maures</h3>
+                    <p class="product-desc">Mélange ancestral de bois de santal, de musc et d'huiles précieuses pour
+                        parfumer la khaïma.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Rug&background=8b0000&color=fff&size=200" alt="Tapis">
+                    <span class="stock-badge">Tissage</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tapis en Laine de Boutilimit</h3>
+                    <p class="product-desc">Tapis traditionnel tissé à la main avec de la laine de mouton et des
+                        pigments naturels.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">120 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Dates&background=daa520&color=fff&size=200" alt="Dates">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Coffret de Dates de l'Adrar</h3>
+                    <p class="product-desc">Sélection des meilleures dates (Teguelatt) de la région d'Atar,
+                        naturellement sucrées.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg"
+                    style="background-image: url('../images/pays/Afrique_Ouest/mauritanie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Détente entre <span>Sable</span> et <span>Mer</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels de Nouakchott et des auberges de charme dans le
+                        désert.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="azalai">Hotel Azalaï Nouakchott</option>
+                            <option value="tfeila">Hotel Tfeila</option>
+                            <option value="terjit_vac">Terjit Vacances</option>
+                            <option value="mauricenter">Mauricenter</option>
+                            <option value="monotel">Monotel Dar El Barka</option>
+                            <option value="nomades">Auberge des Nomades Chinguetti</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Dates</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600"
+                            alt="Azalai"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Azalaï</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nouakchott, Luxe & Confort</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600"
+                            alt="Tfeila"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Tfeila</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nouakchott, Centre-ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600"
+                            alt="Terjit Vac"></div>
+                    <div class="hotel-content">
+                        <h4>Terjit Vacances</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nouakchott, Bord de Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600"
+                            alt="Nomades"></div>
+                    <div class="hotel-content">
+                        <h4>Auberge des Nomades</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Chinguetti, Charme Authentique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600"
+                            alt="Monotel"></div>
+                    <div class="hotel-content">
+                        <h4>Monotel Dar El Barka</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nouakchott, Excellence Business</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img
+                            src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600"
+                            alt="Mauricenter"></div>
+                    <div class="hotel-content">
+                        <h4>Mauricenter</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nouakchott, Moderne & Central</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine mauritanienne est généreuse, s'inspirant des ressources de l'Atlantique et des traditions nomades
+            du Sahara.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Thieb&background=8b0000&color=fff&size=200" alt="Thieb">
+                </div>
+                <div class="plat-content">
+                    <h4>Thieboudienne</h4>
+                    <p>Version mauritanienne du riz au poisson, riche en légumes frais et en saveurs marines.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Mechoui&background=8b4513&color=fff&size=200"
+                        alt="Mechoui"></div>
+                <div class="plat-content">
+                    <h4>Méchoui Nomade</h4>
+                    <p>Agneau de lait rôti entier au feu de bois dans le désert, d'une tendreté incomparable.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Couscous&background=daa520&color=fff&size=200"
+                        alt="Couscous"></div>
+                <div class="plat-content">
+                    <h4>Couscous Mauritanien</h4>
+                    <p>Semoule fine servie avec une sauce aux légumes et à la viande de chameau.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Al-Aich&background=f5f5dc&color=000&size=200"
+                        alt="Al-Aich"></div>
+                <div class="plat-content">
+                    <h4>Al-Aich</h4>
+                    <p>Bouillie traditionnelle de céréales servie avec du lait frais ou une sauce onctueuse.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Camel&background=daa520&color=fff&size=200" alt="Milk">
+                </div>
+                <div class="plat-content">
+                    <h4>Zrig (Lait de Chamelle)</h4>
+                    <p>La boisson nationale : lait de chamelle frais ou caillé, énergisant et désaltérant.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200" alt="Tea"></div>
+                <div class="plat-content">
+                    <h4>Thé à la Menthe</h4>
+                    <p>Le rituel des trois verres, pilier de l'hospitalité et de la sociabilité mauritanienne.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Poisson">
+                </div>
+                <div class="plat-content">
+                    <h4>Poisson Grillé de Nouakchott</h4>
+                    <p>Courbine ou Mérou fraîchement pécé, grillé simplement avec du sel et du citron.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Tichitar&background=8b0000&color=fff&size=200"
+                        alt="Tichitar"></div>
+                <div class="plat-content">
+                    <h4>Tichitar</h4>
+                    <p>Viande de chameau séchée au soleil, une provision de voyage traditionnelle des nomades.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Dates&background=daa520&color=fff&size=200" alt="Dates">
+                </div>
+                <div class="plat-content">
+                    <h4>Dates fraîches d'Adrar</h4>
+                    <p>Dégustées avec du lait frais à l'ombre des palmiers, le goût pur du Sahara.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Pain&background=daa520&color=fff&size=200" alt="Pain">
+                </div>
+                <div class="plat-content">
+                    <h4>Pain de Sable</h4>
+                    <p>Pain traditionnel cuit sous le sable chaud, accompagnement essentiel du méchoui.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Basbousa&background=daa520&color=fff&size=200"
+                        alt="Basbousa"></div>
+                <div class="plat-content">
+                    <h4>Basbousa Mauritanienne</h4>
+                    <p>Gâteau de semoule moelleux à l'eau de fleur d'oranger et au miel.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img
+                        src="https://ui-avatars.com/api/?name=Bouye&background=f5f5dc&color=000&size=200" alt="Bouye">
+                </div>
+                <div class="plat-content">
+                    <h4>Jus de Bouye</h4>
+                    <p>Boisson onctueuse à base de fruit de baobab, très appréciée pour sa fraîcheur.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez le rythme de la Mauritanie à travers ses célébrations culturelles et ses traditions séculaires.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-feather-alt"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Culture</span>
+                    <h4>Festival des Cités Anciennes</h4>
+                    <p>Célébration annuelle tournante (Chinguetti, Ouadane, Tichitt, Oualata) du patrimoine et des arts
+                        nomades.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Défilés et festivités nationales marquant l'accès à la souveraineté (28 Novembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-calendar-day"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Tradition</span>
+                    <h4>La Guetna (Saison des Dates)</h4>
+                    <p>Grande fête sociale et familiale dans les oasis de l'Adrar lors de la récolte des dates
+                        (Juillet-Août).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Fraîche (Novembre à
+                        Mars)</h5>
+                    <p class="small mb-0">C'est la période idéale pour explorer le désert. Les journées sont
+                        ensoleillées et douces (20-25°C) et les nuits sont fraîches, parfaites pour le bivouac.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Saison de la Guetna
+                        (Juillet à Août)</h5>
+                    <p class="small mb-0">Bien que chaude, c'est la période de la récolte des dates dans les oasis. Une
+                        expérience culturelle unique malgré les températures élevées du Sahara.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le pays est stable. Respectez les consignes de sécurité pour les zones
+                        frontalières et privilégiez les guides officiels pour les traversées du désert.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-user-check fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Tradition</h6>
+                    <p class="small text-muted">Société conservatrice et pieuse. Tenue pudique exigée (bras et jambes
+                        couverts). Demandez toujours la permission avant de photographier.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa biométrique obligatoire, peut être obtenu à l'arrivée (aéroport de
+                        Nouakchott ou frontières terrestres) pour la plupart des nationalités.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">L'Ouguiya (MRU). Le change se fait facilement à Nouakchott. L'usage de
+                        l'espèce est prédominant en dehors de la capitale.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ahmed+Adrar&background=00008b&color=fff&size=128"
+                            class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ahmed">
+                        <h5 class="fw-bold mb-1">Ahmed Ould Bah</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Sahara & Chinguetti</p>
+                        <p class="small text-muted">Natif de l'Adrar, Ahmed est un guide passionné qui connaît chaque
+                            dune et chaque manuscrit des cités anciennes.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ahmed@visitafrika.com"
+                            class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ahmed</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Fatimatou+Oasis&background=8b4513&color=fff&size=128"
+                            class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Fatimatou">
+                        <h5 class="fw-bold mb-1">Fatimatou Mint Mint</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture & Artisanat</p>
+                        <p class="small text-muted">Spécialiste de l'histoire des cités caravanières et des traditions
+                            féminines maures (poésie, melhafa, artisanat).</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fatimatou@visitafrika.com"
+                            class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec
+                            Fatimatou</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Sidi+Arguin&background=00008b&color=fff&size=128"
+                            class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Sidi">
+                        <h5 class="fw-bold mb-1">Sidi Ould Imraguen</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Banc d'Arguin & Nature</p>
+                        <p class="small text-muted">Natif des côtes du Banc d'Arguin, Sidi vous fera découvrir les
+                            oiseaux migrateurs et la pêche traditionnelle Imraguen.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:sidi@visitafrika.com"
+                            class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Sidi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Mauritanie, terre des poètes et des sables. Découvrez l'âme du Sahara et
+                    l'hospitalité nomade avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Mauritanie</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +222 45 25 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> nouakchott@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Mauritania - Land of Nomads</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/mauritanie.js"></script>
+</body>
+
+</html>

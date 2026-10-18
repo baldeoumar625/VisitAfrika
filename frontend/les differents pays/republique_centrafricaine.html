@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: republique_centrafricaine.html
+    DESCRIPTION: Page pays premium standardisée pour la République Centrafricaine.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la République Centrafricaine, le sanctuaire sauvage au cœur du continent. Des éléphants de Dzanga-Ndoki aux chutes de Boali, explorez une nature préservée.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La République Centrafricaine (Le Cœur Sauvage)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Centrale/republique_centrafricaine.jpg" alt="La RCA" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La République Centrafricaine</h1>
+            <p class="hero-subtitle">Une immersion authentique dans l'un des derniers sanctuaires sauvages d'Afrique</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Le Cœur Vert et Mystérieux de l'Afrique</h2>
+            <p class="section-description">
+                La République Centrafricaine (RCA) est une destination pour les explorateurs en quête d'absolu. Située au carrefour géographique du continent, elle abrite des écosystèmes d'une richesse inouïe. Le joyau du pays est sans conteste le Parc National de Dzanga-Ndoki, où des centaines d'éléphants de forêt et des gorilles de plaine s'observent dans les "baïs" (clairières forestières) au milieu d'une forêt primaire impénétrable. De Bangui, "la Coquette", bordée par le puissant fleuve Oubangui, aux chutes rugissantes de Boali et aux énigmatiques mégalithes de Bouar, la Centrafrique offre une expérience de voyage brute et mémorable. C'est une terre de traditions ancestrales où l'hospitalité des peuples Baka et sédentaires réchauffe le cœur de ceux qui osent s'y aventurer.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 trésors de la Centrafrique</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un parc ou une cascade...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Forêts & Parcs</span>
+                <span class="filter-tag" data-filter="eau">Fleuves & Chutes</span>
+                <span class="filter-tag" data-filter="culture">Villes & Culture</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="rca-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Bangui (Musée Boganda) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Bangui">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bangui</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée Barthélémy Boganda</h3>
+                        <p class="location-text">Haut lieu de la mémoire et de l'artisanat des peuples centrafricains</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="boganda_museum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Parc National de Dzanga-Ndoki -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Dzanga Ndoki">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest (UNESCO)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Dzanga-Ndoki</h3>
+                        <p class="location-text">Sanctuaire exceptionnel pour les éléphants de forêt et gorilles de plaine</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dzanga_ndoki">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Chutes de Boali -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Boali">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Bangui</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Boali</h3>
+                        <p class="location-text">Des cascades spectaculaires de 50m de haut, symbole de la puissance naturelle du pays</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="boali">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Réserve de Dzanga-Sangha -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Dzanga Sangha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bayanga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Dzanga-Sangha</h3>
+                        <p class="location-text">Immersion totale dans la forêt équatoriale avec les pisteurs pygmées Baka</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sangha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Bangassou -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Bangassou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Est du pays</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Bangassou</h3>
+                        <p class="location-text">Cité historique et religieuse sur les rives de l'Oubangui, porte du grand Est</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bangassou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Cathédrale Notre-Dame de Bangui -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Cathedrale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bangui</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale Notre-Dame</h3>
+                        <p class="location-text">Édifice imposant en briques rouges, coeur de la vie spirituelle de la capitale</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cathedrale_bangui">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Fleuve Oubangui (Balade) -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Oubangui">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> National</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Croisière sur l'Oubangui</h3>
+                        <p class="location-text">Vivez le rythme du fleuve en pirogue traditionnelle, entre pêcheurs et nature</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="oubangui_river">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. M'Baïki (Forêt) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Mbaiki">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lobaye</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt de M'Baïki</h3>
+                        <p class="location-text">Zone d'exploitation forestière durable et lieu privilégié pour découvrir la culture Baka</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mbaiki">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Gorges de Kotto -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Kotto">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Kembé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Les Gorges de Kotto</h3>
+                        <p class="location-text">Un site naturel sauvage composé de rapides et de formations rocheuses spectaculaires</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kotto_gorges">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Parc National d'André-Félix -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Andre Felix">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc d'André-Félix</h3>
+                        <p class="location-text">Une savane arborée abritant une faune variée, aux confins du Soudan</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="andrefelix">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Mégalithes de Bouar -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Bouar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nana-Mambéré</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mégalithes de Bouar</h3>
+                        <p class="location-text">Des monuments de pierre énigmatiques datant de la préhistoire, témoins d'une culture ancienne</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bouar">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Birao -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Birao">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Extrême Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Birao</h3>
+                        <p class="location-text">Un carrefour culturel sahélo-soudanais au milieu de paysages désertiques</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="birao">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. N'Délé (Le Tata) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ndele">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bamingui-Bangoran</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Tata de N'Délé</h3>
+                        <p class="location-text">Ancien palais fortifié du sultanat de Senoussi, vestige d'une puissance passée</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ndele">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Bria -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Bria">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Haute-Kotto</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Bria</h3>
+                        <p class="location-text">La cité des diamants, au coeur de la savane arborée de l'Est</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bria">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Berberati -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Berberati">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mambéré-Kadéï</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Berberati</h3>
+                        <p class="location-text">Deuxième ville du pays, pôle économique et carrefour forestier dynamique</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="berberati">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une mosaïque de peuples au coeur de la forêt.</p>
+                    <p>La culture centrafricaine est le fruit d'un riche brassage entre plus de 80 groupes ethniques, dont les Gbaya, Banda et les Pygmées Baka, gardiens millénaires de la forêt. Cette diversité s'exprime dans une musique polyphonique unique, des danses rituelles vibrantes et un artisanat raffiné utilisant les ressources de la nature (bois, fibres, cuir). L'histoire du pays est marquée par de grands sultanats et une résistance opiniâtre aux influences extérieures, forgeant un caractère national fier et résilient. Le Sango, langue nationale véhiculaire, unit cette mosaïque de peuples dans une harmonie sonore qui résonne de Bangui aux confins du Tchad et du Soudan.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-leaf text-warning me-2"></i>Savoir-faire Baka</h6>
+                                <p class="small text-muted mb-0">La connaissance ancestrale des Pygmées Baka sur la pharmacopée et les secrets de la forêt primaire.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Polyphonies Vocales</h6>
+                                <p class="small text-muted mb-0">Un chant sacré et complexe, inscrit au patrimoine de l'UNESCO, qui anime les cérémonies traditionnelles.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-monument text-danger me-2"></i>Vestiges du Tata</h6>
+                                <p class="small text-muted mb-0">L'héritage architectural des anciens sultanats fortifiés de N'Délé, symboles d'une histoire médiévale méconnue.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-language text-success me-2"></i>L'Esprit Sango</h6>
+                                <p class="small text-muted mb-0">Une langue de partage et d'unité qui transcende les appartenances ethniques à travers tout le pays.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture RCA" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique Centrafricaine</h2>
+        <p>L'artisanat brut et authentique du coeur de l'Afrique. Sculptures d'ébène et musique Sanza.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/rca_ebony.png" alt="Ebène" onerror="this.src='https://ui-avatars.com/api/?name=Ebony&background=000&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Ébène de Sangha</h3>
+                    <p class="product-desc">Pièce de collection sculptée à la main dans du bois d'ébène massif, représentant la faune locale.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/rca_sanza.png" alt="Sanza" onerror="this.src='https://ui-avatars.com/api/?name=Sanza&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Musique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sanza (Piano à pouces) Artisanale</h3>
+                    <p class="product-desc">Instrument de musique traditionnel en bois et métal, fabriqué par les artisans de Bangui.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/rca_leather.png" alt="Cuir" onerror="this.src='https://ui-avatars.com/api/?name=Leather&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Besace en Cuir de Bangassou</h3>
+                    <p class="product-desc">Maroquinerie artisanale robuste en cuir de bœuf teinté avec des pigments naturels.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">40 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Mask&background=daa520&color=fff&size=200" alt="Masque">
+                    <span class="stock-badge">Culture</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque de Cérémonie Banda</h3>
+                    <p class="product-desc">Réplique fidèle des masques portés lors des rituels ancestraux dans le centre du pays.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Woven&background=006400&color=fff&size=200" alt="Tissage">
+                    <span class="stock-badge">Vannerie</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tressé en Fibres de Vacoas</h3>
+                    <p class="product-desc">Objets décoratifs et utilitaires tissés avec finesse par les femmes des villages de la Lobaye.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Butter&background=daa520&color=fff&size=200" alt="Karite">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Karité Pur de Birao</h3>
+                    <p class="product-desc">Soin naturel d'exception produit traditionnellement dans le nord de la Centrafrique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Centrale/republique_centrafricaine.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales au <span>Cœur du Continent</span></h2>
+                    <p>Découvrez notre sélection des meilleurs établissements de Bangui pour un confort optimal lors de votre exploration.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="ledger">Ledger Plaza Bangui</option>
+                            <option value="jm_residences">JM Residences</option>
+                            <option value="oubangui">Oubangui Hotel</option>
+                            <option value="couronne">La Couronne</option>
+                            <option value="national">National Hotel</option>
+                            <option value="galaxy">Galaxy Hotel</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Ledger Plaza"></div>
+                    <div class="hotel-content">
+                        <h4>Ledger Plaza</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangui, Luxe & Piscine</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="JM Residences"></div>
+                    <div class="hotel-content">
+                        <h4>JM Residences</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangui, Confort & Moderne</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Oubangui Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Oubangui Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangui, Bord de Fleuve</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="La Couronne"></div>
+                    <div class="hotel-content">
+                        <h4>La Couronne</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangui, Service & Qualité</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="National Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>National Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangui, Centre-Ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Galaxy Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Galaxy Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangui, Standing & Calme</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine centrafricaine est authentique et nourrissante, privilégiant les produits frais de la forêt et des fleuves.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kanda&background=8b0000&color=fff&size=200" alt="Kanda"></div>
+                <div class="plat-content"><h4>Le Kanda</h4><p>Boulettes de viande ou de poisson parfumées aux épices locales et à l'arachide.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Maboke&background=daa520&color=fff&size=200" alt="Maboke"></div>
+                <div class="plat-content"><h4>Maboké</h4><p>Poisson frais cuit à l'étouffée dans des feuilles de bananier avec des oignons et tomates.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fufu&background=f5f5dc&color=000&size=200" alt="Fufu"></div>
+                <div class="plat-content"><h4>Fufu de Manioc</h4><p>Pâte consistante à base de farine de manioc, compagnon inséparable de tous les repas.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gombo&background=006400&color=fff&size=200" alt="Gombo"></div>
+                <div class="plat-content"><h4>Sauce Gombo</h4><p>Ragoût gluant savoureux à base de gombos frais, de viande séchée et d'épices.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Saka&background=006400&color=fff&size=200" alt="Saka"></div>
+                <div class="plat-content"><h4>Saka-Saka</h4><p>Feuilles de manioc pilées et mijotées avec du poisson fumé et de l'huile de palme.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson"></div>
+                <div class="plat-content"><h4>Poisson Fumé de l'Oubangui</h4><p>Capitaine ou silure fumé au feu de bois, base de nombreuses sauces savoureuses.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Nyembwe&background=daa520&color=fff&size=200" alt="Nyembwe"></div>
+                <div class="plat-content"><h4>Poulet Nyembwe local</h4><p>Poulet cuit dans une sauce onctueuse de noix de palme, une spécialité de fête.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice&background=daa520&color=fff&size=200" alt="Riz"></div>
+                <div class="plat-content"><h4>Riz Gras Centrafricain</h4><p>Riz cuit avec de la viande, des légumes et des épices, un plat complet et généreux.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Plantain&background=daa520&color=fff&size=200" alt="Plantain"></div>
+                <div class="plat-content"><h4>Bananes Plantains Frites</h4><p>Accompagnement sucré-salé indispensable, doré à souhait dans l'huile.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fruits&background=006400&color=fff&size=200" alt="Fruits"></div>
+                <div class="plat-content"><h4>Fruits de la Forêt</h4><p>Mangues sauvages, papayes et agrumes gorgés de soleil, récoltés à maturité.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=8b4513&color=fff&size=200" alt="The"></div>
+                <div class="plat-content"><h4>Thé de Brousse</h4><p>Infusion de plantes locales aux vertus tonifiantes, servie chaude après le repas.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Wine&background=daa520&color=fff&size=200" alt="Vin"></div>
+                <div class="plat-content"><h4>Vin de Palme Frais</h4><p>Boisson traditionnelle récoltée à la cime des palmiers, douce et rafraîchissante.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez les moments forts de la culture et de l'unité centrafricaine.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de la République</h4>
+                    <p>Célébrations grandioses à Bangui (1er Décembre) avec défilés militaires et animations populaires.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festival Culturel Baka</h4>
+                    <p>Rencontres annuelles mettant à l'honneur les chants, danses et traditions du peuple Baka en forêt.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Bangui Fête la Musique</h4>
+                    <p>Grands concerts de plein air sur les rives de l'Oubangui avec les meilleurs artistes locaux.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Mars)</h5>
+                    <p class="small mb-0">La période idéale pour explorer les parcs nationaux. Les animaux se regroupent autour des points d'eau, et les routes sont plus facilement praticables.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-showers-heavy text-primary me-2"></i>Saison des Pluies (Mai à Octobre)</h5>
+                    <p class="small mb-0">Les pluies sont intenses, rendant certains accès difficiles. Cependant, les chutes de Boali sont à leur débit maximum et la nature est d'un vert éclatant.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Consultez impérativement les recommandations de voyage. Bangui est calme, mais les déplacements en province nécessitent une organisation rigoureuse avec des guides locaux.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludique indispensable. Buvez uniquement de l'eau en bouteille. Bangui dispose de cliniques privées de qualité.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour la plupart des nationalités. Effectuez votre demande auprès de l'ambassade de RCA ou consulat avant votre départ.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XAF). L'économie est basée sur l'espèce. Quelques distributeurs automatiques à Bangui acceptant les cartes internationales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Jean+Dzanga&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Jean">
+                        <h5 class="fw-bold mb-1">Jean-Pierre Ziba</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari & Dzanga-Ndoki</p>
+                        <p class="small text-muted">Passionné par la faune sauvage, Jean-Pierre vous accompagnera pour une observation unique des éléphants de forêt.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:jean@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Jean</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Estelle+Bangui&background=daa520&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Estelle">
+                        <h5 class="fw-bold mb-1">Estelle Namngane</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture & Bangui</p>
+                        <p class="small text-muted">Estelle vous fera découvrir les secrets de Bangui "la Coquette" et l'histoire riche de la nation centrafricaine.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:estelle@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Estelle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Michel+Baka&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Michel">
+                        <h5 class="fw-bold mb-1">Michel M'Baï</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Forêt & Culture Baka</p>
+                        <p class="small text-muted">Natif de la Lobaye, Michel vous emmènera à la rencontre des peuples Baka pour une immersion en forêt primaire.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:michel@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Michel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La République Centrafricaine, le cœur sauvage du continent. Découvrez une nature brute et une culture authentique avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Bangui</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +236 70 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> bangui@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | CAR - The Wild Heart</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/republique_centrafricaine.js"></script>
+</body>
+
+</html>

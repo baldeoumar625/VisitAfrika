@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: nigeria.html
+    DESCRIPTION: Page pays premium standardisée pour le Nigeria.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Nigeria, le géant de l'Afrique. De l'énergie vibrante de Lagos à la majesté d'Abuja et à la culture millénaire du Bénin et d'Oshogbo, découvrez une nation époustouflante.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Nigeria (Le Géant de l'Afrique)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/nigeria.jpg" alt="Le Nigeria" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Nigeria</h1>
+            <p class="hero-subtitle">Plongez dans l'énergie inépuisable du cœur battant de l'Afrique</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Naija : La Force de la Créativité</h2>
+            <p class="section-description">
+                Le Nigeria est une explosion de vie. Pays le plus peuplé du continent, il est le moteur économique et culturel de l'Afrique. De la métropole bouillonnante de Lagos, hub de la mode et de l'Afrobeats, aux collines sacrées d'Osogbo et aux rochers millénaires d'Abuja, le Nigeria est une terre de contrastes saisissants. Sa richesse réside dans sa diversité humaine (plus de 250 ethnies), son esprit d'entreprise légendaire et son patrimoine artistique qui rayonne dans le monde entier.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 sites emblématiques du patrimoine nigérian</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une merveille...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="ville">Villes & Culture</span>
+                <span class="filter-tag" data-filter="nature">Nature & Safari</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Sacré</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="nigeria-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Lekki Conservation Centre -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Lekki">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lagos</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lekki Conservation Centre</h3>
+                        <p class="location-text">La plus longue passerelle suspendue d'Afrique dans une oasis urbaine</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lekki">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Zuma Rock -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Zuma Rock">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Niger State / Abuja</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Zuma Rock</h3>
+                        <p class="location-text">Le "Gardien d'Abuja", un monolithe majestueux de 725m</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zuma">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Nike Art Gallery -->
+            <article class="attraction" data-category="ville">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Nike Art">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lagos, Lekki</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Nike Art Gallery</h3>
+                        <p class="location-text">Le sanctuaire de l'art contemporain nigérian par Nike Davies-Okundaye</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nike_art">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Osun-Osogbo Sacred Grove -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Osogbo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Osun State</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt Sacrée d'Osun-Osogbo</h3>
+                        <p class="location-text">Patrimoine mondial UNESCO et centre de la spiritualité Yoruba</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="osun">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Olumo Rock -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Olumo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Abeokuta</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Olumo Rock</h3>
+                        <p class="location-text">Forteresse naturelle historique du peuple Egba</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="olumo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Yankari Game Reserve -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Yankari">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bauchi State</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Yankari</h3>
+                        <p class="location-text">Safari et sources d'eau chaude cristalline de Wikki Warm Springs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="yankari">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Idanre Hills -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Idanre">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ondo State</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Collines d'Idanre</h3>
+                        <p class="location-text">Paysages mystiques et village ancien perché à 914m</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="idanre">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Badagry Slave Route -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Badagry">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Badagry, Lagos</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>La Route des Esclaves de Badagry</h3>
+                        <p class="location-text">Lieu de mémoire et point de non-retour historique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="badagry">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Abuja National Mosque -->
+            <article class="attraction" data-category="ville">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Abuja Mosque">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Abuja</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mosquée Nationale d'Abuja</h3>
+                        <p class="location-text">Splendeur architecturale au cœur de la capitale fédérale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="abuja_mosque">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Obudu Mountain Resort -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Obudu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cross River State</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Obudu Mountain Resort</h3>
+                        <p class="location-text">La petite Suisse du Nigeria avec ses paysages brumeux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="obudu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Palais de l'Oba du Benin -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Benin Palace">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Benin City</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais de l'Oba du Bénin</h3>
+                        <p class="location-text">Siège d'une des plus anciennes dynasties royales d'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="benin_palace">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Tarkwa Bay Beach -->
+            <article class="attraction" data-category="ville">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Tarkwa Bay">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lagos Island</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tarkwa Bay</h3>
+                        <p class="location-text">L'échappée balnéaire préférée des lagosiens accessible en bateau</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tarkwa_bay">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Marché d'Idumota -->
+            <article class="attraction" data-category="ville">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Idumota">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lagos</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Marché d'Idumota / Eko</h3>
+                        <p class="location-text">L'un des plus grands marchés à ciel ouvert d'Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="idumota">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Erin Ijesha Waterfalls -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Erin Ijesha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Osun State</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes d'Erin Ijesha (Olumirin)</h3>
+                        <p class="location-text">Sept niveaux de cascades spectaculaires dans une forêt dense</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="erin_ijesha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Gashaka Gumti National Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Gashaka">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Taraba / Adamawa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Gashaka Gumti</h3>
+                        <p class="location-text">Le plus grand parc national du Nigeria, terre sauvage et montagneuse</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gashaka">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La puissance de l'identité et l'éclat de Nollywood.</p>
+                    <p>Le Nigeria est une puissance culturelle qui définit les tendances du continent. De la littérature de Wole Soyinka et Chinua Achebe à l'explosion mondiale de Nollywood et de l'Afrobeats, le génie nigérian est partout. La culture s'exprime dans la majesté des cours royales (Obas, Emirs), dans la splendeur des tissus Aso Oke et dans la ferveur des festivals traditionnels comme l'Argungu ou le Durbar.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-film text-warning me-2"></i>Nollywood Power</h6>
+                                <p class="small text-muted mb-0">La deuxième plus grande industrie cinématographique au monde en volume de production.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Afrobeats Revolution</h6>
+                                <p class="small text-muted mb-0">Le son de Lagos qui fait danser la planète, de Burna Boy à Wizkid.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-tshirt text-danger me-2"></i>Fashion Hub</h6>
+                                <p class="small text-muted mb-0">Lagos est la capitale de la mode africaine, mêlant textile traditionnel (Adire) et design moderne.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-success me-2"></i>Royaumes Millénaires</h6>
+                                <p class="small text-muted mb-0">Une mosaïque de traditions royales (Ife, Benin, Sokoto) qui structurent encore la société.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Nigeria" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Géant</h2>
+        <p>Ramenez l'excellence nigériane chez vous. Des tissus royaux aux répliques des bronzes du Bénin.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/aso_oke.png" alt="Aso Oke" onerror="this.src='https://ui-avatars.com/api/?name=AsoOke&background=000&color=fff&size=200'">
+                    <span class="stock-badge">Royal</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Aso Oke Traditionnel</h3>
+                    <p class="product-desc">Tissage manuel précieux utilisé pour les mariages et cérémonies Yoruba, symbole de statut social.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 NGN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/benin_bronze.png" alt="Bronze" onerror="this.src='https://ui-avatars.com/api/?name=Bronze&background=cd7f32&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Réplique Bronze du Bénin</h3>
+                    <p class="product-desc">Tête royale finement sculptée en bronze, réplique fidèle des chefs-d'œuvre de Benin City.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 NGN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/adire_fabric.png" alt="Adire" onerror="this.src='https://ui-avatars.com/api/?name=Adire&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Mode</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Adire Indigo</h3>
+                    <p class="product-desc">Coton teint à la main avec des motifs en réserve, spécialité ancestrale des femmes d'Abeokuta.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 NGN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coral&background=ff4500&color=fff&size=200" alt="Perles Corail">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Perles de Corail Traditionnelles</h3>
+                    <p class="product-desc">Colliers de corail poli portés par les chefs et les mariées (Iyawo) au sud du Nigeria.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 NGN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Leather&background=8b4513&color=fff&size=200" alt="Cuir Kano">
+                    <span class="stock-badge">Premium</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sac en Cuir de Kano</h3>
+                    <p class="product-desc">Maroquinerie d'exception en cuir de chèvre maroquiné, teinté selon les méthodes de Kano.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">22 000 NGN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Afrobeats&background=000&color=fff&size=200" alt="Vinyle">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vinyle Collector Afrobeats</h3>
+                    <p class="product-desc">Édition limitée des classiques de Fela Kuti ou des stars actuelles de Lagos.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 000 NGN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/nigeria.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>L'Escale <span>Impériale</span></h2>
+                    <p>Découvrez notre sélection des hôtels les plus luxueux pour votre séjour au Nigeria.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="eko">Eko Hotels & Suites (Lagos)</option>
+                            <option value="transcorp">Transcorp Hilton (Abuja)</option>
+                            <option value="wheatbaker">The Wheatbaker (Lagos)</option>
+                            <option value="sheraton">Sheraton Lagos</option>
+                            <option value="continental">InterContinental (Lagos)</option>
+                            <option value="ibom">Ibom Icon Resort (Uyo)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Voir les prix</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Eko Hotel"></div>
+                    <div class="hotel-content">
+                        <h4>Eko Hotels & Suites</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Victoria Island, Lagos</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Transcorp Hilton"></div>
+                    <div class="hotel-content">
+                        <h4>Transcorp Hilton</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Abuja, Federal Capital</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Wheatbaker"></div>
+                    <div class="hotel-content">
+                        <h4>The Wheatbaker</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ikoyi, Lagos</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Sheraton"></div>
+                    <div class="hotel-content">
+                        <h4>Sheraton Lagos</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ikeja, Lagos</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Ibom"></div>
+                    <div class="hotel-content">
+                        <h4>Ibom Icon Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Uyo, Akwa Ibom</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Continental"></div>
+                    <div class="hotel-content">
+                        <h4>Continental Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Victoria Island, Lagos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine nigériane est une fête des sens. Riche, épicée et colorée, elle est célèbre pour ses ragoûts (soups) et son "Swallow".
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Jollof&background=8b0000&color=fff&size=200" alt="Jollof"></div>
+                <div class="plat-content"><h4>Nigerian Jollof Rice</h4><p>Le riz épicé légendaire, considéré par beaucoup comme le meilleur riz d'Afrique.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Egusi&background=daa520&color=fff&size=200" alt="Egusi"></div>
+                <div class="plat-content"><h4>Pounded Yam & Egusi</h4><p>Igname pilée servie avec une soupe de graines de melon et feuilles vertes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Suya&background=8b4513&color=fff&size=200" alt="Suya"></div>
+                <div class="plat-content"><h4>Suya</h4><p>Brochettes de bœuf épicées au Yaji, grillées au charbon, la street food par excellence.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pepper&background=8b0000&color=fff&size=200" alt="Pepper Soup"></div>
+                <div class="plat-content"><h4>Pepper Soup</h4><p>Soupe de poisson ou viande très épicée et médicinale, un régal pour les amateurs de piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Akara&background=daa520&color=fff&size=200" alt="Akara"></div>
+                <div class="plat-content"><h4>Akara</h4><p>Beignets de haricots noirs frits, parfaits pour le petit-déjeuner avec de l'Ogi.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=MoiMoi&background=ff4500&color=fff&size=200" alt="Moi Moi"></div>
+                <div class="plat-content"><h4>Moi Moi</h4><p>Pudding de haricots cuit à la vapeur, riche en saveurs et protéines.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Amala&background=4b2c20&color=fff&size=200" alt="Amala"></div>
+                <div class="plat-content"><h4>Amala & Ewedu</h4><p>Pâte d'igname séchée servie avec une soupe de feuilles de jute gluante, délice Yoruba.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Afang&background=006400&color=fff&size=200" alt="Afang"></div>
+                <div class="plat-content"><h4>Afang Soup</h4><p>Ragoût riche du sud-est à base de feuilles d'Afang et de fruits de mer.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kilishi&background=8b4513&color=fff&size=200" alt="Kilishi"></div>
+                <div class="plat-content"><h4>Kilishi</h4><p>Version nigériane du jerky : viande séchée fine et épicée, spécialité du Nord.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tuwo&background=f5f5dc&color=000&size=200" alt="Tuwo"></div>
+                <div class="plat-content"><h4>Tuwo Shinkafa</h4><p>Pudding de riz onctueux, plat traditionnel des Hausa servi avec de la soupe Miyan Kuka.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dodo&background=daa520&color=fff&size=200" alt="Dodo"></div>
+                <div class="plat-content"><h4>Fried Plantain (Dodo)</h4><p>L'accompagnement universel : bananes plantains frites dorées et sucrées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banga&background=8b4513&color=fff&size=200" alt="Banga"></div>
+                <div class="plat-content"><h4>Banga Soup</h4><p>Délicieuse soupe de noix de palme du Delta du Niger, servie avec du Starch.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Le Nigeria vibre d'une énergie créative et spirituelle à travers ses grands festivals nationaux.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Carnaval</span>
+                    <h4>Carnaval de Calabar</h4>
+                    <p>La plus grande fête de rue d'Afrique (Décembre), une explosion de costumes et de danses.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-horse"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Durbar Festival</h4>
+                    <p>Spectacle équestre magnifique des émirs du Nord célébrant la fin du Ramadan (Kano/Zaria).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Felabration</h4>
+                    <p>Hommage annuel à Fela Kuti (Octobre), célébrant l'Afrobeat et l'esprit rebelle à Lagos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Janvier)</h5>
+                    <p class="small mb-0">La meilleure période pour voyager. Le temps est sec et moins humide, idéal pour les festivals de fin d'année.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Juin à Août)</h5>
+                    <p class="small mb-0">Les pluies sont intenses, surtout au Sud. Cependant, c'est le moment où les paysages sont les plus verts et luxuriants.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez les conseils par zone. Lagos est dynamique mais demande de la vigilance. Utilisez des services de transport certifiés (Uber/Bolt).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Prophylaxie antipaludique impérative. Buvez de l'eau purifiée exclusivement.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-bolt fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Energie Naija</h6>
+                    <p class="small text-muted">Soyez prêt à un rythme effréné. Lagos ne dort jamais. L'esprit de "hustle" (débrouillardise) est le moteur du pays.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Naira (NGN). Le pays passe au digital mais prévoyez du cash. Les cartes internationales fonctionnent dans les grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Tunde+Lagos&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Tunde">
+                        <h5 class="fw-bold mb-1">Tunde Bakare</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Lagos & Vie Nocturne</p>
+                        <p class="small text-muted">Natif de Lagos, Tunde connaît tous les secrets de la ville, des galeries d'art aux meilleurs clubs d'Afrobeats.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:tunde@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Tunde</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Funmi+Osun&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Funmi">
+                        <h5 class="fw-bold mb-1">Funmi Adeleke</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturelle & Spirituelle</p>
+                        <p class="small text-muted">Experte des traditions Yoruba, Funmi vous fera découvrir la magie d'Osogbo et les racines d'Abeokuta.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:funmi@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Funmi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ibrahim+Abuja&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ibrahim">
+                        <h5 class="fw-bold mb-1">Ibrahim Danjuma</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Nord & Savane</p>
+                        <p class="small text-muted">Spécialiste de la région d'Abuja et du Nord, Ibrahim est votre guide idéal pour le Durbar et Yankari.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ibrahim@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ibrahim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Nigeria, le géant de l'Afrique. Vivez l'énergie Naija et découvrez une culture sans limites avec nos experts locaux.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../blogs.html">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Nigeria</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +234 1 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> lagos@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Nigeria - Giant of Africa</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/nigeria.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,820 @@
+/**
+ * PROJET: VISIT AFRIKA
+ * FICHIER: propos.css
+ * DESCRIPTION: Composant du projet Visit Afrika.
+ */
+
+/* SECTION: propos.css - Styles pour la page À Propos */
+
+.propos-main {
+    padding-top: 0;
+}
+
+/* SECTION: Hero Section */
+.propos-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    padding: 100px 0 80px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.propos-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 70%);
+    animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 20px;
+    animation: fadeInScale 1s ease-out 0.2s both;
+}
+
+.hero-line {
+    width: 200px;
+    height: 4px;
+    background: #FFD700;
+    margin: 20px auto 30px;
+    animation: expandWidth 1s ease-out 0.8s both;
+    transform-origin: center;
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 200px;
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #e0e0e0;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* SECTION: Section Styles */
+.propos-section {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0b3b2a;
+    margin-bottom: 20px;
+}
+
+.section-header .line {
+    width: 250px;
+    height: 4px;
+    background: #ddd;
+    margin: auto;
+}
+
+.section-header .line span {
+    display: block;
+    width: 180px;
+    height: 5px;
+    background: #FFD700;
+    margin: auto;
+}
+
+.section-description {
+    color: #888;
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+/* SECTION: Histoire Section */
+.histoire-section {
+    background: #fff;
+}
+
+.histoire-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.histoire-text {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.histoire-text .lead-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #0b3b2a;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.histoire-text p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.histoire-image {
+    opacity: 0;
+    transform: translateX(30px);
+    animation: slideInRight 0.8s ease-out 0.3s forwards;
+}
+
+.histoire-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease;
+}
+
+.histoire-image:hover img {
+    transform: scale(1.05);
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* SECTION: Mission & Vision Section */
+.mission-vision-section {
+    background: #f8f9fa;
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.mission-card,
+.vision-card {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.mission-card {
+    animation-delay: 0.1s;
+}
+
+.vision-card {
+    animation-delay: 0.3s;
+}
+
+.mission-card:hover,
+.vision-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    background: linear-gradient(135deg, #FFD700 0%, #ffed4e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    transition: transform 0.4s ease;
+}
+
+.mission-card:hover .card-icon,
+.vision-card:hover .card-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.mission-card h3,
+.vision-card h3 {
+    font-size: 2rem;
+    color: #0b3b2a;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.mission-card p,
+.vision-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* SECTION: Valeurs Section */
+.valeurs-section {
+    background: #fff;
+}
+
+.valeurs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.valeur-card {
+    background: #f8f9fa;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.valeur-card:nth-child(1) { animation-delay: 0.1s; }
+.valeur-card:nth-child(2) { animation-delay: 0.2s; }
+.valeur-card:nth-child(3) { animation-delay: 0.3s; }
+.valeur-card:nth-child(4) { animation-delay: 0.4s; }
+.valeur-card:nth-child(5) { animation-delay: 0.5s; }
+.valeur-card:nth-child(6) { animation-delay: 0.6s; }
+
+.valeur-card:hover {
+    background: #fff;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.valeur-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #FFD700 0%, #ffed4e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #1a1a1a;
+    transition: transform 0.4s ease;
+}
+
+.valeur-card:hover .valeur-icon {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.valeur-card h4 {
+    font-size: 1.5rem;
+    color: #0b3b2a;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.valeur-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* SECTION: Pourquoi Section */
+.pourquoi-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.pourquoi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.pourquoi-item {
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    border-left: 5px solid #FFD700;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.6s ease-out forwards;
+}
+
+.pourquoi-item:nth-child(1) { animation-delay: 0.1s; }
+.pourquoi-item:nth-child(2) { animation-delay: 0.2s; }
+.pourquoi-item:nth-child(3) { animation-delay: 0.3s; }
+.pourquoi-item:nth-child(4) { animation-delay: 0.4s; }
+
+.pourquoi-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.pourquoi-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+.pourquoi-item h4 {
+    font-size: 1.5rem;
+    color: #0b3b2a;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.pourquoi-item p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* SECTION: Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #fff;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-item:nth-child(2) { animation-delay: 0.2s; }
+.stat-item:nth-child(3) { animation-delay: 0.3s; }
+.stat-item:nth-child(4) { animation-delay: 0.4s; }
+
+.stat-icon {
+    font-size: 3rem;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #FFD700;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* SECTION: Équipe Section */
+.equipe-section {
+    background: #fff;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.equipe-card {
+    background: #f8f9fa;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.equipe-card:nth-child(1) { 
+    animation-delay: 0.1s; 
+}
+
+.equipe-card:nth-child(2) { 
+    animation-delay: 0.2s; 
+}
+
+.equipe-card:nth-child(3) { 
+    animation-delay: 0.3s; 
+}
+
+.equipe-card:hover {
+    background: #fff;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.equipe-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #FFD700 0%, #ffed4e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #1a1a1a;
+    transition: transform 0.4s ease;
+}
+
+.equipe-card:hover .equipe-avatar {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.equipe-card h4 {
+    font-size: 1.5rem;
+    color: #0b3b2a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.equipe-role {
+    color: #FFD700;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.equipe-card p:last-child {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* SECTION: CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #FFD700 0%, #ffed4e 100%);
+    color: #1a1a1a;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: #1a1a1a;
+    color: #FFD700;
+}
+
+.btn-primary:hover {
+    background: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+    background: #1a1a1a;
+    color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* SECTION: Équipe developpeurs Section */
+.equipe-section {
+    background: #fff;
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.equipe-card {
+    background: #f8f9fa;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.equipe-card:nth-child(1) { 
+    animation-delay: 0.1s; 
+}
+
+.equipe-card:nth-child(2) { 
+    animation-delay: 0.2s; 
+}
+
+.equipe-card:nth-child(3) { 
+    animation-delay: 0.3s; 
+}
+
+.equipe-card:hover {
+    background: #fff;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dev-avatar {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #FFD700 0%, #ffed4e 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #1a1a1a;
+    transition: transform 0.4s ease;
+}
+
+.dev-avatar img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+}
+
+.equipe-card:hover .equipe-avatar {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.equipe-card:hover .equipe-avatar img{
+    transform: scale(1.1) rotate(5deg);
+}
+
+.equipe-card h4 {
+    font-size: 1.5rem;
+    color: #0b3b2a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.equipe-role {
+    color: #FFD700;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.equipe-card p:last-child {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* SECTION: Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(30px, 30px) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+/* SECTION: Responsive Design */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .histoire-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .valeurs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pourquoi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .equipe-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .propos-hero {
+        padding: 80px 0 60px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .propos-section {
+        padding: 60px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .valeurs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .mission-card,
+    .vision-card {
+        padding: 30px 25px;
+    }
+
+    .valeur-card,
+    .equipe-card {
+        padding: 30px 25px;
+    }
+
+    .pourquoi-item {
+        padding: 30px 25px;
+    }
+
+    .card-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+
+    .valeur-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.75rem;
+    }
+
+    .equipe-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+    }
+}
+

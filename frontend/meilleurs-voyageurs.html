@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: meilleurs-voyageurs.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/meilleurs-voyageurs.css">
+    <title>Meilleurs Voyageurs 2026 - Visit Afrika</title>
+    <link rel="icon" type="image/jpg" href="images/logo/logo.png">
+</head>
+
+<body>
+    <!-- LE HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- LOGO -->
+            <div class="navbar-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+
+            <!-- MENU TOGGLE BUTTON (MOBILE) -->
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Basculer le menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pays.html" class="nav-link">
+                            <i class="fas fa-globe"></i> Pays
+                        </a>
+                    </li>
+                    <!--  -->
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="informations.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i> Informations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="galerie.html" class="nav-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="propos.html" class="nav-link">
+                            <i class="fas fa-user"></i> A Propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="travelers-main">
+        <section class="travelers-hero">
+            <div class="container">
+                <h1 class="hero-title">NOS MEILLEURS VOYAGEURS 2026</h1>
+                <p class="hero-subtitle">Célébrons ceux qui explorent l'Afrique avec passion et respect.</p>
+            </div>
+        </section>
+
+        <section class="travelers-list py-5">
+            <div class="container border-container">
+                <div class="row">
+                    <!-- Voyageur 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?auto=format&fit=crop&q=80&w=800"
+                                    alt="Fatoumata Diallo">
+                                <div class="traveler-badge">Top Voyageur Gold</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Fatoumata Diallo</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Guinée</p>
+                                <div class="traveler-stats">
+                                    <span><strong>12</strong> Pays visités</span>
+                                    <span><strong>4</strong> Récits de voyage</span>
+                                </div>
+                                <p class="traveler-bio">Passionnée par les cultures ancestrales, Fatoumata a parcouru
+                                    l'Afrique de l'Ouest avec un regard curieux et bienveillant.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+                                    alt="Jean-Marc Koffi">
+                                <div class="traveler-badge">Eco-Explorateur</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Jean-Marc Koffi</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Côte d'Ivoire</p>
+                                <div class="traveler-stats">
+                                    <span><strong>8</strong> Pays visités</span>
+                                    <span><strong>15</strong> Parcs naturels</span>
+                                </div>
+                                <p class="traveler-bio">Amoureux de la nature sauvage, Jean-Marc se consacre à la
+                                    photographie animalière et à la protection de la faune.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
+                                    alt="Sarah Ben Ali">
+                                <div class="traveler-badge">Ambassadrice Culturelle</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Sarah Ben Ali</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Maroc</p>
+                                <div class="traveler-stats">
+                                    <span><strong>10</strong> Pays visités</span>
+                                    <span><strong>6</strong> Langues apprises</span>
+                                </div>
+                                <p class="traveler-bio">Sarah voyage pour apprendre. Elle partage ses découvertes
+                                    linguistiques et gastronomiques sur son blog suivi par des milliers de personnes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800"
+                                    alt="David Ndlovu">
+                                <div class="traveler-badge">Grand Aventurier</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">David Ndlovu</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Afrique du Sud</p>
+                                <div class="traveler-stats">
+                                    <span><strong>15</strong> Pays visités</span>
+                                    <span><strong>3</strong> Pics gravis</span>
+                                </div>
+                                <p class="traveler-bio">Rien n'arrête David ! Des dunes du Namib aux sommets du
+                                    Kilimandjaro, il repousse sans cesse ses limites.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800"
+                                    alt="Amira Mensah">
+                                <div class="traveler-badge">Travel Blogger</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Amira Mensah</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Ghana</p>
+                                <div class="traveler-stats">
+                                    <span><strong>20</strong> Pays visités</span>
+                                    <span><strong>50K</strong> Abonnés</span>
+                                </div>
+                                <p class="traveler-bio">Amira utilise ses réseaux sociaux pour montrer une Afrique
+                                    moderne, dynamique et accueillante.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&q=80&w=800"
+                                    alt="Elena Gomez">
+                                <div class="traveler-badge">Passionnée d'Artisanat</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Elena Gomez</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Espagne</p>
+                                <div class="traveler-stats">
+                                    <span><strong>7</strong> Pays visités</span>
+                                    <span><strong>30</strong> Ateliers suivis</span>
+                                </div>
+                                <p class="traveler-bio">Elena parcourt les marchés locaux pour dénicher les plus beaux
+                                    tissus et objets artisanaux du continent.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les merveilles du continent africain.
+                    Nous organisons des voyages authentiques et mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i> Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i> Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i> Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i> Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i> Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86 44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé - Guinée</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="js/vendors/jquery-3.7.1.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('navbarMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

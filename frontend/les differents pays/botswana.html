@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: botswana.html
+    DESCRIPTION: Page pays premium standardisée pour le Botswana.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Botswana, le sanctuaire sauvage de l'Afrique. Du Delta de l'Okavango aux éléphants de Chobe, explorez une nature préservée et un luxe éco-responsable.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Botswana (L'Éden Sauvage)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Australe/botswana.jpg" alt="Le Botswana" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Botswana</h1>
+            <p class="hero-subtitle">Le dernier sanctuaire sauvage et l'éclat des diamants</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Innocence de la Nature</h2>
+            <p class="section-description">
+                Le Botswana est une réussite africaine unique. Pays de contrastes saisissants, il abrite à la fois le Delta de l'Okavango, une oasis labyrinthique au cœur du désert, et les vastes étendues arides du Kalahari. Pionnier du tourisme éco-responsable de haut vol, le Botswana offre des safaris d'une exclusivité rare, où l'homme n'est qu'un invité discret dans le royaume des éléphants et des fauves.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un le nom d'un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Safaris & Parcs</span>
+                <span class="filter-tag" data-filter="eau">Delta & Rivières</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="botswana-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Delta de l'Okavango -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Delta de l'Okavango.png" alt="Okavango">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Okavango</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 24.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Delta de l'Okavango</h3>
+                        <p class="location-text">Patrimoine Mondial de l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="okavango">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Parc National de Chobe -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Parc National de Chobe.png" alt="Chobe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Chobe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Chobe</h3>
+                        <p class="location-text">Le royaume des 120 000 éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chobe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Désert du Kalahari -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Désert du Kalahari.png" alt="Kalahari">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Désert du Kalahari</h3>
+                        <p class="location-text">Terre des Bushmen et des lions à crinière noire</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kalahari">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Makgadikgadi Pans -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Makgadikgadi Pans.png" alt="Makgadikgadi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Makgadikgadi Pans</h3>
+                        <p class="location-text">L'un des plus grands déserts de sel au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="makgadikgadi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Tsodilo Hills -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Tsodilo Hills.png" alt="Tsodilo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tsodilo Hills</h3>
+                        <p class="location-text">Le "Louvre du Désert" et ses peintures rupestres</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tsodilo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Moremi Game Reserve -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Réserve de Moremi.png" alt="Moremi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Okavango</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Moremi</h3>
+                        <p class="location-text">Le cœur sauvage du delta</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="moremi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Nxai Pan -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Nxai Pan National Park.png" alt="Nxai Pan">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Nxai Pan National Park</h3>
+                        <p class="location-text">Les baobabs de Baines et les migrations de zèbres</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nxai">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Savuti Marsh -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Savuti Marsh.png" alt="Savuti">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Chobe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Savuti Marsh</h3>
+                        <p class="location-text">Théâtre de la lutte pour la survie entre lions et éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="savuti">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Gaborone -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/botswana/Gaborone.png" alt="Gaborone">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Gaborone</h3>
+                        <p class="location-text">La capitale dynamique et moderne</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gaborone">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Kubu Island -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Kubu Island">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Makgadikgadi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kubu Island</h3>
+                        <p class="location-text">Une île de baobabs au milieu d'une mer de sel</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kubu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Central Kalahari Game Reserve -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80&w=800" alt="CKGR">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ghanzi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>CKGR</h3>
+                        <p class="location-text">L'un des plus grands parcs nationaux au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ckgr">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Khama Rhino Sanctuary -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=800" alt="Rhino">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Serowe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Khama Rhino Sanctuary</h3>
+                        <p class="location-text">Le refuge ultime pour les rhinocéros blancs et noirs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="khama">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Mokolodi Nature Reserve -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Mokolodi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Gaborone</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mokolodi Reserve</h3>
+                        <p class="location-text">Conservation et éducation à deux pas de la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mokolodi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Jwaneng Diamond Mine -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Diamant">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Jwaneng</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mine de Jwaneng</h3>
+                        <p class="location-text">La mine de diamants la plus riche au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="jwaneng">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Kgalagadi Transfrontier Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Kgalagadi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kgalagadi Park</h3>
+                        <p class="location-text">Splendeurs rouges et faune désertique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kgalagadi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La paix, la démocratie et l'héritage San.</p>
+                    <p>Le Botswana est fier de sa stabilité et de sa culture Tswana fondée sur le "Botho" (respect mutuel). L'histoire du pays est marquée par la sagesse des Khama et la résilience du peuple San (Bushmen), les premiers habitants dont les connaissances sur le désert sont stupéfiantes. Aujourd'hui, le pays est un modèle de gestion des ressources minières (diamants) au profit du développement humain et de la conservation.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-paint-brush text-warning me-2"></i>Art Rupestre San</h6>
+                                <p class="small text-muted mb-0">Les collines de Tsodilo abritent plus de 4500 peintures racontant 100 000 ans d'histoire humaine.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-info me-2"></i>Culture Tswana</h6>
+                                <p class="small text-muted mb-0">Le Kgotla (conseil villageois) reste le pilier de la démocratie locale et de la résolution des conflits.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-gem text-danger me-2"></i>L'éclat des Diamants</h6>
+                                <p class="small text-muted mb-0">Le Botswana est le leader mondial de la production de diamants de joaillerie de haute qualité.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-leaf text-success me-2"></i>Écotourisme Visionnaire</h6>
+                                <p class="small text-muted mb-0">Une politique stricte de "faible volume, haute valeur" pour préserver les écosystèmes fragiles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="../images/sites des pays/botswana/histoire & culture/Culture & Histoire.png" alt="Culture Botswana" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Artisanat Local</h2>
+        <p>Emportez l'excellence botswanaise. Des paniers tressés de l'Okavango aux bijoux raffinés, découvrez un artisanat de classe mondiale.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/panier.png" alt="Panier Okavango" onerror="this.src='https://ui-avatars.com/api/?name=Panier&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tressé de l'Okavango</h3>
+                    <p class="product-desc">Paniers complexes tressés par les femmes Bayei avec des fibres de palmier mokola.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bijoux.png" alt="Diamant Botswana" onerror="this.src='https://ui-avatars.com/api/?name=Diamant&background=add8e6&color=000&size=200'">
+                    <span class="stock-badge">Sur mesure</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Pendentif Diamant Éthique</h3>
+                    <p class="product-desc">Diamant certifié du Botswana, extrait de manière responsable, monté sur argent ou or.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">150 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bois.png" alt="Sculpture Bois" onerror="this.src='https://ui-avatars.com/api/?name=Bois&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Bois de Mopane</h3>
+                    <p class="product-desc">Animaux de la brousse sculptés à la main dans du bois de mopane extrêmement dur et durable.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cuir&background=8b4513&color=fff&size=200" alt="Cuir Botswana">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Maroquinerie de Luxe</h3>
+                    <p class="product-desc">Sacs et ceintures en cuir de haute qualité, héritage des traditions d'élevage du pays.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">42 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Poterie&background=CD7F32&color=fff&size=200" alt="Poterie Thamaga">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Thamaga</h3>
+                    <p class="product-desc">Céramiques artistiques et utilitaires renommées pour leurs motifs et leur qualité.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=The&background=FF8C00&color=fff&size=200" alt="Rooibos">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Thé de Rooibos du Kalahari</h3>
+                    <p class="product-desc">Infusion naturelle sans caféine, riche en antioxydants, issue des terres sauvages.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">5 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Australe/botswana.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Safaris de <span>Grand Luxe</span></h2>
+                    <p>Vivez l'expérience ultime de la brousse dans nos lodges éco-responsables d'exception.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon safari</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-campground"></i> Lodge / Camp</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un lodge...</option>
+                            <option value="eagle">Belmond Eagle Island (Okavango)</option>
+                            <option value="chobe">Chobe Game Lodge (Chobe)</option>
+                            <option value="jack">Jack's Camp (Makgadikgadi)</option>
+                            <option value="sandibe">Sandibe Okavango Safari</option>
+                            <option value="mowana">Cresta Mowana Resort (Chobe)</option>
+                            <option value="masa">Masa Square Hotel (Gaborone)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Voir les tarifs</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1493246507139-91e8bef99c1a?auto=format&fit=crop&q=80&w=600" alt="Eagle Island"></div>
+                    <div class="hotel-content">
+                        <h4>Eagle Island Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Delta de l'Okavango</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=600" alt="Chobe Game Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Chobe Game Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Parc National de Chobe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&q=80&w=600" alt="Jack's Camp"></div>
+                    <div class="hotel-content">
+                        <h4>Jack's Camp</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Makgadikgadi Pans</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600" alt="Sandibe"></div>
+                    <div class="hotel-content">
+                        <h4>Sandibe Okavango</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Moremi Reserve</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Mowana"></div>
+                    <div class="hotel-content">
+                        <h4>Cresta Mowana</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kasane, Rivière Chobe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Masa"></div>
+                    <div class="hotel-content">
+                        <h4>Masa Square Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Gaborone CBD</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine du Botswana est simple, nutritive et basée sur la viande de bœuf de haute qualité et les céréales locales comme le sorgho et le maïs.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Seswaa&background=8b4513&color=fff&size=200" alt="Seswaa"></div>
+                <div class="plat-content"><h4>Seswaa</h4><p>Le plat national : bœuf ou chèvre effiloché, cuit longuement et pilé.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pap&background=f5f5dc&color=000&size=200" alt="Pap"></div>
+                <div class="plat-content"><h4>Pap (Faletshe)</h4><p>Pâte de maïs ferme, base indispensable de la plupart des repas.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bogobe&background=8b4513&color=fff&size=200" alt="Bogobe"></div>
+                <div class="plat-content"><h4>Bogobe jwa Lerotse</h4><p>Bouillie de sorgho mélangée à du melon lerotse, délicatement aigre-douce.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Vetkoek&background=daa520&color=fff&size=200" alt="Vetkoek"></div>
+                <div class="plat-content"><h4>Vetkoek (Magwinya)</h4><p>Beignets frits souvent fourrés à la viande hachée ou à la confiture.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mopane&background=006400&color=fff&size=200" alt="Mopane"></div>
+                <div class="plat-content"><h4>Mopane Worms</h4><p>Larves de papillon riches en protéines, séchées ou frites aux épices.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Morogo&background=006400&color=fff&size=200" alt="Morogo"></div>
+                <div class="plat-content"><h4>Morogo</h4><p>Épinards sauvages braisés aux oignons et tomates.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dikgobe&background=8b4513&color=fff&size=200" alt="Dikgobe"></div>
+                <div class="plat-content"><h4>Dikgobe</h4><p>Mélange consistant de haricots et de sorgho ou de maïs.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Wors&background=8b4513&color=fff&size=200" alt="Boerewors"></div>
+                <div class="plat-content"><h4>Boerewors</h4><p>Saucisse de bœuf épicée, incontournable des "Braai" (barbecues).</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chicken&background=FFD700&color=000&size=200" alt="Tswana Chicken"></div>
+                <div class="plat-content"><h4>Tswana Chicken</h4><p>Poulet fermier cuit en ragoût avec des herbes locales.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Madombi&background=f5f5dc&color=000&size=200" alt="Madombi"></div>
+                <div class="plat-content"><h4>Madombi</h4><p>Petits pains à la vapeur, parfaits pour accompagner les sauces.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mageu&background=f5f5dc&color=000&size=200" alt="Mageu"></div>
+                <div class="plat-content"><h4>Mageu</h4><p>Boisson fermentée à base de maïs, rafraîchissante et nutritive.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Biltong&background=8b4513&color=fff&size=200" alt="Biltong"></div>
+                <div class="plat-content"><h4>Biltong de Boeuf</h4><p>Viande séchée et épicée, le snack préféré des voyageurs.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Vivez la culture Tswana à travers ses célébrations colorées et ses danses traditionnelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Botswana Day</h4>
+                    <p>Célébration de l'indépendance le 30 septembre avec parades et fêtes partout.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Dithubaruba Cultural Festival</h4>
+                    <p>Grand rassemblement célébrant les danses et chants traditionnels Bakwena.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Art</span>
+                    <h4>Maun International Arts Festival</h4>
+                    <p>Rencontre des arts visuels et de la poésie à la porte du delta.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Mai à Oct.)</h5>
+                    <p class="small mb-0">La meilleure période pour le safari. Les animaux se rassemblent autour des points d'eau et la végétation est moins dense. Le ciel est dégagé et bleu.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison Verte (Nov. à Avril)</h5>
+                    <p class="small mb-0">C'est la saison des pluies. Le paysage verdit, c'est la période des naissances pour les antilopes et un paradis pour les ornithologues (oiseaux migrateurs).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Botswana est l'un des pays les plus sûrs d'Afrique. Respectez toujours les consignes de sécurité avec les animaux sauvages.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Traitement antipaludéen recommandé dans le nord. Buvez de l'eau en bouteille. Protection solaire indispensable.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-language fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">L'Anglais est officiel et très parlé. Le Setswana est la langue nationale utilisée partout.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Le Pula (BWP). Les cartes bancaires sont acceptées dans les villes et les grands lodges. Cash utile pour les pourboires.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lekgoa+Moeti&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lekgoa">
+                        <h5 class="fw-bold mb-1">Lekgoa Moeti</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Traqueur Okavango</p>
+                        <p class="small text-muted">Lekgoa a grandi dans le delta. Il possède un instinct incroyable pour repérer les léopards et lire les traces de la brousse.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lekgoa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Lekgoa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Phiri&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Sarah">
+                        <h5 class="fw-bold mb-1">Sarah Phiri</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Spécialiste Chobe</p>
+                        <p class="small text-muted">Sarah est experte en comportement animal. Elle vous fera vivre des rencontres inoubliables avec les grands troupeaux d'éléphants.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:sarah@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Sarah</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Thabo+Molefe&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Thabo">
+                        <h5 class="fw-bold mb-1">Thabo Molefe</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Kalahari & Culture San</p>
+                        <p class="small text-muted">Thabo vous fera découvrir les secrets de survie dans le désert et la sagesse ancestrale des premiers habitants.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:thabo@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Thabo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/botswana.js"></script>
+</body>
+
+</html>

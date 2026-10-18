@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: soudan_du_sud.html
+    DESCRIPTION: Page pays premium standardisée pour le Soudan du Sud.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Soudan du Sud, la plus jeune nation du monde. De la migration épique de Boma aux marais du Sudd, explorez une terre sauvage et des cultures ancestrales fascinantes.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Soudan du Sud (Land of Great Abundance)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/soudan_sud.jpg" alt="Le Soudan du Sud" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Soudan du Sud</h1>
+            <p class="hero-subtitle">La plus jeune nation du monde et le cœur sauvage du Nil Blanc</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre d'Abondance et de Traditions Millénaires</h2>
+            <p class="section-description">
+                Le Soudan du Sud, indépendant depuis 2011, est une destination hors des sentiers battus qui abrite l'un des écosystèmes les plus impressionnants d'Afrique. Traversé par le Nil Blanc, le pays possède le Sudd, l'une des plus vastes zones humides au monde, et le parc national de Boma, théâtre d'une migration annuelle d'antilopes rivalisant avec celle du Serengeti. Au-delà de sa nature indomptée, le Soudan du Sud est le foyer de peuples aux cultures fascinantes, comme les Mundari et les Dinka, dont la vie est intimement liée à leurs troupeaux de bétail. C'est une terre de résilience et d'authenticité brute, offrant une immersion unique dans l'Afrique originelle.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles naturelles et culturelles du pays</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une aventure...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="faune">Faune & Parcs</span>
+                <span class="filter-tag" data-filter="culture">Cultures & Nil</span>
+                <span class="filter-tag" data-filter="villes">Villes & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="soudan-sud-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Parc National de Boma -->
+            <article class="attraction" data-category="faune">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Boma NP">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Jonglei / Pibor</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Boma</h3>
+                        <p class="location-text">Le théâtre de la gigantesque migration annuelle des cobs de Buffon</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="boma">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Les Marais du Sudd -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Sudd">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nil Blanc</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Sudd</h3>
+                        <p class="location-text">Une des plus grandes zones humides du monde, paradis des oiseaux et des pêcheurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sudd">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Mundari Cattle Camps -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Mundari">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Terekeka</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Camps de bétail Mundari</h3>
+                        <p class="location-text">Une immersion spectaculaire dans le mode de vie pastoral ancestral</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mundari">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Parc National de Nimule -->
+            <article class="attraction" data-category="faune">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Nimule">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Eastern Equatoria</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Nimule</h3>
+                        <p class="location-text">Observation d'éléphants et les impressionnantes chutes de Fola sur le Nil</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nimule">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Juba (Mémorial John Garang) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Juba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Juba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mausolée John Garang</h3>
+                        <p class="location-text">Monument dédié au père de la nation dans la capitale en plein essor</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="juba_memorial">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Territoire Dinka (Lacs) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Dinka">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Yirol / Rumbek</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lacs du Pays Dinka</h3>
+                        <p class="location-text">Paysages de savane parsemés de lacs sacrés pour le peuple Dinka</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dinka_lakes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Parc National de Bandingilo -->
+            <article class="attraction" data-category="faune">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Bandingilo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central Equatoria</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Bandingilo</h3>
+                        <p class="location-text">Corridor écologique majeur pour la faune migratrice</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bandingilo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Mont Kinyeti -->
+            <article class="attraction" data-category="faune">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Kinyeti">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Montagnes Imatong</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Kinyeti</h3>
+                        <p class="location-text">Point culminant du pays (3187m), biodiversité de montagne unique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kinyeti">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Kapoeta (Culture Toposa) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Toposa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kapoeta</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Villages Toposa</h3>
+                        <p class="location-text">Découverte de l'art corporel et de l'architecture unique du peuple Toposa</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="toposa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Île de Gondokoro -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Gondokoro">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Juba / Nil</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Gondokoro</h3>
+                        <p class="location-text">Ancien comptoir historique sur le Nil, aujourd'hui havre de paix</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gondokoro">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Bor (Histoire & Nil) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Bor">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Jonglei</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Bor</h3>
+                        <p class="location-text">Ville historique du soulèvement soudanais et carrefour fluvial</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bor">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Wau (Cathédrale) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Wau">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Western Bahr el Ghazal</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale de Wau</h3>
+                        <p class="location-text">L'une des plus grandes églises du pays, témoin de l'histoire coloniale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="wau_cathedral">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Parc National de Shambe -->
+            <article class="attraction" data-category="faune">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Shambe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lakes State</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Shambe</h3>
+                        <p class="location-text">Zone humide protégée riche en hippopotames et oiseaux aquatiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="shambe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Torit (Montagnes Imatong) -->
+            <article class="attraction" data-category="faune">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Torit">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Eastern Equatoria</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Région de Torit</h3>
+                        <p class="location-text">Paysages de montagnes verdoyantes et climat tempéré</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="torit">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Yambio -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Yambio">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Western Equatoria</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Yambio</h3>
+                        <p class="location-text">Cœur de la région fertile des Azande, riche en forêts et cultures</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="yambio">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La plus jeune nation du monde, des racines ancestrales.</p>
+                    <p>Le Soudan du Sud est une mosaïque de plus de 60 groupes ethniques, chacun possédant des traditions, des langues et des arts uniques. Au cœur de cette diversité, les peuples nilotiques (Dinka, Nuer, Mundari, Toposa) partagent une culture pastorale où le bétail est le pivot de l'existence, symbole de richesse et de statut social. L'histoire du pays est marquée par des décennies de lutte pour l'indépendance, forgeant une identité de résilience et une fierté nationale vibrante. De l'art corporel complexe des Toposa aux rituels sacrés des Mundari au coucher du soleil, la culture sud-soudanaise est une célébration de la vie en harmonie avec une nature puissante.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-cow text-warning me-2"></i>Culture Pastorale</h6>
+                                <p class="small text-muted mb-0">Le bétail (Ankolé-Watusi) est au centre de tout : religion, économie et mariages.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-info me-2"></i>Art Corporel</h6>
+                                <p class="small text-muted mb-0">Scarifications et parures de perles élaborées, signes d'appartenance et de beauté chez les Toposa et Mundari.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-water text-danger me-2"></i>Le Nil Blanc</h6>
+                                <p class="small text-muted mb-0">L'artère de vie du pays, source de nourriture, de transport et lieu de rituels ancestraux.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-drum text-success me-2"></i>Musique & Danse</h6>
+                                <p class="small text-muted mb-0">Des rythmes puissants et des chants qui racontent les épopées des ancêtres et les espoirs de la nouvelle nation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Soudan du Sud" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de Juba</h2>
+        <p>L'artisanat authentique du Soudan du Sud. Des perles nilotiques aux sculptures en bois précieux.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/sudan_beads.png" alt="Perles" onerror="this.src='https://ui-avatars.com/api/?name=Beads&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Perles Dinka</h3>
+                    <p class="product-desc">Colliers et parures d'épaules colorés, réalisés à la main avec une précision géométrique incroyable.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/sudan_wood.png" alt="Ebène" onerror="this.src='https://ui-avatars.com/api/?name=Wood&background=000&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Ébène Azande</h3>
+                    <p class="product-desc">Figurines finement sculptées dans du bois d'ébène noir, représentant la faune locale ou des scènes de vie.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/sudan_basket.png" alt="Panier" onerror="this.src='https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Vannerie</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers Tissés de Bor</h3>
+                    <p class="product-desc">Vannerie robuste réalisée par les femmes du Jonglei, utilisant des fibres de palmier séchées.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cotton&background=f5f5dc&color=000&size=200" alt="Coton">
+                    <span class="stock-badge">Style</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tunique Traditionnelle en Coton</h3>
+                    <p class="product-desc">Vêtement léger et brodé, porté par les citadins de Juba et de Wau pour les grandes occasions.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Leather&background=8b4513&color=fff&size=200" alt="Cuir">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bouclier en Peau Dinka (Déco)</h3>
+                    <p class="product-desc">Réplique décorative des boucliers traditionnels en peau de vache, pièce de collection unique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">80 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Drum&background=8b0000&color=fff&size=200" alt="Tambour">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Petit Tambour de Juba</h3>
+                    <p class="product-desc">Instrument de percussion artisanal, parfait pour découvrir les rythmes sud-soudanais.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">30 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/soudan_sud.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Confort</span> à Juba</h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels de la capitale pour un séjour en toute sérénité.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="radisson">Radisson Blu Hotel Juba</option>
+                            <option value="pyramid">Pyramid Continental Hotel</option>
+                            <option value="crown">Crown Hotel Juba</option>
+                            <option value="palm">Palm Africa Hotel</option>
+                            <option value="landmark">Landmark Hotel Juba</option>
+                            <option value="royal">Royal Palace Hotel</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Radisson"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu Juba</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Juba, Grand Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Pyramid"></div>
+                    <div class="hotel-content">
+                        <h4>Pyramid Continental</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Juba, Business & Vue Nil</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Crown"></div>
+                    <div class="hotel-content">
+                        <h4>Crown Hotel Juba</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Juba, Confort Moderne</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Palm"></div>
+                    <div class="hotel-content">
+                        <h4>Palm Africa Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Juba, Ambiance Tropicale</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Landmark"></div>
+                    <div class="hotel-content">
+                        <h4>Landmark Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Juba, Central & Calme</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Royal"></div>
+                    <div class="hotel-content">
+                        <h4>Royal Palace Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Juba, Service VIP</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine sud-soudanaise est riche et variée, basée sur les produits du fleuve et les céréales de la savane.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kisra&background=f5f5dc&color=000&size=200" alt="Kisra"></div>
+                <div class="plat-content"><h4>Le Kisra</h4><p>Galette de sorgho fermenté, fine comme du papier, base de tous les repas.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Wale&background=daa520&color=fff&size=200" alt="Wale"></div>
+                <div class="plat-content"><h4>Le Wale-wale</h4><p>Bouillie consistante de millet ou sorgho servie avec des ragoûts de viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Okra&background=006400&color=fff&size=200" alt="Okra"></div>
+                <div class="plat-content"><h4>Ragoût de Gombo</h4><p>Source onctueuse à base de gombo frais, viande de bœuf ou de chèvre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Fish"></div>
+                <div class="plat-content"><h4>Poisson du Nil Séché</h4><p>Spécialité des marais du Sudd, réhydraté dans des sauces savoureuses.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Asida&background=f5f5dc&color=000&size=200" alt="Asida"></div>
+                <div class="plat-content"><h4>L'Asida</h4><p>Boule de farine de maïs ou sorgho, plat consistant partagé en famille.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kombo&background=daa520&color=fff&size=200" alt="Kombo"></div>
+                <div class="plat-content"><h4>Le Kombo</h4><p>Mélange nutritif de légumes verts, arachides et beurre clarifié.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Karkade&background=8b0000&color=fff&size=200" alt="Karkade"></div>
+                <div class="plat-content"><h4>Jus de Karkadé</h4><p>Infusion d'hibiscus sucrée et parfumée, servie fraîche ou chaude.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Coffee"></div>
+                <div class="plat-content"><h4>Café à la Gingembre</h4><p>Café fort et épicé, pilier des rencontres sociales à Juba.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mango&background=daa520&color=fff&size=200" alt="Fruit"></div>
+                <div class="plat-content"><h4>Fruits Tropicaux</h4><p>Mangues, papayes et bananes juteuses provenant des terres fertiles de l'Equatoria.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chicken&background=daa520&color=fff&size=200" alt="Chicken"></div>
+                <div class="plat-content"><h4>Poulet Grillé Juba</h4><p>Poulet mariné au citron et piment, grillé au charbon de bois.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Soup&background=00008b&color=fff&size=200" alt="Soup"></div>
+                <div class="plat-content"><h4>Soupe de Poisson Sudd</h4><p>Bouillon clair et parfumé à base de perche du Nil fraîche.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Millet&background=f5f5dc&color=000&size=200" alt="Millet"></div>
+                <div class="plat-content"><h4>Bouillie de Millet</h4><p>Petit-déjeuner traditionnel énergisant, souvent servi avec du lait.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez la joie de la nation à travers ses célébrations nationales et culturelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Jour de l'Indépendance</h4>
+                    <p>La plus grande célébration du pays (9 Juillet) avec défilés et danses dans tout Juba.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-users"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Culture</span>
+                    <h4>Wrestling Festivals</h4>
+                    <p>Compétitions de lutte traditionnelle Dinka et Mundari, un sport national majeur et spectaculaire.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Festival</span>
+                    <h4>Hagiga Festival</h4>
+                    <p>Événement culturel annuel à Juba célébrant la diversité des arts et des musiques du pays.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Mars)</h5>
+                    <p class="small mb-0">La période idéale pour voyager. Les routes sont praticables et c'est le meilleur moment pour observer la grande migration à Boma et visiter les camps de bétail.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Mai à Octobre)</h5>
+                    <p class="small mb-0">La nature est resplendissante mais les déplacements peuvent être très complexes. Le Sudd s'étend, offrant des paysages aquatiques magnifiques accessibles par avion.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez toujours les derniers conseils de voyage. Voyagez exclusivement avec des agences spécialisées et des guides locaux expérimentés.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin Fièvre Jaune obligatoire. Traitement antipaludéen indispensable. Buvez uniquement de l'eau purifiée ou en bouteille.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour toutes les nationalités. Prévoyez vos démarches à l'avance auprès de l'ambassade la plus proche.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">Livre Sud-Soudanaise (SSP). Prévoyez des Dollars US (billets neufs) pour le change. Les cartes bancaires sont peu acceptées en dehors des grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Malakal+Expedition&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Malakal">
+                        <h5 class="fw-bold mb-1">Deng Malakal</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Faune & Boma NP</p>
+                        <p class="small text-muted">Deng est un spécialiste de la migration des antilopes et saura vous guider au plus près de la vie sauvage à Boma.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:deng@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Deng</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Achol+Culture&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Achol">
+                        <h5 class="fw-bold mb-1">Achol Deng</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture Nilotique</p>
+                        <p class="small text-muted">Passionnée par les cultures Dinka et Mundari, Achol vous offre une perspective unique sur la vie des camps de bétail.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:achol@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Achol</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=John+Nil&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="John">
+                        <h5 class="fw-bold mb-1">John Lado</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Expéditions Nil & Sudd</p>
+                        <p class="small text-muted">Expert de la navigation sur le Nil Blanc et de la survie dans les marais du Sudd, John est votre guide pour l'aventure.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:john@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec John</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Soudan du Sud, le cœur sauvage de l'Afrique. Découvrez une terre d'abondance et des cultures ancestrales avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Soudan du Sud</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +211 92 000 000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> juba@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | South Sudan - Land of Abundance</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/soudan_du_sud.js"></script>
+</body>
+
+</html>

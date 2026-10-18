@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: algerie.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=26">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=26">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - L'Algérie</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <!-- MENU TOGGLE BUTTON (MOBILE) -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pays.html" class="nav-link active">
+                            <i class="fas fa-globe"></i> Pays
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="../blogs.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../informations.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i> Informations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../galerie.html" class="nav-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../propos.html" class="nav-link">
+                            <i class="fas fa-user"></i> À Propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="position: relative;">
+        <img src="../images/pays/Afrique_Nord/algerie.jpg" alt="L'Algérie">
+        <a href="../pays.html" class="btn-retour">Retourner</a>
+        <h1 class="hero-title">L'Algérie</h1>
+    </section>
+
+    <section class="content">
+        <h2>Présentation générale</h2>
+        <div class="presentation-text">Plus grand pays d'Afrique, l'Algérie offre une diversité époustouflante entre littoral méditerranéen et majesté du Sahara.</div>
+
+        <h2>Top attractions</h2>
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper"><i class="fas fa-search"></i><input type="text" placeholder="Rechercher..."></div>
+            <div class="filter-tags">
+                <span class="filter-tag active">Tous (15)</span>
+                <span class="filter-tag">Littoral & Villes</span>
+                <span class="filter-tag">Grand Sahara</span>
+                <span class="filter-tag">Sites Historiques</span>
+                <span class="filter-tag">Kabylie</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Afficher la carte</span></a>
+        </div>
+        <div id="map-container" style="display:none; margin-bottom: 50px;">
+            <div id="algerie-map" style="height: 500px; width: 100%; border-radius: 24px;"></div>
+        </div>
+        <div class="attractions-grid">
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/cabash.png" alt="Casbah d'Alger">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Littoral & Villes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 850</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Casbah d'Alger</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="casbah">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/tassili.png" alt="Tassili n'Ajjer">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 850</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tassili n'Ajjer</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tassili">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/ghardaia.png" alt="Ghardaïa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 850</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ghardaïa</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ghardaia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/oran.png" alt="Oran">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Littoral & Villes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 850</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oran</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="oran">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/djanet.png" alt="Oasis de Djanet">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 920</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oasis de Djanet</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Illizi, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="djanet">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/djemila.png" alt="Ruines de Djemila">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sites Historiques</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 740</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ruines de Djemila</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Sétif, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="djemila">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/hoggar.png" alt="Massif du Hoggar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 890</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Massif du Hoggar</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Tamanrasset, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hoggar">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/timgad.png" alt="Cité de Timgad">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sites Historiques</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 810</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité de Timgad</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Batna, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="timgad">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/constantine.png" alt="Ponts de Constantine">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Littoral & Villes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 950</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ponts de Constantine</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Constantine, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="constantine">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/Ruines de Tipaza.png" alt="Ruines de Tipaza">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sites Historiques</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 830</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ruines de Tipaza</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Tipaza, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tipaza">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/Cap Carbon & Gouraya.png" alt="Cap Carbon et Gouraya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kabylie</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 880</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cap Carbon & Gouraya</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Béjaïa, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bejaia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/Basilique Saint-Augustin.png" alt="Basilique Saint-Augustin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Littoral & Villes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 790</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Basilique Saint-Augustin</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Annaba, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="annaba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/oasis de timimoun.png" alt="Oasis de Timimoun">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand Sahara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 895</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Oasis de Timimoun</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Timimoun, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="timimoun">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/Kalaa des Beni Hammad.png" alt="Kalaa des Beni Hammad">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sites Historiques</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 640</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kalaa des Beni Hammad</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> M'Sila, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kalaa_beni_hammad">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/algerie/Parc national de Chréa.png" alt="Parc National de Chréa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Littoral & Villes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 870</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Chréa</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Blida, L'Algérie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chrea">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un carrefour de civilisations au cœur de la Méditerranée.</p>
+                    <p>L'Algérie possède une histoire qui remonte à l'aube de l'humanité. Véritable carrefour de cultures, elle a vu se succéder Numides, Romains, Arabes, Ottomans et bien d'autres, chacun laissant une empreinte indélébile sur cette terre de contrastes.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-monument text-warning me-2"></i>Héritage Antique</h6>
+                                <p class="small text-muted mb-0">De l'art rupestre du Tassili n'Ajjer aux cités romaines de Timgad et Tipaza, le pays est un musée à ciel ouvert.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-mosque text-info me-2"></i>Art & Architecture</h6>
+                                <p class="small text-muted mb-0">La splendeur de la Casbah d'Alger témoigne du raffinement de l'architecture mauresque et ottomane.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Musique & Rythmes</h6>
+                                <p class="small text-muted mb-0">Le Raï et le Malouf sont les voix d'une culture vibrante et poétique.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-hands-holding text-success me-2"></i>Savoir-faire</h6>
+                                <p class="small text-muted mb-0">Les tapis du M'zab et les bijoux de Kabylie perpétuent des gestes ancestraux.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="../images/sites des pays/algerie/histoire/Culture & Histoire.png" alt="Culture Algérie" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; max-height: 350px;" onerror="this.src='https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800'">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2 id="artisanat">Boutique d'Artisanat Local</h2>
+        <p>Découvrez les merveilles de l'artisanat algérien. Des pièces uniques faites à la main par nos artisans locaux (Tapis, poteries, bijoux berbères).</p>
+
+        <div class="ecommerce-grid">
+            <!-- Produit 1 : Tapis Ghardaïa -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&q=80&w=600" alt="Tapis de Ghardaïa">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tapis de Ghardaïa</h3>
+                    <p class="product-desc">Tapis traditionnel en laine fait main, motifs ancestraux du M'zab.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">45 000 DZD</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 2 : Bijoux Kabyles -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=600" alt="Bijoux Kabyles">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux Kabyles</h3>
+                    <p class="product-desc">Parure traditionnelle en argent et émail, artisanat authentique de Kabylie.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">12 500 DZD</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 3 : Poterie de Bider -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=600" alt="Poterie de Bider">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Bider</h3>
+                    <p class="product-desc">Poterie décorée à la main, un savoir-faire millénaire de l'ouest algérien.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">3 500 DZD</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 4 : Plateau en Cuivre -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600" alt="Plateau en Cuivre">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Plateau en Cuivre d'Alger</h3>
+                    <p class="product-desc">Plateau ciselé à la main, pièce maîtresse de la dinanderie traditionnelle algéroise.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">8 500 DZD</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 5 : Gandoura de Constantine -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?auto=format&fit=crop&q=80&w=600" alt="Gandoura Constantine">
+                    <span class="stock-badge">Sur commande</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gandoura de Constantine</h3>
+                    <p class="product-desc">Robe traditionnelle en velours brodée au fil d'or (Majboud), élégance impériale.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">65 000 DZD</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 6 : Sac en Cuir de Médéa -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600" alt="Maroquinerie Médéa">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sac en Cuir de Médéa</h3>
+                    <p class="product-desc">Maroquinerie d'art en cuir véritable, tannage naturel et finitions soignées.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">5 800 DZD</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="hotels-section">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Nord/algerie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Luxe</span> en L'Algérie</h2>
+                    <p>Découvrez notre sélection exclusive d'hôtels prestigieux entre mer et désert.</p>
+                    <a href="#" class="btn-explorer">Explorer les chambres</a>
+                </div>
+            </div>
+
+            <!-- NOUVEAU: PANNEAU DE RÉSERVATION -->
+            <div class="booking-panel">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Choisir l'Hôtel</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Quel hôtel ?</option>
+                            <option value="aurassi">Hôtel El Aurassi</option>
+                            <option value="sofitel">Sofitel Hamma Garden</option>
+                            <option value="sheraton">Sheraton Club des Pins</option>
+                            <option value="renaissance">Renaissance Tlemcen</option>
+                            <option value="constantine">Mariott Constantine</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Arrivée</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-check"></i> Départ</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-users"></i> Voyageurs</label>
+                        <select id="guests">
+                            <option value="1">1 Adulte</option>
+                            <option value="2" selected>2 Adultes</option>
+                            <option value="3">3 Adultes</option>
+                            <option value="4">Famille (4+)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-user"></i> Nom Complet</label>
+                        <input type="text" id="user-name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-envelope"></i> Email / WhatsApp</label>
+                        <input type="text" id="user-contact" placeholder="Email ou Tel" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">
+                        Confirmer la réservation
+                    </button>
+                </form>
+            </div>
+
+            <div class="hotels-grid">
+                <!-- Hôtel 1 : El Aurassi -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/algerie/Hôtel El Aurassi.png" alt="Hôtel El Aurassi">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Hôtel El Aurassi</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Alger, Surplombant la baie</p>
+                    </div>
+                </div>
+                <!-- Hôtel 2 : Sofitel Hamma Garden -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/algerie/Sofitel Algiers Hamma Garden.png" alt="Sofitel Algiers Hamma Garden">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Sofitel Algiers Hamma Garden</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Alger, Près du Jardin d'Essai</p>
+                    </div>
+                </div>
+                <!-- Hôtel 3 : Sheraton Club des Pins -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/algerie/Sheraton Club des Pins.png" alt="Sheraton Club des Pins">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Sheraton Club des Pins</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Alger, Bord de mer</p>
+                    </div>
+                </div>
+                <!-- Hôtel 4 : Renaissance Tlemcen -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/algerie/Renaissance Tlemcen Hotel.png" alt="Renaissance Tlemcen Hotel">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Renaissance Tlemcen Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tlemcen, Plateau de Lalla Setti</p>
+                    </div>
+                </div>
+                <!-- Hôtel 5 : Four Points by Sheraton -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/algerie/Four Points by Sheraton.png" alt="Four Points by Sheraton Oran">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Four Points by Sheraton</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Oran, Front de mer</p>
+                    </div>
+                </div>
+                <!-- Hôtel 6 : Hôtel El Djazaïr -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/algerie/Hôtel El Djazaïr (Ex-St George).png" alt="Hôtel El Djazaïr">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Hôtel El Djazaïr (Ex-St George)</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Alger, Quartier des ambassades</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h2>Gastronomie</h2>
+        <p class="section-description">
+            La gastronomie algérienne est un héritage riche et varié, mêlant influences berbères, arabes et méditerranéennes. Connue pour ses épices parfumées et ses plats généreux, elle offre un voyage gustatif unique à travers ses couscous, tajines et pâtisseries fines.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/couscous.png" alt="Couscous Algérien">
+                </div>
+                <div class="plat-content">
+                    <h4>Couscous</h4>
+                    <p>Le plat national, décliné en mille variantes selon les régions.</p>
+                </div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/Tajine Zitoun.png" alt="Tajine Zitoun">
+                </div>
+                <div class="plat-content">
+                    <h4>Tajine Zitoun</h4>
+                    <p>Un délicieux ragoût de poulet aux olives et carottes, parfumé au thym.</p>
+                </div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/chakhchoukha.png" alt="Chakhchoukha">
+                </div>
+                <div class="plat-content">
+                    <h4>Chakhchoukha</h4>
+                    <p>Spécialité des Aurès à base de feuilles de pâte émiettées et sauce épicée.</p>
+                </div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/bourek.png" alt="Bourek">
+                </div>
+                <div class="plat-content">
+                    <h4>Bourek</h4>
+                    <p>Croustillants de pâte phyllo farcis à la viande hachée ou crevettes.</p>
+                </div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/rechta.png" alt="Rechta">
+                </div>
+                <div class="plat-content">
+                    <h4>Rechta</h4>
+                    <p>Fines nouilles traditionnelles servies avec une sauce blanche et du poulet.</p>
+                </div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/Chorba Frik.png" alt="Chorba Frik">
+                </div>
+                <div class="plat-content">
+                    <h4>Chorba Frik</h4>
+                    <p>Soupe traditionnelle au blé vert concassé, incontournable du Ramadan.</p>
+                </div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/mhadjeb.png" alt="Mhadjeb">
+                </div>
+                <div class="plat-content">
+                    <h4>Mhadjeb</h4>
+                    <p>Crêpes berbères farcies d'une préparation à base d'oignon et de tomate pimentée.</p>
+                </div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/dolma.png" alt="Dolma">
+                </div>
+                <div class="plat-content">
+                    <h4>Dolma</h4>
+                    <p>Légumes variés (courgettes, poivrons) farcis d'un mélange savoureux de viande et de riz.</p>
+                </div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/Kalb el Louz.png" alt="Kalb el Louz">
+                </div>
+                <div class="plat-content">
+                    <h4>Kalb el Louz</h4>
+                    <p>"Cœur d'amandes", un gâteau de semoule fondant très apprécié durant les soirées.</p>
+                </div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/makroudh.png" alt="Makroudh">
+                </div>
+                <div class="plat-content">
+                    <h4>Makroudh</h4>
+                    <p>Pâtisserie traditionnelle à la semoule et aux dattes, frite puis trempée dans le miel.</p>
+                </div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/mtewem.png" alt="Mtewem">
+                </div>
+                <div class="plat-content">
+                    <h4>Mtewem</h4>
+                    <p>Un ragoût de boulettes de viande hachée à l'ail et aux amandes, typique d'Alger.</p>
+                </div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/algerie/zlabia.png" alt="Zlabia">
+                </div>
+                <div class="plat-content">
+                    <h4>Zlabia</h4>
+                    <p>Une pâtisserie croustillante et mielleuse à la forme spiralée caractéristique.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>L'Algérie vibre au rythme de nombreuses célébrations culturelles et traditionnelles tout au long de l'année :</p>
+        <div class="events-board">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-drum"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Culturel</span>
+                    <h4>La S'beiba de Djanet</h4>
+                    <p>Une danse guerrière traditionnelle des Touaregs, classée au patrimoine immatériel de l'UNESCO.</p>
+                </div>
+            </div>
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Cinéma</span>
+                    <h4>FIFE d'Alger</h4>
+                    <p>Le Festival International du Film Engagé d'Alger réunit des cinéastes célébrant la résistance.</p>
+                </div>
+            </div>
+            <!-- Event 3 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Traditionnel</span>
+                    <h4>Fête de la Cerise</h4>
+                    <p>Une fête ancestrale marquant la récolte des fruits avec parades et musique folklorique.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Meilleure période</h2>
+        <p>
+            L'Algérie, par sa vaste étendue, présente des contrastes climatiques marqués. Pour profiter pleinement de votre séjour :
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Le Nord & Littoral</h5>
+                    <p class="small mb-0">Les saisons idéales sont le <strong>printemps (mars à mai)</strong> et l'<strong>automne (septembre à novembre)</strong>. Vous éviterez ainsi les chaleurs humides de l'été et les pluies hivernales, tout en profitant d'une nature verdoyante et de températures douces avoisinant les 20-25°C.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-camel text-primary me-2"></i>Le Grand Sahara</h5>
+                    <p class="small mb-0">La période recommandée s'étend de <strong>fin octobre à début avril</strong>. Les journées sont magnifiquement ensoleillées et sèches, idéales pour les randonnées et méharées. <em>Note :</em> Les nuits dans le désert peuvent être glaciales (parfois sous 0°C), prévoyez des vêtements très chauds pour le soir.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <p>
+            Voyager en Algérie demande un minimum de préparation pour une expérience authentique et sereine :
+        </p>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Visa & Formalités</h6>
+                    <p class="small text-muted">Un visa est obligatoire. Prévoyez vos démarches auprès du consulat au moins un mois à l'avance. Une assurance voyage est requise.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité locale</h6>
+                    <p class="small text-muted">Restez sur les axes principaux. Pour le Sahara, l'accompagnement par une agence locale agréée est fortement recommandé.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé & Hygiène</h6>
+                    <p class="small text-muted">Privilégiez l'eau en bouteille. Pas de vaccins obligatoires, mais Hépatite A et B sont conseillées pour les longs séjours.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comments fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Respect & Culture</h6>
+                    <p class="small text-muted">Tenue décente recommandée. Demandez toujours la permission avant de photographier des locaux ou des sites officiels.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <p>Découvrez l'Algérie avec des guides passionnés et certifiés qui vous feront vivre une expérience authentique et sécurisée.</p>
+        <div class="row g-4 mt-2">
+            <!-- Guide 1 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="../images/guides/algerie/amine.jpg" class="rounded-circle shadow-sm border border-4 border-white" alt="Amine Sahraoui" style="width: 120px; height: 120px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Amine+Sahraoui&background=FFD700&color=000&size=128'">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Amine Sahraoui</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Grand Sahara</p>
+                        <p class="small text-muted mb-4">Expert du Tassili n'Ajjer et de l'Assekrem, Amine cumule 15 ans d'expéditions dans le désert profond. Sa connaissance des étoiles et des traditions touarègues est inégalée.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 4.9 (124 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Arabe</span>
+                            <span class="badge bg-light text-muted border fw-normal">Anglais</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:amine@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Amine</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Guide 2 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="../images/guides/algerie/leila.jpg" class="rounded-circle shadow-sm border border-4 border-white" alt="Leila Benali" style="width: 120px; height: 120px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Leila+Benali&background=FFD700&color=000&size=128'">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Leila Benali</h5>
+                        <p class="text-primary small fw-bold mb-3">Historienne - Alger & Casbah</p>
+                        <p class="small text-muted mb-4">Leila est diplômée en archéologie. Elle transforme chaque visite de la Casbah ou des ruines de Tipaza en un véritable voyage dans le temps, de l'ère romaine à l'époque ottomane.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 5.0 (89 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Arabe</span>
+                            <span class="badge bg-light text-muted border fw-normal">Espagnol</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:leila@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Leila</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Guide 3 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="../images/guides/algerie/karim.jpg" class="rounded-circle shadow-sm border border-4 border-white" alt="Karim Meziane" style="width: 120px; height: 120px; object-fit: cover;" onerror="this.src='https://ui-avatars.com/api/?name=Karim+Meziane&background=FFD700&color=000&size=128'">
+                            <span class="position-absolute bottom-0 end-0 bg-warning border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Occupé"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Karim Meziane</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Montagne - Kabylie</p>
+                        <p class="small text-muted mb-4">Expert de la randonnée et du Djurdjura, Karim vous emmène au cœur des villages kabyles et des sommets enneigés. Passionné d'ethnobotanique et de traditions locales.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 4.8 (67 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Arabe</span>
+                            <span class="badge bg-light text-muted border fw-normal">Kabyle</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:karim@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Karim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content"><span class="visit-modal-close">&times;</span><div id="visit-modal-body"></div></div>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/algerie.js?v=25"></script>
+</body>
+</html>

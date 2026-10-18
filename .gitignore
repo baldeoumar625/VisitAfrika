@@ -1,0 +1,34 @@
+# Node et modules (au cas où)
+node_modules/
+npm-debug.log
+
+# Environnement
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python / FastAPI
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env_python/
+visit_afrika.db
+alembic/
+
+# IDE et OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

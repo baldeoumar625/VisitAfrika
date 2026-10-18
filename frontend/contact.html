@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: contact.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <title>Contactez-nous - Visit Afrika</title>
+    <link rel="icon" type="image/jpg" href="images/logo/logo.png">
+</head>
+
+<body>
+    <!-- LE HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="pays.html" class="nav-link"><i class="fas fa-globe"></i> Pays</a></li>
+                    <!--  -->
+                    <li class="nav-item"><a href="blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="informations.html" class="nav-link"><i class="fas fa-info-circle"></i> Informations</a></li>
+                    <li class="nav-item"><a href="galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                    <li class="nav-item"><a href="propos.html" class="nav-link"><i class="fas fa-user"></i> A Propos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contactez-nous</h1>
+            <p class="lead text-white-50">Notre équipe est là pour vous aider à préparer votre voyage inoubliable en Afrique.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTACT SECTION -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Info Panel (Left) -->
+                <div class="contact-info-panel">
+                    <h2>Restons en contact</h2>
+                    <p class="mb-5 text-white-50">Que ce soit pour une question sur une destination ou une demande de devis, n'hésitez pas à nous écrire.</p>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-text">
+                            <h4>Notre Siège</h4>
+                            <p>Université de Labé/Labé - Guinée</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-text">
+                            <h4>Email Direct</h4>
+                            <p>baldeoumar313172@gmail.com</p>
+                            <p>contact@visitafrika.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="info-text">
+                            <h4>Téléphone & WhatsApp</h4>
+                            <p>(+224) 625 34 30 39</p>
+                            <p>(+224) 663 86 44 87</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="info-text">
+                            <h4>Heures d'ouverture</h4>
+                            <p>Lundi - Vendredi: 08h00 - 18h00</p>
+                            <p>Samedi: 09h00 - 14h00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Panel (Right) -->
+                <div class="contact-form-panel">
+                    <h2>Envoyez-nous un message</h2>
+                    <form id="frmContact" action="formulaires/merci.html" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fName">Prénom</label>
+                                <input type="text" name="fName" id="fName" placeholder="Ex: Jean" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lName">Nom</label>
+                                <input type="text" name="lName" id="lName" placeholder="Ex: Dupont" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eMail">Adresse e-mail</label>
+                                <input type="email" name="eMail" id="eMail" placeholder="votre@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" id="telephone" name="telephone" placeholder="+224...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Votre Message</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-send"><i class="fas fa-paper-plane me-2"></i> Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les merveilles du continent africain.
+                    Nous organisons des voyages authentiques et mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i> Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i> Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i> Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i> Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i> Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86 44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé - Guinée</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="js/vendors/jquery-3.7.1.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('navbarMenu').classList.toggle('active');
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('frmContact');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const fName = document.getElementById('fName').value.trim();
+                const lName = document.getElementById('lName').value.trim();
+                const eMail = document.getElementById('eMail').value.trim();
+                const telephone = document.getElementById('telephone').value.trim();
+                const message = document.getElementById('message').value.trim();
+
+                if (!fName || !eMail || !message) {
+                    alert('Veuillez remplir les champs obligatoires.');
+                    return;
+                }
+
+                const getApiUrl = (path) => (window.location.port === '5502' || window.location.port === '5500') 
+                    ? `http://127.0.0.1:8000${path}` 
+                    : path;
+
+                try {
+                    await fetch(getApiUrl('/api/contact_messages'), {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: `${fName} ${lName}`.trim(),
+                            email: eMail,
+                            subject: `Demande de contact (${telephone || 'Pas de tel'})`,
+                            message: message
+                        })
+                    });
+                } catch(err) {
+                    console.error('Erreur envoi message:', err);
+                }
+                window.location.href = 'formulaires/merci.html';
+            });
+        }
+    </script>
+</body>
+
+</html>
+

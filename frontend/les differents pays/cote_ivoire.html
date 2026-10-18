@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: cote_ivoire.html
+    DESCRIPTION: Page pays premium standardisée pour La Côte d'Ivoire.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Côte d'Ivoire, perle de l'Afrique de l'Ouest. De la lagune Ébrié aux montagnes de Man, explorez une culture vibrante et une gastronomie unique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Côte d'Ivoire (Sublime Côte d'Ivoire)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/cote_ivoire.jpg" alt="La Côte d'Ivoire" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Côte d'Ivoire</h1>
+            <p class="hero-subtitle">Élégance lagunaire, puissance économique et traditions millénaires</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Escale Incontournable</h2>
+            <p class="section-description">
+                La Côte d'Ivoire est une mosaïque de paysages et de peuples. Entre le dynamisme futuriste d'Abidjan, la démesure spirituelle de Yamoussoukro, l'histoire coloniale de Grand-Bassam et la nature sauvage des parcs nationaux, le pays offre une expérience africaine complète. Terre de cacao et de joie de vivre, la Côte d'Ivoire vous accueille à bras ouverts.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 sites emblématiques de la Côte d'Ivoire</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="urbain">Urbain</span>
+                <span class="filter-tag" data-filter="nature">Nature</span>
+                <span class="filter-tag" data-filter="plage">Plage</span>
+                <span class="filter-tag" data-filter="histoire">Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="cote_ivoire-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Basilique Yamoussoukro -->
+            <article class="attraction" data-category="urbain">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&q=80&w=800" alt="Basilique">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Yamoussoukro</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Basilique Notre-Dame</h3>
+                        <p class="location-text">La plus grande église du monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="basilique">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Grand-Bassam -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=800" alt="Bassam">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Comoé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité Historique Bassam</h3>
+                        <p class="location-text">Patrimoine Mondial de l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bassam">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Plateau Abidjan -->
+            <article class="attraction" data-category="urbain">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Plateau">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Abidjan</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Plateau</h3>
+                        <p class="location-text">Le "Manhattan" de l'Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="plateau">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Assinie-Mafia -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Assinie">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Comoé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Assinie-Mafia</h3>
+                        <p class="location-text">Plages paradisiaques et lagunes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="assinie">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Parc de Taï -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Tai">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Taï</h3>
+                        <p class="location-text">Forêt primaire et chimpanzés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tai">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Cascades de Man -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Man">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Man</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cascades de Man</h3>
+                        <p class="location-text">La cité des 18 montagnes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="man">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. San-Pédro Beaches -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=800" alt="San Pedro">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de San-Pédro</h3>
+                        <p class="location-text">Bord de mer sauvage et authentique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sanpedro">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Parc de la Comoé -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547407139-3c921a66005c?auto=format&fit=crop&q=80&w=800" alt="Comoe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de la Comoé</h3>
+                        <p class="location-text">Plus grand parc national du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="comoe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Korhogo (Artisanat) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80&w=800" alt="Korhogo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité Sénoufo Korhogo</h3>
+                        <p class="location-text">Tissages, perles et danses sacrées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="korhogo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Les Dents de Man -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Dents de Man">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tonkpi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.3k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Les Dents de Man</h3>
+                        <p class="location-text">Panorama unique sur les montagnes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dentsman">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Cathédrale St Paul -->
+            <article class="attraction" data-category="urbain">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=800" alt="Cathedrale Abidjan">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Plateau</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale St Paul</h3>
+                        <p class="location-text">Architecture audacieuse au Plateau</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="stpaul">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Île Boulay -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Ile Boulay">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lagune Ebrié</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île Boulay</h3>
+                        <p class="location-text">L'évasion à deux pas d'Abidjan</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="boulay">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Zoo d'Abidjan -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Zoo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cocody</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Zoo d'Abidjan</h3>
+                        <p class="location-text">Biodiversité africaine protégée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zooabidjan">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Domaine Bini -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Domaine Bini">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Autoroute du Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Domaine Bini</h3>
+                        <p class="location-text">Ecotourisme et détente au naturel</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="domaine-bini">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Jacqueville -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&q=80&w=800" alt="Jacqueville">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grands-Ponts</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 13.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de Jacqueville</h3>
+                        <p class="location-text">Détente entre lagune et océan</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="jacqueville">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La terre des 60 ethnies et du Zouglou.</p>
+                    <p>La Côte d'Ivoire est un carrefour culturel vibrant où les traditions des peuples Akan, Krou, Mandé et Gour se mêlent harmonieusement. Son histoire est celle d'une nation qui a su bâtir une modernité sans renier ses racines. Berceau du Coupé-Décalé et du Zouglou, le pays vibre au rythme d'une créativité débordante qui influence tout le continent.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Royaumes Akan</h6>
+                                <p class="small text-muted mb-0">La richesse des traditions royales et l'importance de l'or dans la culture et les cérémonies.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Rythmes Ivoiriens</h6>
+                                <p class="small text-muted mb-0">Du Ziglibithy au Zouglou, la musique est l'expression de la joie et de la résilience ivoirienne.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-danger me-2"></i>Arts du Nord</h6>
+                                <p class="small text-muted mb-0">Les tissages Korhogo et les masques Sénoufo témoignent d'une spiritualité profonde.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-landmark text-success me-2"></i>Patrimoine de Bassam</h6>
+                                <p class="small text-muted mb-0">L'architecture coloniale du Quartier France, témoin de la première capitale ivoirienne.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=600" alt="Culture CI" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Artisanat</h2>
+        <p>Ramenez l'excellence ivoirienne. Des produits d'exception issus de nos terroirs et de nos ateliers.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/chocolat.png" alt="Chocolat" onerror="this.src='https://ui-avatars.com/api/?name=Choco&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Chocolat Noir 70% Ivoirien</h3>
+                    <p class="product-desc">Fabriqué avec les fèves de cacao les plus fines du monde, récoltées localement.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">3 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tissu.png" alt="Pagne Baoule" onerror="this.src='https://ui-avatars.com/api/?name=Baoule&background=FFD700&color=000&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Pagne Kita / Baoulé</h3>
+                    <p class="product-desc">Tissu traditionnel tissé à la main, symbole de noblesse et de prestige.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/statue.png" alt="Statue Senoufo" onerror="this.src='https://ui-avatars.com/api/?name=Senoufo&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statue Calao Sénoufo</h3>
+                    <p class="product-desc">Sculpture protectrice en bois noble, pièce maîtresse de l'art du nord.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Masque&background=000&color=fff&size=200" alt="Masque Dan">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Dan Miniature</h3>
+                    <p class="product-desc">Masque facial sculpté avec finesse, emblème de la sagesse forestière.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cafe&background=3d2b1f&color=fff&size=200" alt="Cafe">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Robusta Premium</h3>
+                    <p class="product-desc">Café de terroir torréfié artisanalement pour un arôme intense.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">4 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Karite&background=f5f5dc&color=000&size=200" alt="Beurre Karite">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Karité Pur</h3>
+                    <p class="product-desc">Soin naturel millénaire pour la peau et les cheveux, 100% biologique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">6 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/cote_ivoire.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjournez avec <span>Élégance</span></h2>
+                    <p>Découvrez notre sélection exclusive des meilleurs établissements hôteliers du pays.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver maintenant</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un hôtel...</option>
+                            <option value="sofitel">Sofitel Hôtel Ivoire (Abidjan)</option>
+                            <option value="pullman">Pullman Abidjan Plateau</option>
+                            <option value="noom">Noom Hotel Abidjan</option>
+                            <option value="tiama">Hôtel Tiama (Abidjan)</option>
+                            <option value="azalai">Azalaï Hôtel Abidjan</option>
+                            <option value="radisson">Radisson Blu Airport</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Séjour</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver mon séjour</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Sofitel"></div>
+                    <div class="hotel-content">
+                        <h4>Sofitel Abidjan Ivoire</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Cocody, Abidjan</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Pullman"></div>
+                    <div class="hotel-content">
+                        <h4>Pullman Plateau</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Plateau, Abidjan</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Noom"></div>
+                    <div class="hotel-content">
+                        <h4>Noom Hotel Abidjan</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Plateau, Abidjan</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Tiama"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Tiama</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Plateau, Abidjan</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Azalai"></div>
+                    <div class="hotel-content">
+                        <h4>Azalaï Hôtel Abidjan</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Marcory, Abidjan</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Radisson"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu Airport</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Port-Bouët, Abidjan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine ivoirienne est l'une des plus riches du continent. Colorée, épicée et variée, elle met à l'honneur les produits locaux comme le manioc, la banane et le poisson frais.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/poisson-braise.png" alt="Attieke" onerror="this.src='https://ui-avatars.com/api/?name=Attieke&background=FFD700&color=000&size=200'"></div>
+                <div class="plat-content"><h4>Attiéké & Poisson Braisé</h4><p>Semoule de manioc fermentée servie avec poisson grillé.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/riz-soussou.png" alt="Garba" onerror="this.src='https://ui-avatars.com/api/?name=Garba&background=FFD700&color=000&size=200'"></div>
+                <div class="plat-content"><h4>Garba (Attiéké-Thon)</h4><p>Le plat de rue favori à base de thon frit et d'attiéké.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Alloco&background=FF8C00&color=fff&size=200" alt="Alloco"></div>
+                <div class="plat-content"><h4>Alloco</h4><p>Rondelles de bananes plantains frites, servies avec du piment.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kedjenou&background=FFD700&color=000&size=200" alt="Kedjenou"></div>
+                <div class="plat-content"><h4>Kedjenou de Poulet</h4><p>Ragoût de poulet cuit à l'étouffée avec des légumes.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Foutou&background=FFD700&color=000&size=200" alt="Foutou"></div>
+                <div class="plat-content"><h4>Foutou Banane</h4><p>Boule de banane et manioc pilés, servie avec une sauce graine.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Graine&background=800000&color=fff&size=200" alt="Graine"></div>
+                <div class="plat-content"><h4>Sauce Graine</h4><p>Onctueuse sauce à base de pulpe de noix de palme.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Placali&background=FFD700&color=000&size=200" alt="Placali"></div>
+                <div class="plat-content"><h4>Placali</h4><p>Pâte de manioc fermentée servie avec une sauce gombo ou graine.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Escargot&background=FFD700&color=000&size=200" alt="Escargot"></div>
+                <div class="plat-content"><h4>Kedjenou d'Escargots</h4><p>Escargots de forêt préparés dans une sauce épicée.</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chou&background=FFD700&color=000&size=200" alt="Sauce Chou"></div>
+                <div class="plat-content"><h4>Sauce Chou</h4><p>Ragoût de viande et de chou très populaire à Abidjan.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=8b0000&color=fff&size=200" alt="Bissap"></div>
+                <div class="plat-content"><h4>Jus de Bissap</h4><p>Boisson rafraîchissante à base de fleurs d'hibiscus.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gnaman&background=FFD700&color=000&size=200" alt="Gnaman"></div>
+                <div class="plat-content"><h4>Gnamankoudji</h4><p>Puissant jus de gingembre frais, tonifiant et piquant.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bangui&background=FFD700&color=000&size=200" alt="Bangui"></div>
+                <div class="plat-content"><h4>Le Bangui</h4><p>Vin de palme naturel, boisson traditionnelle de fête.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Vivez l'ambiance unique des festivals ivoiriens entre tradition et modernité.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>L'Abissa</h4>
+                    <p>Grand festival culturel du peuple N'Zima à Grand-Bassam.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Le FEMUA</h4>
+                    <p>Festival des Musiques Urbaines d'Anoumabo porté par Magic System.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-glass-cheers"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Mode</span>
+                    <h4>Abidjan Fashion Night</h4>
+                    <p>Le rendez-vous glamour de la haute couture ivoirienne et africaine.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Déc. à Mars)</h5>
+                    <p class="small mb-0">C'est la grande saison sèche, idéale pour profiter des plages d'Assinie et visiter les parcs nationaux. Le ciel est souvent dégagé.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Mai à Juillet)</h5>
+                    <p class="small mb-0">Les pluies sont fréquentes mais la nature est magnifique. C'est la période idéale pour voir les cascades de Man au maximum de leur débit.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le pays est stable. Restez prudent à Abidjan la nuit comme dans toute grande métropole mondiale.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin Fièvre Jaune obligatoire. Traitement antipaludéen recommandé. Eau minérale vivement conseillée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-language fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">Le Français est la langue officielle. Le Nouchi (argot local) est très utilisé à Abidjan.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-plug fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Prises</h6>
+                    <p class="small text-muted">Prises de type C/E (standard français, 220V). Le réseau électrique est le plus performant de la région.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Koffi+Yao&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Koffi">
+                        <h5 class="fw-bold mb-1">Koffi Yao</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Abidjan & Lagunes</p>
+                        <p class="small text-muted">Koffi vous fera découvrir les recoins secrets d'Abidjan, des marchés colorés aux plus beaux toits-terrasses.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:koffi@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Koffi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Awa+Coulibaly&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Awa">
+                        <h5 class="fw-bold mb-1">Awa Coulibaly</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Nature & Man</p>
+                        <p class="small text-muted">Originaire de l'ouest, Awa vous guidera sur les ponts de lianes et au sommet des montagnes sacrées de Man.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:awa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Awa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Drissa+Bakayoko&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Drissa">
+                        <h5 class="fw-bold mb-1">Drissa Bakayoko</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culture & Nord</p>
+                        <p class="small text-muted">Expert des traditions Sénoufo, Drissa vous ouvrira les portes des villages d'artisans de Korhogo.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:drissa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Drissa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Votre voyage commence ici. Découvrez le meilleur de l'Afrique avec une expertise locale et passionnée.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Tous les pays</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact CI</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +225 07 00 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> abidjan@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Côte d'Ivoire - Sublime Côte d'Ivoire</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/cote_ivoire.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: admin_utilisateurs.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/admin_protection.js"></script>
+  <title>Utilisateurs - Visit Afrika</title>
+  <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-profile">
+        <img src="../images/admin_avatar.png" alt="Admin Avatar">
+        <div class="user-name">Thierno Oumar Baldé</div>
+        <div class="user-role">Administrateur</div>
+      </div>
+      
+      <span class="sidebar-menu-label">Principal</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin.html"><i class="fas fa-grid-2"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="admin_pays.html"><i class="fas fa-globe-africa"></i> Gestion Pays</a>
+        </li>
+        
+        <li>
+          <a href="admin_reservations.html"><i class="fas fa-calendar-check"></i> Réservations</a>
+        </li>
+        <li>
+          <a href="admin_blog.html"><i class="fas fa-feather-pointed"></i> Gestion Blogs</a>
+        </li>
+        <li>
+          <a href="admin_galerie.html"><i class="fas fa-photo-film"></i> Galerie</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Utilisateurs & Messages</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_utilisateurs.html" class="active"><i class="fas fa-users-gear"></i> Utilisateurs</a>
+        </li>
+        <li>
+          <a href="admin_messages.html"><i class="fas fa-envelope-open-text"></i> Messages</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Système</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_parametres.html"><i class="fas fa-sliders"></i> Paramètres</a>
+        </li>
+        <li>
+          <a href="../index.html"><i class="fas fa-right-from-bracket"></i> Retour au site</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <div class="toggle-sidebar cursor-pointer" id="sidebarToggle">
+            <i class="fas fa-bars-staggered"></i>
+          </div>
+          <div class="header-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher un utilisateur...">
+          </div>
+        </div>
+        <div class="header-right header-icon-group">
+          <div class="position-relative cursor-pointer me-3">
+            <i class="fas fa-bell fs-notification"></i>
+            <span class="position-absolute badge rounded-pill bg-danger border border-light notification-badge"></span>
+          </div>
+          <div class="cursor-pointer">
+            <i class="fas fa-message fs-notification"></i>
+          </div>
+        </div>
+      </header>
+
+      <!-- Users Content -->
+      <div class="admin-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="fw-bold mb-1">Gestion des Utilisateurs</h2>
+            <p class="text-muted small">Consultez et gérez les comptes utilisateurs de la plateforme.</p>
+          </div>
+          <button class="btn btn-primary" id="btnAddUser"><i class="fas fa-user-plus me-2"></i> Nouvel Utilisateur</button>
+        </div>
+
+        <div class="modern-card">
+          <div class="table-responsive">
+            <table class="activity-table">
+              <thead>
+                <tr>
+                  <th>Utilisateur</th>
+                  <th>Rôle</th>
+                  <th>Date d'inscription</th>
+                  <th>Statut</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="avatar-sm bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:32px; height:32px;">TB</div>
+                      <div>
+                        <div class="fw-bold">Thierno Oumar Baldé</div>
+                        <div class="text-muted small">balde@exemple.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Administrateur</td>
+                  <td>15 Mars 2024</td>
+                  <td><span class="badge-status status-completed">Actif</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-sm btn-light text-danger"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center gap-3">
+                      <div class="avatar-sm bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center" style="width:32px; height:32px;">JD</div>
+                      <div>
+                        <div class="fw-bold">Jean Dupont</div>
+                        <div class="text-muted small">jean@exemple.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Éditeur</td>
+                  <td>20 Mars 2024</td>
+                  <td><span class="badge-status status-completed">Actif</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-light"><i class="fas fa-edit"></i></button>
+                    <button class="btn btn-sm btn-light text-danger"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal Nouvel Utilisateur -->
+  <div class="modal" id="addUserModal" tabindex="-1" style="display: none; background: rgba(0,0,0,0.6); position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1050; align-items: center; justify-content: center;">
+    <div class="modal-dialog" style="width: 100%; max-width: 500px;">
+      <div class="modal-content border-0 rounded-4 shadow">
+        <div class="modal-header border-bottom-0 pb-0">
+          <h5 class="modal-title fw-bold">Nouvel Utilisateur</h5>
+          <button type="button" class="btn-close" id="closeUserModal" aria-label="Close" style="background: transparent; border: none; font-size: 1.5rem;">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="addUserForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Prénom</label>
+                <input type="text" class="form-control" id="addPrenom" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small fw-bold">Nom</label>
+                <input type="text" class="form-control" id="addNom" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold">Email</label>
+                <input type="email" class="form-control" id="addEmail" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label small fw-bold">Mot de passe</label>
+                <input type="password" class="form-control" id="addPassword" required minlength="4">
+              </div>
+            </div>
+            <div class="mt-4 text-end">
+              <button type="button" class="btn btn-light me-2" id="cancelUserBtn">Annuler</button>
+              <button type="submit" class="btn btn-primary" id="saveUserBtn">Enregistrer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/admin_users.js"></script>
+  <script>
+    // Sidebar Toggle
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('d-none');
+      } else {
+        sidebar.style.width = sidebar.style.width === '0px' ? '260px' : '0px';
+        sidebar.style.padding = sidebar.style.width === '0px' ? '0' : '1.5rem';
+        sidebar.style.overflow = 'hidden';
+      }
+    });
+  </script>
+</body>
+
+</html>

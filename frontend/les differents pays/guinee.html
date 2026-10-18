@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: guinee.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=15">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=23">
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- LE HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- LOGO -->
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+
+            <!-- MENU TOGGLE BUTTON (MOBILE) -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pays.html" class="nav-link active">
+                            <i class="fas fa-globe"></i> Pays
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="../blogs.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../informations.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i> Informations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../galerie.html" class="nav-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../propos.html" class="nav-link">
+                            <i class="fas fa-user"></i> À Propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <!-- FIN DU HEADER -->
+
+
+    <section class="hero" style="position: relative;">
+        <img src="../images/pays/Afrique_Ouest/guinee.jpg" alt="La Guinée">
+        <a href="../pays.html" class="btn-retour">Retourner</a>
+        <h1 class="hero-title">La Guinée</h1>
+    </section>
+
+    <section class="content">
+
+        <h2>Présentation générale</h2>
+        <p>
+            La Guinée, située en Afrique de l'Ouest, est un pays riche en ressources naturelles et en diversité
+            culturelle. Sa capitale est Conakry. Elle est connue pour ses paysages variés, du littoral atlantique aux
+            montagnes du Fouta Djalon, et pour ses fleuves qui prennent naissance sur son territoire. La population
+            guinéenne est chaleureuse et fière de ses traditions.
+        </p>
+
+        <h2>Top attractions</h2>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Rechercher un site ou une localité...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active">Tous (15)</span>
+                <span class="filter-tag">Basse Guinée</span>
+                <span class="filter-tag">Moyenne Guinée</span>
+                <span class="filter-tag">Haute Guinée</span>
+                <span class="filter-tag">Guinée Forestière</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Afficher
+                    la carte</span></a>
+        </div>
+
+        <!-- Carte Interactive (Leaflet) -->
+        <div id="map-container" style="display:none; margin-bottom: 50px;">
+            <div id="guinee-map"
+                style="height: 500px; width: 100%; border-radius: 24px; border: 2px solid #edf2f7; box-shadow: 0 15px 45px rgba(0,0,0,0.1); z-index: 1;">
+            </div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Mont Loura -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/loura.png" alt="Mont Loura">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moyenne Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 342</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Loura</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Mali, Labé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Îles de Loos -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/loos.png" alt="Îles de Loos">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Basse Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 512</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Îles de Loos</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Conakry, Littoral</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Fouta Djalon -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/fouta.png" alt="Fouta Djalon">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moyenne Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 890</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fouta Djalon</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Labé, Pita, Dalaba</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Parc National du Haut Niger -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/parc_niger.png"
+                        alt="Parc National du Haut Niger">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Haute Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 215</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National du Haut Niger</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Faranah, Kouroussa</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Musée Sandervalia -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/sandervalia.png" alt="Musée Sandervalia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Basse Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 156</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée Sandervalia</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Kaloum, Conakry</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Chute de la Voile de la Mariée -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/voile_de_la_mariee.png"
+                        alt="Chute de la Voile de la Mariée">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Basse Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 643</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chute de la Voile de la Mariée</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Kindia, Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Chutes de Kinkon -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/kinkon.png" alt="Chutes de Kinkon">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moyenne Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 428</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Kinkon</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Pita, Fouta Djalon</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Chutes de Kambadaga -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/chute_kambadaga.png" alt="Chutes de Kambadaga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moyenne Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 392</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Kambadaga</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Pita, Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Forêt classée de Ziama -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/guinee/foret_ziama.png" alt="Forêt de Ziama">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Guinée Forestière</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 201</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt classée de Ziama</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Macenta, Sud</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Mont Nimba -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547234935-80c7145ec969?auto=format&fit=crop&q=80&w=600" alt="Mont Nimba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Guinée Forestière</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 412</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve du Mont Nimba</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Lola, Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Plage de Sobané -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=600" alt="Plage de Sobané">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Basse Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 625</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Sobané</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Boffa, Littoral</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Marché de Madina -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1476224488691-4c9931003d7d?auto=format&fit=crop&q=80&w=600" alt="Marché de Madina">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Basse Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 850</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Marché de Madina</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Conakry, Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Pont de Lianes -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=600" alt="Pont de Lianes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Guinée Forestière</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 542</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pont de Lianes</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Nzérékoré, Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Plateau de Dalaba -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1510629954389-c1e0da47d414?auto=format&fit=crop&q=80&w=600" alt="Dalaba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moyenne Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 328</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plateau de Dalaba</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Dalaba, Fouta</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Source du Niger -->
+            <article class="attraction">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=600" alt="Source du Niger">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Haute Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 490</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Source du Niger</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Faranah, Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+
+
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Un carrefour de traditions séculaires au cœur de l'Afrique de l'Ouest.</p>
+                    <p>La Guinée possède un héritage historique marqué par les puissants royaumes du Mandingue, du Fouta Djalon et du Soussou. Sa culture vibrante s'exprime à travers des rythmes ancestraux, un artisanat d'une finesse rare et une hospitalité légendaire qui unit ses quatre régions naturelles.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-monument text-warning me-2"></i>Héritage des Empires</h6>
+                                <p class="small text-muted mb-0">Du royaume du Mandingue aux Almamys du Fouta, l'histoire guinéenne est celle de grands bâtisseurs et de résistants.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-drum text-danger me-2"></i>Musique & Rythmes</h6>
+                                <p class="small text-muted mb-0">Le balafon et le djembé guinéens sont reconnus mondialement, portant l'âme des traditions orales et des ballets nationaux.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-shirt text-info me-2"></i>Textile & Savoir-faire</h6>
+                                <p class="small text-muted mb-0">Le "Lépi", textile traditionnel en coton tissé à la main, est un symbole de fierté culturelle et d'élégance.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100 border border-light">
+                                <h6 class="fw-bold"><i class="fas fa-hands-holding text-success me-2"></i>Art de l'Accueil</h6>
+                                <p class="small text-muted mb-0">La Guinée cultive une tradition de partage et de solidarité, pilier fondamental de la vie sociale dans toutes les communautés.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="../images/pays/Afrique_Ouest/Culture & Histoire/guinee-conakry.jpg" alt="Culture Guinée" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; max-height: 350px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="artisanat">Boutique d'Artisanat Local</h2>
+        <p>Découvrez les merveilles de l'artisanat guinéen. Des pièces uniques faites à la main par nos artisans locaux.
+        </p>
+
+        <div class="ecommerce-grid">
+            <!-- Produit 1 : Eventails -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/eventail.png" alt="Eventails">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Eventails</h3>
+                    <p class="product-desc">Eventails avec différents motifs et les manches en cuir 100%.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-old">70 000 GNF</span>
+                            <span class="price-new">60 000 GNF</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 2 : Tableau -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tableau.png" alt="Tableau de trois femmes">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">TABLEAU DE TROIS FEMMES</h3>
+                    <p class="product-desc">Tableau de trois femmes africaines : Prix 250.000 GNF</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-old">300 000 GNF</span>
+                            <span class="price-new">250 000 GNF</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 3 : Statue -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/elephant.png" alt="Statue d'un éléphant">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statue d'Éléphant</h3>
+                    <p class="product-desc">Statue finement sculptée dans le bois noble, symbole de force et de sagesse.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-old">400 000 GNF</span>
+                            <span class="price-new">350 000 GNF</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 4 : Tissu Lépi -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=600" alt="Tissu Lépi">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Lépi Traditionnel</h3>
+                    <p class="product-desc">Le tissu sacré du Fouta Djalon, en coton tissé et teint à l'indigo naturel.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">450 000 GNF</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 5 : Masque Nimba -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&q=80&w=600" alt="Masque Nimba">
+                    <span class="stock-badge">Pièce Unique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Nimba (Bois)</h3>
+                    <p class="product-desc">Reproduction artisanale du célèbre masque Baga, symbole de fécondité et de récolte.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">1 200 000 GNF</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 6 : Sac en Cuir -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=600" alt="Sac Cuir Kindia">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sac en Cuir de Kindia</h3>
+                    <p class="product-desc">Maroquinerie d'excellence en cuir véritable, alliant robustesse et design africain.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">280 000 GNF</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="hotels-section">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg"
+                    style="background-image: url('../images/hotels/guinee/palm-camayenne.png');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Luxe</span> en Guinée</h2>
+                    <p>Découvrez nos hôtels partenaires nichés au cœur de la magnifique Guinée.</p>
+                    <a href="#" class="btn-explorer">Explorer les chambres</a>
+                </div>
+            </div>
+
+            <!-- NOUVEAU: PANNEAU DE RÉSERVATION -->
+            <div class="booking-panel">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Choisir l'Hôtel</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Quel hôtel ?</option>
+                            <option value="noom">Noom Hotel Conakry</option>
+                            <option value="sheraton">Sheraton Grand Conakry</option>
+                            <option value="palm">Palm Camayenne</option>
+                            <option value="kaloum">Hôtel Kaloum</option>
+                            <option value="onomo">Onomo Hotel</option>
+                            <option value="riviera">Riviera Royal</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Arrivée</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-check"></i> Départ</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-users"></i> Voyageurs</label>
+                        <select id="guests">
+                            <option value="1">1 Adulte</option>
+                            <option value="2" selected>2 Adultes</option>
+                            <option value="3">3 Adultes</option>
+                            <option value="4">Famille (4+)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-book-now">
+                        Vérifier la disponibilité
+                    </button>
+                </form>
+            </div>
+
+            <div class="hotels-grid">
+                <!-- Hôtel 1 -->
+                <!-- Hôtel 1 : Noom Hotel -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/guinee/noom.png" alt="Noom Hotel Conakry">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Noom Hotel Conakry</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kaloum, Centre-ville</p>
+                    </div>
+                </div>
+                <!-- Hôtel 2 : Sheraton Grand -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/guinee/sheraton.png" alt="Sheraton Grand Conakry">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Sheraton Grand Conakry</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kipé, Conakry</p>
+                    </div>
+                </div>
+                <!-- Hôtel 3 : Palm Camayenne -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/guinee/palm-camayenne.png" alt="Hôtel Palm Camayenne">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Palm Camayenne</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Camayenne, Bord de mer</p>
+                    </div>
+                </div>
+                <!-- Hôtel 4 : Hôtel Kaloum -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/guinee/hotel-kaloum.png" alt="Hôtel Kaloum">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Kaloum</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Centre Kaloum, Conakry</p>
+                    </div>
+                </div>
+                <!-- Hôtel 5 : Onomo Hotel -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/guinee/onomo.png" alt="Onomo Hotel Conakry">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Onomo Hotel Conakry</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Almamya, Kaloum</p>
+                    </div>
+                </div>
+                <!-- Hôtel 6 : Riviera Royal -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/guinee/riviera-royal.png" alt="Hôtel Riviera Royal">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Riviera Royal</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Manquepas, Conakry</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h2>Gastronomie</h2>
+        <p class="section-description">
+            La gastronomie guinéenne est une symphonie de saveurs authentiques, où chaque région apporte sa touche
+            unique. Basée sur des céréales comme le riz et le fonio, elle se distingue par ses sauces généreuses à base
+            de feuilles locales, d'arachide ou d'huile de palme. C'est une cuisine de partage, chaleureuse et riche en
+            couleurs, qui invite à un voyage sensoriel au cœur de l'Afrique de l'Ouest.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/riz-soussou.png" alt="Riz Soussou">
+                </div>
+                <div class="plat-content">
+                    <h4>Riz Soussou</h4>
+                    <p>Le plat emblématique de la côte, servi avec une sauce savoureuse.</p>
+                </div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/fonio.png" alt="Fonio">
+                </div>
+                <div class="plat-content">
+                    <h4>Fonio</h4>
+                    <p>Une céréale locale légère et nutritive, fierté de la Moyenne Guinée.</p>
+                </div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/poulet-yassa.png" alt="Poulet Yassa">
+                </div>
+                <div class="plat-content">
+                    <h4>Poulet Yassa</h4>
+                    <p>Poulet mariné au citron et oignons, un délice fondant.</p>
+                </div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/sauce-feille.png" alt="Sauce Feuille">
+                </div>
+                <div class="plat-content">
+                    <h4>Sauce Feuille</h4>
+                    <p>Traditionnelle et riche, préparée avec diverses feuilles locales.</p>
+                </div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/poisson-braise.png" alt="Poisson Braisé & Bananes">
+                </div>
+                <div class="plat-content">
+                    <h4>Poisson Braisé & Bananes</h4>
+                    <p>Poissons frais de la côte servis avec des bananes plantain frites (Aloco).</p>
+                </div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/lafidi.png" alt="Lafidi">
+                </div>
+                <div class="plat-content">
+                    <h4>Lafidi</h4>
+                    <p>Le petit-déjeuner traditionnel par excellence : riz gras, gombo et huile de palme.</p>
+                </div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/mafe tiga.png" alt="Poisson Braisé & Bananes">
+                </div>
+                <div class="plat-content">
+                    <h4>Maffi Tigas</h4>
+                    <p>Une sauce onctueuse à base de pâte d'arachide, servie avec du riz ou du fonio.</p>
+                </div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/ketoun.png" alt="Poisson Braisé & Bananes">
+                </div>
+                <div class="plat-content">
+                    <h4>Ketoun</h4>
+                    <p>Savoureux ragoût de tubercules (manioc, igname) mijoté à l'huile de palme.</p>
+                </div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/kansiya.png" alt="Kensiya">
+                </div>
+                <div class="plat-content">
+                    <h4>Kansiye</h4>
+                    <p>Viande de bœuf tendre mijotée dans une sauce riche à l'arachide et à la tomate.</p>
+                </div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/soupe-chevre.png" alt="Soupe de Chèvre">
+                </div>
+                <div class="plat-content">
+                    <h4>Soupe de Chèvre</h4>
+                    <p>Une soupe épicée et parfumée, très prisée pour ses vertus revigorantes.</p>
+                </div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/Gbofloto.png" alt="Gaborone">
+                </div>
+                <div class="plat-content">
+                    <h4>Gbofloto</h4>
+                    <p>Délicieux beignets de farine, parfaits pour un goûter ou en accompagnement.</p>
+                </div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/guinee/Bissap-Gingembre.png" alt="Bissap & Gingembre">
+                </div>
+                <div class="plat-content">
+                    <h4>Bissap & Gingembre</h4>
+                    <p>Les boissons nationales : infusion d'hibiscus et jus de gingembre frais.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Événements & festivals</h2>
+        <div class="events-board">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-mask"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Culturel</span>
+                    <h4>Festival International de Kankan</h4>
+                    <p>Une célébration majeure de la culture et des traditions de la Haute Guinée.</p>
+                </div>
+            </div>
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Fête des musiques traditionnelles</h4>
+                    <p>Découvrez les rythmes envoûtants du balafon et du djembé à Conakry.</p>
+                </div>
+            </div>
+            <!-- Event 3 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-religion">Religieux</span>
+                    <h4>Tabaski & Ramadan</h4>
+                    <p>Célébrations religieuses marquées par le partage et la dévotion nationale.</p>
+                </div>
+            </div>
+            <!-- Event 4 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Gastronomique</span>
+                    <h4>FESTIG (Conakry)</h4>
+                    <p>Le Festival International des Grillades, alliant gastronomie locale et concerts géants.</p>
+                </div>
+            </div>
+            <!-- Event 5 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-theater-masks"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Culturel</span>
+                    <h4>Festival des Arts du Fouta</h4>
+                    <p>Célébré à Labé, ce festival met en lumière les traditions et l'artisanat du Fouta Djalon.</p>
+                </div>
+            </div>
+            <!-- Event 6 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-flag"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-religion">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Le 2 octobre, célébration nationale marquée par des défilés et des festivités patriotiques.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Nov - Mai)</h5>
+                    <p class="small mb-0">C'est la période idéale pour explorer tout le pays. Les routes sont praticables, le ciel est dégagé et les températures sont agréables, particulièrement au Fouta Djalon où les nuits sont fraîches.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-showers-heavy text-primary me-2"></i>Saison des Pluies (Juin - Oct)</h5>
+                    <p class="small mb-0">Bien que les pluies soient intenses, c'est le moment où la nature est la plus verdoyante. Les cascades sont spectaculaires, mais certains accès en zone rurale peuvent être difficiles.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays globalement sûr. Évitez les déplacements nocturnes hors des villes et suivez les conseils des guides locaux.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-vial-virus fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin contre la fièvre jaune obligatoire. Traitement antipaludique et consommation d'eau embouteillée recommandés.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comments fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Respect</h6>
+                    <p class="small text-muted">Demandez la permission avant de photographier. Une tenue décente est appréciée dans les zones rurales et religieuses.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">La monnaie est le Franc Guinéen (GNF). Prévoyez des espèces, car les cartes bancaires sont peu acceptées hors des grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <p>Partez à l'aventure avec des professionnels passionnés qui connaissent chaque recoin de la Guinée.</p>
+        <div class="row g-4 mt-2">
+            <!-- Guide 1 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Thierno+Diallo&background=0D6EFD&color=fff&size=128" class="rounded-circle shadow-sm border border-4 border-white" alt="Thierno Diallo" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Thierno Diallo</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Fouta Djalon</p>
+                        <p class="small text-muted mb-4">Spécialiste des randonnées et des cascades du Fouta, Thierno vous fera découvrir les secrets des falaises de Mali et l'hospitalité des villages Peuls.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 4.9 (86 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Pular</span>
+                            <span class="badge bg-light text-muted border fw-normal">Anglais</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:thierno@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Thierno</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Guide 2 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Moussa+Camara&background=198754&color=fff&size=128" class="rounded-circle shadow-sm border border-4 border-white" alt="Moussa Camara" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Moussa Camara</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturel & Maritime</p>
+                        <p class="small text-muted mb-4">Moussa est l'expert des îles de Loos et de la culture Soussou. Il organise des excursions inoubliables entre histoire coloniale et plages de rêve.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 4.8 (64 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Soussou</span>
+                            <span class="badge bg-light text-muted border fw-normal">Espagnol</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:moussa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Moussa</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Guide 3 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Fanta+Kourouma&background=FFC107&color=000&size=128" class="rounded-circle shadow-sm border border-4 border-white" alt="Fanta Kourouma" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="position-absolute bottom-0 end-0 bg-warning border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Occupé"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Fanta Kourouma</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Guinée Forestière</p>
+                        <p class="small text-muted mb-4">Originaire de Nzérékoré, Fanta vous guide au cœur de la forêt de Ziama à la rencontre des éléphants et des traditions ancestrales des peuples de la forêt.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 5.0 (42 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Maninka</span>
+                            <span class="badge bg-light text-muted border fw-normal">Guerzé</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fanta@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Fanta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal visite -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Leaflet JS for Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/guinee.js?v=25"></script>
+</body>
+
+</html>

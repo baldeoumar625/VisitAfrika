@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: senegal.html
+    DESCRIPTION: Page pays premium standardisée pour Le Sénégal.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Sénégal, le pays de la Teranga. De Dakar à la Casamance, explorez une culture vibrante, des plages paradisiaques et une gastronomie unique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Sénégal (Teranga)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/senegal.jpg" alt="Le Sénégal" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Sénégal</h1>
+            <p class="hero-subtitle">Terre de la Teranga, carrefour des cultures et de l'hospitalité</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Bienvenue au Sénégal</h2>
+            <p class="section-description">
+                Situé à la pointe la plus à l'ouest de l'Afrique, le Sénégal est une destination aux multiples facettes. Entre le dynamisme de Dakar, l'émotion de l'île de Gorée, la quiétude de la Casamance et la magie du désert de Lompoul, le "pays de la Teranga" vous promet une immersion inoubliable dans une Afrique authentique et accueillante.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 sites incontournables du Sénégal</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="culture">Culture</span>
+                <span class="filter-tag" data-filter="nature">Nature</span>
+                <span class="filter-tag" data-filter="histoire">Histoire</span>
+                <span class="filter-tag" data-filter="plage">Plage</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="senegal-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Île de Gorée -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&q=80&w=800" alt="Île de Gorée">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Dakar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Gorée</h3>
+                        <p class="location-text">Patrimoine Mondial de l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="goree">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Lac Rose -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Lac Rose">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Niaga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Rose (Retba)</h3>
+                        <p class="location-text">Eaux salines et couleurs magiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lacrose">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Saint-Louis -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=800" alt="Saint-Louis">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Saint-Louis (Ndar)</h3>
+                        <p class="location-text">L'élégance coloniale et le jazz</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="saintlouis">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Delta du Saloum -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Delta du Saloum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Fatick</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Delta du Saloum</h3>
+                        <p class="location-text">Labyrinthe de mangroves et d'oiseaux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="saloum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Casamance (Cap Skirring) -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Cap Skirring">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ziguinchor</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cap Skirring</h3>
+                        <p class="location-text">Les plus belles plages d'Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="capskirring">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Désert de Lompoul -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?auto=format&fit=crop&q=80&w=800" alt="Désert de Lompoul">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Louga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Désert de Lompoul</h3>
+                        <p class="location-text">Dunes oranges et nuits étoilées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lompoul">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Parc du Niokolo-Koba -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Niokolo-Koba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tambacounda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Niokolo-Koba</h3>
+                        <p class="location-text">Le plus grand parc national du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="niokolo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Réserve de Bandia -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547407139-3c921a66005c?auto=format&fit=crop&q=80&w=800" alt="Réserve de Bandia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mbour</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Bandia</h3>
+                        <p class="location-text">Safari à proximité de Dakar</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bandia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Monument de la Renaissance -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=800" alt="Monument Renaissance">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Dakar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monument Renaissance</h3>
+                        <p class="location-text">Surplombant la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="renaissance">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Joal-Fadiouth -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Joal-Fadiouth">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mbour</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>L'île aux Coquillages</h3>
+                        <p class="location-text">Joal-Fadiouth, harmonie et traditions</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fadiouth">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Parc des Oiseaux du Djoudj -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1444464666168-49d633b867ad?auto=format&fit=crop&q=80&w=800" alt="Djoudj">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc du Djoudj</h3>
+                        <p class="location-text">3ème sanctuaire ornithologique au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="djoudj">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Touba -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&q=80&w=800" alt="Grande Mosquée de Touba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Diourbel</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grande Mosquée de Touba</h3>
+                        <p class="location-text">Cœur spirituel de la Mouridiyya</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="touba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Karabane -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Karabane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Casamance</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Karabane</h3>
+                        <p class="location-text">Vestiges coloniaux en bord de fleuve</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="karabane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Plage de Ngor -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=800" alt="Île de Ngor">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Dakar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Ngor</h3>
+                        <p class="location-text">Surf, art et détente à Dakar</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ngor">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Pays Bassari & Bédik -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80&w=800" alt="Bassari">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kédougou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pays Bassari</h3>
+                        <p class="location-text">Traditions ancestrales et collines</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bassari">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La Teranga : Plus qu'un mot, un mode de vie.</p>
+                    <p>Le Sénégal est une terre de dialogue et de métissage. Son histoire, marquée par l'empire du Djolof et la période coloniale, a forgé une identité forte où la musique, la poésie et la danse occupent une place centrale. De Léopold Sédar Senghor à Youssou N'Dour, le Sénégal rayonne mondialement par son génie créatif.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-hands-helping text-warning me-2"></i>La Teranga</h6>
+                                <p class="small text-muted mb-0">L'hospitalité sénégalaise légendaire qui fait que chaque étranger se sent immédiatement chez lui.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-info me-2"></i>Mbalax & Griots</h6>
+                                <p class="small text-muted mb-0">Le rythme du Sabar et la parole sacrée des Griots perpétuent l'histoire et les valeurs sociales.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-book-open text-danger me-2"></i>Littérature & Négritude</h6>
+                                <p class="small text-muted mb-0">Un héritage intellectuel riche porté par de grands penseurs et écrivains reconnus internationalement.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-universal-access text-success me-2"></i>Cohabitation Religieuse</h6>
+                                <p class="small text-muted mb-0">Un modèle exemplaire de tolérance et de paix entre les différentes confréries et religions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=600" alt="Culture Sénégal" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Artisanat</h2>
+        <p>Ramenez un morceau de la Teranga chez vous. Des créations authentiques qui soutiennent nos communautés locales.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/panier.png" alt="Panier Sénégalais" onerror="this.src='https://ui-avatars.com/api/?name=Panier&background=FFD700&color=000&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers de Thiès</h3>
+                    <p class="product-desc">Paniers tressés à la main avec des fibres naturelles, colorés et résistants.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tissu.png" alt="Tissu Wax/Bazin" onerror="this.src='https://ui-avatars.com/api/?name=Tissu&background=FFD700&color=000&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bazin Riche Artisanal</h3>
+                    <p class="product-desc">Tissu teinté à la main avec des motifs traditionnels uniques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/statue.png" alt="Statue Baobab" onerror="this.src='https://ui-avatars.com/api/?name=Statue&background=FFD700&color=000&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Baobab en Ebène</h3>
+                    <p class="product-desc">Sculpture fine représentant l'arbre emblématique du Sénégal.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Bijou&background=FFD700&color=000&size=200" alt="Bijoux Filigrane">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux Filigrane d'Argent</h3>
+                    <p class="product-desc">Le savoir-faire ancestral des bijoutiers de Saint-Louis et de Dakar.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Tableau&background=FFD700&color=000&size=200" alt="Peinture sous verre">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Suwer (Fixé sous verre)</h3>
+                    <p class="product-desc">Art populaire sénégalais illustrant la vie quotidienne et les légendes.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Sac&background=FFD700&color=000&size=200" alt="Maroquinerie">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sac en Cuir Artisanal</h3>
+                    <p class="product-desc">Maroquinerie de haute qualité faite à partir de cuir local tanné naturellement.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">32 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/senegal.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjours <span>D'Exception</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels, du luxe urbain aux éco-lodges de charme.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver maintenant</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un hôtel...</option>
+                            <option value="terrou-bi">Terrou-Bi Resort (Dakar)</option>
+                            <option value="radisson">Radisson Blu (Dakar)</option>
+                            <option value="lamantin">Lamantin Beach (Saly)</option>
+                            <option value="residence">La Résidence (Saint-Louis)</option>
+                            <option value="esperanto">Esperanto Lodge (Cap Skirring)</option>
+                            <option value="collines">Eco-Lodge des Collines (Lompoul)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Dates</label>
+                        <input type="text" placeholder="Arrivée - Départ" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier les disponibilités</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Terrou-Bi"></div>
+                    <div class="hotel-content">
+                        <h4>Terrou-Bi Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Corniche Ouest, Dakar</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Radisson"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sea Plaza, Dakar</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=600" alt="Lamantin"></div>
+                    <div class="hotel-content">
+                        <h4>Lamantin Beach Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Saly Portudal</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="La Résidence"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel La Résidence</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Île de Saint-Louis</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Esperanto"></div>
+                    <div class="hotel-content">
+                        <h4>Esperanto Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Cap Skirring, Casamance</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?auto=format&fit=crop&q=80&w=600" alt="Lompoul Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Eco-Lodge Lompoul</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Désert de Lompoul</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            Considérée comme l'une des meilleures d'Afrique, la cuisine sénégalaise est un savant mélange de saveurs terrestres et maritimes. Le Thiéboudienne, classé à l'UNESCO, en est le joyau.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/lafidi.png" alt="Thiéboudienne" onerror="this.src='https://ui-avatars.com/api/?name=Thieb&background=FFD700&color=000&size=200'"></div>
+                <div class="plat-content"><h4>Thiéboudienne</h4><p>Riz au poisson et légumes, le plat national sacré.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/poulet-yassa.png" alt="Poulet Yassa" onerror="this.src='https://ui-avatars.com/api/?name=Yassa&background=FFD700&color=000&size=200'"></div>
+                <div class="plat-content"><h4>Poulet Yassa</h4><p>Poulet mariné au citron vert et aux oignons fondants.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mafe&background=FFD700&color=000&size=200" alt="Mafé"></div>
+                <div class="plat-content"><h4>Mafé</h4><p>Viande mijotée dans une onctueuse sauce à l'arachide.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Domoda&background=FFD700&color=000&size=200" alt="Domoda"></div>
+                <div class="plat-content"><h4>Domoda</h4><p>Ragoût de viande ou poisson à la tomate et farine de mil.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kandja&background=FFD700&color=000&size=200" alt="Soupou Kandja"></div>
+                <div class="plat-content"><h4>Soupou Kandja</h4><p>Sauce onctueuse aux gombos et huile de palme.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pastels&background=FFD700&color=000&size=200" alt="Pastels"></div>
+                <div class="plat-content"><h4>Pastels</h4><p>Petits chaussons frits farcis au poisson épicé.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dibi&background=FFD700&color=000&size=200" alt="Dibi"></div>
+                <div class="plat-content"><h4>Dibi Haoussa</h4><p>Grillades d'agneau au feu de bois avec épices et oignons.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Vermicelle&background=FFD700&color=000&size=200" alt="Vermicelle"></div>
+                <div class="plat-content"><h4>Vermicelle au Poulet</h4><p>Plat de fête léger et parfumé aux raisins secs.</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Caldou&background=FFD700&color=000&size=200" alt="Caldou"></div>
+                <div class="plat-content"><h4>Caldou</h4><p>Poisson poché servi avec du riz et une sauce citronnée.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Lakh&background=FFD700&color=000&size=200" alt="Lakh"></div>
+                <div class="plat-content"><h4>Lakh</h4><p>Bouillie de mil servie avec du lait caillé sucré.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=FFD700&color=000&size=200" alt="Bissap"></div>
+                <div class="plat-content"><h4>Jus de Bissap</h4><p>Infusion d'hibiscus rouge, rafraîchissante et tonique.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bouye&background=FFD700&color=000&size=200" alt="Bouye"></div>
+                <div class="plat-content"><h4>Jus de Bouye</h4><p>Boisson onctueuse à base de fruit de baobab.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Le Sénégal vibre au rythme de sa créativité. Voici les rendez-vous à ne pas manquer :</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Art</span>
+                    <h4>Biennale de Dakar (Dak'Art)</h4>
+                    <p>Le plus grand rendez-vous de l'art contemporain africain.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Saint-Louis Jazz</h4>
+                    <p>Festival international de jazz mythique sur l'île de Saint-Louis.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-moon"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-religion">Religieux</span>
+                    <h4>Grand Magal de Touba</h4>
+                    <p>Pèlerinage annuel massif célébrant le départ en exil de Cheikh Ahmadou Bamba.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <p>Le Sénégal jouit d'un climat agréable une grande partie de l'année.</p>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Nov. à Mai)</h5>
+                    <p class="small mb-0">C'est la période idéale. Les températures sont douces (25°C), le ciel est bleu et l'air est sec. Parfait pour les plages et les safaris.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-showers-heavy text-primary me-2"></i>Hivernage (Juin à Oct.)</h5>
+                    <p class="small mb-0">Saison des pluies. Les paysages deviennent d'un vert éclatant, surtout en Casamance. Les pluies sont souvent fortes mais brèves.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays stable et sûr. Prudence classique dans les zones touristiques contre les petits vols.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Traitement antipaludéen conseillé. Vaccin Fièvre Jaune recommandé. Buvez de l'eau capsulée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XOF). Les cartes bancaires sont acceptées dans les grands hôtels et restaurants.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comments fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">Le Français est la langue officielle. Le Wolof est la langue nationale la plus parlée.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Moussa+Diop&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Moussa">
+                        <h5 class="fw-bold mb-1">Moussa Diop</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Dakar & Gorée</p>
+                        <p class="small text-muted">Moussa vous fera revivre l'histoire de Gorée et les secrets cachés de la capitale avec une émotion rare.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:moussa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Moussa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Fatou+Ndiaye&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Fatou">
+                        <h5 class="fw-bold mb-1">Fatou Ndiaye</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Nature & Saloum</p>
+                        <p class="small text-muted">Fatou connaît chaque bras de mer du Saloum et saura vous faire découvrir la faune ornithologique locale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fatou@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Fatou</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ibrahima+Sane&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ibrahima">
+                        <h5 class="fw-bold mb-1">Ibrahima Sané</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Aventure Casamance</p>
+                        <p class="small text-muted">Spécialiste du sud, Ibrahima vous emmène au cœur des villages Diola pour une immersion culturelle totale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ibrahima@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Ibrahima</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PREMIUM -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Explorez le continent avec passion. Nous créons des ponts entre les cultures à travers des expériences de voyage authentiques.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Tous les pays</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +221 33 000 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> contact@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Sénégal - Terre de la Teranga</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/senegal.js"></script>
+</body>
+
+</html>

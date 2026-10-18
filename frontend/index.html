@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: index.html
+    DESCRIPTION: Page d'accueil du site Visit Afrika - Présentation et sections principales.
+-->
+
+<html lang="fr-FR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/meilleurs-voyageurs.css">
+    <link rel="stylesheet" href="css/home-new.css">
+    <title>Visit Afrika</title>
+    <link rel="icon" type="image/jpg" href="images/logo/logo.png">
+</head>
+
+<body>
+    <!-- LE HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- LOGO -->
+            <div class="navbar-brand">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+
+            <!-- MENU TOGGLE BUTTON (MOBILE) -->
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="pays.html" class="nav-link">
+                            <i class="fas fa-globe"></i> Pays
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="blogs.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="informations.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i> Informations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="galerie.html" class="nav-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="propos.html" class="nav-link">
+                            <i class="fas fa-user"></i> A Propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- FIN DU HEADER -->
+
+    <div class="slider">
+        <div class="slides" id="slides">
+            <div class="slide"><img src="images/slides/Image1.png"></div>
+            <div class="slide"><img src="images/slides/Image2.png"></div>
+            <div class="slide"><img src="images/slides/Image3.png"></div>
+            <div class="slide"><img src="images/slides/Image4.png"></div>
+            <div class="slide"><img src="images/slides/Image5.png"></div>
+            <div class="slide"><img src="images/slides/Image6.png"></div>
+            <div class="slide"><img src="images/slides/Image7.png"></div>
+            <div class="slide"><img src="images/slides/Image8.png"></div>
+            <div class="slide"><img src="images/slides/Image9.png"></div>
+            <div class="slide"><img src="images/slides/Image10.png"></div>
+        </div>
+
+        <div class="home-overlay-text">
+            <h3 class="home-title typewriter" data-text="LA BEAUTE AFRICAINE"></h3>
+            <p class="home-desc fade-slide">
+                <span>BIENVENUE AU CONTINENT DES MERVEILLES !</span><br>
+                Découvrez les merveilles culturelles, naturelles et humaines
+                de l'Afrique.
+            </p>
+            <button class="button"><a href="formulaires/inscription.html">S'inscrire</a></button>
+            <button class="button"><a href="formulaires/connection.html">Se connecter</a></button>
+        </div>
+
+        <div class="nav-buttons">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <!--A PROPOS DU CONTINENT -->
+    <section class="sections about">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">En Bref Sur l'Afrique</h2>
+                <div class="line"><span></span></div>
+                <p>
+
+                <p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about-info">
+                        <h3>Informations Generales Sur le Continent
+                            Africain</h3>
+                        <p class="about-info-desc">
+                            L'Afrique est le deuxième plus grand
+                            continent de la planète, tant en
+                            superficie (environ 30 millions de
+                            km²) qu'en population (plus de 1,4
+                            milliard d'habitants en 2025). Elle
+                            regroupe 54 pays reconnus
+                            internationalement, possède une
+                            diversité culturelle, linguistique et
+                            géographique exceptionnelle. Le
+                            continent est bordé par la Méditerranée
+                            au nord, l'océan Atlantique à l'ouest,
+                            l'océan Indien à l'est, et la
+                            mer Rouge au nord-est. L'Afrique joue un
+                            rôle géostratégique majeur en raison de
+                            ses ressources
+                            naturelles abondantes et de son
+                            potentiel démographique <br>
+                            <br>
+                        </p>
+                        <button class="about-info-btn"><a href="https://fr.wikipedia.org/wiki/Afrique" target="_blank"
+                                rel="noopener noreferrer">En Savoir
+                                Plus</a></button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">54</div>
+                                <div class="stat-label">Pays</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-area-chart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">30M</div>
+                                <div class="stat-label">km² de
+                                    superficie</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">1.4B+</div>
+                                <div class="stat-label">Habitants</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">2000+</div>
+                                <div class="stat-label">Langues et
+                                    dialectes</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">100+</div>
+                                <div class="stat-label">Parcs
+                                    naturels</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-number">11</div>
+                                <div class="stat-label">Patrimoines
+                                    UNESCO</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION QUOI DE NEUF (STYLE LONELY PLANET) -->
+    <section class="sections whats-new">
+        <div class="container">
+            <div class="whats-new-title-box">
+                <h2>Quoi de neuf chez Visit Afrika</h2>
+            </div>
+
+            <div class="whats-new-grid">
+                <a href="pays.html" class="featured-card">
+                    <img src="https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=1000"
+                        alt="Voyages de rêve">
+                    <div class="featured-overlay">
+                        <span class="featured-eyebrow">Notre liste de</span>
+                        <h3 class="featured-title">Voyages de rêve à faire</h3>
+                        <span class="featured-btn">Découvrir l'Afrique &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="meilleurs-voyageurs.html" class="featured-card">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=1000"
+                        alt="Meilleur Voyageur 2026">
+                    <div class="featured-overlay">
+                        <span class="featured-eyebrow">Visit Afrika</span>
+                        <h3 class="featured-title">Meilleur Voyageur 2026</h3>
+                        <span class="featured-btn">Voir la liste &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LA SECTION EXPLOREZ L'AFRIQUE AVEC NOUS -->
+    <section class="sections services-minimal">
+        <div class="container">
+            <div class="services-header-split">
+                <span class="header-split-left">EXPLOREZ L'AFRIQUE AVEC NOUS</span>
+                <div class="header-split-line"></div>
+                <span class="header-split-right">VOTRE VOYAGE COMMENCE ICI.</span>
+            </div>
+
+            <div class="services-grid-minimal">
+                <div class="service-card-minimal">
+                    <div class="service-img-container">
+                        <img src="images/section-services/nature_parcs.jpg" alt="Excursion Nature et Parcs"
+                            class="service-img">
+                    </div>
+                    <div class="service-content-minimal">
+                        <span class="service-eyebrow-minimal">AVENTURE · NATURE</span>
+                        <h3 class="service-title-minimal">Excursion Nature et Parcs</h3>
+                        <span class="service-meta-minimal">Découverte de la faune et flore</span>
+                    </div>
+                </div>
+
+                <div class="service-card-minimal">
+                    <div class="service-img-container">
+                        <img src="images/section-services/visite_culturelle.jpg" alt="Visites Culturelles"
+                            class="service-img">
+                    </div>
+                    <div class="service-content-minimal">
+                        <span class="service-eyebrow-minimal">CULTURE · HISTOIRE</span>
+                        <h3 class="service-title-minimal">Visites Culturelles</h3>
+                        <span class="service-meta-minimal">Immersion dans les traditions</span>
+                    </div>
+                </div>
+
+                <div class="service-card-minimal">
+                    <div class="service-img-container">
+                        <img src="images/section-services/gastronomie.jpg" alt="Expériences Gastronomiques"
+                            class="service-img">
+                    </div>
+                    <div class="service-content-minimal">
+                        <span class="service-eyebrow-minimal">GASTRONOMIE · SAVEURS</span>
+                        <h3 class="service-title-minimal">Expériences Gastronomiques</h3>
+                        <span class="service-meta-minimal">Dégustation de plats locaux</span>
+                    </div>
+                </div>
+
+                <div class="service-card-minimal">
+                    <div class="service-img-container">
+                        <img src="images/section-services/guides.jpg" alt="Guides Locaux Experts" class="service-img">
+                    </div>
+                    <div class="service-content-minimal">
+                        <span class="service-eyebrow-minimal">GUIDES · EXPERTISE</span>
+                        <h3 class="service-title-minimal">Guides Locaux Experts</h3>
+                        <span class="service-meta-minimal">Accompagnement professionnel</span>
+                    </div>
+                </div>
+
+                <div class="service-card-minimal">
+                    <div class="service-img-container">
+                        <img src="images/section-services/sejour.jpg" alt="Séjours Balnéaires" class="service-img">
+                    </div>
+                    <div class="service-content-minimal">
+                        <span class="service-eyebrow-minimal">DETENTE · PLAGE</span>
+                        <h3 class="service-title-minimal">Séjours Balnéaires</h3>
+                        <span class="service-meta-minimal">Relaxation au bord de l'eau</span>
+                    </div>
+                </div>
+
+                <div class="service-card-minimal">
+                    <div class="service-img-container">
+                        <img src="images/section-services/artisanat.jpg" alt="Artisanat & Marchés Locaux"
+                            class="service-img">
+                    </div>
+                    <div class="service-content-minimal">
+                        <span class="service-eyebrow-minimal">ARTISANAT · SOUVENIRS</span>
+                        <h3 class="service-title-minimal">Artisanat & Marchés Locaux</h3>
+                        <span class="service-meta-minimal">Découverte des créations locales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION SITES LES PLUS VISITÉS -->
+    <section class="sections popular-sites">
+        <div class="container">
+            <div class="section-header-custom">
+                <h2 class="section-title-custom">Sites les plus visités</h2>
+                <div class="section-controls">
+
+                    <div class="nav-arrows">
+                        <button class="arrow-btn prev-btn"><i class="fas fa-arrow-left"></i></button>
+                        <button class="arrow-btn next-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/sites_populaires/pyramides_de_gizeh.jpg" alt="Pyramides de Gizeh">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-subtitle">EGYPTE</span>
+                        <h3 class="destination-title">PYRAMIDES DE GIZEH</h3>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/sites_populaires/serengeti.jpg" alt="Parc national du Serengeti">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-subtitle">TANZANIE</span>
+                        <h3 class="destination-title">PARC DU SERENGETI</h3>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/sites_populaires/kilimendjaro.jpg" alt="Mont Kilimandjaro">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-subtitle">TANZANIE</span>
+                        <h3 class="destination-title">MONT KILIMANDJARO</h3>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/sites_populaires/chute_victoria.jpg" alt="Chutes Victoria">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-subtitle">ZAMBIE / ZIMBABWE</span>
+                        <h3 class="destination-title">CHUTES VICTORIA</h3>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/sites_populaires/ile_de_goree.jpg" alt="Ile de Gorée">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-subtitle">SÉNÉGAL</span>
+                        <h3 class="destination-title">ILE DE GORÉE</h3>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/sites_populaires/table_montain.jpg" alt="Table Mountain">
+                    </div>
+                    <div class="destination-content">
+                        <span class="destination-subtitle">AFRIQUE DU SUD</span>
+                        <h3 class="destination-title">TABLE MOUNTAIN</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BLOGS & ARTICLES RÃ‰CENTS -->
+    <section class="sections blog-articles">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Blogs & Articles
+                    Récents</h2>
+                <div class="line"><span></span></div>
+                <p>Découvrez nos derniers articles, guides et
+                    conseils pour préparer votre voyage en
+                    Afrique.</p>
+            </div>
+
+            <div class="blog-grid-minimal">
+                <a href="blogs.html#plages" class="blog-card-minimal">
+                    <div class="blog-img-container">
+                        <img src="images/articles/plages.jpg" alt="Top 10 des plages en Afrique" class="blog-img">
+                    </div>
+                    <div class="blog-content-minimal">
+                        <span class="blog-category-minimal">Destinations · Voyage</span>
+                        <h3 class="blog-title-minimal">Top 10 des plages en Afrique</h3>
+                        <span class="blog-date-minimal">15 novembre 2025</span>
+                    </div>
+                </a>
+
+                <a href="blogs.html#pays-accueillants" class="blog-card-minimal">
+                    <div class="blog-img-container">
+                        <img src="images/articles/pays_accueillants.jpg" alt="Les 5 pays les plus accueillants"
+                            class="blog-img">
+                    </div>
+                    <div class="blog-content-minimal">
+                        <span class="blog-category-minimal">Conseils · Hospitalité</span>
+                        <h3 class="blog-title-minimal">Les 10 pays les plus accueillants</h3>
+                        <span class="blog-date-minimal">22 novembre 2025</span>
+                    </div>
+                </a>
+
+                <a href="blogs.html#gastronomie" class="blog-card-minimal">
+                    <div class="blog-img-container">
+                        <img src="images/articles/gastronomie.jpg" alt="Gastronomie africaine" class="blog-img">
+                    </div>
+                    <div class="blog-content-minimal">
+                        <span class="blog-category-minimal">Gastronomie · Culture</span>
+                        <h3 class="blog-title-minimal">Gastronomie africaine : 12 plats à goûter</h3>
+                        <span class="blog-date-minimal">10 décembre 2025</span>
+                    </div>
+                </a>
+
+                <a href="blogs.html#securite" class="blog-card-minimal">
+                    <div class="blog-img-container">
+                        <img src="images/articles/securite.jpg" alt="Sécurité en Afrique" class="blog-img">
+                    </div>
+                    <div class="blog-content-minimal">
+                        <span class="blog-category-minimal">Sécurité · Guide</span>
+                        <h3 class="blog-title-minimal">Top 10 des pays les plus sécurisés en Afrique</h3>
+                        <span class="blog-date-minimal">19 décembre 2025</span>
+                    </div>
+                </a>
+
+                <a href="blogs.html#festivals" class="blog-card-minimal">
+                    <div class="blog-img-container">
+                        <img src="images/articles/festivals.jpg" alt="Festivals en Afrique" class="blog-img">
+                    </div>
+                    <div class="blog-content-minimal">
+                        <span class="blog-category-minimal">Festivals · Événements</span>
+                        <h3 class="blog-title-minimal">Les plus beaux festivals en Afrique</h3>
+                        <span class="blog-date-minimal">01 janvier 2026</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION APERÇU GALERIE -->
+    <section class="sections gallery-preview">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Aperçu de notre Galerie</h2>
+                <div class="line"><span></span></div>
+                <p>Plongez dans les images les plus captivantes de nos voyages à travers l'Afrique.</p>
+            </div>
+
+            <div class="gallery-preview-grid">
+                <div class="gallery-preview-item" onclick="window.location.href='galerie.html'">
+                    <img src="images/sites_populaires/pyramides_de_gizeh.jpg" alt="Égypte">
+                    <div class="gallery-preview-overlay">
+                        <div class="gallery-preview-title">Pyramides de Gizeh</div>
+                        <div class="gallery-preview-category">Égypte · Histoire</div>
+                    </div>
+                </div>
+
+                <div class="gallery-preview-item" onclick="window.location.href='galerie.html'">
+                    <img src="images/sites_populaires/serengeti.jpg" alt="Tanzanie">
+                    <div class="gallery-preview-overlay">
+                        <div class="gallery-preview-title">Parc Serengeti</div>
+                        <div class="gallery-preview-category">Tanzanie · Nature</div>
+                    </div>
+                </div>
+
+                <div class="gallery-preview-item" onclick="window.location.href='galerie.html'">
+                    <img src="images/sites_populaires/chute_victoria.jpg" alt="Chutes Victoria">
+                    <div class="gallery-preview-overlay">
+                        <div class="gallery-preview-title">Chutes Victoria</div>
+                        <div class="gallery-preview-category">Zambie / Zimbabwe</div>
+                    </div>
+                </div>
+
+                <div class="gallery-preview-item" onclick="window.location.href='galerie.html'">
+                    <img src="images/pays/Afrique_Australe/afrique_du_sud.jpg" alt="Afrique du Sud">
+                    <div class="gallery-preview-overlay">
+                        <div class="gallery-preview-title">Cape Town</div>
+                        <div class="gallery-preview-category">Afrique du Sud · Paysage</div>
+                    </div>
+                </div>
+
+                <div class="gallery-preview-item" onclick="window.location.href='galerie.html'">
+                    <img src="images/pays/Afrique_Est/kenya.jpg" alt="Kenya">
+                    <div class="gallery-preview-overlay">
+                        <div class="gallery-preview-title">Safari au Kenya</div>
+                        <div class="gallery-preview-category">Kenya · Aventure</div>
+                    </div>
+                </div>
+
+                <div class="gallery-preview-item" onclick="window.location.href='galerie.html'">
+                    <img src="images/pays/Afrique_Nord/maroc.jpg" alt="Maroc">
+                    <div class="gallery-preview-overlay">
+                        <div class="gallery-preview-title">Jardin Majorelle</div>
+                        <div class="gallery-preview-category">Maroc · Culture</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-view-all">
+                <a href="galerie.html" class="btn-gallery">VOIR TOUTE LA GALERIE</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="travelers-main">
+        <section class="travelers-hero">
+            <div class="container">
+                <h1 class="hero-title">NOS MEILLEURS VOYAGEURS 2026</h1>
+                <p class="hero-subtitle">Célébrons ceux qui explorent l'Afrique avec passion et respect.</p>
+            </div>
+        </section>
+
+        <section class="travelers-list py-5">
+            <div class="container border-container">
+                <div class="row">
+                    <!-- Voyageur 1 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?auto=format&fit=crop&q=80&w=800"
+                                    alt="Fatoumata Diallo">
+                                <div class="traveler-badge">Top Voyageur Gold</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Fatoumata Diallo</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Guinée</p>
+                                <div class="traveler-stats">
+                                    <span><strong>12</strong> Pays visités</span>
+                                    <span><strong>4</strong> Récits de voyage</span>
+                                </div>
+                                <p class="traveler-bio">Passionnée par les cultures ancestrales, Fatoumata a parcouru
+                                    l'Afrique de l'Ouest avec un regard curieux et bienveillant.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 2 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
+                                    alt="Jean-Marc Koffi">
+                                <div class="traveler-badge">Eco-Explorateur</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Jean-Marc Koffi</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Côte d'Ivoire</p>
+                                <div class="traveler-stats">
+                                    <span><strong>8</strong> Pays visités</span>
+                                    <span><strong>15</strong> Parcs naturels</span>
+                                </div>
+                                <p class="traveler-bio">Amoureux de la nature sauvage, Jean-Marc se consacre à la
+                                    photographie animalière et à la protection de la faune.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 3 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800"
+                                    alt="Sarah Ben Ali">
+                                <div class="traveler-badge">Ambassadrice Culturelle</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Sarah Ben Ali</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Maroc</p>
+                                <div class="traveler-stats">
+                                    <span><strong>10</strong> Pays visités</span>
+                                    <span><strong>6</strong> Langues apprises</span>
+                                </div>
+                                <p class="traveler-bio">Sarah voyage pour apprendre. Elle partage ses découvertes
+                                    linguistiques et gastronomiques sur son blog suivi par des milliers de personnes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 4 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800"
+                                    alt="David Ndlovu">
+                                <div class="traveler-badge">Grand Aventurier</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">David Ndlovu</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Afrique du Sud</p>
+                                <div class="traveler-stats">
+                                    <span><strong>15</strong> Pays visités</span>
+                                    <span><strong>3</strong> Pics gravis</span>
+                                </div>
+                                <p class="traveler-bio">Rien n'arrête David ! Des dunes du Namib aux sommets du
+                                    Kilimandjaro, il repousse sans cesse ses limites.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 5 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=800"
+                                    alt="Amira Mensah">
+                                <div class="traveler-badge">Travel Blogger</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Amira Mensah</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Ghana</p>
+                                <div class="traveler-stats">
+                                    <span><strong>20</strong> Pays visités</span>
+                                    <span><strong>50K</strong> Abonnés</span>
+                                </div>
+                                <p class="traveler-bio">Amira utilise ses réseaux sociaux pour montrer une Afrique
+                                    moderne, dynamique et accueillante.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Voyageur 6 -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="traveler-card">
+                            <div class="traveler-image">
+                                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&q=80&w=800"
+                                    alt="Elena Gomez">
+                                <div class="traveler-badge">Passionnée d'Artisanat</div>
+                            </div>
+                            <div class="traveler-content">
+                                <h3 class="traveler-name">Elena Gomez</h3>
+                                <p class="traveler-country"><i class="fas fa-map-marker-alt"></i> Espagne</p>
+                                <div class="traveler-stats">
+                                    <span><strong>7</strong> Pays visités</span>
+                                    <span><strong>30</strong> Ateliers suivis</span>
+                                </div>
+                                <p class="traveler-bio">Elena parcourt les marchés locaux pour dénicher les plus beaux
+                                    tissus et objets artisanaux du continent.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTION NEWSLETTER (NATIONAL GEOGRAPHIC STYLE) -->
+    <section class="newsletter-cta-section">
+        <div class="newsletter-overlay"></div>
+        <div class="newsletter-content">
+            <h2 class="newsletter-title">LE MEILLEUR DE L'AFRIQUE DANS VOTRE BOÎTE DE RÉCEPTION</h2>
+            <p class="newsletter-subtitle">Inscrivez-vous pour recevoir des photos inspirantes, des récits de
+                voyage et
+                des offres exclusives de Visit Afrika.</p>
+            <button class="newsletter-btn"><a href="formulaires/inscription.html">S'INSCRIRE</a></button>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : Ã€ PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> Ã€ Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="js/slide.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/vendors/bootstrap.js"></script>
+    <script src="js/vendors/jquery-3.7.1.min.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function () {
+            this.classList.toggle('active');
+            document.getElementById('navbarMenu').classList.toggle('active');
+        });
+
+        // Typewriter for home title and coordinated fade-slide for description
+        document.addEventListener('DOMContentLoaded', function () {
+            const el = document.querySelector('.typewriter');
+            if (!el) return;
+            const text = el.getAttribute('data-text') || el.textContent.trim();
+            el.textContent = '';
+            el.classList.add('typing');
+            el.style.opacity = 1;
+            let i = 0;
+            const speed = 80; // ms per character
+            function type() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    el.classList.remove('typing');
+                    el.classList.add('finished');
+                    // trigger description animation (if not already)
+                    const desc = document.querySelector('.fade-slide');
+                    if (desc) {
+                        desc.style.opacity = '';
+                        desc.style.transform = '';
+                    }
+                }
+            }
+            // small initial delay
+            setTimeout(type, 400);
+        });
+    </script>
+    <script src="js/home_dynamic.js"></script>
+</body>
+
+</html>

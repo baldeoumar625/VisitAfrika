@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: angola.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=27">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=27">
+    <!-- Leaflet CSS for Maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Angola</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- LE HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <!-- LOGO -->
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Visit Afrika Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+
+            <!-- MENU TOGGLE BUTTON (MOBILE) -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pays.html" class="nav-link active">
+                            <i class="fas fa-globe"></i> Pays
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="../blogs.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../informations.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i> Informations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../galerie.html" class="nav-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../propos.html" class="nav-link">
+                            <i class="fas fa-user"></i> À Propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <!-- FIN DU HEADER -->
+
+    <section class="hero" style="position: relative;">
+        <img src="../images/pays/Afrique_Centrale/angola.png" alt="Angola">
+        <a href="../pays.html" class="btn-retour">Retourner</a>
+        <h1 class="hero-title">Angola</h1>
+    </section>
+
+    <section class="content">
+
+        <h2>Présentation générale</h2>
+        <div class="presentation-text">
+            <p>
+            L'Angola, situé sur la côte atlantique de l'Afrique australe, est un pays en pleine renaissance. Au-delà de
+            ses ressources naturelles, il offre des paysages époustouflants allant du désert du Namib aux forêts
+            tropicales, en passant par des savanes riches en faune. Luanda, sa capitale vibrante, mêle modernité et
+            héritage colonial portugais.
+        </p>
+        </div>
+
+        <h2>Top attractions</h2>
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher par province ou site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous (15)</span>
+                <span class="filter-tag" data-filter="luanda">Luanda</span>
+                <span class="filter-tag" data-filter="malanje">Malanje</span>
+                <span class="filter-tag" data-filter="huila">Huíla</span>
+                <span class="filter-tag" data-filter="benguela">Benguela</span>
+                <span class="filter-tag" data-filter="namibe">Namibe</span>
+                <span class="filter-tag" data-filter="zaire">Zaire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Afficher la carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none; margin-bottom: 50px;">
+            <div id="angola-map" style="height: 500px; width: 100%; border-radius: 24px; border: 2px solid #edf2f7; box-shadow: 0 15px 45px rgba(0,0,0,0.1); z-index: 1;"></div>
+        </div>
+
+        <div class="attractions-grid" id="attractionsGrid">
+            <!-- Attraction 1 -->
+            <article class="attraction" data-category="malanje">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Chutes de Kalandula.png" alt="Chutes de Kalandula">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Malanje</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Kalandula</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Province de Malanje, Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kalandula">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 2 -->
+            <article class="attraction" data-category="luanda">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Parc de Kissama.png" alt="Parc National de Kissama">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Luanda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 950</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Kissama</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Province de Luanda, Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kissama">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 3 -->
+            <article class="attraction" data-category="luanda">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Miradouro de Lua.png" alt="Miradouro da Lua" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=600'">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Luanda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Miradouro da Lua</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Province de Luanda, Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="miradouro">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 4 -->
+            <article class="attraction" data-category="luanda">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Luanda.png" alt="Luanda Fortaleza" onerror="this.src='https://images.unsplash.com/photo-1544013585-7945d7d3d753?auto=format&fit=crop&q=80&w=600'">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Luanda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Luanda Historique</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Centre-ville de Luanda, Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="luanda">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 5 -->
+            <article class="attraction" data-category="huila">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Fissure de Tunda Vala.png" alt="Fendue de Tunda Vala" onerror="this.src='https://images.unsplash.com/photo-1523805009345-7448845a9e13?auto=format&fit=crop&q=80&w=600'">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Huíla</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 880</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fendue de Tunda Vala</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Province de Huíla (Lubango), Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tunda">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 6 -->
+            <article class="attraction" data-category="luanda">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Île de Mussulo.png" alt="Mussulo Beach" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600'">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Luanda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Mussulo</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Province de Luanda, Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mussulo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 7 -->
+            <article class="attraction" data-category="benguela">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Plage de Benguela.png" alt="Plage de Benguela" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600'">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Benguela</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de Benguela</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Praia Morena, Benguela</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="benguela">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 8 -->
+            <article class="attraction" data-category="benguela">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Baía Azul.png" alt="Baía Azul">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Benguela</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baía Azul</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> La "Baie Bleue", Benguela</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="baia_azul">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 9 -->
+            <article class="attraction" data-category="namibe">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Désert du Namibe.png" alt="Désert du Namibe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Namibe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.6k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Désert du Namibe</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Province de Namibe, Angola</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="namibe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 10 -->
+            <article class="attraction" data-category="luanda">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Plage de Cabi Ledo.png" alt="Cabo Ledo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Luanda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de Cabo Ledo</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Paradis des surfeurs, Luanda</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cabo_ledo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 11 -->
+            <article class="attraction" data-category="malanje">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Pedras Negras.png" alt="Pedras Negras">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Malanje</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 750</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pedras Negras</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Pungo Andongo, Malanje</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pedras_negras">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 12 -->
+            <article class="attraction" data-category="huila">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Serra da Leba.png" alt="Serra da Leba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Huíla</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.3k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Serra da Leba</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Route spectaculaire, Huíla</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="serra_leba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 13 -->
+            <article class="attraction" data-category="benguela">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Lobito Restinga.png" alt="Lobito Restinga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Benguela</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.3k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lobito Restinga</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Banc de sable et port, Benguela</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lobito">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 14 -->
+            <article class="attraction" data-category="zaire">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Mbanza Kongo.png" alt="Mbanza Kongo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zaire</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 620</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mbanza Kongo</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Ancienne capitale, Province de Zaire</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mbanza_kongo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Attraction 15 -->
+            <article class="attraction" data-category="huila">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/angola/Christ Roi.png" alt="Lubango Christ Rei">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Huíla</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Christ Roi (Lubango)</h3>
+                        <p class="location-text"><i class="fas fa-map-marker-alt"></i> Statue panoramique, Huíla</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="christ_roi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        
+
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-7">
+                    <p class="lead fw-bold text-primary mb-3">Une terre de royaumes anciens et de rythmes modernes.</p>
+                    <p>L'Angola possède une identité forgée par de puissants royaumes ancestraux et une fusion culturelle unique née de siècles d'échanges atlantiques. C'est un pays où la tradition orale et les rythmes urbains se côtoient harmonieusement.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Royaumes Royaux</h6>
+                                <p class="small text-muted mb-0">L'héritage des royaumes de Kongo et Ndongo, portés par des figures comme la Reine Nzinga, est le socle de la fierté nationale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                                <h6 class="fw-bold"><i class="fas fa-church text-info me-2"></i>Influence Coloniale</h6>
+                                <p class="small text-muted mb-0">L'architecture luso-africaine de Luanda et Benguela témoigne d'un passé colonial complexe et d'un métissage culturel riche.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Kizomba & Semba</h6>
+                                <p class="small text-muted mb-0">Berceau de rythmes mondiaux, l'Angola fait danser le monde avec ses mélodies envoûtantes et ses danses sociales chaleureuses.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-white rounded-4 shadow-sm h-100">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-success me-2"></i>Art Chokwe</h6>
+                                <p class="small text-muted mb-0">Les masques "Mwana Pwo" et les sculptures sur bois témoignent du raffinement artistique des peuples de l'Est angolais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="position-relative p-2 text-center">
+                        <img src="../images/sites des pays/angola/histoire/culture & histoire.png" alt="Culture Angola" class="img-fluid rounded-5 shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=600'">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <h2 id="artisanat" class="mt-5">Boutique d'Artisanat Local</h2>
+        <p>Découvrez les trésors de l'artisanat angolais. Des créations authentiques façonnées par nos maîtres artisans (Sculptures, masques, vannerie traditionnelle).</p>
+
+        <div class="ecommerce-grid">
+            <!-- Produit 1 : Le Penseur (O Pensador) -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/angola/O Pensador.png" alt="Le Penseur Angolais">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">O Pensador (Le Penseur)</h3>
+                    <p class="product-desc">Sculpture emblématique en bois précieux, symbole de la culture et de la sagesse angolaise.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">15 500 AOA</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 2 : Masque Mwana Pwo -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/angola/Masque Mwana Pwo.png" alt="Masque Mwana Pwo">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Mwana Pwo</h3>
+                    <p class="product-desc">Magnifique masque rituel de l'ethnie Chokwe, représentant la beauté féminine ancestrale.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">28 000 AOA</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 3 : Paniers de Moxico -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/angola/Paniers de Moxico.png" alt="Paniers de Moxico">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers de Moxico</h3>
+                    <p class="product-desc">Paniers tressés à la main avec des fibres naturelles et des teintures organiques.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">6 500 AOA</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 4 : Tissu Samakaka -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/angola/Tissu Samakaka.png" alt="Tissu Samakaka">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Samakaka</h3>
+                    <p class="product-desc">Tissu traditionnel aux motifs géométriques vibrants, symbole de l'identité angolaise.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">4 200 AOA</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 5 : Kissange Traditionnel -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/angola/Kissange Traditionnel.png" alt="Kissange Traditionnel">
+                    <span class="stock-badge">Pièce Unique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Kissange Traditionnel</h3>
+                    <p class="product-desc">Le kissange (piano à pouces) est un instrument de musique traditionnel emblématique, sculpté à la main dans du bois précieux.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">18 500 AOA</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produit 6 : Vannerie de Huíla -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/angola/Vannerie de Huíla.png" alt="Vannerie Huíla">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vannerie de Huíla</h3>
+                    <p class="product-desc">Paniers de décoration aux motifs complexes, issus du savoir-faire des femmes Mumuila.</p>
+                    <div class="product-price-row">
+                        <div>
+                            <span class="price-new">7 800 AOA</span>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Centrale/angola.png');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Luxe</span> en Angola</h2>
+                    <p>Découvrez notre sélection exclusive d'hôtels prestigieux entre modernité urbaine et nature sauvage.</p>
+                    <a href="#" class="btn-explorer">Explorer les chambres</a>
+                </div>
+            </div>
+
+            <!-- NOUVEAU: PANNEAU DE RÉSERVATION -->
+            <div class="booking-panel">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Choisir l'Hôtel</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Quel hôtel ?</option>
+                            <option value="epic_sana">Epic Sana Luanda</option>
+                            <option value="baia">Hotel Baía</option>
+                            <option value="talatona">Talatona Convention Hotel</option>
+                            <option value="presidente">Hotel Presidente Luanda</option>
+                            <option value="pululukwa">Pululukwa Resort</option>
+                            <option value="intercontinental">InterContinental Miramar</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Arrivée</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-check"></i> Départ</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-users"></i> Voyageurs</label>
+                        <select id="guests">
+                            <option value="1">1 Adulte</option>
+                            <option value="2" selected>2 Adultes</option>
+                            <option value="3">3 Adultes</option>
+                            <option value="4">Famille (4+)</option>
+                        </select>
+                    </div>
+                    <!-- Nouveaux champs pour identification -->
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-user"></i> Nom Complet</label>
+                        <input type="text" id="user-name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-envelope"></i> Email / WhatsApp</label>
+                        <input type="text" id="user-contact" placeholder="Email ou Tel" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">
+                        Confirmer la réservation
+                    </button>
+                </form>
+            </div>
+
+            <div class="hotels-grid">
+                <!-- Hôtel 1 : Epic Sana -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/angola/Epic Sana Luanda.png" alt="Epic Sana Luanda">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Epic Sana Luanda</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Luanda, Centre-ville</p>
+                    </div>
+                </div>
+                <!-- Hôtel 2 : Hotel Baía -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/angola/Hotel Baía.png" alt="Hotel Baía">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Hotel Baía</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Luanda, Marginal</p>
+                    </div>
+                </div>
+                <!-- Hôtel 3 : Talatona Convention -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/angola/Talatona Convention Hotel.png" alt="Talatona Convention Hotel">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Talatona Convention Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Luanda, Quartier Talatona</p>
+                    </div>
+                </div>
+                <!-- Hôtel 4 : Hotel Presidente -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/angola/Hotel Presidente Luanda.png" alt="Hotel Presidente">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Hotel Presidente Luanda</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Luanda, Baía de Luanda</p>
+                    </div>
+                </div>
+                <!-- Hôtel 5 : Pululukwa Resort -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/angola/Pululukwa Resort.png" alt="Pululukwa Resort">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>Pululukwa Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lubango, Nature sauvage</p>
+                    </div>
+                </div>
+                <!-- Hôtel 6 : InterContinental Miramar -->
+                <div class="hotel-card">
+                    <div class="hotel-image">
+                        <img src="../images/hotels/angola/InterContinental Luanda Miramar.png" alt="InterContinental Miramar">
+                    </div>
+                    <div class="hotel-content">
+                        <h4>InterContinental Luanda Miramar</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Luanda, Quartier Miramar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La gastronomie angolaise est une fusion savoureuse de traditions africaines et d'influences portugaises. Elle se distingue par l'utilisation généreuse de l'huile de palme, du manioc et des produits frais de l'Atlantique.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Moamba de Galinha.png" alt="Moamba de Galinha">
+                </div>
+                <div class="plat-content">
+                    <h4>Moamba de Galinha</h4>
+                    <p>Le plat national : un ragoût de poulet onctueux à l'huile de palme, gombo et ail.</p>
+                </div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Funge.png" alt="Funge">
+                </div>
+                <div class="plat-content">
+                    <h4>Funge</h4>
+                    <p>L'accompagnement essentiel à base de farine de manioc ou de maïs, à la texture fondante.</p>
+                </div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Calulu.png" alt="Calulu">
+                </div>
+                <div class="plat-content">
+                    <h4>Calulu</h4>
+                    <p>Un plat traditionnel de poisson séché ou de viande, mijoté avec des feuilles de patate douce.</p>
+                </div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Mufete.png" alt="Mufete">
+                </div>
+                <div class="plat-content">
+                    <h4>Mufete</h4>
+                    <p>Poisson grillé servi avec des haricots à l'huile de palme, patate douce et banane plantain.</p>
+                </div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Quitaba.png" alt="Quitaba">
+                </div>
+                <div class="plat-content">
+                    <h4>Quitaba</h4>
+                    <p>Une pâte de cacahuètes grillées et pimentées, souvent servie comme en-cas savoureux.</p>
+                </div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Cocada Amarela.png" alt="Cocada Amarela">
+                </div>
+                <div class="plat-content">
+                    <h4>Cocada Amarela</h4>
+                    <p>Un dessert onctueux à base de noix de coco et de jaunes d'œufs, héritage portugais.</p>
+                </div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Chikuanga.png" alt="Chikuanga">
+                </div>
+                <div class="plat-content">
+                    <h4>Chikuanga</h4>
+                    <p>Pain de manioc fermenté et cuit à la vapeur dans des feuilles de bananier, très nutritif.</p>
+                </div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Farofa de Lulas.png" alt="Farofa de Lulas">
+                </div>
+                <div class="plat-content">
+                    <h4>Farofa de Lulas</h4>
+                    <p>Calmars sautés accompagnés de farine de manioc grillée et d'épices locales.</p>
+                </div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Feijão de Óleo.png" alt="Feijão de Óleo">
+                </div>
+                <div class="plat-content">
+                    <h4>Feijão de Óleo</h4>
+                    <p>Haricots mijotés lentement dans de l'huile de palme rouge, un pilier de la cuisine familiale.</p>
+                </div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Caril de Gambas.png" alt="Caril de Gambas">
+                </div>
+                <div class="plat-content">
+                    <h4>Caril de Gambas</h4>
+                    <p>Gambas fraîches cuisinées dans un curry riche et onctueux, spécialité des zones côtières.</p>
+                </div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Kissângua.png" alt="Kissângua">
+                </div>
+                <div class="plat-content">
+                    <h4>Kissângua</h4>
+                    <p>Boisson traditionnelle rafraîchissante à base de farine de maïs ou de pelures d'ananas.</p>
+                </div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image">
+                    <img src="../images/gastronomie/angola/Doce de Ginguba.png" alt="Doce de Ginguba">
+                </div>
+                <div class="plat-content">
+                    <h4>Doce de Ginguba</h4>
+                    <p>Friandise traditionnelle à base de cacahuètes et de sucre roux, croquante et délicieuse.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Événements & festivals</h2>
+        <p>L'Angola vibre au rythme de nombreuses célébrations culturelles et musicales tout au long de l'année :</p>
+        <div class="events-board">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-mask"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-religion">National</span>
+                    <h4>Carnaval de Luanda</h4>
+                    <p>Le plus grand événement culturel. Des défilés au rythme du Semba sur la Marginal de Luanda.</p>
+                </div>
+            </div>
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Luanda Jazz Festival</h4>
+                    <p>Un rendez-vous international qui réunit des virtuoses du monde entier dans une ambiance festive.</p>
+                </div>
+            </div>
+            <!-- Event 3 -->
+            <div class="event-card">
+                <div class="event-icon-wrapper">
+                    <i class="fas fa-hands-praying"></i>
+                </div>
+                <div class="event-info">
+                    <span class="event-category cat-religion">Religieux</span>
+                    <h4>Pèlerinage de Muxima</h4>
+                    <p>Le plus grand rassemblement religieux d'Afrique subsaharienne, célébré chaque année en septembre.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Meilleure période</h2>
+        <p>
+            L'Angola possède un climat tropical avec deux saisons bien marquées. Pour planifier votre voyage idéal :
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Cacimbo)</h5>
+                    <p class="small mb-0">De <strong>mai à septembre</strong>. C'est la période idéale pour visiter tout le pays. Les températures sont plus fraîches et agréables (20-25°C), le ciel est clair et il n'y a quasiment pas de pluie. C'est aussi le meilleur moment pour l'observation de la faune.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-showers-heavy text-primary me-2"></i>Saison des Pluies</h5>
+                    <p class="small mb-0">De <strong>octobre à avril</strong>. Le climat est plus chaud et humide. Les paysages deviennent d'un vert éclatant, particulièrement impressionnant aux chutes de Kalandula. <em>Note :</em> Certaines routes secondaires peuvent devenir difficiles d'accès durant les pics de précipitations.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <p>
+            Voyager en Angola est une aventure gratifiante qui nécessite une préparation adéquate pour en profiter en toute sérénité :
+        </p>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Visa & Formalités</h6>
+                    <p class="small text-muted">Exemption de visa pour de nombreuses nationalités (jusqu'à 30 jours). Passeport valide 6 mois minimum. Carnet de vaccination requis.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité locale</h6>
+                    <p class="small text-muted">Prudence recommandée à Luanda contre les vols à la tire. Évitez les déplacements nocturnes hors des zones sécurisées.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé & Hygiène</h6>
+                    <p class="small text-muted">Vaccin Fièvre Jaune obligatoire. Traitement antipaludéen fortement conseillé. Ne consommez que de l'eau en bouteille scellée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comments fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Respect & Culture</h6>
+                    <p class="small text-muted">Le portugais est indispensable pour communiquer. Demandez toujours l'autorisation avant de photographier des personnes.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <p>Explorez l'Angola avec nos guides certifiés, experts de la nature sauvage et de l'histoire des anciens royaumes.</p>
+        <div class="row g-4 mt-2">
+            <!-- Guide 1 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://ui-avatars.com/api/?name=João+Manuel&background=009543&color=fff&size=128" class="rounded-circle shadow-sm border border-4 border-white" alt="João Manuel" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">João Manuel</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Nature & Désert</p>
+                        <p class="small text-muted mb-4">João connaît le désert du Namibe comme sa poche. Il vous fera découvrir les secrets des Welwitschia Mirabilis et les recoins cachés des chutes de Kalandula.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 4.8 (95 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Portugais</span>
+                            <span class="badge bg-light text-muted border fw-normal">Anglais</span>
+                            <span class="badge bg-light text-muted border fw-normal">Espagnol</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:joao@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec João</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Guide 2 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Maria+Isabel&background=D21034&color=fff&size=128" class="rounded-circle shadow-sm border border-4 border-white" alt="Maria Isabel" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">Maria Isabel</h5>
+                        <p class="text-primary small fw-bold mb-3">Historienne - Luanda & Benguela</p>
+                        <p class="small text-muted mb-4">Passionnée par l'histoire coloniale et les royaumes Kongo, Maria transforme chaque promenade dans Luanda en une épopée historique fascinante.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 5.0 (112 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Portugais</span>
+                            <span class="badge bg-light text-muted border fw-normal">Français</span>
+                            <span class="badge bg-light text-muted border fw-normal">Anglais</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:maria@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Maria</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Guide 3 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://ui-avatars.com/api/?name=António+Benguela&background=FFD700&color=000&size=128" class="rounded-circle shadow-sm border border-4 border-white" alt="António Benguela" style="width: 120px; height: 120px; object-fit: cover;">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle" style="width: 20px; height: 20px;" title="Disponible"></span>
+                        </div>
+                        <h5 class="fw-bold mb-1">António Benguela</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Balnéaire & Architecture</p>
+                        <p class="small text-muted mb-4">António est un amoureux de la côte angolaise. Spécialiste de Benguela et Lobito, il vous fera découvrir les joyaux Art Déco et les plages secrètes de Baía Azul.</p>
+                        <div class="d-flex justify-content-center gap-2 mb-2">
+                            <span class="badge bg-light text-dark border px-2 py-1 small"><i class="fas fa-star text-warning me-1"></i> 4.9 (78 avis)</span>
+                        </div>
+                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                            <span class="badge bg-light text-muted border fw-normal">Portugais</span>
+                            <span class="badge bg-light text-muted border fw-normal">Anglais</span>
+                            <span class="badge bg-light text-muted border fw-normal">Allemand</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:antonio@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec António</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Leaflet JS for Maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/angola.js?v=27"></script>
+</body>
+</html>

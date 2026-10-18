@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: ethiopie.html
+    DESCRIPTION: Page pays premium standardisée pour l'Éthiopie.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'Éthiopie, berceau de l'humanité et terre chrétienne millénaire. Des églises de Lalibela aux volcans du Danakil et à la vallée de l'Omo, explorez une nation unique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - L'Éthiopie (Le Berceau de l'Humanité)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/ethiopie.jpg" alt="L'Éthiopie" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">L'Éthiopie</h1>
+            <p class="hero-subtitle">Le voyage aux origines du monde et de la spiritualité</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre de Légendes</h2>
+            <p class="section-description">
+                L'Éthiopie, seule nation africaine à n'avoir jamais été colonisée, est un pays à part. Berceau de l'humanité où fut découverte Lucy, c'est aussi une terre chrétienne millénaire aux églises rupestres fascinantes. Des paysages lunaires de la dépression du Danakil aux sommets escarpés des montagnes du Simien, l'Éthiopie offre un voyage hors du temps. Sa culture riche, sa gastronomie unique et sa cérémonie du café font de chaque rencontre un moment sacré et inoubliable.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 trésors historiques et naturels de l'Abyssinie</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Majeurs</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un héritage...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Églises</span>
+                <span class="filter-tag" data-filter="nature">Nature & Volcans</span>
+                <span class="filter-tag" data-filter="culture">Peuples & Villes</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="ethiopie-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Lalibela -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Lalibela">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Amhara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Églises de Lalibela</h3>
+                        <p class="location-text">Onze églises monolithiques taillées dans le roc vif</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lalibela">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Danakil (Dallol) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Dallol">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Afar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Dépression du Danakil</h3>
+                        <p class="location-text">Paysages de soufre et de sel, l'endroit le plus chaud de la terre</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="danakil">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Simien Mountains -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Simien">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Montagnes du Simien</h3>
+                        <p class="location-text">Le toit de l'Afrique et le royaume des babouins Gélada</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="simien">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Gondar -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Gondar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Gondar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité Impériale de Gondar</h3>
+                        <p class="location-text">Le Camelot de l'Afrique et ses châteaux royaux du XVIIe siècle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gondar">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Vallee de l'Omo -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Omo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Basse Vallée de l'Omo</h3>
+                        <p class="location-text">Rencontre avec les peuples Mursi, Hamer et Karo</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="omo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Axoum -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Axum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tigray</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Obélisques d'Axoum</h3>
+                        <p class="location-text">Vestiges de l'un des plus puissants empires de l'Antiquité</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="axum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Lac Tana -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Tana">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bahir Dar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monastères du Lac Tana</h3>
+                        <p class="location-text">Sanctuaires millénaires isolés sur les îles du lac sacré</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lac_tana">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Addis-Abeba (Musée) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Addis">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Addis-Abeba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National d'Éthiopie</h3>
+                        <p class="location-text">Maison de "Lucy", notre ancêtre de 3.2 millions d'années</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="addis_museum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Erta Ale -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Erta Ale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Désert Afar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Volcan Erta Ale</h3>
+                        <p class="location-text">Lac de lave permanent surnommé la "Porte de l'Enfer"</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="erta_ale">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Harar -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Harar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville Fortifiée de Harar Jugol</h3>
+                        <p class="location-text">La quatrième ville sainte de l'Islam aux 82 mosquées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="harar">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Parc de Bale -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Bale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Oromia</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National des Montagnes de Bale</h3>
+                        <p class="location-text">Terre du loup d'Abyssinie, l'un des canidés les plus rares</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bale_mountains">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Chutes du Nil Bleu -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Nil Bleu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tis Abay</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes du Nil Bleu</h3>
+                        <p class="location-text">Le spectacle magistral de la source du Nil ("Fumée de feu")</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="blue_nile">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Sof Omar -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Sof Omar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grottes de Sof Omar</h3>
+                        <p class="location-text">Le plus grand système de grottes d'Afrique et site sacré</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sof_omar">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Awash -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Awash">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rift Valley</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de l'Awash</h3>
+                        <p class="location-text">Safari au pied du volcan Fantale et cascades spectaculaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="awash">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Tiya -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Tiya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Stèles de Tiya</h3>
+                        <p class="location-text">Alignement mystérieux de stèles funéraires classé à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tiya">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une civilisation millénaire, fière et invaincue.</p>
+                    <p>L'Éthiopie est une terre de continuité historique unique. De la Reine de Saba au Roi Salomon, son identité est ancrée dans des légendes bibliques. C'est le berceau du café (Kaffa) et la terre d'accueil de la première Hégire. Sa culture se manifeste par une calligraphie propre (Guèze), un calendrier original et une musique envoûtante (Éthio-Jazz). L'Éthiopie est le cœur spirituel et diplomatique de l'Afrique.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-coffee text-warning me-2"></i>Cérémonie du Café</h6>
+                                <p class="small text-muted mb-0">Un rituel social quotidien sacré, où le café est torréfié et servi en trois tours symboliques.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-church text-info me-2"></i>L'Arche de l'Alliance</h6>
+                                <p class="small text-muted mb-0">Selon la tradition, la précieuse Arche de l'Alliance est conservée dans le sanctuaire d'Axoum.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-danger me-2"></i>Peuples de l'Omo</h6>
+                                <p class="small text-muted mb-0">Une mosaïque de tribus (Mursi, Hamer) préservant des rites ancestraux et des parures uniques.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-calendar-alt text-success me-2"></i>13 Mois d'Ensoleillement</h6>
+                                <p class="small text-muted mb-0">L'Éthiopie suit son propre calendrier de 13 mois, vivant 7 ans en décalage avec le monde.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Éthiopie" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Abyssinie</h2>
+        <p>L'artisanat éthiopien est le reflet d'une élégance millénaire. Découvrez nos produits sélectionnés.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ethiopian_coffee.png" alt="Cafe" onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Origine</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Fèves de Café Yirgacheffe</h3>
+                    <p class="product-desc">Considéré comme l'un des meilleurs cafés au monde, aux notes florales et citronnées délicates.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">450 ETB</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/habesha_dress.png" alt="Habesha" onerror="this.src='https://ui-avatars.com/api/?name=Habesha&background=f5f5dc&color=000&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Écharpe Habesha Kemis</h3>
+                    <p class="product-desc">Coton fin tissé à la main orné de broderies colorées (Tibeb), symbole d'élégance éthiopienne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">1 200 ETB</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/lalibela_cross.png" alt="Croix" onerror="this.src='https://ui-avatars.com/api/?name=Cross&background=cd7f32&color=fff&size=200'">
+                    <span class="stock-badge">Rare</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Croix de Lalibela en Bronze</h3>
+                    <p class="product-desc">Croix processionnelle finement ciselée, réplique fidèle des trésors du royaume de Zagoué.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">3 500 ETB</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Poterie&background=8b4513&color=fff&size=200" alt="Poterie">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Cafetière Jebena Traditionnelle</h3>
+                    <p class="product-desc">Poterie en terre cuite noire utilisée pour la cérémonie du café, fabriquée à la main au Tigray.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">800 ETB</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Silver&background=c0c0c0&color=000&size=200" alt="Bijou">
+                    <span class="stock-badge">Luxe</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Pendentif Axoumite en Argent</h3>
+                    <p class="product-desc">Bijou gravé de motifs géométriques et de caractères Guèze, héritage du royaume d'Axoum.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">2 500 ETB</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Book&background=4b2c20&color=fff&size=200" alt="Manuscrit">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Réplique de Manuscrit Ancien</h3>
+                    <p class="product-desc">Copie de peintures religieuses sur parchemin, illustrant l'art iconographique éthiopien.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">1 500 ETB</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/ethiopie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Légende</span></h2>
+                    <p>Découvrez notre sélection des plus beaux palaces et écolodges des hauts plateaux.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="sheraton">Sheraton Addis (Addis-Abeba)</option>
+                            <option value="hyatt">Hyatt Regency (Addis-Abeba)</option>
+                            <option value="limalimo">Limalimo Lodge (Simien)</option>
+                            <option value="kuriftu">Kuriftu Resort (Bahir Dar)</option>
+                            <option value="haile">Haile Resort (Awassa)</option>
+                            <option value="hilton">Hilton Addis Ababa</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Sheraton"></div>
+                    <div class="hotel-content">
+                        <h4>Sheraton Addis</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Addis-Abeba, Centre</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Hyatt"></div>
+                    <div class="hotel-content">
+                        <h4>Hyatt Regency</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Meskel Square, Addis</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Limalimo"></div>
+                    <div class="hotel-content">
+                        <h4>Limalimo Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Simien Mountains</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Kuriftu"></div>
+                    <div class="hotel-content">
+                        <h4>Kuriftu Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bahir Dar, Lac Tana</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Haile"></div>
+                    <div class="hotel-content">
+                        <h4>Haile Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lac Awassa</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Hilton"></div>
+                    <div class="hotel-content">
+                        <h4>Hilton Addis</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Addis-Abeba, Historique</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine éthiopienne est l'une des plus singulières au monde. Conviviale et épicée, elle se partage autour de l'Injera.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Injera&background=f5f5dc&color=000&size=200" alt="Injera"></div>
+                <div class="plat-content"><h4>L'Injera</h4><p>La base de tout repas : grande galette de teff fermentée au goût légèrement acide.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Doro&background=8b0000&color=fff&size=200" alt="Doro Wat"></div>
+                <div class="plat-content"><h4>Doro Wat</h4><p>Le plat de fête : ragoût de poulet épicé au Berbéré avec un œuf dur.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kitfo&background=8b4513&color=fff&size=200" alt="Kitfo"></div>
+                <div class="plat-content"><h4>Le Kitfo</h4><p>Bœuf haché finement, mariné au beurre clarifié (Niter Kibbeh) et épices.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Shiro&background=daa520&color=fff&size=200" alt="Shiro"></div>
+                <div class="plat-content"><h4>Shiro Wat</h4><p>Purée onctueuse de pois chiches ou lentilles, le plat du quotidien.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Beyainatu&background=006400&color=fff&size=200" alt="Beyainatu"></div>
+                <div class="plat-content"><h4>Beyainatu</h4><p>Assortiment végétarien coloré disposé sur une Injera (le "plat de jeûne").</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tibs&background=8b4513&color=fff&size=200" alt="Tibs"></div>
+                <div class="plat-content"><h4>Les Tibs</h4><p>Morceaux de bœuf ou d'agneau sautés avec oignons, ail et romarin.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Firfir&background=8b0000&color=fff&size=200" alt="Firfir"></div>
+                <div class="plat-content"><h4>Injera Firfir</h4><p>Morceaux d'Injera imbibés d'une sauce épicée, souvent servis au petit-déjeuner.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gomen&background=006400&color=fff&size=200" alt="Gomen"></div>
+                <div class="plat-content"><h4>Gomen</h4><p>Choux vert émincé et sauté avec des épices douces et du beurre clarifié.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ayibe&background=f5f5dc&color=000&size=200" alt="Ayibe"></div>
+                <div class="plat-content"><h4>L'Ayibe</h4><p>Fromage frais éthiopien proche de la ricotta, utilisé pour adoucir le piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kocho&background=8b4513&color=fff&size=200" alt="Kocho"></div>
+                <div class="plat-content"><h4>Kocho</h4><p>Pain dense fabriqué à partir de la racine de faux bananier (Enset).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Cafe&background=3e2723&color=fff&size=200" alt="Cafe"></div>
+                <div class="plat-content"><h4>Le Buna (Café)</h4><p>Servi noir et fort lors de la cérémonie, souvent accompagné de popcorn.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tej&background=daa520&color=fff&size=200" alt="Tej"></div>
+                <div class="plat-content"><h4>Le Tej</h4><p>Hydromel traditionnel fermenté avec du gousho (sorte de houblon local).</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Découvrez la ferveur religieuse et culturelle de l'Éthiopie à travers ses grandes fêtes nationales.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-fire"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Religion</span>
+                    <h4>Meskel</h4>
+                    <p>Commémoration de la découverte de la Vraie Croix (Septembre), marquée par de grands bûchers.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-water"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Religion</span>
+                    <h4>Timkat</h4>
+                    <p>Épiphanie éthiopienne (Janvier), célébrant le baptême du Christ avec des processions grandioses.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Addis Jazz Festival</h4>
+                    <p>Célébration du légendaire Éthio-Jazz dans la capitale, réunissant des artistes internationaux.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Octobre à Mai)</h5>
+                    <p class="small mb-0">La période idéale pour la randonnée et la visite des sites historiques. Le ciel est dégagé et les routes sont toutes praticables.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-mountain text-primary me-2"></i>Saison Verte (Juin-Août)</h5>
+                    <p class="small mb-0">C'est la saison des pluies. Les paysages sont d'un vert éclatant, mais certaines pistes du sud ou du Danakil deviennent inaccessibles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez les conseils aux voyageurs pour les zones frontalières. Addis et les sites historiques sont sûrs, restez vigilant dans les foules.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Attention au mal des montagnes (Addis est à 2300m). Hydratez-vous. Le vaccin fièvre jaune est indispensable.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-utensils fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Étiquette</h6>
+                    <p class="small text-muted">On mange avec la main droite. Le partage de l'Injera est un signe de fraternité. Accepter toujours le café offert est une marque de respect.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-clock fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Temps & Heure</h6>
+                    <p class="small text-muted">Le jour commence à 6h (0h locale). Le calendrier éthiopien a 7 ans de moins que le calendrier grégorien. Soyez prêt au dépaysement !</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Abebe+Lalibela&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Abebe">
+                        <h5 class="fw-bold mb-1">Abebe Kassahun</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Lalibela & Histoire</p>
+                        <p class="small text-muted">Abebe est né à Lalibela. Il connaît chaque pierre des églises rupestres et vous racontera leur histoire sacrée.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:abebe@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Abebe</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Selam+Danakil&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Selam">
+                        <h5 class="fw-bold mb-1">Selam Tesfaye</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Danakil & Expéditions</p>
+                        <p class="small text-muted">Spécialiste des conditions extrêmes du désert Afar, Selam assure votre sécurité pour une aventure unique au Danakil.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:selam@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Selam</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Desta+Omo&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Desta">
+                        <h5 class="fw-bold mb-1">Desta Berhe</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Peuples de l'Omo</p>
+                        <p class="small text-muted">Desta possède des liens forts avec les communautés du sud. Il facilite des rencontres authentiques et respectueuses.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:desta@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Desta</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">L'Éthiopie, berceau de l'humanité. Plongez au cœur d'une civilisation millénaire et de paysages grandioses avec nos experts.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../blogs.html">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Éthiopie</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +251 11 000 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> addis@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Éthiopie - Berceau de l'Humanité</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/ethiopie.js"></script>
+</body>
+
+</html>

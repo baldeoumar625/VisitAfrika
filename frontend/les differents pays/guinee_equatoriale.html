@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: guinee_equatoriale.html
+    DESCRIPTION: Page pays premium standardisée pour la Guinée Équatoriale.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Guinée Équatoriale, le joyau hispanophone d'Afrique Centrale. De l'architecture coloniale de Malabo aux plages de Corisco, explorez une destination unique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Guinée Équatoriale (Le Joyau Équatorial)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Centrale/guinee_equatoriale.jpg" alt="La Guinée Équatoriale" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Guinée Équatoriale</h1>
+            <p class="hero-subtitle">Un métissage hispano-africain entre jungle luxuriante et modernité</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Élégance Équatoriale au Coeur du Golfe de Guinée</h2>
+            <p class="section-description">
+                La Guinée Équatoriale est une destination singulière, le seul pays hispanophone d'Afrique. Composée d'une partie continentale et de plusieurs îles, dont Bioko où se situe la capitale Malabo, elle offre un contraste fascinant entre une architecture coloniale espagnole magnifiquement préservée et une nature sauvage impénétrable. Des sommets volcaniques du Pico Basile aux plages de sable blanc immaculé de l'île de Corisco, en passant par les forêts primaires de Monte Alen abritant des gorilles et des éléphants de forêt, ce pays est une terre d'aventure et de raffinement. Sa modernité fulgurante se mêle harmonieusement aux traditions ancestrales des peuples Fang et Bubi, créant une identité culturelle unique et vibrante.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles de la Guinée Équatoriale</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une ville ou un parc...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="villes">Villes & Culture</span>
+                <span class="filter-tag" data-filter="nature">Nature & Parcs</span>
+                <span class="filter-tag" data-filter="mer">Îles & Plages</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="guineeequatoriale-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Malabo (Vieux centre) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Malabo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Bioko</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Malabo : Cité Coloniale</h3>
+                        <p class="location-text">Architecture espagnole colorée, places ombragées et cathédrale gothique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="malabo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Cathédrale de Santa Isabel -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Cathedrale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Malabo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale de Santa Isabel</h3>
+                        <p class="location-text">Un chef-d'œuvre néogothique en bois, emblème majestueux de la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="st_isabel">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Parc National du Pico Basile -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Pico Basile">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Bioko</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pico Basile</h3>
+                        <p class="location-text">Volcan culminant à 3011m, offrant des vues panoramiques sur le mont Cameroun</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pico_basile">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Vallée de Moca -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Moca">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud Bioko</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée de Moca</h3>
+                        <p class="location-text">Hauts plateaux brumeux, lacs de cratère sacrés et cascades secrètes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="moca_valley">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Parc National de Monte Alen -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Monte Alen">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Continent (Rio Muni)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Monte Alen</h3>
+                        <p class="location-text">Sanctuaire de forêt primaire pour les gorilles, chimpanzés et éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="monte_alen">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Île de Corisco -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Corisco">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Golfe de Guinée</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Corisco</h3>
+                        <p class="location-text">Eaux turquoises et sable blanc éblouissant, le paradis tropical absolu</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="corisco">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Bata (La Perle de l'Atlantique) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Bata">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Continent (Rio Muni)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Bata</h3>
+                        <p class="location-text">Capitale continentale dynamique, célèbre pour son front de mer et ses marchés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bata">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Île d'Annobón -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Annobon">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Atlantique</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île d'Annobón</h3>
+                        <p class="location-text">Île volcanique isolée au charme sauvage et à la culture portugaise-créole unique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="annobon">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Mbini -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Mbini">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Embouchure du Benito</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mbini</h3>
+                        <p class="location-text">Ville pittoresque réputée pour ses fruits de mer et ses vues sur le fleuve</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mbini">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Luba -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Luba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouest Bioko</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Luba</h3>
+                        <p class="location-text">Port de pêche historique entouré de superbes plages de sable volcanique noir</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="luba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Ebibeyin -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Ebibeyin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Est Continent</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale d'Ebibeyin</h3>
+                        <p class="location-text">Un joyau architectural moderne à la frontière du Cameroun et du Gabon</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ebibeyin">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Basilique de Mongomo -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Mongomo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mongomo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Basilique de Mongomo</h3>
+                        <p class="location-text">La plus grande église d'Afrique Centrale, imposante et magnifiquement décorée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mongomo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Djibloho (Ville du Futur) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Djibloho">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Coeur du Continent</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Djibloho (Oyala)</h3>
+                        <p class="location-text">Nouvelle capitale administrative ultramoderne nichée au milieu de la jungle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="djibloho">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Evinayong -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Evinayong">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Province de Centro Sur</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Montagnes d'Evinayong</h3>
+                        <p class="location-text">Région montagneuse fraîche et pittoresque, idéale pour les amateurs de trekking</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="evinayong">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Île de Elobey Chico -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Elobey">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rio Muni</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Îles Elobey</h3>
+                        <p class="location-text">Petites îles paisibles aux vestiges coloniaux oubliés et eaux cristallines</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="elobey">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'unique héritage hispano-africain au coeur des tropiques.</p>
+                    <p>La culture de la Guinée Équatoriale est un mélange fascinant de traditions bantoues et d'influences espagnoles séculaires. Le pays est fier de sa langue espagnole, parlée avec un accent chantant unique, et de son architecture coloniale qui rappelle les villes d'Andalousie. Les peuples Fang (continent) et Bubi (Bioko) ont su préserver leurs danses rituelles, leurs contes et leur art sculptural raffiné. La musique ébouée et les rythmes modernes comme le 'Bikutsi' animent les soirées de Malabo et Bata. C'est une nation en pleine mutation, où la tradition respectée des anciens côtoie une jeunesse dynamique tournée vers l'avenir.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-language text-warning me-2"></i>Francophonie & Hispanie</h6>
+                                <p class="small text-muted mb-0">Le seul pays d'Afrique où l'Espagnol est langue officielle, mêlant raffinement européen et chaleur africaine.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-info me-2"></i>Art Fang & Bubi</h6>
+                                <p class="small text-muted mb-0">Des sculptures et masques mondialement célèbres, symboles de la spiritualité et de l'identité des peuples équatoriens.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-history text-danger me-2"></i>Histoire Coloniale</h6>
+                                <p class="small text-muted mb-0">Un héritage espagnol visible dans l'urbanisme de Malabo et la ferveur religieuse catholique.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-success me-2"></i>Bikutsi & Rythmes</h6>
+                                <p class="small text-muted mb-0">Une scène musicale vibrante qui fusionne les percussions traditionnelles et les sons électriques modernes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture GE" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique Équatoriale</h2>
+        <p>L'artisanat de prestige de la Guinée Équatoriale. Du bois sculpté au café de Bioko.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/fang_statue.png" alt="Statue Fang" onerror="this.src='https://ui-avatars.com/api/?name=Fang&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture Fang en Ébène</h3>
+                    <p class="product-desc">Pièce de collection taillée à la main, représentant l'esthétique raffinée du peuple Fang.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bioko_coffee.png" alt="Cafe Bioko" onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Premium de Bioko</h3>
+                    <p class="product-desc">Café Arabica d'exception cultivé sur les terres volcaniques fertiles de l'île de Bioko.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ge_weaving.png" alt="Tissage" onerror="this.src='https://ui-avatars.com/api/?name=Tissage&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissage Traditionnel Local</h3>
+                    <p class="product-desc">Tissu artisanal aux motifs géométriques, utilisé pour la confection de vêtements de cérémonie.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Mask&background=daa520&color=fff&size=200" alt="Masque">
+                    <span class="stock-badge">Culture</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Bubi Cérémoniel</h3>
+                    <p class="product-desc">Réplique fidèle des masques portés lors des rituels traditionnels sur l'île de Bioko.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">50 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Oil&background=ff4500&color=fff&size=200" alt="Huile">
+                    <span class="stock-badge">Terroir</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Palme Extra-Vierge</h3>
+                    <p class="product-desc">Huile de palme rouge pressée à froid, issue de plantations durables en Rio Muni.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Rattan&background=daa520&color=fff&size=200" alt="Rotin">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vannerie en Rotin de Malabo</h3>
+                    <p class="product-desc">Paniers et objets décoratifs tissés avec soin par les artisans des marchés de Malabo.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Centrale/guinee_equatoriale.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escale <span>Grand Luxe</span></h2>
+                    <p>Découvrez notre sélection des plus beaux établissements de Malabo et Bata pour un confort absolu.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="sofitel">Sofitel Malabo Sipopo Le Golf</option>
+                            <option value="hilton">Hilton Malabo</option>
+                            <option value="magno">Magno Suites Malabo</option>
+                            <option value="ibis">Hotel ibis Bata</option>
+                            <option value="colinas">Colinas Hotel Malabo</option>
+                            <option value="anda">Anda China Malabo</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Sofitel"></div>
+                    <div class="hotel-content">
+                        <h4>Sofitel Sipopo</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Sipopo, Luxe & Plage</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Hilton"></div>
+                    <div class="hotel-content">
+                        <h4>Hilton Malabo</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Malabo, Business & Spa</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Magno"></div>
+                    <div class="hotel-content">
+                        <h4>Magno Suites</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Malabo, Élégance & Confort</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="ibis"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel ibis Bata</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bata, Moderne & Efficace</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Colinas"></div>
+                    <div class="hotel-content">
+                        <h4>Colinas Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Malabo, Vue Panoramique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Anda China"></div>
+                    <div class="hotel-content">
+                        <h4>Anda China Malabo</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Malabo, Standing & Service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine de Guinée Équatoriale est une fusion savoureuse de produits tropicaux et d'influences hispaniques.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pepesup&background=8b0000&color=fff&size=200" alt="Pepesup"></div>
+                <div class="plat-content"><h4>Pepesup</h4><p>Le plat national : une soupe de poisson très épicée, parfumée aux herbes locales.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chicken&background=daa520&color=fff&size=200" alt="Chicken"></div>
+                <div class="plat-content"><h4>Poulet à l'Arachide</h4><p>Poulet mijoté dans une sauce onctueuse aux arachides pilées et épices.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Plantain&background=daa520&color=fff&size=200" alt="Plantain"></div>
+                <div class="plat-content"><h4>Plantains Frits</h4><p>Bananes plantains mûres frites, accompagnement incontournable de tous les repas.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bambucha&background=006400&color=fff&size=200" alt="Bambucha"></div>
+                <div class="plat-content"><h4>Bambucha</h4><p>Ragoût de feuilles de manioc pilées et cuites dans le lait de coco avec du poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson"></div>
+                <div class="plat-content"><h4>Poisson de Corisco</h4><p>Poisson frais du jour grillé à la perfection, spécialité de l'île de Corisco.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Succotash&background=daa520&color=fff&size=200" alt="Succotash"></div>
+                <div class="plat-content"><h4>Succotash Local</h4><p>Mélange savoureux de maïs, de haricots et de légumes du potager.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Malamba&background=8b4513&color=fff&size=200" alt="Malamba"></div>
+                <div class="plat-content"><h4>Le Malamba</h4><p>Boisson traditionnelle fermentée à base de canne à sucre, très appréciée.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fruits&background=daa520&color=fff&size=200" alt="Fruits"></div>
+                <div class="plat-content"><h4>Fruits Tropicaux</h4><p>Papayes, mangues et ananas juteux provenant des vergers luxuriants.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice&background=daa520&color=fff&size=200" alt="Rice"></div>
+                <div class="plat-content"><h4>Riz à la Guinéenne</h4><p>Riz parfumé cuit avec des épices locales et souvent accompagné de poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Akwadu&background=daa520&color=fff&size=200" alt="Akwadu"></div>
+                <div class="plat-content"><h4>Akwadu</h4><p>Dessert traditionnel à base de bananes mûres cuites au four avec du coco.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Goat&background=8b0000&color=fff&size=200" alt="Goat"></div>
+                <div class="plat-content"><h4>Soupe de Chèvre</h4><p>Viande de chèvre tendre mijotée dans un bouillon riche et parfumé.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Juice&background=ff4500&color=fff&size=200" alt="Juice"></div>
+                <div class="plat-content"><h4>Jus de Goyave Frais</h4><p>Boisson rafraîchissante et vitaminée, symbole du soleil équatorial.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez les moments forts de la culture de la Guinée Équatoriale.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Festivités grandioses célébrant la souveraineté nationale avec défilés et danses (12 Octobre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-om"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festival Fang d'Ebibeyin</h4>
+                    <p>Grand rassemblement culturel mettant à l'honneur les danses et traditions du peuple Fang.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Festival de Musique de Bata</h4>
+                    <p>Événement majeur réunissant les meilleurs artistes locaux et internationaux sur le front de mer.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Décembre à Février)</h5>
+                    <p class="small mb-0">La période idéale. Le climat est plus sec et agréable, parfait pour explorer les parcs nationaux et profiter des plages de Corisco sans les pluies diluviennes.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-showers-heavy text-primary me-2"></i>Saison des Pluies (Mai à Octobre)</h5>
+                    <p class="small mb-0">Pluies tropicales fréquentes et intenses. La jungle est magnifique et luxuriante, mais certains accès aux parcs nationaux peuvent être difficiles.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays sûr et stable. Vigilance normale requise. Évitez de photographier les bâtiments officiels et les zones militaires.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludique recommandé. Buvez de l'eau en bouteille. Bons hôpitaux à Malabo et Bata.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour la plupart des nationalités. Procédure à effectuer auprès des ambassades de Guinée Équatoriale avant le départ.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">Franc CFA (XAF). L'Euro est largement accepté. Cartes bancaires utilisables dans les grands hôtels et distributeurs à Malabo et Bata.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Manuel+Bioko&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Manuel">
+                        <h5 class="fw-bold mb-1">Manuel Obiang</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Architecture & Bioko</p>
+                        <p class="small text-muted">Natif de Malabo, Manuel est passionné par l'histoire coloniale et les secrets de la vallée de Moca.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:manuel@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Manuel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Rosa+Nature&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Rosa">
+                        <h5 class="fw-bold mb-1">Rosa Nchama</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Faune & Monte Alen</p>
+                        <p class="small text-muted">Biologiste de formation, Rosa vous guidera en toute sécurité au coeur de la forêt primaire pour observer les gorilles.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:rosa@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Rosa</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Juan+Sea&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Juan">
+                        <h5 class="fw-bold mb-1">Juan Carlos</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Îles & Corisco</p>
+                        <p class="small text-muted">Expert des côtes équatoriales, Juan vous fera découvrir les lagunes secrètes et les plus beaux spots de Corisco.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:juan@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Juan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Guinée Équatoriale, le joyau équatorial. Découvrez un patrimoine hispano-africain unique et une nature sauvage avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Guinée Éq.</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +240 333 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> malabo@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Equatorial Guinea - Equatorial Jewel</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/guinee_equatoriale.js"></script>
+</body>
+
+</html>

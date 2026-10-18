@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: malawi.html
+    DESCRIPTION: Page pays premium standardisée pour le Malawi.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Malawi, le cœur chaleureux de l'Afrique. Des eaux turquoises du lac Malawi aux sommets du mont Mulanje, explorez une terre de sourires et de nature sauvage.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Malawi (Le Cœur Chaleureux de l'Afrique)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/malawi.jpg" alt="Le Malawi" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Malawi</h1>
+            <p class="hero-subtitle">Le cœur chaleureux de l'Afrique et ses eaux aux mille reflets</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre de Sourires et d'Émeraude</h2>
+            <p class="section-description">
+                Le Malawi est souvent décrit comme le "Cœur Chaleureux de l'Afrique" en raison de la gentillesse légendaire de ses habitants. Dominé par l'immense lac Malawi, qui occupe un tiers du territoire, le pays offre des paysages d'une diversité surprenante : des sommets granitiques du mont Mulanje aux plateaux de haute altitude de Nyika. C'est une destination intime, idéale pour ceux qui cherchent à combiner détente sur des plages d'eau douce paradisiaques et safaris authentiques dans des parcs en pleine renaissance comme Liwonde et Majete.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles incontournables du Malawi</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Sélectionnés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="lac">Lac & Plages</span>
+                <span class="filter-tag" data-filter="safari">Safari & Nature</span>
+                <span class="filter-tag" data-filter="montagne">Montagnes & Randos</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="malawi-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Lac Malawi (Cape Maclear) -->
+            <article class="attraction" data-category="lac">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Lake Malawi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cape Maclear</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Malawi</h3>
+                        <p class="location-text">Eaux turquoises abritant des centaines d'espèces de Cichlidés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lake_malawi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Parc National de Liwonde -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Liwonde">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Shire River</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Liwonde</h3>
+                        <p class="location-text">Safaris fluviaux mémorables et sanctuaire de rhinocéros</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="liwonde">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Mont Mulanje -->
+            <article class="attraction" data-category="montagne">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Mt Mulanje">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Southern Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Mulanje</h3>
+                        <p class="location-text">L'"Île dans le ciel", sommet le plus élevé d'Afrique centrale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mulanje">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Parc National de Nyika -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Nyika">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> North Malawi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Nyika</h3>
+                        <p class="location-text">Hautes plaines ondulantes rappelant l'Écosse sous les tropiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nyika">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Réserve de Majete -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Majete">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Chikwawa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Majete</h3>
+                        <p class="location-text">Le succès de la conservation malawite avec les "Big Five" de retour</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="majete">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Île de Likoma -->
+            <article class="attraction" data-category="lac">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Likoma Island">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lac Malawi Central</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Likoma</h3>
+                        <p class="location-text">Célèbre pour sa cathédrale anglicane géante et ses eaux immaculées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="likoma">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Zomba Plateau -->
+            <article class="attraction" data-category="montagne">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Zomba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zomba Town</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plateau de Zomba</h3>
+                        <p class="location-text">Forêts de pins, cascades et vues panoramiques sur l'ancienne capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zomba">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Livingstonia -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Livingstonia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Khondowe Plateau</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Livingstonia</h3>
+                        <p class="location-text">Mission historique perchée à 900m au-dessus du lac Malawi</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="livingstonia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Senga Bay -->
+            <article class="attraction" data-category="lac">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Senga Bay">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Salima</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Senga Bay</h3>
+                        <p class="location-text">Plage populaire et point de départ vers les îles Lizard</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="senga_bay">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Nkhotakota Wildlife Reserve -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Nkhotakota">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central Malawi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Nkhotakota</h3>
+                        <p class="location-text">Vaste forêt de miombo intacte et paradis pour les éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nkhotakota">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Art Rupestre de Chongoni -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Chongoni">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Dedza</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Sites de Chongoni</h3>
+                        <p class="location-text">Plus dense concentration d'art rupestre en Afrique centrale (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chongoni">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Blantyre (Mandala House) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Blantyre">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Blantyre</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Blantyre & Mandala House</h3>
+                        <p class="location-text">Capitale commerciale et son bâtiment le plus ancien (1882)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="blantyre">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Parc National de Kasungu -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Kasungu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kasungu District</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Kasungu</h3>
+                        <p class="location-text">Savanes herbeuses et observation discrète de la faune sauvage</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kasungu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Mzuzu & Northern Plateaus -->
+            <article class="attraction" data-category="montagne">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Mzuzu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mzuzu</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 16k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mzuzu & Environs</h3>
+                        <p class="location-text">Point central pour explorer les plateaux du nord et les plantations de thé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mzuzu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Thyolo Tea Estates -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Thyolo Tea">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Thyolo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 19k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plantations de Thé de Thyolo</h3>
+                        <p class="location-text">Collines verdoyantes et dégustation de thés d'exception</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="thyolo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La chaleur humaine au cœur de la tradition.</p>
+                    <p>Le Malawi possède une identité forgée par une mosaïque de peuples (Chewa, Tumbuka, Yao) vivant en harmonie. Les traditions s'expriment à travers les danses Gule Wamkulu, inscrites à l'UNESCO, où des masques mystérieux représentent les esprits. L'histoire du pays est aussi marquée par l'héritage de David Livingstone et les missions écossaises, créant un mélange unique de valeurs chrétiennes et de coutumes ancestrales fortes.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-warning me-2"></i>Gule Wamkulu</h6>
+                                <p class="small text-muted mb-0">La "Grande Danse" rituelle du peuple Chewa, impliquant des masques impressionnants et des sociétés secrètes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-leaf text-info me-2"></i>Héritage du Thé</h6>
+                                <p class="small text-muted mb-0">Une culture du thé centenaire dans le sud du pays, héritée des premières plantations coloniales de Thyolo.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-church text-danger me-2"></i>Missions Historiques</h6>
+                                <p class="small text-muted mb-0">L'empreinte indélébile de la mission de Livingstonia sur l'éducation et l'architecture du nord du Malawi.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-heart text-success me-2"></i>Warm Heart Spirit</h6>
+                                <p class="small text-muted mb-0">L'hospitalité sincère et le sens de la communauté qui font du Malawi une destination si accueillante.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Malawi" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Cœur de l'Afrique</h2>
+        <p>L'artisanat délicat du Malawi. Des thés de prestige aux sculptures en bois d'ébène finement travaillées.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/dedza_pottery.png" alt="Poterie Dedza" onerror="this.src='https://ui-avatars.com/api/?name=Dedza&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Dedza</h3>
+                    <p class="product-desc">Céramiques peintes à la main avec des motifs traditionnels, célèbres pour leur qualité et leur design unique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ebony_carving.png" alt="Sculpture Ebène" onerror="this.src='https://ui-avatars.com/api/?name=Ebony&background=000&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Ébène de Mua</h3>
+                    <p class="product-desc">Figurines et masques sculptés par les maîtres artisans du centre Mua Mission, symbole de finesse.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/satemwa_tea.png" alt="Tea Satemwa" onerror="this.src='https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Thé Premium Satemwa</h3>
+                    <p class="product-desc">Thés rares et artisanaux produits dans les domaines historiques de Thyolo, réputés mondialement.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Cafe Malawi">
+                    <span class="stock-badge">Bio</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Mzuzu Highland</h3>
+                    <p class="product-desc">Café Arabica de haute altitude, cultivé par des petits producteurs dans le nord du pays.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200" alt="Vannerie">
+                    <span class="stock-badge">Tissage</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers Tissés de Salima</h3>
+                    <p class="product-desc">Vannerie élégante réalisée avec des fibres de palmier locales, idéale pour le rangement et la déco.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Chitenje&background=8b0000&color=fff&size=200" alt="Chitenje">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Chitenje Malawi</h3>
+                    <p class="product-desc">Tissus colorés aux motifs locaux, utilisés par les femmes malawites pour porter leurs enfants ou se vêtir.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/malawi.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Refuges de <span>Charme</span></h2>
+                    <p>Découvrez notre sélection exclusive des éco-lodges les plus beaux du lac et de la brousse.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="kaya_mawa">Kaya Mawa (Likoma)</option>
+                            <option value="mvuu">Mvuu Lodge (Liwonde)</option>
+                            <option value="latitude_13">Latitude 13 (Lilongwe)</option>
+                            <option value="makokola">Makokola Retreat (Mangochi)</option>
+                            <option value="ryalls">Protea Ryalls (Blantyre)</option>
+                            <option value="chelinda">Chelinda Camp (Nyika)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Voir les tarifs</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Kaya Mawa"></div>
+                    <div class="hotel-content">
+                        <h4>Kaya Mawa</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Likoma Island, Luxe Pieds nus</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Mvuu"></div>
+                    <div class="hotel-content">
+                        <h4>Mvuu Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Liwonde National Park</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Latitude"></div>
+                    <div class="hotel-content">
+                        <h4>Latitude 13</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lilongwe, Design urbain</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Makokola"></div>
+                    <div class="hotel-content">
+                        <h4>The Makokola Retreat</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mangochi, Bord du lac</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Ryalls"></div>
+                    <div class="hotel-content">
+                        <h4>Protea Ryalls Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Blantyre, Centre historique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Chelinda"></div>
+                    <div class="hotel-content">
+                        <h4>Chelinda Camp</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nyika Plateau, Haute altitude</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine malawite est simple, saine et centrée sur les poissons frais du lac et les produits de la terre.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chambo&background=00008b&color=fff&size=200" alt="Chambo"></div>
+                <div class="plat-content"><h4>Le Chambo</h4><p>Le poisson le plus célèbre du lac Malawi, grillé ou cuisiné avec des épices.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Nsima&background=f5f5dc&color=000&size=200" alt="Nsima"></div>
+                <div class="plat-content"><h4>Nsima</h4><p>Base alimentaire nationale à base de maïs, servie avec divers ragoûts (Ndiwo).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kondowole&background=f5f5dc&color=000&size=200" alt="Kondowole"></div>
+                <div class="plat-content"><h4>Kondowole</h4><p>Bouillie de manioc consistante, spécialité du nord du lac.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banana&background=daa520&color=fff&size=200" alt="Nthochi"></div>
+                <div class="plat-content"><h4>Nthochi (Pain Banane)</h4><p>Pain sucré et moelleux à base de bananes locales mûres.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Potato&background=8b4513&color=fff&size=200" alt="Mbatata"></div>
+                <div class="plat-content"><h4>Mbatata</h4><p>Beignets de patate douce et cannelle, délicieusement croquants.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kapenta&background=00008b&color=fff&size=200" alt="Kapenta"></div>
+                <div class="plat-content"><h4>Kapenta Malawi</h4><p>Petits poissons séchés frits, servis comme collation salée ou accompagnement.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Masuku&background=daa520&color=fff&size=200" alt="Masuku"></div>
+                <div class="plat-content"><h4>Fruits Masuku</h4><p>Prunes sauvages à la saveur douce, consommées fraîches ou en jus.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Corn&background=daa520&color=fff&size=200" alt="Zitumbuwa"></div>
+                <div class="plat-content"><h4>Zitumbuwa</h4><p>Beignets de maïs frits, un en-cas de rue incontournable au Malawi.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Salad&background=006400&color=fff&size=200" alt="Kachumbari"></div>
+                <div class="plat-content"><h4>Kachumbari Malawi</h4><p>Salade fraîche de tomates, oignons et piments pour accompagner le poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Thobwa&background=f5f5dc&color=000&size=200" alt="Thobwa"></div>
+                <div class="plat-content"><h4>Thobwa</h4><p>Boisson rafraîchissante et nourrissante à base de maïs et de mil fermentés.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chicken&background=8b0000&color=fff&size=200" alt="Poulet"></div>
+                <div class="plat-content"><h4>Poulet de Brousse</h4><p>Poulet fermier cuisiné à la manière locale avec beaucoup d'herbes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200" alt="The Thyolo"></div>
+                <div class="plat-content"><h4>Thé de Thyolo</h4><p>Thé noir pur issu des plantations d'altitude du sud.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Découvrez la culture malawite à travers ses festivals vibrants et ses traditions musicales.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Lake of Stars</h4>
+                    <p>L'un des festivals de musique les plus beaux du monde, sur les rives du lac Malawi (Septembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Cérémonie Kulamba</h4>
+                    <p>Grand rassemblement du peuple Chewa pour rendre hommage à leur chef suprême (Août).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Arts</span>
+                    <h4>Blantyre Arts Festival</h4>
+                    <p>Célébration annuelle de la créativité malawite sous toutes ses formes (Octobre).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Mai à Octobre)</h5>
+                    <p class="small mb-0">La période idéale. Le climat est frais et sec, parfait pour le safari et la randonnée au mont Mulanje. Le lac est calme et clair pour la plongée.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison Verte (Novembre à Avril)</h5>
+                    <p class="small mb-0">Le paysage est luxuriant et vert. C'est la saison des pluies, idéale pour l'observation des oiseaux et pour admirer les fleurs sauvages sur le plateau de Nyika.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Malawi est l'un des pays les plus sûrs d'Afrique. La politesse est de rigueur et les locaux sont toujours prêts à aider.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Zone de paludisme. Traitement préventif nécessaire. Faites attention à la bilharziose dans certaines zones stagnantes du lac.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-tint fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Eau</h6>
+                    <p class="small text-muted">Ne buvez que de l'eau en bouteille ou filtrée. Évitez les glaçons hors des grands établissements.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comment-slash fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Respect</h6>
+                    <p class="small text-muted">Une tenue décente est appréciée dans les villages. Demandez toujours la permission avant de prendre une photo de quelqu'un.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Samuel+Lake&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Samuel">
+                        <h5 class="fw-bold mb-1">Samuel Banda</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Lac & Plongée</p>
+                        <p class="small text-muted">Originaire de Cape Maclear, Samuel connaît chaque crique du lac et vous fera découvrir les meilleurs spots de snorkeling.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:samuel@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Samuel</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lizzie+Safari&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lizzie">
+                        <h5 class="fw-bold mb-1">Lizzie Phiri</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Safari & Nature</p>
+                        <p class="small text-muted">Spécialiste de la faune de Liwonde et Majete, Lizzie est passionnée par la protection des éléphants et la biodiversité.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lizzie@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Lizzie</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Isaac+Mulanje&background=8b4513&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Isaac">
+                        <h5 class="fw-bold mb-1">Isaac Mlowoka</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Montagne & Rando</p>
+                        <p class="small text-muted">Expert des sentiers du mont Mulanje et du plateau de Zomba, Isaac vous guidera vers les sommets en toute sécurité.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:isaac@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Isaac</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Malawi, le cœur chaleureux de l'Afrique. Découvrez une terre de sourires et de paysages magnifiques avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Malawi</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +265 1 000 000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> lilongwe@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Malawi - Warm Heart of Africa</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/malawi.js"></script>
+</body>
+
+</html>

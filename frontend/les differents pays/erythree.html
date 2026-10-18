@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: erythree.html
+    DESCRIPTION: Page pays premium standardisée pour l'Érythrée.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'Érythrée, le secret le mieux gardé de la Mer Rouge. De l'architecture Art Déco d'Asmara aux îles Dahlak vierges, explorez un pays d'une beauté intemporelle.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - L'Érythrée (La Perle de la Mer Rouge)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/erythree.jpg" alt="L'Érythrée" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">L'Érythrée</h1>
+            <p class="hero-subtitle">Une capsule temporelle entre modernisme Art Déco et splendeurs ottomanes</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre Mystérieuse au Patrimoine Architectural Unique</h2>
+            <p class="section-description">
+                L'Érythrée est l'une des destinations les plus singulières d'Afrique. Sa capitale, Asmara, est un joyau architectural classé au patrimoine mondial de l'UNESCO, souvent décrite comme une "Petite Rome" pour sa concentration exceptionnelle d'édifices Art Déco et futuristes des années 1930. Sur les rives de la Mer Rouge, la cité portuaire de Massaoua dévoile un charme ottoman mélancolique avec ses palais de corail. Au-delà des villes, l'archipel des Dahlak offre des fonds marins parmi les plus préservés au monde, tandis que les monastères perchés des hauts plateaux témoignent d'une ferveur chrétienne millénaire.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 trésors cachés de l'Érythrée</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une ville ou un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="architecture">Architecture & Villes</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Culture</span>
+                <span class="filter-tag" data-filter="nature">Mer & Nature</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="erythree-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Asmara Moderniste -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Asmara">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Asmara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Asmara : Cité Art Déco</h3>
+                        <p class="location-text">La plus grande concentration de bâtiments futuristes au monde (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="asmara">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Massaoua (Port Historique) -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Massaoua">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mer Rouge</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Massaoua</h3>
+                        <p class="location-text">Ancien port ottoman aux palais de corail et ruelles chargées d'histoire</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="massaoua">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Îles Dahlak -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Dahlak">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Archipel Dahlak</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Archipel des Dahlak</h3>
+                        <p class="location-text">Plus de 200 îles vierges, paradis du snorkeling et des eaux turquoises</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dahlak">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Keren -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Keren">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Région d'Anseba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Keren</h3>
+                        <p class="location-text">Célèbre pour son marché aux chameaux et son climat de montagne</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="keren">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Monastère de Debre Bizen -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Debre Bizen">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Nefasit</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monastère de Debre Bizen</h3>
+                        <p class="location-text">Perché sur une montagne, centre spirituel majeur datant du XIVe siècle</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="debrebizen">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Qohaito (Kohaito) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Qohaito">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Est Asmara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plateau de Qohaito</h3>
+                        <p class="location-text">Vestiges de l'ancienne civilisation aksumite et art rupestre préhistorique</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="qohaito">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Adulis -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Adulis">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Massaoua</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Site antique d'Adulis</h3>
+                        <p class="location-text">Ancien port majeur de l'Empire d'Aksum sur la Mer Rouge</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="adulis">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Senafe & Metera -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Metera">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Senafe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Stèle de Metera</h3>
+                        <p class="location-text">Obélisque pré-aksumite dominant des paysages de montagnes spectaculaires</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="metera">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Filfil (Forêt Tropicale) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Filfil">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Semenawi Bahri</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt de Filfil</h3>
+                        <p class="location-text">Le "Poumon Vert" de l'Érythrée, une route panoramique à travers la jungle de montagne</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="filfil">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Nakfa -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Nakfa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Région du Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Nakfa</h3>
+                        <p class="location-text">Ville symbole de la résistance érythréenne, riche en sites historiques de la guerre d'indépendance</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nakfa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Gurgusum Beach -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Gurgusum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Massaoua</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Gurgusum</h3>
+                        <p class="location-text">La plage préférée des habitants de Massaoua pour la baignade et les balades à chameau</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gurgusum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Cathédrale d'Asmara -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Cathedrale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Asmara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cathédrale de St. Joseph</h3>
+                        <p class="location-text">Un chef-d'œuvre de style néo-roman italien au cœur de la capitale</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="asmara_cathedral">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Cimetière de Chars -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Chars">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Asmara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cimetière de Chars d'Asmara</h3>
+                        <p class="location-text">Un témoignage poignant de l'histoire militaire du pays, devenu une curiosité urbaine</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tank_graveyard">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Mosquée Al Khulafa Al Rashiudin -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Mosquee">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Asmara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mosquée Al Khulafa Al Rashiudin</h3>
+                        <p class="location-text">Superbe mosquée historique mêlant influences architecturales locales et arabes</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="asmara_mosque">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Opéra d'Asmara -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Opera">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Asmara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Théâtre et Opéra d'Asmara</h3>
+                        <p class="location-text">Un bâtiment emblématique témoignant de l'époque du 'Petit Rome'</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="asmara_opera">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'harmonie entre neuf ethnies et un héritage millénaire.</p>
+                    <p>L'Érythrée est une nation de résilience et de fierté, forgée par une histoire complexe et une diversité culturelle exemplaire. Le pays abrite neuf groupes ethniques qui vivent dans une harmonie remarquable, chacun apportant ses propres traditions musicales, culinaires et artisanales. L'héritage de l'Empire d'Aksum sur les hauts plateaux se mêle aux influences ottomanes de la côte et à l'empreinte italienne indélébile d'Asmara. La culture du café, les rituels de l'Injera et le respect des traditions religieuses font de l'Érythrée une destination d'une authenticité rare en Afrique.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-city text-warning me-2"></i>Petit Rome Africain</h6>
+                                <p class="small text-muted mb-0">Le legs moderniste d'Asmara, où les cafés et les bâtiments des années 30 créent une atmosphère européenne sous les tropiques.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-coffee text-info me-2"></i>Cérémonie du Café</h6>
+                                <p class="small text-muted mb-0">Un rituel social sacré de bienvenue, parfumé à l'encens et servi avec de l'orge grillée.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-landmark text-danger me-2"></i>Empire d'Aksum</h6>
+                                <p class="small text-muted mb-0">Une histoire qui remonte à l'Antiquité, visible dans les stèles de Metera et les ruines d'Adulis.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Unité dans la Diversité</h6>
+                                <p class="small text-muted mb-0">Neuf ethnies (Tigrinya, Tigre, Saho, Afar, etc.) unies par un sens profond de la nation et du respect mutuel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Erythree" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de la Corne</h2>
+        <p>L'artisanat d'exception érythréen. Des cafetières traditionnelles aux tissages fins.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/jebena.png" alt="Jebena" onerror="this.src='https://ui-avatars.com/api/?name=Jebena&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Cérémonie</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Jebena (Cafetière)</h3>
+                    <p class="product-desc">Cafetière traditionnelle en terre cuite réalisée à la main, pilier de la cérémonie du café érythréenne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ery_silver.png" alt="Bijoux" onerror="this.src='https://ui-avatars.com/api/?name=Silver&background=c0c0c0&color=000&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Argent</h3>
+                    <p class="product-desc">Colliers et boucles d'oreilles en argent finement ciselé, spécialité des artisans d'Asmara.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ery_weaving.png" alt="Tissage" onerror="this.src='https://ui-avatars.com/api/?name=Tissage&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissage Traditionnel Habesha</h3>
+                    <p class="product-desc">Tissu en coton blanc avec des bordures brodées à la main, utilisé pour les vêtements de fête.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">40 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200" alt="Vannerie">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers Mesob Colorés</h3>
+                    <p class="product-desc">Vannerie traditionnelle utilisée pour servir l'Injera, pièce décorative et fonctionnelle.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">30 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Spices&background=8b0000&color=fff&size=200" alt="Epices">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Mélange d'Épices Berbere</h3>
+                    <p class="product-desc">L'âme de la cuisine érythréenne, un mélange pimenté et aromatique pour tous vos plats.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Music&background=000&color=fff&size=200" alt="Musique">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Musique Traditionnelle Érythréenne</h3>
+                    <p class="product-desc">Sélection de musiques traditionnelles et modernes (Kirar, Krar) pour s'évader.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/erythree.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales d'Exception en <span>Érythrée</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels, du charme historique d'Asmara aux rives de Massaoua.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="asmara_palace">Asmara Palace Hotel</option>
+                            <option value="italia">Albergo Italia Asmara</option>
+                            <option value="sunshine">Hotel Sunshine</option>
+                            <option value="dahlak">Grand Dahlak Hotel (Massaoua)</option>
+                            <option value="crystal">Crystal Hotel Asmara</option>
+                            <option value="africa">Africa Pension</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Asmara Palace"></div>
+                    <div class="hotel-content">
+                        <h4>Asmara Palace</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Asmara, Grand Standing</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Albergo Italia"></div>
+                    <div class="hotel-content">
+                        <h4>Albergo Italia</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Asmara, Historique & Chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Hotel Sunshine"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Sunshine</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Asmara, Confort Moderne</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Grand Dahlak"></div>
+                    <div class="hotel-content">
+                        <h4>Grand Dahlak</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Massaoua, Bord de Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Crystal"></div>
+                    <div class="hotel-content">
+                        <h4>Crystal Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Asmara, Central & Pratique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Africa Pension"></div>
+                    <div class="hotel-content">
+                        <h4>Africa Pension</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Asmara, Charme Vintage</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine érythréenne est une aventure sensorielle, mêlant saveurs épicées et héritage méditerranéen.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Injera&background=f5f5dc&color=000&size=200" alt="Injera"></div>
+                <div class="plat-content"><h4>L'Injera</h4><p>Grande galette de teff fermentée, base de tous les repas érythréens.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Zigni&background=8b0000&color=fff&size=200" alt="Zigni"></div>
+                <div class="plat-content"><h4>Zigni</h4><p>Ragoût de bœuf pimenté au Berbere, le plat le plus emblématique du pays.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Shiro&background=daa520&color=fff&size=200" alt="Shiro"></div>
+                <div class="plat-content"><h4>Shiro</h4><p>Purée de pois chiches épicée, onctueuse et savoureuse, adorée de tous.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kitcha&background=daa520&color=fff&size=200" alt="Kitcha"></div>
+                <div class="plat-content"><h4>Kitcha Fit-Fit</h4><p>Petit-déjeuner à base de pain rompu, de beurre clarifié épicé et de yaourt.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Poisson"></div>
+                <div class="plat-content"><h4>Poisson de Massaoua</h4><p>Poisson frais de la Mer Rouge grillé au four traditionnel, spécialité de la côte.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gaat&background=f5f5dc&color=000&size=200" alt="Gaat"></div>
+                <div class="plat-content"><h4>Ga'at</h4><p>Bouillie consistante servie avec un cratère de beurre épicé et de yaourt au centre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Coffee"></div>
+                <div class="plat-content"><h4>Café Érythréen</h4><p>Servi lors d'une cérémonie traditionnelle avec de l'encens et des popcorns.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pasta&background=daa520&color=fff&size=200" alt="Pasta"></div>
+                <div class="plat-content"><h4>Pâtes 'Al Dente'</h4><p>Un héritage italien : spaghettis et lasagnes revisités avec une touche locale.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Panettone&background=daa520&color=fff&size=200" alt="Panettone"></div>
+                <div class="plat-content"><h4>Panettone d'Asmara</h4><p>Brioche traditionnelle aux fruits confits, incontournable dans les pâtisseries de la capitale.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ful&background=daa520&color=fff&size=200" alt="Ful"></div>
+                <div class="plat-content"><h4>Ful Medames</h4><p>Fèves mijotées servies avec de l'huile d'olive, du fromage frais et du pain.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Hamli&background=006400&color=fff&size=200" alt="Hamli"></div>
+                <div class="plat-content"><h4>Hamli</h4><p>Feuilles de chou ou épinards sautées à l'ail et à l'oignon, un délice végétarien.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fruit&background=daa520&color=fff&size=200" alt="Fruit"></div>
+                <div class="plat-content"><h4>Beles (Figues de Barbarie)</h4><p>Le fruit d'été par excellence, vendu à chaque coin de rue en saison.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Partagez la ferveur et la joie de l'Érythrée lors de ses grandes célébrations.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>La plus grande célébration du pays (24 Mai) avec concerts et danses dans les rues d'Asmara.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-cross"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Religion</span>
+                    <h4>Meskel (La Vraie Croix)</h4>
+                    <p>Fête orthodoxe spectaculaire (Septembre) avec de grands feux de joie et des processions.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-bicycle"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sport</span>
+                    <h4>Courses Cyclistes d'Asmara</h4>
+                    <p>Le cyclisme est une passion nationale : assistez aux compétitions dominicales endiablées.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Septembre à Mars</h5>
+                    <p class="small mb-0">La période idéale pour les hauts plateaux (Asmara, Keren). Le ciel est dégagé et les températures sont printanières. Parfait pour les randonnées et les visites urbaines.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella-beach text-primary me-2"></i>Novembre à Mars</h5>
+                    <p class="small mb-0">La meilleure saison pour la Mer Rouge (Massaoua, Dahlak). Évitez l'été (juin-août) où la chaleur sur la côte peut être extrême (> 40°C).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays extrêmement sûr pour les voyageurs. La criminalité est quasi-inexistante. Respectez les règles locales et évitez les zones frontalières.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-file-signature fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Permis</h6>
+                    <p class="small text-muted">Un permis de voyager est nécessaire pour sortir d'Asmara. Il s'obtient facilement auprès du ministère du tourisme dans la capitale.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire. Les démarches peuvent prendre du temps, anticipez votre demande auprès de l'ambassade érythréenne.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">Nakfa (ERN). L'économie repose sur l'espèce. Les cartes bancaires ne sont pas acceptées. Changez vos Euros ou Dollars dans les bureaux officiels Himbol.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Dawit+Asmara&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Dawit">
+                        <h5 class="fw-bold mb-1">Dawit Tekle</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Architecture Art Déco</p>
+                        <p class="small text-muted">Dawit est un passionné de l'histoire d'Asmara et vous fera découvrir les joyaux cachés du modernisme italien.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:dawit@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Dawit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Selam+Sea&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Selam">
+                        <h5 class="fw-bold mb-1">Selam Tesfay</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Mer Rouge & Dahlak</p>
+                        <p class="small text-muted">Native de Massaoua, Selam est votre guide idéale pour explorer les fonds marins de l'archipel des Dahlak.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:selam@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Selam</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Yonas+History&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Yonas">
+                        <h5 class="fw-bold mb-1">Yonas Berhane</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Histoire & Archéologie</p>
+                        <p class="small text-muted">Spécialiste des sites aksumites, Yonas vous accompagnera à Qohaito et Adulis pour un voyage dans le temps.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:yonas@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Yonas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">L'Érythrée, la perle de la Mer Rouge. Découvrez un patrimoine architectural et historique unique avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Érythrée</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +291 1 12 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> asmara@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Eritrea - Red Sea Pearl</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/erythree.js"></script>
+</body>
+
+</html>

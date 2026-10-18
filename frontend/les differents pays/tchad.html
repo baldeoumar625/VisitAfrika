@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: tchad.html
+    DESCRIPTION: Page pays premium standardisée pour le Tchad.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Tchad, une terre de mystères et de nature sauvage. Du parc de Zakouma aux lacs d'Ounianga, vivez l'aventure au cœur du Sahara.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Tchad (Berceau de l'Humanité)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Centrale/tchad.jpg" alt="Le Tchad" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Tchad</h1>
+            <p class="hero-subtitle">Le cœur vibrant du Sahel et les joyaux cachés du Sahara</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Terre de Majesté et d'Espaces Infinis</h2>
+            <p class="section-description">
+                Le Tchad est une destination pour les aventuriers en quête d'authenticité absolue. Entre le parc national de Zakouma, l'un des secrets les mieux gardés d'Afrique pour le safari, et les paysages surnaturels du massif de l'Ennedi et des lacs d'Ounianga, le pays offre des contrastes saisissants. Terre de Toumaï (berceau de l'humanité), le Tchad est un carrefour de cultures nomades et sédentaires, où le silence du désert rencontre l'hospitalité légendaire des peuples du Sahel. Une expédition au Tchad est un voyage au bout du monde, une immersion dans une nature brute et préservée.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles sauvages du Tchad</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Référencés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="desert">Sahara & Ennedi</span>
+                <span class="filter-tag" data-filter="safari">Zakouma & Faune</span>
+                <span class="filter-tag" data-filter="culture">Villes & Culture</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="tchad-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Parc National de Zakouma -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Zakouma">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Région du Salamat</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Zakouma</h3>
+                        <p class="location-text">Un sanctuaire sauvage retrouvé pour les éléphants et les lions</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zakouma">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Lacs d'Ounianga -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Ounianga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ennedi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lacs d'Ounianga</h3>
+                        <p class="location-text">Un miracle d'eau douce au milieu du Sahara (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ounianga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Massif de l'Ennedi -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Ennedi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Massif de l'Ennedi</h3>
+                        <p class="location-text">Arches naturelles monumentales et cathédrales de grès</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ennedi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Guelta d'Archei -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Archei">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ennedi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Guelta d'Archei</h3>
+                        <p class="location-text">Le dernier refuge des crocodiles du Nil sahariens et point d'eau des caravanes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="archei">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Lac Tchad -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Lac Tchad">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bol</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Tchad</h3>
+                        <p class="location-text">Un écosystème vital et des îles de papyrus flottantes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lac_tchad">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. N'Djamena (Musée National) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="N'Djamena">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> N'Djamena</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National du Tchad</h3>
+                        <p class="location-text">La maison de Toumaï et l'histoire des civilisations tchadiennes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ndjamena">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Gaoui (Village de Poterie) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Gaoui">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Proche N'Djamena</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Village de Gaoui</h3>
+                        <p class="location-text">Ancienne capitale de la civilisation Sao et ses maisons colorées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gaoui">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Monts de Lam -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Lam">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mayo-Kebbi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monts de Lam</h3>
+                        <p class="location-text">Paysages de savanes arborées et de collines verdoyantes au sud</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="monts_lam">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Tibesti Mountains -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Tibesti">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Massif du Tibesti</h3>
+                        <p class="location-text">Volcans endormis et plus hauts sommets du Sahara</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tibesti">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Abeche -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Abeche">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouaddaï</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Abéché</h3>
+                        <p class="location-text">Ancienne cité impériale et carrefour du commerce caravanier</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="abeche">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Réserve de Siniaka-Minia -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Siniaka">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Guéra</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Siniaka-Minia</h3>
+                        <p class="location-text">Zones humides et savanes riches en oiseaux migrateurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="siniaka">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Parc National de Manda -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Manda">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sarh</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Manda</h3>
+                        <p class="location-text">Sanctuaire de biodiversité au bord du fleuve Chari</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="manda">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Faya-Largeau -->
+            <article class="attraction" data-category="desert">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Faya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Borkou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 13k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Faya-Largeau</h3>
+                        <p class="location-text">La plus grande palmeraie du Tchad au cœur du désert</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="faya">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Chutes de Gauthiot -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Gauthiot">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mayo-Kebbi Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Gauthiot</h3>
+                        <p class="location-text">Impressionnantes cascades sur le fleuve Mayo-Kebbi</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gauthiot">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Ouadi Rimé-Ouadi Achim -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Ouadi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Batha / Borkou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ouadi Rimé-Ouadi Achim</h3>
+                        <p class="location-text">Plus grande réserve d'Afrique, terre de réintroduction de l'Oryx algazelle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ouadi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Le carrefour des empires et le souffle du Sahara.</p>
+                    <p>Le Tchad possède une profondeur historique fascinante, des empires du Kanem-Bornou et du Ouaddaï aux mystérieuses civilisations Sao. Terre de contrastes, le pays réunit plus de 200 ethnies dont les cultures s'expriment à travers les arts de la poterie à Gaoui, les récits des griots et l'élégance des cavaliers d'Abéché. L'identité tchadienne est marquée par le courage des peuples du désert et une tradition d'hospitalité qui se manifeste autour du thé et de la "Boule" partagée en toute amitié.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-skull text-warning me-2"></i>Toumaï : Berceau de l'Humanité</h6>
+                                <p class="small text-muted mb-0">La découverte de Sahelanthropus tchadensis fait du Tchad l'un des lieux d'origine de notre espèce.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-horse text-info me-2"></i>Empire du Kanem-Bornou</h6>
+                                <p class="small text-muted mb-0">L'héritage d'un des plus puissants empires d'Afrique centrale, maître du commerce transsaharien.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-palette text-danger me-2"></i>Art Sao</h6>
+                                <p class="small text-muted mb-0">Les terres cuites et bronzes de la civilisation Sao témoignent d'un raffinement artistique millénaire.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Tradition Nomade</h6>
+                                <p class="small text-muted mb-0">La culture du voyage et de l'échange portée par les Toubous et les Arabes tchadiens.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Tchad" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Sahara</h2>
+        <p>L'artisanat authentique du Tchad. Des poteries millénaires de Gaoui aux cuirs fins du Ouaddaï.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/gaoui_pottery.png" alt="Poterie Gaoui" onerror="this.src='https://ui-avatars.com/api/?name=Gaoui&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie Peinte de Gaoui</h3>
+                    <p class="product-desc">Céramiques traditionnelles façonnées à la main et décorées de motifs géométriques Sao authentiques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/abeche_leather.png" alt="Cuir Abeche" onerror="this.src='https://ui-avatars.com/api/?name=Cuir&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Maroquinerie d'Abéché</h3>
+                    <p class="product-desc">Sacs et accessoires en cuir de chèvre de haute qualité, teints avec des pigments naturels.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/nomad_rug.png" alt="Tapis Nomad" onerror="this.src='https://ui-avatars.com/api/?name=Tapis&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Tissage</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tapis de Laine Nomade</h3>
+                    <p class="product-desc">Tissage manuel en laine de mouton, utilisé par les tribus du nord pour leurs campements.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Beads&background=ff4500&color=fff&size=200" alt="Bijou Tchad">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Parures de Perles Kanembou</h3>
+                    <p class="product-desc">Colliers et parures de tête traditionnels portés lors des grandes cérémonies au bord du lac Tchad.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Soap&background=006400&color=fff&size=200" alt="Savon Tchad">
+                    <span class="stock-badge">Nature</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Savon à l'Huile de Datte</h3>
+                    <p class="product-desc">Savon artisanal hydratant fabriqué avec les dattes des palmeraies de Faya-Largeau.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">3 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200" alt="Vannerie">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers de l'Ouaddaï</h3>
+                    <p class="product-desc">Vannerie fine aux motifs géométriques complexes, utilisée pour le stockage des céréales.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Centrale/tchad.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Expéditions de <span>Luxe</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels de la capitale et des camps de safari d'exception.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="radisson">Radisson Blu N'Djamena</option>
+                            <option value="nomade">Camp Nomade (Zakouma)</option>
+                            <option value="hilton">Hilton N'Djamena</option>
+                            <option value="tinga">Tinga Camp (Zakouma)</option>
+                            <option value="tchadienne">Hotel La Tchadienne</option>
+                            <option value="ledger">Ledger Plaza</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Radisson"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu N'Djamena</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> N'Djamena, Luxe & Business</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Camp Nomade"></div>
+                    <div class="hotel-content">
+                        <h4>Camp Nomade</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Zakouma, Immersion totale</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Hilton"></div>
+                    <div class="hotel-content">
+                        <h4>Hilton N'Djamena</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> N'Djamena, Vue sur le fleuve</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Tinga"></div>
+                    <div class="hotel-content">
+                        <h4>Tinga Camp</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Zakouma, Safari authentique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="La Tchadienne"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel La Tchadienne</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> N'Djamena, Hôtel Historique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Ledger"></div>
+                    <div class="hotel-content">
+                        <h4>Ledger Plaza</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> N'Djamena, Prestige urbain</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine tchadienne est généreuse, épicée et centrée sur les céréales du Sahel et les poissons des fleuves Chari et Logone.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kissar&background=f5f5dc&color=000&size=200" alt="Kissar"></div>
+                <div class="plat-content"><h4>Le Kissar</h4><p>Grande crêpe fine à base de riz fermenté, accompagnement roi de tous les repas.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Daraba&background=006400&color=fff&size=200" alt="Daraba"></div>
+                <div class="plat-content"><h4>Le Daraba</h4><p>Ragoût onctueux de légumes, gombos, patates douces et arachides pilées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Esh&background=f5f5dc&color=000&size=200" alt="Esh"></div>
+                <div class="plat-content"><h4>L'Esh (Boule)</h4><p>Bouillie consistante de mil ou sorgho, base alimentaire incontournable.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Capitaine"></div>
+                <div class="plat-content"><h4>Capitaine au Four</h4><p>Le poisson noble du Chari, grillé avec des herbes et des épices locales.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Charmout&background=8b0000&color=fff&size=200" alt="Charmout"></div>
+                <div class="plat-content"><h4>Charmout (Viande Séchée)</h4><p>Viande séchée au soleil puis cuisinée en ragoût épicé, spécialité nomade.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Longlon&background=daa520&color=fff&size=200" alt="Longlon"></div>
+                <div class="plat-content"><h4>Sauce Longlon</h4><p>Une sauce brune et savoureuse à base d'arachides et d'épices secrètes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gombo&background=006400&color=fff&size=200" alt="Salade Gombo"></div>
+                <div class="plat-content"><h4>Salade de Gombo Frais</h4><p>Gombos croquants servis en salade froide avec du citron et de l'huile.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=daa520&color=fff&size=200" alt="The Tchad"></div>
+                <div class="plat-content"><h4>Thé Tchadien</h4><p>Thé rouge fort servi très sucré, symbole de l'accueil et de la pause désert.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bissap&background=8b0000&color=fff&size=200" alt="Jus Bissap"></div>
+                <div class="plat-content"><h4>Jus d'Hibiscus</h4><p>Boisson rafraîchissante et tonique à base de fleurs d'hibiscus séchées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sorgho&background=f5f5dc&color=000&size=200" alt="Bouillie"></div>
+                <div class="plat-content"><h4>Bouillie de Sorgho</h4><p>Un petit-déjeuner nutritif et doux, souvent parfumé au tamarin.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Beignets&background=daa520&color=fff&size=200" alt="Beignets"></div>
+                <div class="plat-content"><h4>Beignets de Mil</h4><p>Douceurs frites à base de farine de mil, croustillantes à l'extérieur.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mutton&background=8b4513&color=fff&size=200" alt="Mouton"></div>
+                <div class="plat-content"><h4>Mouton de l'Ouaddaï</h4><p>Viande rôtie lentement, réputée pour sa tendreté et son goût parfumé.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Le Tchad célèbre ses traditions et sa culture à travers des rendez-vous nationaux et artistiques.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Dary (Festival des Cultures)</h4>
+                    <p>Grand festival annuel à N'Djamena célébrant la diversité des ethnies et des danses du pays.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Arts</span>
+                    <h4>Salon d'Artisanat de Gaoui</h4>
+                    <p>Exposition et vente des plus belles pièces de poterie et de tissage du Tchad (Novembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-bullhorn"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Défilés militaires et populaires massifs (11 Août) à travers toutes les grandes villes du pays.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Fraîche (Novembre à Février)</h5>
+                    <p class="small mb-0">C'est la meilleure période pour voyager. Le ciel est dégagé, les températures sont supportables (25-30°C en journée, nuits fraîches). Idéal pour Zakouma et l'Ennedi.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Juillet à Septembre)</h5>
+                    <p class="small mb-0">Le sud verdit magnifiquement. Cependant, de nombreuses routes deviennent impraticables et le parc de Zakouma ferme ses portes aux visiteurs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez toujours les conseils officiels avant le départ. Voyagez avec des agences reconnues et des guides locaux certifiés pour les zones désertiques.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin Fièvre Jaune obligatoire. Traitement antipaludéen indispensable. Buvez exclusivement de l'eau en bouteille ou purifiée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire pour la plupart des nationalités. Prévoyez vos démarches à l'avance auprès des ambassades tchadiennes.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-camera fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Photographie</h6>
+                    <p class="small text-muted">Demandez systématiquement l'autorisation avant de filmer. Interdiction stricte de photographier les bâtiments publics et militaires.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Abakar+Zakouma&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Abakar">
+                        <h5 class="fw-bold mb-1">Abakar Mahamat</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari (Zakouma)</p>
+                        <p class="small text-muted">Samory connaît Zakouma comme personne. Il vous guidera vers les troupeaux d'éléphants en respectant leur tranquillité.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:abakar@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Abakar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Fatimé+Culture&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Fatime">
+                        <h5 class="fw-bold mb-1">Fatimé Saleh</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culturelle & Patrimoine</p>
+                        <p class="small text-muted">Spécialiste de la civilisation Sao et de Gaoui, Fatimé vous fera découvrir l'âme artistique et historique du Tchad.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:fatime@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Fatimé</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ibrahim+Desert&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ibrahim">
+                        <h5 class="fw-bold mb-1">Ibrahim Toubou</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Expédition (Ennedi/Sahara)</p>
+                        <p class="small text-muted">Un vrai fils du désert. Ibrahim maîtrise les pistes de l'Ennedi et du Tibesti pour une aventure sécurisée et inoubliable.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ibrahim@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ibrahim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Tchad, une terre de mystères et de nature sauvage. Découvrez un patrimoine millénaire au cœur du Sahara avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Tchad</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +235 22 52 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> ndjamena@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Tchad - Sahara's Secret</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/tchad.js"></script>
+</body>
+
+</html>

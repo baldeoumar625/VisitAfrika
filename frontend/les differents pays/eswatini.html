@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: eswatini.html
+    DESCRIPTION: Page pays premium standardisée pour l'Eswatini.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'Eswatini, le royaume du ciel. Des parcs animaliers de Mkhaya à la culture vibrante de la vallée d'Ezulwini, explorez un joyau d'Afrique Australe.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - L'Eswatini (Le Royaume du Ciel)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Australe/eswatini.jpg" alt="L'Eswatini" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">L'Eswatini</h1>
+            <p class="hero-subtitle">Une monarchie authentique au cœur des montagnes majestueuses</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Un Royaume Intime aux Traditions Vivantes</h2>
+            <p class="section-description">
+                L'Eswatini, anciennement Swaziland, est l'un des plus petits pays d'Afrique, mais l'un des plus riches en expériences. Ce royaume enclavé entre l'Afrique du Sud et le Mozambique offre une diversité de paysages surprenante, des savanes du "lowveld" aux sommets granitiques du "highveld". Réputé pour sa stabilité et la préservation de ses traditions royales, comme les célèbres danses Umhlanga, l'Eswatini est également un sanctuaire pour la faune sauvage. Ses parcs nationaux, accessibles et intimes, permettent d'observer rhinocéros noirs et lions dans un cadre naturel exceptionnel, tandis que son artisanat d'une finesse rare témoigne de la créativité de son peuple.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux du Royaume du Ciel</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une réserve ou un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="safari">Safari & Faune</span>
+                <span class="filter-tag" data-filter="nature">Montagnes & Nature</span>
+                <span class="filter-tag" data-filter="culture">Artisanat & Culture</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="eswatini-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Mlilwane Wildlife Sanctuary -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Mlilwane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Vallée d'Ezulwini</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mlilwane Wildlife Sanctuary</h3>
+                        <p class="location-text">Pionnier de la conservation, idéal pour le vélo et la randonnée parmi les zèbres</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mlilwane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Hlane Royal National Park -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Hlane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lubombo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Hlane Royal National Park</h3>
+                        <p class="location-text">Le plus grand parc du pays, refuge des lions, éléphants et rhinocéros blancs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hlane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Mkhaya Game Reserve -->
+            <article class="attraction" data-category="safari">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Mkhaya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Siphofaneni</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mkhaya Game Reserve</h3>
+                        <p class="location-text">Sanctuaire exclusif pour les rhinocéros noirs et les espèces menacées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mkhaya">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Village Culturel Mantenga -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Mantenga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Vallée d'Ezulwini</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mantenga Cultural Village</h3>
+                        <p class="location-text">Musée vivant et danses traditionnelles sibhaca au pied des cascades</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mantenga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Réserve Naturelle de Malolotja -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Malolotja">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Highveld</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Malolotja Nature Reserve</h3>
+                        <p class="location-text">Des paysages de montagne sauvages et la plus haute tyrolienne du pays</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="malolotja">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Ngwenya Glass -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Ngwenya">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mbabane</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ngwenya Glass</h3>
+                        <p class="location-text">Usine de verre soufflé recyclé de renommée mondiale et boutiques d'artisanat</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ngwenya">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Barrage de Maguga -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Maguga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Piggs Peak</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Maguga Dam</h3>
+                        <p class="location-text">Un impressionnant barrage de 115m de haut entouré de collines pittoresques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="maguga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Swazi Candles (Malkerns) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Candles">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Malkerns</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Swazi Candles Craft Centre</h3>
+                        <p class="location-text">Atelier créatif de bougies sculptées à la main et marché artisanal vibrant</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="candles">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Piggs Peak -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Piggs Peak">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Piggs Peak</h3>
+                        <p class="location-text">Région montagneuse célèbre pour ses forêts et son histoire minière</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="piggspeak">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Marché de Manzini -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Manzini">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Manzini</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Marché de Manzini</h3>
+                        <p class="location-text">Le coeur battant du commerce local, pour une immersion authentique</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="manzini">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Réserve de Phophonyane -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Phophonyane">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Piggs Peak</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Phophonyane Falls Nature Reserve</h3>
+                        <p class="location-text">Un paradis tropical de cascades et de sentiers de randonnée paisibles</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="phophonyane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Mlawula Nature Reserve -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Mlawula">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Monts Lubombo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mlawula Nature Reserve</h3>
+                        <p class="location-text">Une biodiversité incroyable entre plaines et falaises escarpées</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mlawula">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Ludzidzini Royal Village -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ludzidzini">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lobamba</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Village Royal de Ludzidzini</h3>
+                        <p class="location-text">La résidence officielle de la Reine Mère et centre spirituel du royaume</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ludzidzini">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Mont Sheba -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Sheba">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Près de Mbabane</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Sheba (Sibebe Rock)</h3>
+                        <p class="location-text">Le deuxième plus grand monolithe de granit au monde après l'Ayers Rock</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sibebe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Vallée d'Ezulwini -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Ezulwini">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Centre</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 90k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vallée d'Ezulwini</h3>
+                        <p class="location-text">La 'Vallée du Paradis', centre touristique majeur avec hôtels et artisanat</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ezulwini">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une monarchie millénaire au coeur des traditions bantoues.</p>
+                    <p>L'Eswatini est l'une des dernières monarchies absolues au monde, où les traditions sont vécues au quotidien. La culture swazie est profondément ancrée dans le respect des ancêtres et de la royauté. Les cérémonies annuelles comme l'Umhlanga (danse des roseaux) et l'Incwala (fête de la royauté) sont des moments de ferveur nationale uniques. Cette identité forte s'exprime également à travers un artisanat de renommée internationale : le travail du verre, de la cire et du tissage fait de l'Eswatini un haut lieu de la création africaine contemporaine.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Héritage Royal</h6>
+                                <p class="small text-muted mb-0">Une culture centrée sur le roi (Ngwenyama) et la reine mère (Ndlovukazi), garants de l'unité nationale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-palette text-info me-2"></i>Artisanat d'Excellence</h6>
+                                <p class="small text-muted mb-0">Le verre soufflé de Ngwenya et les bougies de Malkerns exportés dans le monde entier.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Danses Traditionnelles</h6>
+                                <p class="small text-muted mb-0">Le Sibhaca et les chants polyphoniques qui rythment les grandes cérémonies du royaume.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-shield-alt text-success me-2"></i>Résilience Swazie</h6>
+                                <p class="small text-muted mb-0">Un peuple fier qui a su préserver son indépendance et sa culture face aux influences coloniales.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Eswatini" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique du Royaume</h2>
+        <p>L'excellence créative de l'Eswatini. Du verre soufflé aux bougies sculptées.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ngwenya_glass.png" alt="Verre" onerror="this.src='https://ui-avatars.com/api/?name=Glass&background=006400&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vase en Verre Ngwenya</h3>
+                    <p class="product-desc">Pièce unique réalisée à partir de verre 100% recyclé par les maîtres verriers de Ngwenya.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/swazi_candles.png" alt="Bougie" onerror="this.src='https://ui-avatars.com/api/?name=Candle&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Créatif</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bougie Animale Sculptée</h3>
+                    <p class="product-desc">Bougie en forme d'animal (rhino, éléphant) sculptée à la main avec la technique du "millefiori".</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/swazi_basket.png" alt="Panier" onerror="this.src='https://ui-avatars.com/api/?name=Basket&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tissé Lutindzi</h3>
+                    <p class="product-desc">Vannerie fine réalisée à partir d'herbe de montagne séchée, célèbre pour ses motifs géométriques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Beads&background=ff4500&color=fff&size=200" alt="Perles">
+                    <span class="stock-badge">Style</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Perles Swazi</h3>
+                    <p class="product-desc">Colliers et bracelets colorés, symboles de statut et d'identité culturelle.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200" alt="Sculpture">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Jacaranda</h3>
+                    <p class="product-desc">Statues et objets décoratifs taillés dans le bois de jacaranda par les sculpteurs locaux.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Fabric&background=8b0000&color=fff&size=200" alt="Tissu">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Emahiya Traditionnel</h3>
+                    <p class="product-desc">Tissu enveloppant aux motifs royaux, symbole du vêtement traditionnel swazi.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">30 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Australe/eswatini.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales <span>Royales</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels, du luxe des spas aux lodges de montagne authentiques.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="royal_swazi">Royal Swazi Spa</option>
+                            <option value="lugogo">Lugogo Sun</option>
+                            <option value="mantenga">Mantenga Lodge</option>
+                            <option value="foresters">Foresters Arms</option>
+                            <option value="phophonyane">Phophonyane Falls Lodge</option>
+                            <option value="summerfield">Summerfield Luxury Resort</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Royal Swazi"></div>
+                    <div class="hotel-content">
+                        <h4>Royal Swazi Spa</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ezulwini, Luxe & Golf</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Lugogo Sun"></div>
+                    <div class="hotel-content">
+                        <h4>Lugogo Sun</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ezulwini, Resort Familial</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Mantenga"></div>
+                    <div class="hotel-content">
+                        <h4>Mantenga Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ezulwini, Vue Panoramique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Foresters"></div>
+                    <div class="hotel-content">
+                        <h4>Foresters Arms</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mhlambanyatsi, Charme Anglais</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Phophonyane"></div>
+                    <div class="hotel-content">
+                        <h4>Phophonyane Falls</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Piggs Peak, Nature & Lodge</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Summerfield"></div>
+                    <div class="hotel-content">
+                        <h4>Summerfield Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Matsapha, Jardin Tropical</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine swazie est une célébration simple et savoureuse des produits de la terre, riche en maïs et légumes.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sishwala&background=daa520&color=fff&size=200" alt="Sishwala"></div>
+                <div class="plat-content"><h4>Sishwala</h4><p>Bouillie épaisse de maïs et de haricots, servie avec de la viande ou des légumes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Incwancwa&background=f5f5dc&color=000&size=200" alt="Incwancwa"></div>
+                <div class="plat-content"><h4>Incwancwa</h4><p>Bouillie de maïs fermentée, légèrement acide et très rafraîchissante.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Meat&background=8b0000&color=fff&size=200" alt="Meat"></div>
+                <div class="plat-content"><h4>Ragoût de Bœuf</h4><p>Viande mijotée longuement avec des oignons, des tomates et des épices locales.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chicken&background=daa520&color=fff&size=200" alt="Chicken"></div>
+                <div class="plat-content"><h4>Poulet à la Swazi</h4><p>Poulet fermier grillé ou mijoté, servi avec une sauce généreuse.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Emasi&background=fff&color=000&size=200" alt="Emasi"></div>
+                <div class="plat-content"><h4>Emasi</h4><p>Lait caillé traditionnel, souvent servi avec du maïs moulu (Phutu).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bread&background=daa520&color=fff&size=200" alt="Bread"></div>
+                <div class="plat-content"><h4>Mealie Bread</h4><p>Pain de maïs frais et légèrement sucré, cuit à la vapeur ou au four.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Slaai&background=006400&color=fff&size=200" alt="Slaai"></div>
+                <div class="plat-content"><h4>Slaai</h4><p>Salade d'avocats frais avec une touche de jus de citron et de gingembre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pumpkin&background=ff8c00&color=fff&size=200" alt="Pumpkin"></div>
+                <div class="plat-content"><h4>Sidvudvu</h4><p>Purée de citrouille mélangée avec de la farine de maïs, une douceur traditionnelle.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fruit&background=daa520&color=fff&size=200" alt="Fruit"></div>
+                <div class="plat-content"><h4>Fruits Tropicaux</h4><p>Ananas, mangues et litchis frais provenant des vergers fertiles du pays.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Beer&background=daa520&color=fff&size=200" alt="Beer"></div>
+                <div class="plat-content"><h4>Umcombotsi</h4><p>Bière traditionnelle brassée à partir de sorgho et de maïs, pilier des fêtes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Greens&background=006400&color=fff&size=200" alt="Greens"></div>
+                <div class="plat-content"><h4>Légumes Sauvages</h4><p>Différentes variétés de feuilles vertes (Umngomeni) sautées avec des cacahuètes pilées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rooibos&background=8b0000&color=fff&size=200" alt="Rooibos"></div>
+                <div class="plat-content"><h4>Thé Rooibos Local</h4><p>Infusion rouge rafraîchissante, servie chaude ou glacée avec du miel sauvage.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez l'incroyable ferveur des traditions swazies à travers ses cérémonies royales.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-leaf"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Royauté</span>
+                    <h4>Umhlanga (Danse des Roseaux)</h4>
+                    <p>La plus célèbre cérémonie (Août/Septembre) où des milliers de jeunes filles dansent pour la Reine Mère.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-shield-alt"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sacré</span>
+                    <h4>Incwala (Fête de la Royauté)</h4>
+                    <p>La cérémonie la plus sacrée du royaume (Décembre/Janvier), centrée sur le roi et le renouveau national.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-guitar"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>MTN Bushfire Festival</h4>
+                    <p>Un festival international de musique et d'arts (Mai) prônant le changement social et la créativité.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Mai à Septembre)</h5>
+                    <p class="small mb-0">La période idéale pour le safari. Les animaux se rassemblent autour des points d'eau et le climat est frais et ensoleillé. C'est aussi la saison de l'Umhlanga.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Saison des Pluies (Octobre à Avril)</h5>
+                    <p class="small mb-0">Les paysages sont verdoyants et magnifiques. C'est le moment idéal pour l'observation des oiseaux et pour assister à la cérémonie de l'Incwala.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays paisible et sûr. Vigilance habituelle contre les petits vols dans les villes. Évitez de conduire de nuit en raison des animaux errants.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Prévention contre le paludisme recommandée pour le lowveld. Buvez de l'eau en bouteille. Bons services médicaux à Mbabane.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Exemption de visa pour de nombreuses nationalités (UE, USA, Commonwealth) pour moins de 30 jours. Passeport valide 6 mois après le retour.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Lilangeni (SZL), à parité avec le Rand sud-africain (ZAR). Le Rand est accepté partout dans le pays. Cartes bancaires largement acceptées.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Sibusiso+Safari&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Sibusiso">
+                        <h5 class="fw-bold mb-1">Sibusiso Dlamini</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari & Faune</p>
+                        <p class="small text-muted">Guide passionné avec 15 ans d'expérience à Hlane et Mkhaya, spécialiste des rhinocéros.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:sibusiso@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Sibusiso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Nokwanda+Culture&background=daa520&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Nokwanda">
+                        <h5 class="fw-bold mb-1">Nokwanda Mdluli</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture & Artisanat</p>
+                        <p class="small text-muted">Spécialiste des traditions swazies et de l'artisanat local, Nokwanda vous fera découvrir l'âme du royaume.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:nokwanda@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Nokwanda</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Thabo+Trek&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Thabo">
+                        <h5 class="fw-bold mb-1">Thabo Khumalo</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Randonnée & Nature</p>
+                        <p class="small text-muted">Expert des sentiers de Malolotja et de Sibebe, Thabo vous accompagnera vers les plus beaux points de vue.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:thabo@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Thabo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit
+                    Afrika
+                </h4>
+                <p class="footer-desc">
+                    Visit Afrika vous invite à découvrir les
+                    merveilles du continent africain.
+                    Nous organisons des voyages authentiques et
+                    mémorables pour explorer la nature,
+                    la culture et les traditions d'Afrique.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos
+                    Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i>
+                            Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i>
+                            Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i>
+                            Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i>
+                            Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i>
+                            Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i>
+                            Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86
+                            44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé -
+                            Guinée</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <!-- DROITS D'AUTEUR -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Création Labé</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/eswatini.js"></script>
+</body>
+
+</html>

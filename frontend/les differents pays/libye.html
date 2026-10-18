@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: libye.html
+    DESCRIPTION: Page pays premium standardisée pour la Libye.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Libye, le carrefour des civilisations méditerranéennes et sahariennes. Des ruines romaines de Leptis Magna aux oasis de Ghadamès, explorez un patrimoine millénaire.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Libye (Le Cœur du Sahara et de la Méditerranée)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Nord/libye.jpg" alt="La Libye" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Libye</h1>
+            <p class="hero-subtitle">Des colonnes romaines aux sables d'or du Fezzan</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Un Musée à Ciel Ouvert entre Deux Mondes</h2>
+            <p class="section-description">
+                La Libye est l'une des destinations les plus fascinantes et les plus riches en histoire du continent africain. Terre de rencontre entre l'Antiquité méditerranéenne et la mystique saharienne, elle abrite cinq sites classés au patrimoine mondial de l'UNESCO, dont les cités romaines spectaculaires de Leptis Magna et Sabratha. De la "Perle du Désert" Ghadamès avec son architecture vernaculaire unique, aux peintures rupestres millénaires du Tadrart Acacus, la Libye offre un voyage épique à travers le temps. C'est une terre de contrastes, où les eaux turquoises de la Méditerranée côtoient les lacs de l'oasis d'Ubari, nichés au creux de dunes géantes.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles monumentales de la Libye</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une cité antique...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="antiquite">Antiquité Romaine/Grecque</span>
+                <span class="filter-tag" data-filter="sahara">Sahara & Oasis</span>
+                <span class="filter-tag" data-filter="villes">Villes & Médina</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="libye-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Leptis Magna -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Leptis Magna">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Al Khums</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 120k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Leptis Magna</h3>
+                        <p class="location-text">La plus belle cité romaine d'Afrique, ville natale de Septime Sévère (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="leptis">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Sabratha -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Sabratha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> District de Zawiya</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Théâtre de Sabratha</h3>
+                        <p class="location-text">Un chef-d'œuvre architectural face à la Méditerranée (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sabratha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Ghadamès -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Ghadames">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nalut</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vieille ville de Ghadamès</h3>
+                        <p class="location-text">La "Perle du Désert", oasis aux maisons blanches et rues couvertes (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ghadames">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Cyrène -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Cyrene">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Shahat</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 70k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cyrène</h3>
+                        <p class="location-text">Cité grecque majeure, temple d'Apollon et nécropole monumentale (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cyrene">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Tadrart Acacus -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Acacus">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ghat</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Montagnes de l'Acacus</h3>
+                        <p class="location-text">Peintures rupestres millénaires et paysages lunaires (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="acacus">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Lacs d'Ubari (Gaberoun) -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Ubari">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Wadi al Hayaa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lacs d'Ubari</h3>
+                        <p class="location-text">Lacs d'eau salée nichés au milieu des plus hautes dunes du Sahara</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ubari">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Tripoli (Vieille Ville) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Tripoli">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tripoli</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 80k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Médina de Tripoli</h3>
+                        <p class="location-text">Le Château Rouge, les souks et l'arche de Marc Aurèle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tripoli_medina">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Apollonia (Marsa Susa) -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Apollonia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cyrénaïque</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité d'Apollonia</h3>
+                        <p class="location-text">Ancien port de Cyrène, avec des ruines immergées et des basiliques byzantines</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="apollonia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Ghat -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ghat">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> District de Ghat</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Ghat</h3>
+                        <p class="location-text">Ancienne place forte touarègue, porte d'entrée du désert profond</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ghat">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Ptolémaïs -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Ptolemais">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Al Marj</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ptolémaïs</h3>
+                        <p class="location-text">Somptueuses citernes antiques et colonnes dominant la mer</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ptolemais">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Nalut (Ghorfas) -->
+            <article class="attraction" data-category="sahara">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Nalut">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Djebel Nefoussa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grenier fortifié de Nalut</h3>
+                        <p class="location-text">Architecture berbère unique destinée au stockage des récoltes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nalut">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Slonta -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Slonta">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Al Jabal al Akhdar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grotte de Slonta</h3>
+                        <p class="location-text">Sanctuaire rupestre unique aux sculptures de visages mystérieux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="slonta">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Benghazi (Architecture) -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Benghazi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Benghazi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Benghazi</h3>
+                        <p class="location-text">Patrimoine architectural ottoman et italien sur la côte est</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="benghazi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Gheriat esh-Shergia -->
+            <article class="attraction" data-category="antiquite">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Gheriat">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Limes Tripolitanus</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fort Romain de Gheriat</h3>
+                        <p class="location-text">Vestiges d'un fort du système défensif romain aux portes du désert</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gheriat">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Misrata -->
+            <article class="attraction" data-category="villes">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Misrata">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Misrata</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Misrata</h3>
+                        <p class="location-text">Grand port commercial et centre culturel dynamique de l'ouest libyen</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="misrata">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'héritage d'Hannibal et des Berbères du désert.</p>
+                    <p>La culture libyenne est une tapisserie complexe tissée d'influences berbères (Amazigh), phéniciennes, grecques, romaines et arabes. Pendant des siècles, la Libye a été le grenier à blé de l'Empire romain, une richesse encore visible dans ses cités antiques. Cette identité s'exprime aujourd'hui dans l'architecture fascinante de Ghadamès, conçue pour la fraîcheur du Sahara, et dans les traditions musicales des Touaregs du Fezzan. L'hospitalité libyenne est ancrée dans les valeurs bédouines, où le partage d'un repas de "Bazin" ou d'un thé fort à la menthe est un acte de bienvenue sacré.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-monument text-warning me-2"></i>Empire de Pierre</h6>
+                                <p class="small text-muted mb-0">Le règne des Sévères et l'apogée de Leptis Magna, une splendeur romaine conservée par les sables.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-home text-info me-2"></i>Architecture de Ghadamès</h6>
+                                <p class="small text-muted mb-0">Un système urbain ingénieux classé à l'UNESCO, où les terrasses sont réservées aux femmes et les rues couvertes aux hommes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-paint-brush text-danger me-2"></i>Art Rupestre</h6>
+                                <p class="small text-muted mb-0">Les galeries préhistoriques de l'Acacus, témoins d'une époque où le Sahara était une savane verdoyante.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Tradition Bédouine</h6>
+                                <p class="small text-muted mb-0">Le code de l'honneur et l'hospitalité nomade qui continuent de forger le caractère de la nation libyenne.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Libye" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de Tripolitaine</h2>
+        <p>L'artisanat millénaire de Libye. Des tapis de Ghadamès aux cuirs fins du Fezzan.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ghadames_rug.png" alt="Tapis Ghadames" onerror="this.src='https://ui-avatars.com/api/?name=Rug&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">UNESCO</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tapis de Ghadamès</h3>
+                    <p class="product-desc">Tapis traditionnel aux motifs géométriques rouges et blancs, tissé par les femmes de la cité oasienne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">150 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/libyan_silver.png" alt="Bijoux" onerror="this.src='https://ui-avatars.com/api/?name=Silver&background=c0c0c0&color=000&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Argent de Ghat</h3>
+                    <p class="product-desc">Colliers et bracelets en argent ciselé, spécialité des artisans touaregs du sud libyen.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">95 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/libyan_pottery.png" alt="Poterie" onerror="this.src='https://ui-avatars.com/api/?name=Poterie&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Tradition</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Gharyan</h3>
+                    <p class="product-desc">Plats et jarres en céramique peinte à la main, issus des célèbres ateliers du Djebel Nefoussa.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Leather&background=8b4513&color=fff&size=200" alt="Cuir">
+                    <span class="stock-badge">Luxe</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Cuir Fin de Misrata</h3>
+                    <p class="product-desc">Articles de maroquinerie en cuir souple de haute qualité, héritage des tanneurs libyens.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Spices&background=ff4500&color=fff&size=200" alt="Epices">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Mélange d'Épices Tripoli</h3>
+                    <p class="product-desc">Coffret d'épices fraîches du souk (Harat, cumin, cannelle) pour préparer le Bazin authentique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Farashia&background=f5f5dc&color=000&size=200" alt="Farashia">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Voile Farashia de Soie</h3>
+                    <p class="product-desc">Vêtement traditionnel féminin d'une grande élégance, tissé avec des fils de soie et de coton.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Nord/libye.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escale <span>Méditerranéenne</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels de Tripoli et nos résidences de charme dans les oasis.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="corinthia">Corinthia Hotel Tripoli</option>
+                            <option value="radisson">Radisson Blu Tripoli</option>
+                            <option value="waddan">Al Waddan Hotel</option>
+                            <option value="plasma">Plasma Hotel</option>
+                            <option value="thobacts">Thobacts Hotel</option>
+                            <option value="victoria">Victoria Hotel</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Corinthia"></div>
+                    <div class="hotel-content">
+                        <h4>Corinthia Tripoli</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tripoli, Grand Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Radisson"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu Tripoli</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tripoli, Bord de Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Al Waddan"></div>
+                    <div class="hotel-content">
+                        <h4>Al Waddan Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tripoli, Historique & Chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Plasma"></div>
+                    <div class="hotel-content">
+                        <h4>Plasma Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tripoli, Centre Moderne</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Thobacts"></div>
+                    <div class="hotel-content">
+                        <h4>Thobacts Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tripoli, Design Urbain</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Victoria"></div>
+                    <div class="hotel-content">
+                        <h4>Victoria Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Tripoli, Confort Business</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine libyenne est généreuse, mêlant les saveurs du désert et les influences de la Méditerranée.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bazin&background=8b4513&color=fff&size=200" alt="Bazin"></div>
+                <div class="plat-content"><h4>Le Bazin</h4><p>Pâte de farine d'orge servie avec un ragoût de mouton et d'épices, le plat national.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Asida&background=f5f5dc&color=000&size=200" alt="Asida"></div>
+                <div class="plat-content"><h4>L'Asida Libyenne</h4><p>Bouillie de blé sucrée au miel ou au sirop de datte, servie lors des fêtes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice&background=daa520&color=fff&size=200" alt="Riz Mouton"></div>
+                <div class="plat-content"><h4>Riz au Mouton</h4><p>Riz parfumé cuit avec de la viande d'agneau tendre et des amandes grillées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mbarek&background=8b0000&color=fff&size=200" alt="Mbarek"></div>
+                <div class="plat-content"><h4>Mbarek (Saucisse)</h4><p>Saucisse libyenne traditionnelle épicée, spécialité des marchés de Tripoli.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pasta&background=8b0000&color=fff&size=200" alt="Mbakbaka"></div>
+                <div class="plat-content"><h4>Makarona Mbakbaka</h4><p>Pâtes libyennes cuites directement dans une sauce tomate épicée, plat quotidien.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sharba&background=8b0000&color=fff&size=200" alt="Sharba"></div>
+                <div class="plat-content"><h4>Sharba Libyenne</h4><p>Soupe traditionnelle riche en légumes, orge et viande, incontournable au Ramadan.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dates&background=daa520&color=fff&size=200" alt="Dates"></div>
+                <div class="plat-content"><h4>Dates de Ghadamès</h4><p>Réputées pour être les meilleures du Sahara, fondantes et naturellement sucrées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200" alt="Tea"></div>
+                <div class="plat-content"><h4>Thé Libyen</h4><p>Thé rouge fort servi avec de la mousse et souvent accompagné d'arachides.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rozata&background=f5f5dc&color=000&size=200" alt="Rozata"></div>
+                <div class="plat-content"><h4>Rozata (Jus d'Amande)</h4><p>Sirop d'amande douce rafraîchissant, servi lors des mariages et réceptions.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Baklawa&background=daa520&color=fff&size=200" alt="Baklawa"></div>
+                <div class="plat-content"><h4>Baklawa Libyen</h4><p>Pâtisserie fine aux noix et au miel, héritage du savoir-faire ottoman.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Salad&background=006400&color=fff&size=200" alt="Salade"></div>
+                <div class="plat-content"><h4>Salade Verte Libyenne</h4><p>Crudités fraîches avec une vinaigrette citronnée et des herbes du jardin.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bread&background=daa520&color=fff&size=200" alt="Pain"></div>
+                <div class="plat-content"><h4>Pain Traditionnel</h4><p>Pain plat cuit au four d'argile, indispensable pour saucer les ragoûts.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Découvrez l'énergie vibrante de la Libye à travers ses festivals culturels et ses traditions oasiennes.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-calendar-day"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festival de Ghadamès</h4>
+                    <p>Célébration annuelle de la culture oasienne avec musiques, danses et courses de dromadaires (Octobre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Festivités nationales célébrant la souveraineté libyenne (24 Décembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Festival</span>
+                    <h4>Ghat Festival</h4>
+                    <p>Rassemblement des cultures touarègues du Sahara, musiques et traditions ancestrales (Novembre).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Printemps & Automne (Mars-Mai / Oct-Nov)</h5>
+                    <p class="small mb-0">Les périodes idéales pour visiter les sites antiques et le désert. Le climat est doux, évitant les chaleurs extrêmes de l'été et la fraîcheur des nuits d'hiver sahariennes.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-snowflake text-primary me-2"></i>Hiver (Décembre à Février)</h5>
+                    <p class="small mb-0">Excellent pour découvrir Tripoli et les côtes. Dans le désert (Acacus), les journées sont belles mais prévoyez des vêtements chauds pour les nuits glaciales sous tente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez systématiquement les conseils officiels de voyage. Le pays est en phase de stabilisation. Voyagez avec des agences agréées et des guides locaux.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire et souvent délivré via des agences de tourisme locales agréées. Les réglementations changent fréquemment, anticipez vos démarches.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-user-check fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Tradition</h6>
+                    <p class="small text-muted">Société conservatrice. Tenue décente requise (bras et jambes couverts). Respectez les usages religieux, particulièrement durant le Ramadan.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Argent</h6>
+                    <p class="small text-muted">Dinar Libyen (LYD). L'économie est basée sur l'espèce. Les cartes internationales sont rarement acceptées. Prévoyez des Euros ou Dollars à changer.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Omar+Leptis&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Omar">
+                        <h5 class="fw-bold mb-1">Omar El-Ghadamsi</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Archéologie Romaine</p>
+                        <p class="small text-muted">Guide conférencier passionné par Leptis Magna et Cyrène, Omar vous fera revivre l'époque glorieuse de la Tripolitaine.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:omar@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Omar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Salma+Sahara&background=8b4513&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Salma">
+                        <h5 class="fw-bold mb-1">Salma Touareg</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Sahara & Acacus</p>
+                        <p class="small text-muted">Originaire de Ghat, Salma est votre guide privilégiée pour explorer les mystères du Tadrart Acacus et des oasis du Fezzan.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:salma@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Salma</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ali+Tripoli&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ali">
+                        <h5 class="fw-bold mb-1">Ali Al-Madani</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturel Tripoli</p>
+                        <p class="small text-muted">Spécialiste de la Médina de Tripoli et des traditions culinaires libyennes, Ali vous fera découvrir l'âme de la capitale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ali@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Libye, le carrefour des civilisations. Découvrez un patrimoine millénaire et l'âme du Sahara avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Libye</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +218 21 000 000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> tripoli@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Libya - Crossroads of Civilizations</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/libye.js"></script>
+</body>
+
+</html>

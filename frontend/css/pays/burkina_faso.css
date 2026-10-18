@@ -1,0 +1,47 @@
+/**
+ * PROJET: VISIT AFRIKA
+ * FICHIER: burkina_faso.css
+ * DESCRIPTION: Styles spécifiques pour la page du Burkina Faso.
+ */
+
+/* 1. SECTIONS SPÉCIFIQUES */
+.hero-bf {
+    position: relative;
+}
+
+#map-container {
+    display: none; 
+    margin-bottom: 50px;
+}
+
+#burkina-map {
+    height: 500px; 
+    width: 100%; 
+    border-radius: 24px;
+}
+
+/* 2. GUIDES EXPERTS */
+.guide-avatar-img {
+    width: 120px; 
+    height: 120px; 
+    object-fit: cover;
+}
+
+.guide-status-dot {
+    width: 20px; 
+    height: 20px;
+}
+
+/* 3. MODALES ET INTERACTION */
+#visit-modal {
+    display: none;
+}
+
+/* 4. AJUSTEMENTS DE MISE EN PAGE */
+.mt-custom-5 {
+    margin-top: 3rem !important;
+}
+
+.shadow-premium {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}

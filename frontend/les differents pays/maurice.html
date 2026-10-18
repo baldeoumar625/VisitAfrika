@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: maurice.html
+    DESCRIPTION: Page pays premium standardisée pour l'Île Maurice.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'Île Maurice, la perle de l'Océan Indien. Des plages de sable blanc du Morne aux Terres des Sept Couleurs de Chamarel, explorez un paradis tropical.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - L'Île Maurice (La Perle de l'Océan Indien)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/maurice.jpg" alt="L'Île Maurice" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">L'Île Maurice</h1>
+            <p class="hero-subtitle">Un kaléidoscope de cultures au cœur d'un lagon émeraude</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Une Harmonie Tropicale entre Mer et Montagnes</h2>
+            <p class="section-description">
+                L'Île Maurice est bien plus qu'une simple destination balnéaire de rêve. Située dans le sud-ouest de l'Océan Indien, cette île volcanique est une terre de contrastes et de métissages. Célèbre pour ses lagons turquoises et ses plages de sable fin comme celles de l'Île aux Cerfs, elle cache également des trésors naturels intérieurs fascinants. Des Terres des Sept Couleurs de Chamarel aux sommets majestueux du Morne Brabant, classé à l'UNESCO pour son importance historique, l'île invite à l'exploration. Sa véritable richesse réside dans son peuple, un mélange vibrant d'influences indiennes, africaines, européennes et chinoises, qui s'exprime à travers une gastronomie épicée, une hospitalité légendaire et le rythme enivrant du Séga.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 merveilles de l'Île Maurice</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une plage ou un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plages">Plages & Lagons</span>
+                <span class="filter-tag" data-filter="nature">Nature & Reliefs</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="maurice-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Île aux Cerfs -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Ile aux Cerfs">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 120k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>L'Île aux Cerfs</h3>
+                        <p class="location-text">Un lagon émeraude et des plages de sable blanc pour une journée paradisiaque</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cerfs">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Chamarel (Terres des 7 couleurs) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Chamarel">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 150k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Terres des Sept Couleurs</h3>
+                        <p class="location-text">Une curiosité géologique unique aux nuances chromatiques fascinantes</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chamarel">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Jardin de Pamplemousses -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Pamplemousses">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 90k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Jardin Sir Seewoosagur Ramgoolam</h3>
+                        <p class="location-text">L'un des plus beaux jardins botaniques au monde, célèbre pour ses nénuphars géants</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pamplemousses">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Le Morne Brabant -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Le Morne">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest (UNESCO)</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Morne Brabant</h3>
+                        <p class="location-text">Une montagne majestueuse symbole de la lutte contre l'esclavage</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="morne">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Grand Bassin (Ganga Talao) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Grand Bassin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Plateau Central</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grand Bassin</h3>
+                        <p class="location-text">Lac sacré au cœur d'un cratère, haut lieu de spiritualité hindoue</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="grandbassin">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Port-Louis (Marché Central) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Port Louis">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Capitale</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 110k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Port-Louis & Le Caudan</h3>
+                        <p class="location-text">L'effervescence de la capitale, entre marché traditionnel et front de mer moderne</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="portlouis">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Trou aux Cerfs -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Trou aux Cerfs">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Curepipe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Trou aux Cerfs</h3>
+                        <p class="location-text">Un cratère volcanique éteint offrant une vue imprenable sur les sommets de l'île</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="trouauxcerfs">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Île aux Aigrettes -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Ile aux Aigrettes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Sud-Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île aux Aigrettes</h3>
+                        <p class="location-text">Une réserve naturelle préservée abritant des espèces endémiques rares</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="aigrettes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Black River Gorges -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Gorges">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National des Gorges de la Rivière Noire</h3>
+                        <p class="location-text">Le poumon vert de l'île, paradis des randonneurs et des cascades</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gorges">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Flic-en-Flac -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Flic en Flac">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 95k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Flic-en-Flac</h3>
+                        <p class="location-text">Une étendue infinie de sable blanc bordée de filaos, idéale pour les couchers de soleil</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="flicenflac">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Cap Malheureux -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Cap Malheureux">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 80k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Église au Toit Rouge</h3>
+                        <p class="location-text">L'icône photographique de l'île, face aux îles du Nord</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="capmalheureux">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Tamarin Bay (Dauphins) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Tamarin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 105k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baie de Tamarin</h3>
+                        <p class="location-text">Le rendez-vous des dauphins au lever du soleil et spot de surf légendaire</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tamarin">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Maison Eureka -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Eureka">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moka</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Maison Eureka</h3>
+                        <p class="location-text">Demeure coloniale historique au milieu de jardins tropicaux et cascades</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="eureka">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Île Plate & Îlot Gabriel -->
+            <article class="attraction" data-category="plages">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Ile Plate">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord de l'île</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île Plate & Îlot Gabriel</h3>
+                        <p class="location-text">Des lagons cristallins pour une journée de plongée libre inoubliable</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gabriel">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Blue Bay Marine Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Blue Bay">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud-Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc Marin de Blue Bay</h3>
+                        <p class="location-text">Un aquarium naturel spectaculaire pour observer les coraux et les poissons tropicaux</p>
+                    </div>
+                </div>
+                <div class="attractions-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bluebay">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'unité dans la diversité, l'âme de Maurice.</p>
+                    <p>L'Île Maurice est un exemple unique au monde de coexistence pacifique de cultures multiples. Cette "Nation Arc-en-Ciel" vibre au son des cloches des églises, des chants des muezzins et des prières dans les temples hindous. L'héritage de l'île est marqué par les vagues successives de peuplement : les esclaves venus d'Afrique et de Madagascar, les travailleurs engagés d'Inde et de Chine, et les colons européens. Cette mixité se retrouve partout : dans les rues colorées de Port-Louis, dans les rythmes du Séga (inscrit au patrimoine de l'UNESCO) et dans une langue créole chantante qui unit tous les Mauriciens.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-warning me-2"></i>Le Séga Mauricien</h6>
+                                <p class="small text-muted mb-0">La danse nationale, héritage des esclaves, rythmée par la ravanne et la maravanne.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-om text-info me-2"></i>Spiritualité Hindoue</h6>
+                                <p class="small text-muted mb-0">La ferveur de Grand Bassin et les célébrations spectaculaires du Maha Shivaratree.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-landmark text-danger me-2"></i>Héritage Colonial</h6>
+                                <p class="small text-muted mb-0">Les grandes demeures de style colonial et l'histoire sucrière de l'île, du Jardin de Pamplemousses à Eureka.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-utensils text-success me-2"></i>Street Food Culture</h6>
+                                <p class="small text-muted mb-0">L'art de vivre mauricien se déguste à chaque coin de rue avec les dholl puri et gâteaux piment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Maurice" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Île</h2>
+        <p>Les saveurs et l'artisanat d'exception de Maurice. Du rhum de Chamarel aux maquettes de bateaux.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/maurice_rum.png" alt="Rhum" onerror="this.src='https://ui-avatars.com/api/?name=Rhum&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Prestige</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Rhum Agricole de Chamarel</h3>
+                    <p class="product-desc">Rhum de dégustation médaillé, produit artisanalement au coeur des plantations de canne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/maurice_vanilla.png" alt="Vanille" onerror="this.src='https://ui-avatars.com/api/?name=Vanille&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gousses de Vanille de l'Île</h3>
+                    <p class="product-desc">Vanille Bourbon d'une qualité exceptionnelle, parfumée et charnue, cultivée localement.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/boat_model.png" alt="Maquette" onerror="this.src='https://ui-avatars.com/api/?name=Boat&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Maquette de Bateau Historique</h3>
+                    <p class="product-desc">Réplique fidèle réalisée entièrement à la main en bois précieux, spécialité de Curepipe.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Sugar&background=f5f5dc&color=000&size=200" alt="Sucre">
+                    <span class="stock-badge">Terroir</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Coffret Sucres Spéciaux</h3>
+                    <p class="product-desc">Sélection de sucres naturels de canne aux arômes subtils, du Demerara au Muscovado.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cashmere&background=daa520&color=fff&size=200" alt="Cachemire">
+                    <span class="stock-badge">Style</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Écharpe en Cachemire Mauricien</h3>
+                    <p class="product-desc">Écharpe d'une douceur infinie, tissée dans les manufactures de l'île pour les plus grandes marques.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200" alt="The">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Thé Bois Chéri à la Vanille</h3>
+                    <p class="product-desc">Le thé noir emblématique de l'île, aux notes douces et parfumées de vanille naturelle.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">10 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/maurice.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escales <span>Haut de Gamme</span></h2>
+                    <p>Découvrez notre sélection exclusive des resorts les plus prestigieux de l'île pour un séjour inoubliable.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="royal_palm">Royal Palm Beachcomber Luxury</option>
+                            <option value="lux_gaube">LUX* Grand Gaube</option>
+                            <option value="constance">Constance Prince Maurice</option>
+                            <option value="one_only">One&Only Le Saint Géran</option>
+                            <option value="shangri_la">Shangri-La Le Touessrok</option>
+                            <option value="four_seasons">Four Seasons Resort Mauritius</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Royal Palm"></div>
+                    <div class="hotel-content">
+                        <h4>Royal Palm</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Grand Baie, Ultra-Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="LUX* Gaube"></div>
+                    <div class="hotel-content">
+                        <h4>LUX* Grand Gaube</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Grand Gaube, Design & Chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Constance"></div>
+                    <div class="hotel-content">
+                        <h4>Constance Prince Maurice</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Poste de Flacq, Élégance</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="One&Only"></div>
+                    <div class="hotel-content">
+                        <h4>One&Only St Géran</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Belle Mare, Iconique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Shangri-La"></div>
+                    <div class="hotel-content">
+                        <h4>Shangri-La Touessrok</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Trou d'Eau Douce, Exclusif</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Four Seasons"></div>
+                    <div class="hotel-content">
+                        <h4>Four Seasons</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Beau Champ, Resort & Spa</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine mauricienne est un festin de saveurs, fusionnant les traditions indiennes, chinoises, européennes et créoles.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dholl&background=daa520&color=fff&size=200" alt="Dholl Puri"></div>
+                <div class="plat-content"><h4>Dholl Puri</h4><p>Le snack national : galettes de pois cassés farcies de curry et rougaille.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bol&background=8b0000&color=fff&size=200" alt="Bol Renverse"></div>
+                <div class="plat-content"><h4>Bol Renversé</h4><p>Plat d'influence chinoise avec riz, légumes, viande et un œuf au plat sur le dessus.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mines&background=daa520&color=fff&size=200" alt="Mines Frites"></div>
+                <div class="plat-content"><h4>Mines Frites</h4><p>Nouilles sautées à la chinoise avec légumes, poulet ou crevettes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rougaille&background=8b0000&color=fff&size=200" alt="Rougaille"></div>
+                <div class="plat-content"><h4>Rougaille</h4><p>Sauce tomate créole épicée, base de nombreux plats mauriciens.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Biryani&background=daa520&color=fff&size=200" alt="Biryani"></div>
+                <div class="plat-content"><h4>Biryani Mauricien</h4><p>Riz basmati parfumé aux épices, poulet ou agneau, spécialité de la communauté musulmane.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gateau&background=daa520&color=fff&size=200" alt="Gateau Piment"></div>
+                <div class="plat-content"><h4>Gâteau Piment</h4><p>Boulettes de pois cassés frites, croustillantes et relevées, idéales à l'apéritif.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Curry&background=daa520&color=fff&size=200" alt="Curry Cerf"></div>
+                <div class="plat-content"><h4>Curry de Cerf</h4><p>Spécialité de saison, viande de cerf mijotée dans une sauce masala onctueuse.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Vindaye&background=daa520&color=fff&size=200" alt="Vindaye"></div>
+                <div class="plat-content"><h4>Vindaye de Poisson</h4><p>Poisson frit et mariné dans une sauce au vinaigre, moutarde et curcuma.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Alouda&background=f5f5dc&color=000&size=200" alt="Alouda"></div>
+                <div class="plat-content"><h4>Alouda</h4><p>Boisson lactée rafraîchissante aux graines de basilic et gelée d'agar-agar.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fruits&background=daa520&color=fff&size=200" alt="Fruits Confits"></div>
+                <div class="plat-content"><h4>Fruits au Sel Piment</h4><p>Ananas ou mangues vertes servis avec un mélange de sel et de piment fort.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson Grille"></div>
+                <div class="plat-content"><h4>Poisson Grillé Créole</h4><p>Fraîchement pêché et grillé avec du beurre d'ail, persil et citron.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Napolitaine&background=ffb6c1&color=000&size=200" alt="Napolitaine"></div>
+                <div class="plat-content"><h4>Napolitaine</h4><p>Sablé fondant fourré à la confiture et recouvert d'un glaçage rose iconique.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Partagez la ferveur et la joie de vivre mauricienne lors des célébrations annuelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-om"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Religion</span>
+                    <h4>Maha Shivaratree</h4>
+                    <p>La plus grande procession hindoue vers Grand Bassin (Février/Mars), un moment de ferveur unique.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Festival</span>
+                    <h4>Festival International Kreol</h4>
+                    <p>Célébration de la culture, de la langue et de la musique créole à travers toute l'île (Octobre/Novembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Célébrations nationales (12 Mars) avec parades, concerts et feux d'artifice dans toute l'île.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Mai à Décembre</h5>
+                    <p class="small mb-0">La période idéale pour visiter l'île. Le climat est sec, ensoleillé et les températures sont agréables (20-25°C). Parfait pour toutes les activités, de la plage à la randonnée.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella text-primary me-2"></i>Janvier à Avril</h5>
+                    <p class="small mb-0">Saison chaude et humide, avec des risques de cyclones. C'est cependant la meilleure période pour la plongée (eaux cristallines) et pour profiter des fruits tropicaux.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">L'île est sûre. Vigilance habituelle sur les lieux touristiques. Les Mauriciens sont extrêmement accueillants et serviables.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-car fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Transport</h6>
+                    <p class="small text-muted">Conduite à gauche. Louer une voiture est idéal, mais le réseau de bus couvre toute l'île de manière pittoresque.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Exemption de visa pour la plupart des nationalités touristiques (UE, Suisse, Canada). Passeport valide 6 mois après le retour.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-primary mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Roupie Mauricienne (MUR). Distributeurs automatiques disponibles partout. Cartes bancaires acceptées dans la plupart des commerces.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Yannick+Lagoon&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Yannick">
+                        <h5 class="fw-bold mb-1">Yannick Larose</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Lagons & Mer</p>
+                        <p class="small text-muted">Natif du Nord, Yannick vous fera découvrir les secrets des îles du Nord et les plus beaux spots de plongée.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:yannick@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Yannick</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Priya+Culture&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Priya">
+                        <h5 class="fw-bold mb-1">Priya Moonian</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Culture & Spiritualité</p>
+                        <p class="small text-muted">Passionnée par l'histoire de son île, Priya vous guidera à travers les temples, marchés et sites historiques de Maurice.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:priya@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Priya</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Raj+Nature&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Raj">
+                        <h5 class="fw-bold mb-1">Rajesh Bhunnoo</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Nature & Randonnée</p>
+                        <p class="small text-muted">Expert des Gorges de la Rivière Noire, Raj vous accompagnera sur les sommets pour des vues à couper le souffle.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:raj@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Raj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">L'Île Maurice, la perle de l'Océan Indien. Découvrez un paradis tropical et un métissage culturel unique avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Maurice</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +230 200 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> maurice@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Mauritius - Indian Ocean Pearl</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/maurice.js"></script>
+</body>
+
+</html>

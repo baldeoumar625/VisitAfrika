@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: benin.html
+    DESCRIPTION: Page pays premium standardisée pour le Bénin.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Bénin, le berceau du Vaudou et l'ancien Royaume de Dahomey. Des palais royaux d'Abomey à la cité lacustre de Ganvié, explorez une culture vibrante.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=22">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=22">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Bénin</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <!-- MENU TOGGLE BUTTON (MOBILE) -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- NAVIGATION -->
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">
+                            <i class="fas fa-home"></i> Accueil
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../pays.html" class="nav-link active">
+                            <i class="fas fa-globe"></i> Pays
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="../blogs.html" class="nav-link">
+                            <i class="fas fa-blog"></i> Blogs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../informations.html" class="nav-link">
+                            <i class="fas fa-info-circle"></i> Informations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../galerie.html" class="nav-link">
+                            <i class="fas fa-images"></i> Galerie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../propos.html" class="nav-link">
+                            <i class="fas fa-user"></i> À Propos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/benin.jpg" alt="Le Bénin" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Bénin</h1>
+            <p class="hero-subtitle">Le berceau des traditions et la force de l'histoire</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Âme de l'Afrique de l'Ouest</h2>
+            <p class="section-description">
+                Ancien Royaume de Dahomey, le Bénin est un pays d'une richesse historique et spirituelle exceptionnelle. Berceau du culte Vaudou, il offre un voyage unique entre mémoire douloureuse de la traite négrière à Ouidah, splendeur des palais royaux d'Abomey et vie paisible des cités lacustres. Du sud côtier aux montagnes de l'Atacora, le Bénin est une terre d'accueil et d'authenticité.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher un site...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="littoral">Littoral</span>
+                <span class="filter-tag" data-filter="atlantique">Atlantique</span>
+                <span class="filter-tag" data-filter="oueme">Ouémé</span>
+                <span class="filter-tag" data-filter="zou">Zou</span>
+                <span class="filter-tag" data-filter="mono">Mono</span>
+                <span class="filter-tag" data-filter="atacora">Atacora</span>
+                <span class="filter-tag" data-filter="alibori">Alibori</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Afficher la carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="benin-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Ouidah -->
+            <article class="attraction" data-category="atlantique">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Porte du Non-Retour.png" alt="Ouidah">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouidah</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Porte du Non-Retour</h3>
+                        <p class="location-text">Mémorial poignant de la traite négrière</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ouidah">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Abomey -->
+            <article class="attraction" data-category="zou">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Palais Royaux d'Abomey.png" alt="Abomey">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Abomey</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais Royaux d'Abomey</h3>
+                        <p class="location-text">Cœur historique de l'ancien Dahomey</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="abomey">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Ganvié -->
+            <article class="attraction" data-category="atlantique">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Ganvié.png" alt="Ganvie">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lac Nokoué</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ganvié (Venise de l'Afrique)</h3>
+                        <p class="location-text">Cité lacustre millénaire sur pilotis</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ganvie">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Pendjari -->
+            <article class="attraction" data-category="atacora">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Parc de la Pendjari.png" alt="Pendjari">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Atacora</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de la Pendjari</h3>
+                        <p class="location-text">Le plus beau safari d'Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pendjari">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Grand-Popo -->
+            <article class="attraction" data-category="mono">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Grand-Popo.png" alt="Grand Popo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mono</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Grand-Popo</h3>
+                        <p class="location-text">Plages infinies et embouchure du fleuve Mono</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="grand_popo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Cotonou -->
+            <article class="attraction" data-category="littoral">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Marché Dantokpa.png" alt="Cotonou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cotonou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Marché Dantokpa</h3>
+                        <p class="location-text">Le plus grand marché à ciel ouvert de la région</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cotonou_marche">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Porto-Novo -->
+            <article class="attraction" data-category="oueme">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Porto-Novo.png" alt="Porto Novo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Porto-Novo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Porto-Novo</h3>
+                        <p class="location-text">Capitale aux multiples influences coloniales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="porto_novo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Temple des Pythons -->
+            <article class="attraction" data-category="atlantique">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Temple des Pythons.png" alt="Python">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouidah</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Temple des Pythons</h3>
+                        <p class="location-text">Lieu sacré du culte Vaudou</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="temple_pythons">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Route des Esclaves -->
+            <article class="attraction" data-category="atlantique">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Route des Escaliers.png" alt="Route">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouidah</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Route des Esclaves</h3>
+                        <p class="location-text">Un parcours de mémoire classé à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="route_esclaves">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Tanougou -->
+            <article class="attraction" data-category="atacora">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Chutes de Tanougou.png" alt="Tanougou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Atacora</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Tanougou</h3>
+                        <p class="location-text">Eaux cristallines au pied de la chaîne de l'Atacora</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tanougou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Tata Somba -->
+            <article class="attraction" data-category="atacora">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Pays Tata Somba.png" alt="Tata">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Natitingou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pays Tata Somba</h3>
+                        <p class="location-text">Maisons-forteresses uniques au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="natitingou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Fondation Zinsou -->
+            <article class="attraction" data-category="littoral">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Musée Fondation Zinsou.png" alt="Zinsou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ouidah / Cotonou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 7.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée Fondation Zinsou</h3>
+                        <p class="location-text">Le phare de l'art contemporain africain</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="zinsou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Bouche du Roy -->
+            <article class="attraction" data-category="mono">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Bouches du Roy.png" alt="Bouche">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grand-Popo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Bouche du Roy</h3>
+                        <p class="location-text">Réserve de biosphère et mangrove majestueuse</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bouche_du_roy">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Parc National W -->
+            <article class="attraction" data-category="alibori">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Parc National W du Benin.png" alt="Parc W">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National W</h3>
+                        <p class="location-text">Espace sauvage transfrontalier mythique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="parc_w">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Possotomé -->
+            <article class="attraction" data-category="mono">
+                <div class="attraction-img-wrapper">
+                    <img src="../images/sites des pays/benin/Possotomé.png" alt="Possotome">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lac Ahémé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Possotomé</h3>
+                        <p class="location-text">Thermalisme et légendes du lac Ahémé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="possotome">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La puissance des ancêtres et la fierté des rois.</p>
+                    <p>Le Bénin est une terre où le passé est omniprésent. Des légendes des Amazones du Dahomey à la spiritualité Vaudou, la culture béninoise est d'une profondeur rare. C'est ici qu'on comprend l'Afrique des traditions restée intacte, mais aussi une nation qui regarde vers l'avenir avec son dynamisme artistique et son hospitalité légendaire (La Tchéké).</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-warning me-2"></i>Sagesse Vaudou</h6>
+                                <p class="small text-muted mb-0">Une philosophie de vie basée sur l'harmonie entre l'homme, la nature et le divin.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-info me-2"></i>Royaume de Dahomey</h6>
+                                <p class="small text-muted mb-0">L'héritage d'une organisation militaire et politique qui a marqué l'Afrique de l'Ouest.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Zinli & Gbon</h6>
+                                <p class="small text-muted mb-0">Des rythmes percutants qui accompagnent les moments forts de la vie sociale et religieuse.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-hands-holding text-success me-2"></i>Artisanat Royal</h6>
+                                <p class="small text-muted mb-0">Le savoir-faire des bronziers et des tisserands d'Abomey transmis de génération en génération.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="../images/sites des pays/benin/histoire/culture.png" alt="Culture Benin" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'artisanat local</h2>
+        <p>Ramenez l'âme du Bénin chez vous. Des objets d'artisanat chargés d'histoire et de symbolisme.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/benin/Tissu Appliqué d'Abomey.png" alt="Tissu Applique" onerror="this.src='https://ui-avatars.com/api/?name=Abomey&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Appliqué d'Abomey</h3>
+                    <p class="product-desc">Toile racontant les exploits des anciens rois du Dahomey, faite à la main.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/benin/Statuette en Bronze Ciselé.png" alt="Statue Bronze" onerror="this.src='https://ui-avatars.com/api/?name=Bronze&background=cd7f32&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statuette en Bronze Ciselé</h3>
+                    <p class="product-desc">Représentation d'une Amazone ou d'un guerrier selon la technique de la cire perdue.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/benin/Parure Royale en Perles.png" alt="Bijoux" onerror="this.src='https://ui-avatars.com/api/?name=Bijou&background=FFD700&color=000&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Parure Royale en Perles</h3>
+                    <p class="product-desc">Bijoux traditionnels en perles de rocaille, inspirés par les ornements des dignitaires.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/benin/Beurre de Karité du Nord.png" alt="Beurre Karite">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Karité du Nord</h3>
+                    <p class="product-desc">100% pur et artisanal, issu des coopératives de femmes de l'Atacora.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">4 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/benin/Masque Guélédé Sculpté.png" alt="Masque">
+                    <span class="stock-badge">Art unique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Guélédé Sculpté</h3>
+                    <p class="product-desc">Pièce de collection en bois d'iroko, représentant l'hommage aux "Mères".</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">55 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/artisanat local/benin/Poterie de Sé.png" alt="Poterie Se">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poterie de Sé</h3>
+                    <p class="product-desc">Vase décoratif en terre cuite rouge, fabriqué selon des techniques millénaires.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">9 500 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/benin.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escale de <span>Charme</span></h2>
+                    <p>Découvrez notre sélection pour un séjour alliant confort moderne et cachet traditionnel.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un hôtel...</option>
+                            <option value="golden-tulip">Golden Tulip Le Diplomate (Cotonou)</option>
+                            <option value="novotel">Novotel Orisha (Cotonou)</option>
+                            <option value="casa-del-papa">Casa del Papa (Ouidah)</option>
+                            <option value="helios">Maison de l'Hélios (Cotonou)</option>
+                            <option value="azalai">Azalaï Hôtel Cotonou (Cotonou)</option>
+                            <option value="tata-somba">Hôtel Tata Somba (Natitingou)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Arrivée</label>
+                        <input type="date" id="check-in" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-check"></i> Départ</label>
+                        <input type="date" id="check-out" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-users"></i> Voyageurs</label>
+                        <select id="guests">
+                            <option value="1">1 Personne</option>
+                            <option value="2" selected>2 Personnes</option>
+                            <option value="3">3 Personnes</option>
+                            <option value="4">Famille (4+)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-user"></i> Nom Complet</label>
+                        <input type="text" id="user-name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-envelope"></i> Email / WhatsApp</label>
+                        <input type="text" id="user-contact" placeholder="Email ou Tel" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">
+                        Confirmer la réservation
+                    </button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="../images/hotels/benin/Golden Tulip.png" alt="Golden Tulip"></div>
+                    <div class="hotel-content">
+                        <h4>Golden Tulip</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Centre-ville, Cotonou</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="../images/hotels/benin/Casa del Papa.png" alt="Casa del Papa"></div>
+                    <div class="hotel-content">
+                        <h4>Casa del Papa</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Lagune & Mer, Ouidah</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="../images/hotels/benin/Novotel Orisha.png" alt="Novotel"></div>
+                    <div class="hotel-content">
+                        <h4>Novotel Orisha</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Front de mer, Cotonou</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="../images/hotels/benin/Maison de l'Hélios.png" alt="Helios"></div>
+                    <div class="hotel-content">
+                        <h4>Maison de l'Hélios</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier Haie Vive, Cotonou</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="../images/hotels/benin/Azalaï Hôtel Cotonou.png" alt="Azalaï Hôtel"></div>
+                    <div class="hotel-content">
+                        <h4>Azalaï Hôtel Cotonou</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Place de l'Indépendance, Cotonou</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="../images/hotels/benin/Hôtel Tata Somba.png" alt="Tata Somba"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Tata Somba</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Natitingou, Atacora</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine béninoise est réputée pour sa saveur et sa variété, utilisant largement le maïs, l'igname et une multitude de sauces épicées.
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Amiwo.png" alt="Amiwo"></div>
+                <div class="plat-content"><h4>Amiwo</h4><p>Pâte de maïs rouge à la tomate servie avec du poulet braisé.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Atassi.png" alt="Atassi"></div>
+                <div class="plat-content"><h4>Atassi</h4><p>Mélange de riz et de haricots, un classique du quotidien.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Dakouin.png" alt="Dakouin"></div>
+                <div class="plat-content"><h4>Dakouin</h4><p>Spécialité du sud : gari et friture de poisson frais.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Igname Pilée (Agoun).png" alt="Igname"></div>
+                <div class="plat-content"><h4>Igname Pilée (Agoun)</h4><p>Le plat d'excellence du nord, servi avec une sauce arachide ou graine.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Ablo.png" alt="Ablo"></div>
+                <div class="plat-content"><h4>Ablo</h4><p>Petits pains de riz et maïs fermentés, légèrement sucrés.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Wagassi.png" alt="Wagassi"></div>
+                <div class="plat-content"><h4>Wagassi</h4><p>Fromage de vache traditionnel des Peuls, souvent frit.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Massa.png" alt="Massa"></div>
+                <div class="plat-content"><h4>Massa</h4><p>Galettes de riz frites, délicieuses au petit-déjeuner.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Akassa.png" alt="Akassa"></div>
+                <div class="plat-content"><h4>Akassa</h4><p>Pâte de maïs fermentée servie avec une sauce gluante ou de la friture.</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Djenkoumé.png" alt="Djenkoume"></div>
+                <div class="plat-content"><h4>Djenkoumé</h4><p>Pâte de maïs cuite dans une sauce tomate épicée.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Jus de Baobab.png" alt="Baobab"></div>
+                <div class="plat-content"><h4>Jus de Baobab</h4><p>Boisson onctueuse et vitaminée extraite du fruit du baobab.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Sauce Moyo.png" alt="Moyo"></div>
+                <div class="plat-content"><h4>Sauce Moyo</h4><p>Sauce fraîche à base de tomates, oignons et piment.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/benin/Crabe farci.png" alt="Crabe"></div>
+                <div class="plat-content"><h4>Crabe farci</h4><p>Délice des côtes béninoises, préparé avec des épices locales.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Le Bénin vibre au rythme de festivals uniques qui célèbrent son identité profonde.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Spirituel</span>
+                    <h4>Fête du Vaudou</h4>
+                    <p>Chaque 10 janvier, le pays célèbre ses racines spirituelles avec ferveur (Ouidah).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-crown"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festival Gaani</h4>
+                    <p>Grande fête traditionnelle du peuple Baatonu à Nikki (Nord-Bénin).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-palette"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Art</span>
+                    <h4>Bénin Design Week</h4>
+                    <p>Célébration du design et de l'art contemporain béninois à Cotonou.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Nov. à Mars)</h5>
+                    <p class="small mb-0">C'est la période idéale pour visiter tout le pays et surtout faire le safari à la Pendjari (animaux visibles aux points d'eau).</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Accalmie Tempérée (Août - Sept.)</h5>
+                    <p class="small mb-0">Une accalmie bienvenue dans les pluies, idéale pour profiter de la côte sans les fortes chaleurs.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Bénin est un pays paisible. Évitez simplement les zones frontalières éloignées du nord extrême. La courtoisie est la règle.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludéen recommandé. Ne buvez que de l'eau en bouteille.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-language fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">Le Français est officiel. Le Fon (sud), le Yoruba et le Bariba (nord) sont les langues nationales dominantes.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc CFA (XOF). Les distributeurs sont nombreux en ville. Prévoyez du cash pour les marchés et les villages.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Koffi+Gado&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Koffi">
+                        <h5 class="fw-bold mb-1">Koffi Gado</h5>
+                        <p class="text-primary small fw-bold mb-3">Historien & Expert Vaudou</p>
+                        <p class="small text-muted">Koffi vous fera découvrir Ouidah et Abomey avec un regard d'initié sur les cultes et l'histoire royale.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="#" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm visit-btn" data-site="ouidah">Réserver avec Koffi</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Sika+Almeida&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Sika">
+                        <h5 class="fw-bold mb-1">Sika Almeida</h5>
+                        <p class="text-primary small fw-bold mb-3">Spécialiste Lagunes & Ganvié</p>
+                        <p class="small text-muted">Sika connaît chaque recoin du lac Nokoué. Elle vous fera vivre une immersion inoubliable à Ganvié.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="#" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm visit-btn" data-site="ganvie">Réserver avec Sika</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Bio+Bata&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Bio">
+                        <h5 class="fw-bold mb-1">Bio Bata</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Safari Pendjari</p>
+                        <p class="small text-muted">Bio est un traqueur hors pair. Il vous guidera en toute sécurité à la rencontre des lions et éléphants du nord.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="#" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm visit-btn" data-site="pendjari">Réserver avec Bio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <!-- SECTION 1 : À PROPOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-globe"></i> À Propos de Visit Afrika
+                </h4>
+                <p class="footer-desc">
+                    Le Bénin vous attend. Plongez au cœur d'une Afrique authentique et vibrante avec nos circuits exclusifs. Découvrez la culture, l'histoire et les traditions d'une terre d'accueil exceptionnelle.
+                </p>
+            </div>
+
+            <!-- SECTION 2 : SERVICES -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-concierge-bell"></i> Nos Services
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-check"></i> Excursions Nature</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Visites Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Circuits Gastronomiques</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Guides Experts</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Séjours Balnéaires</a></li>
+                    <li><a href="#"><i class="fas fa-check"></i> Hébergement</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 3 : INFORMATIONS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-info-circle"></i> Informations
+                </h4>
+                <ul class="footer-list">
+                    <li><a href="#"><i class="fas fa-book"></i> Culturelles</a></li>
+                    <li><a href="#"><i class="fas fa-futbol"></i> Sportives</a></li>
+                    <li><a href="#"><i class="fas fa-flag"></i> Politiques</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Populations</a></li>
+                    <li><a href="#"><i class="fas fa-leaf"></i> Environnementales</a></li>
+                </ul>
+            </div>
+
+            <!-- SECTION 4 : CONTACTS -->
+            <div class="footer-section">
+                <h4 class="footer-title">
+                    <i class="fas fa-phone"></i> Nous Contacter
+                </h4>
+                <div class="contact-info">
+                    <p class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>(+224) 625 34 30 39<br>(+224) 663 86 44 87</span>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:baldeoumar313172@gmail.com">baldeoumar313172@gmail.com</a>
+                    </p>
+                    <p class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Université de Labé/Labé - Guinée</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+        <div class="footer-social">
+            <h5>Suivez-nous sur les réseaux sociaux</h5>
+            <ul class="social-links">
+                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#" title="YouTube"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Bénin - Terre d'Éclat</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les%20differents%20pays/benin.js?v=2"></script>
+</body>
+
+</html>

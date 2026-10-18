@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: mozambique.html
+    DESCRIPTION: Page pays premium standardisée pour le Mozambique.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Mozambique, la perle de l'Océan Indien. Des archipels paradisiaques de Bazaruto à l'histoire coloniale de l'Île de Mozambique, vivez l'aventure tropicale.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Mozambique (Perle de l'Océan Indien)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Australe/mozambie1.jpg" alt="Le Mozambique" onerror="this.src='../images/pays/Afrique_Australe/mozambie.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Mozambique</h1>
+            <p class="hero-subtitle">Le turquoise infini de l'Océan Indien et l'âme d'un peuple fier</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Évasion Tropicale Authentique</h2>
+            <p class="section-description">
+                Le Mozambique est une destination de rêve étirée le long d'une côte de 2 500 km. Mariage parfait entre plages de sable blanc poudré, eaux cristallines et patrimoine historique riche, le pays sort des sentiers battus. De la capitale vibrante Maputo aux archipels immaculés de Bazaruto et des Quirimbas, le Mozambique offre une biodiversité marine unique au monde, où les requins-baleines et les raies mantas règnent en maîtres. Un pays où l'hospitalité mozambicaine et les saveurs épicées peri-peri vous laisseront un souvenir indélébile.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux du patrimoine mozambicain</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="plage">Plages & Archipels</span>
+                <span class="filter-tag" data-filter="culture">Histoire & Villes</span>
+                <span class="filter-tag" data-filter="nature">Parcs & Nature</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="mozambique-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Archipel de Bazaruto -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Bazaruto">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Vilanculos</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 95k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Archipel de Bazaruto</h3>
+                        <p class="location-text">Dunes de sable blanc et récifs coralliens protégés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bazaruto">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Île de Mozambique -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Ilha de Moçambique">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nampula</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Mozambique</h3>
+                        <p class="location-text">Ancienne capitale coloniale et patrimoine mondial de l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ilha_moz">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Parc National de Gorongosa -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Gorongosa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sofala</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de Gorongosa</h3>
+                        <p class="location-text">Un modèle de renaissance écologique et de biodiversité retrouvée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gorongosa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Tofo Beach -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Tofo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Inhambane</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tofo Beach</h3>
+                        <p class="location-text">Mecque de la plongée pour les requins-baleines et les raies mantas</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tofo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Maputo (Gare Centrale) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Maputo Station">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Maputo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 48k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Gare Centrale de Maputo</h3>
+                        <p class="location-text">Chef-d'œuvre architectural de style Eiffel au cœur de la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="maputo_station">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Archipel des Quirimbas -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Quirimbas">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Cabo Delgado</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Archipel des Quirimbas</h3>
+                        <p class="location-text">Îles isolées et sauvages avec une riche culture Swahili</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="quirimbas">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Ponta do Ouro -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Ponta do Ouro">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Maputo Province</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ponta do Ouro</h3>
+                        <p class="location-text">Point de rencontre privilégié avec les dauphins sauvages</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ponta_ouro">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Vilanculos -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Vilanculos">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Inhambane</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vilanculos</h3>
+                        <p class="location-text">Porte d'entrée vers Bazaruto et spot de kitesurf renommé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="vilanculos">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Lac Niassa (Lac Malawi) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Lake Niassa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Niassa Province</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Niassa</h3>
+                        <p class="location-text">Eaux douces cristallines et biodiversité de poissons unique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="niassa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Réserve Spéciale de Maputo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Maputo Reserve">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Matutuíne</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve d'Éléphants de Maputo</h3>
+                        <p class="location-text">Où la brousse rencontre l'océan dans un cadre sauvage</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="maputo_reserve">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Inhambane (Ville Historique) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Inhambane Town">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Inhambane</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville d'Inhambane</h3>
+                        <p class="location-text">Charme colonial portugais et marchés de poissons animés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="inhambane">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Île d'Ibo -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Ibo Island">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Quirimbas</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île d'Ibo</h3>
+                        <p class="location-text">Temps suspendu entre ruines historiques et artisanat de l'argent</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ibo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Chimanimani Mountains -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Chimanimani">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Manica Province</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Montagnes de Chimanimani</h3>
+                        <p class="location-text">Randonnée sauvage et sommets escarpés à la frontière zimbabwéenne</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chimanimani">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Beira -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Beira">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sofala Province</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Beira</h3>
+                        <p class="location-text">Deuxième ville du pays, port historique et ambiance portuaire authentique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="beira">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Marché de Poissons de Maputo -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Fish Market">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Maputo, Marginal</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mercado de Peixe</h3>
+                        <p class="location-text">Expérience culinaire ultime : achetez votre poisson et faites-le griller sur place</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fish_market">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une fusion d'influences latines et d'âme Swahili.</p>
+                    <p>La culture du Mozambique est une mosaïque fascinante née de siècles d'échanges atlantiques et indiens. L'héritage portugais se mêle aux racines africaines pour créer une identité unique, visible dans l'architecture, la langue et une musique envoûtante comme la Marrabenta. L'art Makonde, célèbre pour ses sculptures en bois d'ébène aux formes complexes et spirituelles, est le joyau artistique du pays. Ici, la vie bat au rythme de l'océan et de la joie de vivre mozambicaine.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-warning me-2"></i>Marrabenta Rhythm</h6>
+                                <p class="small text-muted mb-0">La musique nationale de Maputo, mélange dynamique de rythmes africains et d'instruments occidentaux.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-palette text-info me-2"></i>Makonde Art</h6>
+                                <p class="small text-muted mb-0">Sculptures en ébène mondialement connues représentant des "arbres de vie" et des motifs spirituels.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-landmark text-danger me-2"></i>Swahili Coast</h6>
+                                <p class="small text-muted mb-0">L'héritage des cités-états musulmanes du nord qui commerçaient avec l'Arabie et l'Inde.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-utensils text-success me-2"></i>Luso-African Fusion</h6>
+                                <p class="small text-muted mb-0">Une culture culinaire et sociale unique où le café portugais rencontre le soleil africain.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Mozambique" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Océan</h2>
+        <p>Ramenez chez vous l'éclat du Mozambique. Des tissus Capulana aux précieuses sculptures Makonde.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/capulana_fabric.png" alt="Capulana" onerror="this.src='https://ui-avatars.com/api/?name=Capulana&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Mode</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Capulana Authentique</h3>
+                    <p class="product-desc">Tissu en coton aux motifs vibrants et iconiques, symbole de l'élégance féminine mozambicaine.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">1 200 MZN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/makonde_carving.png" alt="Makonde" onerror="this.src='https://ui-avatars.com/api/?name=Makonde&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture Makonde en Ébène</h3>
+                    <p class="product-desc">"Ujamaa" (Arbre de vie) sculpté à la main, représentant l'unité et la continuité des générations.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">4 500 MZN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/cashew_nuts.png" alt="Cajou" onerror="this.src='https://ui-avatars.com/api/?name=Cajou&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Noix de Cajou Grillées</h3>
+                    <p class="product-desc">Les meilleures noix de cajou du monde, grillées artisanalement et relevées au piment Peri-Peri.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">600 MZN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Shell&background=00008b&color=fff&size=200" alt="Bijou Nacre">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Collier en Nacre & Argent</h3>
+                    <p class="product-desc">Bijou délicat fabriqué par les orfèvres de l'île de Mozambique avec les trésors de l'océan.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">2 500 MZN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Baskets&background=daa520&color=fff&size=200" alt="Vannerie">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Tissé de Gaza</h3>
+                    <p class="product-desc">Vannerie traditionnelle robuste et esthétique, parfaite pour la décoration.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">900 MZN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Art&background=8b0000&color=fff&size=200" alt="Art Malangatana">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Reproduction Malangatana</h3>
+                    <p class="product-desc">Affiche d'art de haute qualité des œuvres du célèbre peintre mozambicain Malangatana Valente Ngwenya.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">1 800 MZN</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/mozambique.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour au <span>Paradis</span></h2>
+                    <p>Découvrez notre sélection des resorts les plus luxueux et des palaces historiques du pays.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="polana">Polana Serena (Maputo)</option>
+                            <option value="anantara">Anantara Bazaruto</option>
+                            <option value="azura">Azura Benguerra Island</option>
+                            <option value="white_pearl">White Pearl Resorts</option>
+                            <option value="cardoso">Hotel Cardoso (Maputo)</option>
+                            <option value="ibo_lodge">Ibo Island Lodge</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Dates</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Polana Serena"></div>
+                    <div class="hotel-content">
+                        <h4>Polana Serena Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Maputo, Palace Historique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Anantara"></div>
+                    <div class="hotel-content">
+                        <h4>Anantara Bazaruto</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bazaruto Island, Resort de luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Azura"></div>
+                    <div class="hotel-content">
+                        <h4>Azura Benguerra</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Benguerra Island, Villa de plage</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="White Pearl"></div>
+                    <div class="hotel-content">
+                        <h4>White Pearl Resorts</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ponta Mamoli, Design chic</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Ibo Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Ibo Island Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Quirimbas, Patrimoine colonial</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Cardoso"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Cardoso</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Maputo, Vue sur la baie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine mozambicaine est une explosion de saveurs où les produits frais de l'océan rencontrent l'huile de palme et le piment Peri-Peri.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Crevettes&background=8b0000&color=fff&size=200" alt="Crevettes"></div>
+                <div class="plat-content"><h4>Crevettes Peri-Peri</h4><p>Le plat iconique : des crevettes géantes marinées au piment, à l'ail et au citron, puis grillées.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Matapa&background=006400&color=fff&size=200" alt="Matapa"></div>
+                <div class="plat-content"><h4>Le Matapa</h4><p>Feuilles de manioc pilées cuites dans du lait de coco avec des arachides et parfois des crevettes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Frango&background=8b4513&color=fff&size=200" alt="Frango"></div>
+                <div class="plat-content"><h4>Frango a Zambeziana</h4><p>Poulet mariné au lait de coco frais puis grillé au charbon de bois.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Crabe&background=8b0000&color=fff&size=200" alt="Crabe"></div>
+                <div class="plat-content"><h4>Crabes de Mangrove</h4><p>Crabes frais cuisinés dans une sauce épicée à la noix de coco.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Curry&background=daa520&color=fff&size=200" alt="Curry Poisson"></div>
+                <div class="plat-content"><h4>Curry de Poisson</h4><p>Poisson du jour mijoté dans un lait de coco parfumé aux épices Swahili.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Xima&background=f5f5dc&color=000&size=200" alt="Xima"></div>
+                <div class="plat-content"><h4>La Xima</h4><p>Bouillie de farine de maïs, base essentielle de tous les repas mozambicains.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pao&background=daa520&color=fff&size=200" alt="Pao"></div>
+                <div class="plat-content"><h4>Pão (Pain Portugais)</h4><p>Petits pains cuits au four à bois, héritage portugais, meilleurs quand ils sont chauds.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Badjias&background=8b4513&color=fff&size=200" alt="Badjias"></div>
+                <div class="plat-content"><h4>Badjias</h4><p>Beignets de haricots frits, épicés et croustillants, collation populaire.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mucapata&background=daa520&color=fff&size=200" alt="Mucapata"></div>
+                <div class="plat-content"><h4>Mucapata</h4><p>Plat de riz cuit avec des haricots et du lait de coco, spécialité du nord.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coconut&background=f5f5dc&color=000&size=200" alt="Sorbet Coco"></div>
+                <div class="plat-content"><h4>Sorbet de Noix de Coco</h4><p>Dessert rafraîchissant fait à partir de lait de coco frais pressé.</p>
+                </div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Seafood&background=8b0000&color=fff&size=200" alt="Grillades"></div>
+                <div class="plat-content"><h4>Plateau de Fruits de Mer</h4><p>Homards, langoustes et calamars grillés, servis sur la plage.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200" alt="The Gurue"></div>
+                <div class="plat-content"><h4>Thé de Gurue</h4><p>Thé noir de haute qualité produit dans les montagnes du nord du pays.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vibrez au son du Mozambique à travers ses festivals de musique et de danse légendaires.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Festival AZGO</h4>
+                    <p>Le plus grand festival de musique internationale et contemporaine de Maputo (Mai).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festival Marrabenta</h4>
+                    <p>Célébration du rythme national dans les rues de la capitale et à Marracuene (Février).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-fish"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Local</span>
+                    <h4>Festival de la Baleine</h4>
+                    <p>Événement annuel à Tofo célébrant la migration des baleines à bosse (Septembre).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Mai à Octobre)</h5>
+                    <p class="small mb-0">C'est le meilleur moment pour visiter. Les températures sont agréables, le ciel est bleu et l'humidité est faible. Idéal pour la plage et le safari.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella text-primary me-2"></i>Saison des Pluies (Décembre à Mars)</h5>
+                    <p class="small mb-0">Il fait chaud et humide avec des averses tropicales souvent intenses. C'est cependant la meilleure période pour observer les requins-baleines et les tortues imbriquées.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le sud du pays est sûr. Prudence recommandée dans certaines zones du nord (Cabo Delgado). Suivez les conseils officiels.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-mosquito fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Paludisme</h6>
+                    <p class="small text-muted">Zone à haut risque. Prophylaxie antipaludique impérative. Utilisez des moustiquaires et des répulsifs surtout le soir.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Exemption de visa pour de nombreux pays pour le tourisme (30 jours). Vérifiez les dernières régulations en ligne (e-Visa).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Metical (MZN). Le Rand sud-africain et le Dollar US sont acceptés dans les zones touristiques du sud.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ricardo+Maputo&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ricardo">
+                        <h5 class="fw-bold mb-1">Ricardo Matsinhe</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Culturel & Maputo</p>
+                        <p class="small text-muted">Ricardo est un amoureux de l'architecture et de l'histoire de Maputo. Il vous fera découvrir les secrets de la capitale et ses meilleurs jazz bars.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ricardo@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ricardo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ana+Bazaruto&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ana">
+                        <h5 class="fw-bold mb-1">Ana Paula</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Marine & Plongée</p>
+                        <p class="small text-muted">Biologiste marine passionnée, Ana vous guidera dans les eaux de Bazaruto pour une rencontre éthique avec les dugongs et les baleines.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ana@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ana</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Luis+Ilha&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Luis">
+                        <h5 class="fw-bold mb-1">Luis Nampula</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Historique (Île de Moz)</p>
+                        <p class="small text-muted">Natif de l'Île de Mozambique, Luis connaît chaque pierre et chaque légende de cette cité historique fascinante.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:luis@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Luis</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Mozambique, la perle de l'Océan Indien. Découvrez un paradis tropical et une culture vibrante avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Mozambique</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +258 21 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> maputo@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Mozambique - Indian Ocean Pearl</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/mozambique.js"></script>
+</body>
+
+</html>

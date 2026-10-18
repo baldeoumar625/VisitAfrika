@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: admin_blog.html
+    DESCRIPTION: Composant du projet Visit Afrika.
+-->
+
+<html lang="fr-FR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/admin_protection.js"></script>
+  <title>Nouvel Article - Administration</title>
+  <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-profile">
+        <img src="../images/admin_avatar.png" alt="Admin Avatar">
+        <div class="user-name">Thierno Oumar Baldé</div>
+        <div class="user-role">Administrateur</div>
+      </div>
+      
+      <span class="sidebar-menu-label">Principal</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin.html"><i class="fas fa-grid-2"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="admin_pays.html"><i class="fas fa-globe-africa"></i> Gestion Pays</a>
+        </li>
+        
+        <li>
+          <a href="admin_reservations.html"><i class="fas fa-calendar-check"></i> Réservations</a>
+        </li>
+        <li>
+          <a href="admin_blog.html" class="active"><i class="fas fa-feather-pointed"></i> Gestion Blogs</a>
+        </li>
+        <li>
+          <a href="admin_galerie.html"><i class="fas fa-photo-film"></i> Galerie</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Utilisateurs & Messages</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_utilisateurs.html"><i class="fas fa-users-gear"></i> Utilisateurs</a>
+        </li>
+        <li>
+          <a href="admin_messages.html"><i class="fas fa-envelope-open-text"></i> Messages</a>
+        </li>
+      </ul>
+
+      <span class="sidebar-menu-label mt-4-rem">Système</span>
+      <ul class="nav-links">
+        <li>
+          <a href="admin_parametres.html"><i class="fas fa-sliders"></i> Paramètres</a>
+        </li>
+        <li>
+          <a href="../index.html"><i class="fas fa-right-from-bracket"></i> Retour au site</a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Header -->
+      <header class="admin-header">
+        <div class="header-left">
+          <div class="toggle-sidebar cursor-pointer" id="sidebarToggle">
+            <i class="fas fa-bars-staggered"></i>
+          </div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0 ms-3 d-none d-md-flex">
+              <li class="breadcrumb-item"><a href="admin.html" class="text-decoration-none">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Nouvel Article</li>
+            </ol>
+          </nav>
+        </div>
+        <div class="header-right header-icon-group">
+          <!-- Dropdown Notifications -->
+          <div class="dropdown">
+            <div class="position-relative cursor-pointer me-2" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-bell fs-notification hover-primary transition-all"></i>
+              <span class="position-absolute badge rounded-pill bg-danger border border-light notification-badge"></span>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-3" style="width: 320px; z-index: 1050;">
+              <li><h6 class="dropdown-header fw-bold text-dark border-bottom pb-3 mb-2 px-3"><i class="fas fa-bell me-2 text-primary"></i> Notifications (2)</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-start py-2 px-3 hover-bg-light" href="admin_reservations.html">
+                  <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;"><i class="fas fa-calendar-check"></i></div>
+                  <div>
+                    <p class="mb-0 fw-semibold text-dark" style="font-size: 0.9rem;">Nouvelle réservation</p>
+                    <p class="text-muted small mb-0">Tour Mont Nimba - 2 pers.</p>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item d-flex align-items-start py-2 px-3 hover-bg-light" href="admin_pays.html">
+                  <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;"><i class="fas fa-globe-africa"></i></div>
+                  <div>
+                    <p class="mb-0 fw-semibold text-dark" style="font-size: 0.9rem;">Nouveau pays ajouté</p>
+                    <p class="text-muted small mb-0">Sénégal ajouté avec succès.</p>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li><a class="dropdown-item text-center text-primary small fw-bold py-2" href="#">Voir toutes les notifications <i class="fas fa-arrow-right ms-1"></i></a></li>
+            </ul>
+          </div>
+          
+          <!-- Dropdown Messages -->
+          <div class="dropdown">
+            <div class="cursor-pointer" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-message fs-notification hover-primary transition-all"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-4 mt-3" style="width: 320px; z-index: 1050;">
+              <li><h6 class="dropdown-header fw-bold text-dark border-bottom pb-3 mb-2 px-3"><i class="fas fa-message me-2 text-primary"></i> Messages Récents</h6></li>
+              <li>
+                <a class="dropdown-item d-flex align-items-center py-2 px-3 hover-bg-light" href="../contact.html">
+                  <div class="bg-info bg-opacity-10 text-info rounded-circle p-2 me-3 d-flex align-items-center justify-content-center" style="width: 35px; height: 35px;"><i class="fas fa-user"></i></div>
+                  <div class="overflow-hidden">
+                    <p class="mb-0 fw-semibold text-dark" style="font-size: 0.9rem;">Jean Dupont</p>
+                    <p class="text-muted small mb-0 text-truncate">Demande d'information sur un circuit.</p>
+                  </div>
+                </a>
+              </li>
+              <li><hr class="dropdown-divider my-2"></li>
+              <li><a class="dropdown-item text-center text-primary small fw-bold py-2" href="../contact.html">Voir tous les messages <i class="fas fa-arrow-right ms-1"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="admin-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h2 class="fw-bold mb-1">Rédiger un Nouvel Article</h2>
+            <p class="text-muted small">Partagez des récits de voyage et des conseils avec la communauté</p>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-light btn-sm px-3"><i class="fas fa-save me-2"></i> Brouillon</button>
+            <a href="admin.html" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-left me-2"></i> Dashboard</a>
+          </div>
+        </div>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="modern-card p-4">
+              <form id="formAddBlog" action="#" method="POST" enctype="multipart/form-data">
+                <div class="row g-5">
+                  <!-- Colonne de gauche: Infos de base -->
+                  <div class="col-lg-6">
+                    <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                      <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3 d-flex justify-content-center align-items-center icon-circle-40">
+                        <i class="fas fa-feather-pointed"></i>
+                      </div>
+                      <h5 class="fw-bold mb-0 text-dark">Informations de l'Article</h5>
+                    </div>
+                    
+                    <div class="row g-4">
+                      <div class="col-12 mt-0">
+                        <label for="titreArticle" class="form-label fw-semibold text-dark small">Titre de l'article <span class="text-danger">*</span></label>
+                        <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                          <span class="input-group-text bg-white border-end-0 text-primary"><i class="fas fa-heading"></i></span>
+                          <input type="text" class="form-control border-start-0 ps-0 py-2 fw-bold" id="titreArticle" placeholder="Ex: Les secrets de la forêt tropicale..." required>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mt-4">
+                        <label for="categorie" class="form-label fw-semibold text-dark small">Catégorie <span class="text-danger">*</span></label>
+                        <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                          <span class="input-group-text bg-white border-end-0 text-primary"><i class="fas fa-list-ul"></i></span>
+                          <select class="form-select border-start-0 ps-0 py-2" id="categorie" required>
+                            <option value="" selected disabled>Choisir une catégorie...</option>
+                            <option value="destinations">Destinations</option>
+                            <option value="conseils">Conseils Voyage</option>
+                            <option value="gastronomie">Gastronomie</option>
+                            <option value="festivals">Festivals & Culture</option>
+                            <option value="securite">Sécurité</option>
+                            <option value="sports">Sports</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mt-4">
+                        <label for="datePub" class="form-label fw-semibold text-dark small">Date de publication <span class="text-danger">*</span></label>
+                        <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                          <span class="input-group-text bg-white border-end-0 text-primary"><i class="fas fa-calendar-alt"></i></span>
+                          <input type="date" class="form-control border-start-0 ps-0 py-2" id="datePub" required>
+                        </div>
+                      </div>
+
+                      <div class="col-12 mt-4">
+                        <label for="auteur" class="form-label fw-semibold text-dark small">Auteur</label>
+                        <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                          <span class="input-group-text bg-white border-end-0 text-primary"><i class="fas fa-user-pen"></i></span>
+                          <input type="text" class="form-control border-start-0 ps-0 py-2" id="auteur" value="Thierno Oumar Baldé">
+                        </div>
+                      </div>
+
+                      <div class="col-12 mt-4">
+                        <label for="resumeArticle" class="form-label fw-semibold text-dark small">Résumé (Extrait) <span class="text-danger">*</span></label>
+                        <textarea class="form-control shadow-sm rounded-3 no-resize" id="resumeArticle" rows="3" placeholder="Un bref résumé accrocheur..." required></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Colonne de droite: Media & Description -->
+                  <div class="col-lg-6">
+                    <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                      <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3 d-flex justify-content-center align-items-center icon-circle-40">
+                        <i class="fas fa-pen-to-square"></i>
+                      </div>
+                      <h5 class="fw-bold mb-0 text-dark">Contenu & Médias</h5>
+                    </div>
+
+                    <div class="row g-4">
+                      <div class="col-12 mt-0">
+                        <label for="contenuArticle" class="form-label fw-semibold text-dark small">Contenu de l'article <span class="text-danger">*</span></label>
+                        <div class="p-2 bg-light border border-bottom-0 rounded-top d-flex gap-3 text-secondary">
+                          <i class="fas fa-bold cursor-pointer"></i>
+                          <i class="fas fa-italic cursor-pointer"></i>
+                          <i class="fas fa-link cursor-pointer"></i>
+                          <i class="fas fa-list cursor-pointer"></i>
+                          <i class="fas fa-image cursor-pointer"></i>
+                        </div>
+                        <textarea class="form-control shadow-sm rounded-0 rounded-bottom no-resize" id="contenuArticle" rows="9" placeholder="Rédigez votre histoire ici..." required></textarea>
+                      </div>
+
+                      <div class="col-12 mt-4">
+                        <label class="form-label fw-semibold text-dark small">Image de couverture <span class="text-danger">*</span></label>
+                        <div class="upload-drop-zone p-4 text-center rounded-4 position-relative" onclick="document.getElementById('imageArticle').click()">
+                          <i class="fas fa-image display-5 text-primary mb-2"></i>
+                          <h6 class="fw-bold text-dark mb-1">Cliquez ou glissez une image ici</h6>
+                          <p class="small text-muted mb-0">Transférez la vignette de l'article</p>
+                          <input class="d-none" type="file" id="imageArticle" accept="image/*" onchange="document.getElementById('fileStatusBlog').classList.remove('d-none'); document.getElementById('fileNameBlog').textContent = this.files[0]?.name || '';">
+                          <div id="fileStatusBlog" class="mt-3 d-none">
+                            <span class="badge bg-success bg-opacity-10 text-success border border-success rounded-pill px-3 py-2">
+                              <i class="fas fa-check-circle me-1"></i> <span id="fileNameBlog">Image sélectionnée</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 mt-5">
+                    <div class="d-flex justify-content-end gap-3 pt-3 border-top">
+                      <button type="reset" class="btn btn-light px-4 py-2 fw-semibold rounded-pill" onclick="document.getElementById('fileStatusBlog').classList.add('d-none')">Réinitialiser</button>
+                      <button type="submit" class="btn btn-primary px-5 py-2 fw-bold rounded-pill shadow-sm">
+                        <i class="fas fa-paper-plane me-2"></i> Publier l'Article
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-lg-10">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h3 class="fw-bold m-0">Liste des Articles</h3>
+            </div>
+            <div class="modern-card p-4">
+              <div class="table-responsive">
+                <table class="table align-middle">
+                  <thead class="table-light">
+                    <tr>
+                      <th style="width: 60px;">N°</th>
+                      <th>Titre</th>
+                      <th>Date</th>
+                      <th class="text-end">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="blogsTableBody">
+                    <tr>
+                      <td colspan="4" class="text-center py-4 text-muted">Chargement des articles...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Edition Blog -->
+        <div class="modal fade" id="editBlogModal" tabindex="-1">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content border-0 shadow">
+              <div class="modal-header">
+                <h5 class="modal-title fw-bold">Modifier l'Article</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form id="formEditBlog">
+                  <input type="hidden" id="editBlogId">
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Titre</label>
+                    <input type="text" class="form-control" id="editBlogTitle" required>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Catégorie</label>
+                    <select class="form-select" id="editBlogCategory" required>
+                      <option value="destinations">Destinations</option>
+                      <option value="conseils">Conseils Voyage</option>
+                      <option value="gastronomie">Gastronomie</option>
+                      <option value="festivals">Festivals & Culture</option>
+                      <option value="securite">Sécurité</option>
+                      <option value="sports">Sports</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Résumé</label>
+                    <textarea class="form-control" id="editBlogResume" rows="2" required></textarea>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label fw-semibold">Contenu</label>
+                    <textarea class="form-control" id="editBlogContent" rows="6" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Enregistrer les modifications</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/admin_dynamic.js?v=1.0.1"></script>
+  <script>
+    document.getElementById('sidebarToggle').addEventListener('click', function() {
+      const sidebar = document.getElementById('adminSidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('d-none');
+      } else {
+        sidebar.style.width = sidebar.style.width === '0px' ? '260px' : '0px';
+        sidebar.style.padding = sidebar.style.width === '0px' ? '0' : '1.5rem';
+        sidebar.style.overflow = 'hidden';
+      }
+    });
+
+    document.getElementById('datePub').valueAsDate = new Date();
+  </script>
+</body>
+
+</html>
+

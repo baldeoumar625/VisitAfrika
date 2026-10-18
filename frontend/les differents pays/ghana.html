@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: ghana.html
+    DESCRIPTION: Page pays premium standardisée pour le Ghana.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez le Ghana, la Côte de l'Or. Des châteaux historiques de Cape Coast aux canopées de Kakum et à la culture Ashanti, découvrez l'hospitalité légendaire du pays.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Ghana (La Côte de l'Or)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/ghana.jpg" alt="Le Ghana" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Ghana</h1>
+            <p class="hero-subtitle">Bienvenue au cœur de l'hospitalité et de l'histoire ouest-africaine</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Étoile Noire de l'Afrique</h2>
+            <p class="section-description">
+                Le Ghana est souvent cité comme la porte d'entrée de l'Afrique de l'Ouest. Premier pays d'Afrique subsaharienne à avoir accédé à l'indépendance, il brille par sa stabilité et sa richesse culturelle. Des châteaux chargés d'histoire de Cape Coast et d'Elmina, témoins de la traite transatlantique, à la majesté du royaume Ashanti à Kumasi, le Ghana offre une profondeur historique rare. Ses parcs nationaux comme Kakum et ses plages paisibles complètent ce portrait d'une nation chaleureuse, dynamique et fière.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles culturelles et naturelles du Ghana</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="histoire">Histoire & Culture</span>
+                <span class="filter-tag" data-filter="nature">Nature & Parcs</span>
+                <span class="filter-tag" data-filter="eau">Plages & Lacs</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="ghana-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Cape Coast Castle -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Cape Coast">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Château de Cape Coast</h3>
+                        <p class="location-text">Forteresse historique classée à l'UNESCO, témoin de l'histoire</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="cape_coast">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Kakum National Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Kakum">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 48k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Kakum</h3>
+                        <p class="location-text">Ponts suspendus dans la canopée de la forêt tropicale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kakum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Accra (Black Star Square) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Accra">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Accra</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Black Star Square</h3>
+                        <p class="location-text">Symbole de l'indépendance et de la fierté du Ghana</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="accra">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Elmina Castle -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Elmina">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Elmina</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Château d'Elmina</h3>
+                        <p class="location-text">Le plus ancien bâtiment européen d'Afrique subsaharienne</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="elmina">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Wli Waterfalls -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Wli">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Volta Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Wli</h3>
+                        <p class="location-text">Les plus hautes chutes d'eau du Ghana et d'Afrique de l'Ouest</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="wli">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Mole National Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Mole">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Northern Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Mole</h3>
+                        <p class="location-text">Sanctuaire des éléphants et safari à pied unique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mole">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Kumasi (Palais Manhyia) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Kumasi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ashanti Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 42k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Palais Manhyia</h3>
+                        <p class="location-text">Le siège du puissant Royaume Ashanti</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kumasi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Busua Beach -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Busua">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Western Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Busua</h3>
+                        <p class="location-text">Paradis du surf et détente au bord du Golfe de Guinée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="busua">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Lac Volta -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Volta">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ghana Central</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Volta</h3>
+                        <p class="location-text">L'un des plus grands lacs artificiels au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="volta_lake">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Aburi Botanical Gardens -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Aburi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Eastern Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Jardins Botaniques d'Aburi</h3>
+                        <p class="location-text">Refuge de fraîcheur et biodiversité sur les collines d'Akuapem</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="aburi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Akosombo Dam -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Akosombo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Eastern Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Barrage d'Akosombo</h3>
+                        <p class="location-text">Prouesse d'ingénierie créant le Lac Volta</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="akosombo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Nzulezo -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Nzulezo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Western Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Village sur Pilotis de Nzulezo</h3>
+                        <p class="location-text">Site ancestral unique bâti sur le lac Tadane</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nzulezo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Paga Crocodiles -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Paga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Upper East</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Crocodiles Sacrés de Paga</h3>
+                        <p class="location-text">Cohabitation mystique entre les hommes et les crocodiles</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="paga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Shai Hills -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Shai Hills">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Greater Accra</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Shai Hills</h3>
+                        <p class="location-text">Falaises escarpées, grottes anciennes et faune variée</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="shai_hills">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Larabanga Mosque -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Larabanga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Savannah Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mosquée de Larabanga</h3>
+                        <p class="location-text">Joyau de l'architecture soudano-sahélienne (XIVe siècle)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="larabanga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">La puissance des traditions et l'éclat du Kente.</p>
+                    <p>Le Ghana est une nation où le passé et le présent cohabitent avec harmonie. Le Royaume Ashanti, avec son souverain l'Asantehene, incarne une continuité royale impressionnante. La culture ghanéenne se manifeste dans l'art des symboles Adinkra, porteurs de sagesse, et dans le tissage du Kente, ce tissu aux motifs complexes porté lors des grandes occasions. L'hospitalité ghanéenne (Akwaaba) n'est pas un vain mot, c'est un mode de vie.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Empire Ashanti</h6>
+                                <p class="small text-muted mb-0">Une culture royale riche en or et en traditions, centrée sur Kumasi.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-palette text-info me-2"></i>Symboles Adinkra</h6>
+                                <p class="small text-muted mb-0">Un langage visuel unique exprimant des concepts philosophiques et religieux.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-drum text-danger me-2"></i>Musique Highlife</h6>
+                                <p class="small text-muted mb-0">Le rythme joyeux du Ghana qui a fusionné traditions locales et instruments modernes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Akwaaba Spirit</h6>
+                                <p class="small text-muted mb-0">Le sens profond du partage et de l'accueil qui fait du Ghana une destination sereine.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Ghana" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Étoile Noire</h2>
+        <p>Découvrez l'excellence de l'artisanat ghanéen. Du tissu Kente impérial aux perles de Krobo.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/kente_cloth.png" alt="Kente" onerror="this.src='https://ui-avatars.com/api/?name=Kente&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Royal</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Kente Authentique</h3>
+                    <p class="product-desc">Tissé à la main par les maîtres tisserands de Bonwire, chaque motif raconte une histoire sacrée.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">250 GHS</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/krobo_beads.png" alt="Perles" onerror="this.src='https://ui-avatars.com/api/?name=Perles&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Collier en Perles de Krobo</h3>
+                    <p class="product-desc">Perles de verre recyclé et peint à la main, un artisanat traditionnel du peuple Krobo.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">120 GHS</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ashanti_stool.png" alt="Ashanti" onerror="this.src='https://ui-avatars.com/api/?name=Ashanti&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Unique</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Siège Ashanti Sculpté</h3>
+                    <p class="product-desc">Réplique en bois d'ébène ou de cèdre du trône symbolique, porteur d'autorité spirituelle.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">450 GHS</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Bolga&background=daa520&color=fff&size=200" alt="Panier Bolga">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Bolga Traditionnel</h3>
+                    <p class="product-desc">Vannerie robuste et colorée en herbe d'éléphant, originaire du nord du Ghana.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">85 GHS</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Choco&background=3e2723&color=fff&size=200" alt="Chocolat Ghana">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Chocolat Golden Tree</h3>
+                    <p class="product-desc">Le meilleur du cacao ghanéen transformé localement en tablettes premium.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 GHS</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Adinkra&background=000&color=fff&size=200" alt="Statuette">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Statuette Adinkra en Bronze</h3>
+                    <p class="product-desc">Objet décoratif représentant le symbole "Gye Nyame" (sauf Dieu), emblème de toute-puissance.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">180 GHS</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/ghana.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour de <span>Prestige</span></h2>
+                    <p>Découvrez notre sélection des meilleurs établissements pour votre escale ghanéenne.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un hôtel...</option>
+                            <option value="kempinski">Kempinski Gold Coast (Accra)</option>
+                            <option value="labadi">Labadi Beach Hotel (Accra)</option>
+                            <option value="movenpick">Movenpick Ambassador (Accra)</option>
+                            <option value="loumoon">Lou Moon Resort (Axim)</option>
+                            <option value="zaina">Zaina Lodge (Mole)</option>
+                            <option value="senchi">Royal Senchi Resort (Akosombo)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Séjour</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Voir les prix</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Kempinski"></div>
+                    <div class="hotel-content">
+                        <h4>Kempinski Gold Coast</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Accra, Ministries District</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Labadi"></div>
+                    <div class="hotel-content">
+                        <h4>Labadi Beach</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Accra, Front de Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Movenpick"></div>
+                    <div class="hotel-content">
+                        <h4>Movenpick Ambassador</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Accra, Centre-ville</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Lou Moon"></div>
+                    <div class="hotel-content">
+                        <h4>Lou Moon Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Axim, Plage privée</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Zaina"></div>
+                    <div class="hotel-content">
+                        <h4>Zaina Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mole National Park</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Royal Senchi"></div>
+                    <div class="hotel-content">
+                        <h4>Royal Senchi Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Akosombo, Bord du Lac</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine ghanéenne est un festival de saveurs, d'épices et de générosité. Le riz et les racines (igname, manioc) en sont les piliers.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Jollof&background=8b0000&color=fff&size=200" alt="Jollof"></div>
+                <div class="plat-content"><h4>Ghana Jollof Rice</h4><p>Le célèbre riz épicé à la tomate, un sujet de fierté nationale et de compétition amicale.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fufu&background=f5f5dc&color=000&size=200" alt="Fufu"></div>
+                <div class="plat-content"><h4>Fufu & Light Soup</h4><p>Pâte de manioc et plantain pilée, servie dans un bouillon épicé de viande ou poisson.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kelewele&background=daa520&color=fff&size=200" alt="Kelewele"></div>
+                <div class="plat-content"><h4>Kelewele</h4><p>Dés de bananes plantains frites et marinées au gingembre et piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=RedRed&background=daa520&color=fff&size=200" alt="RedRed"></div>
+                <div class="plat-content"><h4>Red Red</h4><p>Ragoût de haricots à l'huile de palme rouge, servi avec des plantains frites.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banku&background=f5f5dc&color=000&size=200" alt="Banku"></div>
+                <div class="plat-content"><h4>Banku & Tilapia</h4><p>Pâte de maïs et manioc fermentée, accompagnée d'un tilapia grillé et de shito.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Waakye&background=8b4513&color=fff&size=200" alt="Waakye"></div>
+                <div class="plat-content"><h4>Waakye</h4><p>Riz et haricots cuits ensemble avec des feuilles de sorgho pour une couleur rouge sombre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kenkey&background=f5f5dc&color=000&size=200" alt="Kenkey"></div>
+                <div class="plat-content"><h4>Kenkey</h4><p>Boule de maïs fermentée et cuite à la vapeur dans des feuilles de maïs.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Shito&background=000&color=fff&size=200" alt="Shito"></div>
+                <div class="plat-content"><h4>Shito</h4><p>La célèbre sauce noire épicée à base de poisson séché, gingembre et piment.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tuo&background=f5f5dc&color=000&size=200" alt="Tuo Zaafi"></div>
+                <div class="plat-content"><h4>Tuo Zaafi</h4><p>Spécialité du Nord : pâte de maïs légère servie avec une sauce verte de feuilles.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ampesi&background=daa520&color=fff&size=200" alt="Ampesi"></div>
+                <div class="plat-content"><h4>Ampesi</h4><p>Igname ou plantain bouilli servi avec un ragoût de jardin potager (Kontomire).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Omotuo&background=fff&color=000&size=200" alt="Omotuo"></div>
+                <div class="plat-content"><h4>Omotuo (Rice Balls)</h4><p>Boulettes de riz onctueuses, généralement servies avec une soupe de cacahuètes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Soup&background=006400&color=fff&size=200" alt="Kontomire"></div>
+                <div class="plat-content"><h4>Kontomire Soup</h4><p>Soupe saine et savoureuse à base de feuilles de taro, riche en fer.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Le Ghana vibre toute l'année au rythme de ses festivals colorés et de ses célébrations de l'héritage.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-history"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Héritage</span>
+                    <h4>Year of Return / Panafest</h4>
+                    <p>Grand festival biennal célébrant les liens entre l'Afrique et sa diaspora (Cape Coast).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-crown"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Akwasidae</h4>
+                    <p>Célébration royale bimensuelle du Royaume Ashanti au palais Manhyia (Kumasi).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Chale Wote</h4>
+                    <p>Festival d'art de rue vibrant et alternatif dans le quartier historique de Jamestown (Accra).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Mars)</h5>
+                    <p class="small mb-0">La période idéale pour voyager. Le temps est ensoleillé et les routes vers les parcs nationaux sont parfaitement praticables.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella text-primary me-2"></i>Saison des Festivals (Août à Octobre)</h5>
+                    <p class="small mb-0">Malgré quelques pluies, c'est le moment où se déroulent les plus grands festivals culturels à travers le pays.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Ghana est l'un des pays les plus sûrs d'Afrique. La petite délinquance existe à Accra, restez vigilant la nuit.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune obligatoire. Traitement antipaludéen conseillé. Buvez exclusivement de l'eau en bouteille ou filtrée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-camera fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Photographie</h6>
+                    <p class="small text-muted">Demandez toujours la permission avant de prendre des gens en photo. Interdiction de photographier les sites militaires et gouvernementaux.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Cedi Ghanéen (GHS). Les distributeurs sont nombreux en ville. Prévoyez du liquide pour les marchés et les zones rurales.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Kwame+Accra&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Kwame">
+                        <h5 class="fw-bold mb-1">Kwame Mensah</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Histoire & Châteaux</p>
+                        <p class="small text-muted">Kwame est un historien passionné qui vous fera revivre l'époque des forts et la marche vers l'indépendance.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:kwame@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Kwame</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ama+Kumasi&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ama">
+                        <h5 class="fw-bold mb-1">Ama Osei</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturelle Ashanti</p>
+                        <p class="small text-muted">Originaire de Kumasi, Ama vous introduira aux mystères des symboles Adinkra et aux protocoles royaux.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ama@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ama</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Kofi+Kakum&background=000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Kofi">
+                        <h5 class="fw-bold mb-1">Kofi Adu</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Nature & Safari</p>
+                        <p class="small text-muted">Spécialiste de la faune de Mole et Kakum, Kofi est un guide de terrain exceptionnel pour l'aventure sauvage.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:kofi@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Kofi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Ghana, la Côte de l'Or. Plongez au cœur d'une nation d'hospitalité et d'histoire avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../blogs.html">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Ghana</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +233 30 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> accra@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Ghana - Akwaaba Spirit</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/ghana.js"></script>
+</body>
+
+</html>

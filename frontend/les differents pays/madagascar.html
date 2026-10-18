@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: madagascar.html
+    DESCRIPTION: Page pays premium standardisée pour Madagascar.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explorez Madagascar, l'île rouge. De l'allée des Baobabs aux Tsingy de Bemaraha et aux plages de Nosy Be, découvrez une faune et une flore uniques au monde.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Madagascar (L'Île Rouge)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/madagascar.jpg" alt="Madagascar" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Madagascar</h1>
+            <p class="hero-subtitle">Le sanctuaire naturel de l'Océan Indien</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Île Continent</h2>
+            <p class="section-description">
+                Madagascar, quatrième plus grande île du monde, est un véritable laboratoire de l'évolution. Isolée depuis des millions d'années, elle abrite une biodiversité que l'on ne trouve nulle part ailleurs, dont les célèbres lémuriens et les majestueux baobabs. Entre ses hauts plateaux à l'architecture de briques rouges, ses forêts tropicales humides, ses déserts épineux et ses lagons turquoise, l'Île Rouge offre un dépaysement total et une culture malgache d'une richesse infinie, entre Afrique et Asie.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 joyaux du patrimoine malgache</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une merveille...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Nature & Lémuriens</span>
+                <span class="filter-tag" data-filter="eau">Plages & Baleines</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="madagascar-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Allee des Baobabs -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Baobabs">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Morondava</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Allée des Baobabs</h3>
+                        <p class="location-text">Spectacle légendaire de géants au coucher du soleil</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="baobabs">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Tsingy de Bemaraha -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Tsingy">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Melaky</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tsingy de Bemaraha</h3>
+                        <p class="location-text">Forêt de pics calcaires acérés classée à l'UNESCO</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tsingy">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Isalo -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Isalo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ihorombe</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de l'Isalo</h3>
+                        <p class="location-text">Canyons de grès, piscines naturelles et tombeaux Bara</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="isalo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Nosy Be -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Nosy Be">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Nosy Be (L'Île aux Parfums)</h3>
+                        <p class="location-text">L'archipel paradisiaque aux senteurs d'Ylang-Ylang</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nosy_be">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Antananarivo -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Tana">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Antananarivo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Rova d'Antananarivo</h3>
+                        <p class="location-text">Le palais de la reine sur la colline sacrée d'Analamanga</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rova">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Ranomafana -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ranomafana">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Haute Matsiatra</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Ranomafana</h3>
+                        <p class="location-text">Forêt humide sanctuaire du lémurien bambou doré</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ranomafana">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Sainte-Marie -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Ste Marie">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île Sainte-Marie (Nosy Boraha)</h3>
+                        <p class="location-text">Repaire de pirates et sanctuaire des baleines à bosse</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ste_marie">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Canal des Pangalanes -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Pangalanes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Est</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Canal des Pangalanes</h3>
+                        <p class="location-text">Succession de lacs et lagunes au fil de l'eau</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="pangalanes">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Diego-Suarez -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Diego">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Antsiranana</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 19k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Baie de Diego-Suarez</h3>
+                        <p class="location-text">Deuxième plus grande baie au monde après Rio</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="diego">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Andasibe-Mantadia -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Andasibe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Alaotra-Mangoro</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc d'Andasibe-Mantadia</h3>
+                        <p class="location-text">Le chant mystérieux de l'Indri-Indri, le plus grand lémurien</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="andasibe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Fort-Dauphin -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Fort Dauphin">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Anosy</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fort-Dauphin (Taolagnaro)</h3>
+                        <p class="location-text">Montagnes escarpées rencontrant les vagues de l'extrême sud</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="fort_dauphin">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Masoala -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Masoala">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sava</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Masoala</h3>
+                        <p class="location-text">La plus grande aire protégée de l'île (Forêt & Mer)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="masoala">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Ambohimanga -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ambohimanga">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Antananarivo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Colline Royale d'Ambohimanga</h3>
+                        <p class="location-text">Cité sacrée et berceau de la monarchie Merina</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ambohimanga">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Ifaty -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Ifaty">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Atsimo-Andrefana</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lagons d'Ifaty</h3>
+                        <p class="location-text">Barrière de corail et villages de pêcheurs Vezo</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ifaty">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Tsingy Rouges -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Tsingy Rouges">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Antsiranana</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tsingy Rouges</h3>
+                        <p class="location-text">Éphémères formations d'argile sculptées par l'érosion</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tsingy_rouges">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Une identité unique entre deux mondes.</p>
+                    <p>Le peuple malgache est né d'un brassage fascinant entre les migrants austronésiens venus d'Asie du Sud-Est et les populations africaines. Cette double origine se reflète dans la langue, l'architecture des hauts plateaux et surtout dans les rites sacrés comme le Famadihana (retournement des morts). La culture de l'île est régie par le "Fihavanana", valeur d'entraide et de solidarité communautaire.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-house-user text-warning me-2"></i>Le Famadihana</h6>
+                                <p class="small text-muted mb-0">Un rite funéraire joyeux où l'on change les linceuls des ancêtres pour honorer leur mémoire.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-info me-2"></i>Empire Merina</h6>
+                                <p class="small text-muted mb-0">Une dynastie puissante qui a unifié l'île au XIXe siècle depuis les hauteurs d'Antananarivo.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-seedling text-success me-2"></i>Vanille Bourbon</h6>
+                                <p class="small text-muted mb-0">Madagascar est le premier producteur mondial de cette épice précieuse, héritage d'un savoir-faire unique.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Le Salegy</h6>
+                                <p class="small text-muted mb-0">Rythme entraînant des côtes malgaches, symbole de la fête et de la joie de vivre de l'île.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Mada" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Île Rouge</h2>
+        <p>Ramenez l'excellence malgache chez vous. De la vanille la plus fine aux papiers Antemoro faits main.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/vanille_mada.png" alt="Vanille" onerror="this.src='https://ui-avatars.com/api/?name=Vanille&background=000&color=fff&size=200'">
+                    <span class="stock-badge">Premium</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gousses de Vanille Bourbon</h3>
+                    <p class="product-desc">Gousses charnues et parfumées de la région de la SAVA, le trésor noir de Madagascar.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 000 Ar</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/papier_antemoro.png" alt="Papier" onerror="this.src='https://ui-avatars.com/api/?name=Papier&background=f5f5dc&color=000&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Papier Antemoro Véritable</h3>
+                    <p class="product-desc">Papier végétal incrusté de fleurs séchées, fabriqué selon une technique arabe du XIIe siècle.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 500 Ar</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/zebu_corne.png" alt="Corne" onerror="this.src='https://ui-avatars.com/api/?name=Corne&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Déco</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Corne de Zébu</h3>
+                    <p class="product-desc">Colliers et bracelets polis à la main, reflets naturels allant du blond au noir intense.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 Ar</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Rabane&background=daa520&color=fff&size=200" alt="Rabane">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier en Rabane tressée</h3>
+                    <p class="product-desc">L'accessoire indispensable, léger et coloré, fabriqué à partir de fibres de palmier Raphia.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">10 000 Ar</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Epice&background=8b0000&color=fff&size=200" alt="Poivre Sauvage">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Poivre Sauvage Voatsiperifery</h3>
+                    <p class="product-desc">Un poivre rare cueilli en forêt, aux notes boisées et florales exceptionnelles.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">7 500 Ar</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Bois&background=4b2c20&color=fff&size=200" alt="Bois Rose">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture Bois de Rose</h3>
+                    <p class="product-desc">Objet d'art sculpté dans les bois précieux de l'île (sous licence contrôlée).</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 Ar</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/madagascar.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjour d'<span>Exception</span></h2>
+                    <p>Découvrez notre sélection des plus beaux écolodges et palaces de Madagascar.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="carlton">Carlton Anosy (Antananarivo)</option>
+                            <option value="ravintsara">Ravintsara Wellness (Nosy Be)</option>
+                            <option value="tsarabanjina">Constance Tsarabanjina</option>
+                            <option value="reine">Relais de la Reine (Isalo)</option>
+                            <option value="bora">Princesse Bora Lodge (Ste-Marie)</option>
+                            <option value="colbert">Hotel Colbert (Antananarivo)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Carlton"></div>
+                    <div class="hotel-content">
+                        <h4>Carlton Anosy</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Antananarivo, Lac Anosy</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Ravintsara"></div>
+                    <div class="hotel-content">
+                        <h4>Ravintsara Wellness</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nosy Be, Plage</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Tsarabanjina"></div>
+                    <div class="hotel-content">
+                        <h4>Constance Tsarabanjina</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Archipel Mitsio, Île Privée</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Reine"></div>
+                    <div class="hotel-content">
+                        <h4>Relais de la Reine</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Parc National d'Isalo</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Bora"></div>
+                    <div class="hotel-content">
+                        <h4>Princesse Bora Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Île Sainte-Marie</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Colbert"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Colbert</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Antananarivo, Haute Ville</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine malgache est un mariage savoureux entre les épices d'Asie et les produits généreux de la terre rouge. Le riz (Vary) en est l'âme.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Romazava&background=8b4513&color=fff&size=200" alt="Romazava"></div>
+                <div class="plat-content"><h4>Le Romazava</h4><p>Le plat national : bouillon clair de viande (zébu/porc) et de brèdes (feuilles).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ravitoto&background=006400&color=fff&size=200" alt="Ravitoto"></div>
+                <div class="plat-content"><h4>Ravitoto</h4><p>Feuilles de manioc pilées cuites avec du porc gras et de l'ail.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poisson&background=00008b&color=fff&size=200" alt="Poisson Coco"></div>
+                <div class="plat-content"><h4>Poisson au Coco</h4><p>Spécialité des côtes : poisson frais mijoté dans du lait de coco onctueux.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Zebu&background=8b4513&color=fff&size=200" alt="Brochettes"></div>
+                <div class="plat-content"><h4>Brochettes de Zébu</h4><p>Viande de zébu tendre grillée au feu de bois, omniprésente sur l'île.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Vary&background=f5f5dc&color=000&size=200" alt="Vary"></div>
+                <div class="plat-content"><h4>Vary amin'anana</h4><p>Riz onctueux mélangé avec des herbes et servi avec des kitoza (viande fumée).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Koba&background=daa520&color=fff&size=200" alt="Koba"></div>
+                <div class="plat-content"><h4>Le Koba</h4><p>Gâteau de riz et d'arachides broyées, cuit dans des feuilles de bananier.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Lasary&background=FFD700&color=000&size=200" alt="Lasary"></div>
+                <div class="plat-content"><h4>Lasary Gasy</h4><p>Condiment épicé à base de carottes, haricots et citrons confits.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Henomby&background=8b4513&color=fff&size=200" alt="Henomby"></div>
+                <div class="plat-content"><h4>Hen'omby ritra</h4><p>Bœuf mijoté longuement jusqu'à évaporation complète de l'eau.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mofo&background=daa520&color=fff&size=200" alt="Mofo Gasy"></div>
+                <div class="plat-content"><h4>Mofo Gasy</h4><p>Beignets de riz traditionnels, le petit-déjeuner favori des malgaches.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Camaron&background=8b0000&color=fff&size=200" alt="Camaron"></div>
+                <div class="plat-content"><h4>Camarons Grillés</h4><p>Grosses gambas d'eau douce ou de mer, grillées à la perfection.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sosisy&background=8b4513&color=fff&size=200" alt="Sosisy"></div>
+                <div class="plat-content"><h4>Saucisse d'Ambatolampy</h4><p>Saucisses artisanales réputées de la cité de l'aluminium.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Tamarin&background=daa520&color=fff&size=200" alt="Tamarin"></div>
+                <div class="plat-content"><h4>Jus de Tamarin</h4><p>Boisson acidulée et rafraîchissante, parfaite pour les climats chauds.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Vivez Madagascar à travers ses célébrations culturelles et ses festivals nature.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-fish"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Nature</span>
+                    <h4>Festival des Baleines</h4>
+                    <p>Célébration du passage des baleines à bosse (Juillet-Août) sur l'île Sainte-Marie.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Donia</h4>
+                    <p>Festival de musique Salegy à Nosy Be, réunissant des artistes de tout l'Océan Indien.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-users"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Rituel</span>
+                    <h4>Famadihana</h4>
+                    <p>Cérémonies traditionnelles de retournement des morts (Saison sèche sur les hauts plateaux).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Avril à Octobre)</h5>
+                    <p class="small mb-0">La période idéale. Les températures sont clémentes, les routes sont praticables et c'est le meilleur moment pour observer la faune.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Nov. à Mars)</h5>
+                    <p class="small mb-0">Risques de cyclones. Cependant, c'est la période où la nature est la plus verte et où les orchidées fleurissent.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Restez vigilant en ville. Ne voyagez pas de nuit sur les routes nationales (Taxi-brousses conseillés de jour).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Traitement antipaludéen indispensable. Ne buvez que de l'eau capsulée (Eau Vive). Attention aux coups de soleil (Indice élevé).</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-handshake fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Le "Fady"</h6>
+                    <p class="small text-muted">Respectez les tabous locaux (Fady). Ils varient selon les régions et les sites sacrés. Demandez toujours à votre guide.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">L'Ariary (MGA) est la monnaie. Prévoyez des liasses volumineuses, l'euro est facilement échangeable partout.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lova+Rasoa&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lova">
+                        <h5 class="fw-bold mb-1">Lova Rasoa</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Faune & Lémuriens</p>
+                        <p class="small text-muted">Lova connaît chaque espèce de lémurien d'Andasibe. Il est un passionné de la forêt humide et de ses secrets.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lova@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Lova</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Mamy+Mada&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Mamy">
+                        <h5 class="fw-bold mb-1">Mamy Rakoto</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturel & Histoire</p>
+                        <p class="small text-muted">Mamy vous fera vibrer au récit des rois Merina et vous guidera dans les dédales de la capitale Antananarivo.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:mamy@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Mamy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Faly+Nosy&background=8b0000&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Faly">
+                        <h5 class="fw-bold mb-1">Faly Nosy</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Sud & Canyons</p>
+                        <p class="small text-muted">Spécialiste de l'Isalo et du grand sud, Faly est un pisteur exceptionnel pour les randonnées d'aventure.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:faly@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Faly</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Madagascar, l'île aux merveilles. Vivez une expérience unique au cœur d'un sanctuaire naturel préservé.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Mada</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +261 20 00 000 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> tana@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Madagascar - L'Île Rouge</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/madagascar.js"></script>
+</body>
+
+</html>

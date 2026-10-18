@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: tanzanie.html
+    DESCRIPTION: Page pays premium standardisée pour la Tanzanie.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Tanzanie, terre du Kilimandjaro et de Zanzibar. Du Serengeti au Ngorongoro, explorez les plus beaux parcs animaliers et les plages paradisiaques de l'Océan Indien.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Tanzanie (L'Aventure Sublime)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/tanzanie.jpg" alt="La Tanzanie" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Tanzanie</h1>
+            <p class="hero-subtitle">Du toit de l'Afrique aux rivages de l'archipel des épices</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Incontournable d'Afrique de l'Est</h2>
+            <p class="section-description">
+                La Tanzanie est une destination légendaire qui offre certains des spectacles les plus saisissants de la planète. C'est ici que s'élève le Kilimandjaro, point culminant du continent, et que s'étend le Serengeti, terre de la grande migration. Entre le cratère mystique du Ngorongoro, véritable jardin d'Éden, et l'archipel de Zanzibar aux eaux turquoise et à l'histoire swahili millénaire, la Tanzanie promet un voyage entre aventure sauvage et raffinement exotique.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles du patrimoine tanzanien</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une destination...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Safari & Monts</span>
+                <span class="filter-tag" data-filter="eau">Îles & Plages</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="tanzanie-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Kilimandjaro -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Kilimandjaro">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moshi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 95k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Le Kilimandjaro (Toit de l'Afrique)</h3>
+                        <p class="location-text">Le plus haut sommet du continent (5895m)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kilimandjaro">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Serengeti -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Serengeti">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mara Region</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 110k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National du Serengeti</h3>
+                        <p class="location-text">Espaces infinis et scène de la Grande Migration</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="serengeti">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Ngorongoro -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Ngorongoro">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Arusha</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 85k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cratère du Ngorongoro</h3>
+                        <p class="location-text">Caldeira géante abritant une faune sauvage exceptionnelle</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ngorongoro">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Stone Town -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Stone Town">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zanzibar</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Stone Town (Vieille Ville)</h3>
+                        <p class="location-text">Labyrinthe historique aux influences arabes et indiennes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="stone_town">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Nungwi Beach -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Nungwi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Zanzibar Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de Nungwi</h3>
+                        <p class="location-text">Eaux turquoises et sable blanc paradisiaque</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nungwi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Tarangire -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Tarangire">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Manyara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Tarangire</h3>
+                        <p class="location-text">Le royaume des baobabs géants et des troupeaux d'éléphants</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tarangire">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Lac Manyara -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Manyara">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Manyara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Manyara</h3>
+                        <p class="location-text">Célèbre pour ses lions grimpeurs d'arbres et ses flamants roses</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="manyara">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Mafia Island -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Mafia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Océan Indien</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Mafia</h3>
+                        <p class="location-text">Plongée exceptionnelle et rencontre avec les requins-baleines</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mafia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Kilwa Kisiwani -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Kilwa">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Lindi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ruines de Kilwa Kisiwani</h3>
+                        <p class="location-text">Vestiges médiévaux d'une puissante cité marchande swahili</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kilwa">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Selous (Nyerere) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Selous">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Pwani / Morogoro</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Selous</h3>
+                        <p class="location-text">Une des plus grandes réserves de faune au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="selous">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Mont Meru -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Meru">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Arusha</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Meru</h3>
+                        <p class="location-text">Volcan majestueux et défi pour les randonneurs avertis</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mt_meru">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Lac Victoria -->
+            <article class="attraction" data-category="eau">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Victoria">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mwanza</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Victoria (Tanzanie)</h3>
+                        <p class="location-text">La mer intérieure africaine et les rochers de Mwanza</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="victoria">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Ruaha -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Ruaha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Iringa</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Ruaha</h3>
+                        <p class="location-text">Safari sauvage et authentique loin des foules</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ruaha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Mikumi -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Mikumi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Morogoro</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Mikumi</h3>
+                        <p class="location-text">Petit Serengeti accessible proche de Dar Es Salaam</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mikumi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Dar Es Salaam -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Dar">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Côte Maritime</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Dar Es Salaam (Maison de la Paix)</h3>
+                        <p class="location-text">Métropole vibrante et porte d'entrée de l'Afrique de l'Est</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dar">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'âme de la côte Swahili et les traditions Massaï.</p>
+                    <p>La Tanzanie est un pays de tolérance et de paix, né de l'union du Tanganyika et de Zanzibar. Sa culture est profondément marquée par l'influence swahili, mélange unique d'Afrique, d'Arabie et d'Inde. C'est aussi la terre des Massaï au Nord et des Chaga au pied du Kilimandjaro. Le pays vibre au rythme de la poésie, de la musique Taarab et de l'hospitalité légendaire "Karibu Sana".</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mosque text-warning me-2"></i>Stone Town Heritage</h6>
+                                <p class="small text-muted mb-0">Un site classé à l'UNESCO, témoin de l'âge d'or du commerce des épices et de l'ivoire.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-walking text-info me-2"></i>Berceau de l'Humanité</h6>
+                                <p class="small text-muted mb-0">Les gorges d'Olduvai ont révélé les traces les plus anciennes de nos ancêtres hominidés.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-palette text-danger me-2"></i>Art Tingatinga</h6>
+                                <p class="small text-muted mb-0">Une école de peinture naïve et colorée, emblématique de l'art populaire tanzanien.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-language text-success me-2"></i>Unité Swahili</h6>
+                                <p class="small text-muted mb-0">Le Kiswahili, langue nationale, est le ciment qui unit plus de 120 groupes ethniques différents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Tanzanie" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de l'Est</h2>
+        <p>L'excellence tanzanienne chez vous. De la pierre de Tanzanite aux épices rares de Zanzibar.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tanzanite.png" alt="Tanzanite" onerror="this.src='https://ui-avatars.com/api/?name=Gemme&background=00008b&color=fff&size=200'">
+                    <span class="stock-badge">Rare</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Pierre de Tanzanite</h3>
+                    <p class="product-desc">Gemme unique au monde, trouvée uniquement au pied du Kilimandjaro, aux reflets bleus et violets.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">Sur devis</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/spice_zanzibar.png" alt="Epices" onerror="this.src='https://ui-avatars.com/api/?name=Spice&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Premium</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Épices de Zanzibar</h3>
+                    <p class="product-desc">Coffret de clous de girofle, cannelle et cardamome fraîchement récoltés sur l'île aux épices.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 TSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tingatinga.png" alt="Tingatinga" onerror="this.src='https://ui-avatars.com/api/?name=Art&background=FFD700&color=000&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Toile Tingatinga</h3>
+                    <p class="product-desc">Peinture originale aux couleurs vives représentant la faune africaine dans le style traditionnel.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 TSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Cafe Moshi">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café Kilimandjaro</h3>
+                    <p class="product-desc">Un café arabica d'altitude cultivé sur les pentes fertiles du volcan, riche et équilibré.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 TSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Kanga&background=8b0000&color=fff&size=200" alt="Kanga">
+                    <span class="stock-badge">Mode</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Kanga Traditionnel</h3>
+                    <p class="product-desc">Pagne en coton orné de proverbes swahilis, l'habit emblématique des femmes tanzaniennes.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 000 TSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Makonde&background=8b4513&color=fff&size=200" alt="Sculpture">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture Makonde</h3>
+                    <p class="product-desc">Statue finement sculptée dans l'ébène par les maîtres sculpteurs du sud du pays.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 TSh</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/tanzanie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjours de <span>Prestige</span></h2>
+                    <p>Découvrez notre sélection des plus beaux lodges et palais de l'Océan Indien.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon hôtel</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où séjourner ?</option>
+                            <option value="fourseasons">Four Seasons Serengeti</option>
+                            <option value="parkhyatt">Park Hyatt Zanzibar</option>
+                            <option value="serena">Ngorongoro Serena Lodge</option>
+                            <option value="granmelia">Gran Melia Arusha</option>
+                            <option value="zalu">Essque Zalu Zanzibar</option>
+                            <option value="melia">Melia Zanzibar</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Four Seasons"></div>
+                    <div class="hotel-content">
+                        <h4>Four Seasons Serengeti</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Serengeti National Park</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Park Hyatt"></div>
+                    <div class="hotel-content">
+                        <h4>Park Hyatt Zanzibar</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Stone Town, Zanzibar</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Serena"></div>
+                    <div class="hotel-content">
+                        <h4>Ngorongoro Serena</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bord du Cratère</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Gran Melia"></div>
+                    <div class="hotel-content">
+                        <h4>Gran Melia Arusha</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Arusha City</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Essque Zalu"></div>
+                    <div class="hotel-content">
+                        <h4>Essque Zalu Zanzibar</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Nungwi, Zanzibar</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Melia"></div>
+                    <div class="hotel-content">
+                        <h4>Melia Zanzibar</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kiwengwa, Zanzibar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine tanzanienne est une fusion riche d'épices d'Orient et de produits africains généreux. Un voyage sensoriel à chaque repas.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pilau&background=daa520&color=fff&size=200" alt="Pilau"></div>
+                <div class="plat-content"><h4>Pilau Tanzanien</h4><p>Riz épicé riche en cardamome, clous de girofle et cumin, servi lors des fêtes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Biryani&background=daa520&color=fff&size=200" alt="Biryani"></div>
+                <div class="plat-content"><h4>Zanzibar Biryani</h4><p>Version locale du célèbre plat indien, avec une touche unique d'épices de l'île.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Nyama&background=8b4513&color=fff&size=200" alt="Nyama Choma"></div>
+                <div class="plat-content"><h4>Nyama Choma</h4><p>Viande grillée au feu de bois (chèvre ou bœuf), emblème de la convivialité.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pizza&background=FFD700&color=000&size=200" alt="Zanzibar Pizza"></div>
+                <div class="plat-content"><h4>Zanzibar Pizza</h4><p>Spécialité de street food de Stone Town, croquante et richement garnie.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chipsi&background=FFD700&color=000&size=200" alt="Chipsi Mayai"></div>
+                <div class="plat-content"><h4>Chipsi Mayai</h4><p>Omelette aux frites, le snack favori des tanzaniens à toute heure.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ugali&background=f5f5dc&color=000&size=200" alt="Ugali"></div>
+                <div class="plat-content"><h4>Ugali</h4><p>Base solide de maïs, servie avec des légumes ou des ragoûts de viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Samaki&background=00008b&color=fff&size=200" alt="Samaki"></div>
+                <div class="plat-content"><h4>Samaki wa Kupaka</h4><p>Poisson grillé nappé d'une sauce onctueuse au lait de coco et épices.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mshikaki&background=8b4513&color=fff&size=200" alt="Mshikaki"></div>
+                <div class="plat-content"><h4>Mshikaki</h4><p>Brochettes de viande marinées et grillées, très appréciées dans les rues.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Supu&background=daa520&color=fff&size=200" alt="Supu"></div>
+                <div class="plat-content"><h4>Supu ya Ndizi</h4><p>Soupe traditionnelle à base de bananes plantains et de viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mandazi&background=daa520&color=fff&size=200" alt="Mandazi"></div>
+                <div class="plat-content"><h4>Mandazi</h4><p>Beignets triangulaires parfaits pour accompagner le thé du matin.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Urojo&background=FFD700&color=000&size=200" alt="Urojo"></div>
+                <div class="plat-content"><h4>Zanzibar Mix (Urojo)</h4><p>Bouillon acidulé aux épices, garni de snacks croquants et légumes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Chai&background=8b4513&color=fff&size=200" alt="Chai"></div>
+                <div class="plat-content"><h4>Masala Chai</h4><p>Thé au lait noir épicé, cœur des matins ensoleillés tanzaniens.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Vibrez au rythme des festivals tanzaniens, entre traditions swahili et célébrations sportives.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-film"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Cinéma</span>
+                    <h4>ZIFF</h4>
+                    <p>Zanzibar International Film Festival (Juillet), le plus grand festival d'art et de culture d'Afrique de l'Est.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Sauti za Busara</h4>
+                    <p>Grand festival de musique africaine à Stone Town (Février), célébrant les rythmes du continent.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-hiking"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Sport</span>
+                    <h4>Kilimanjaro Marathon</h4>
+                    <p>Course mythique au pied du géant endormi, attirant des athlètes du monde entier (Mars).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Grande Saison Sèche (Juin à Octobre)</h5>
+                    <p class="small mb-0">Le moment idéal pour les safaris et l'ascension du Kilimandjaro. C'est aussi la période de la grande migration au Serengeti.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-umbrella-beach text-primary me-2"></i>Saison du Soleil (Janvier-Février)</h5>
+                    <p class="small mb-0">Parfait pour Zanzibar et la côte. Les eaux sont calmes et claires, idéales pour la plongée et la détente.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">La Tanzanie est globalement sûre. À Stone Town, respectez les codes vestimentaires (épaules et genoux couverts) par respect pour la culture locale.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin fièvre jaune souvent demandé à l'entrée. Traitement antipaludéen impératif pour les zones de safari et Zanzibar.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-camera fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Photographie</h6>
+                    <p class="small text-muted">Demandez toujours l'autorisation avant de photographier les habitants, surtout chez les Massaï. Un petit pourboire est parfois d'usage.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Shilling Tanzanien (TZS). Le dollar US est largement accepté dans les hôtels et pour les safaris (billets post-2006).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Rashid+Zanzibar&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Rashid">
+                        <h5 class="fw-bold mb-1">Rashid Hamad</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Zanzibar & Stone Town</p>
+                        <p class="small text-muted">Natif de Zanzibar, Rashid vous fera découvrir les secrets des ruelles de Stone Town et l'histoire des épices.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:rashid@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Rashid</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Salim+Safari&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Salim">
+                        <h5 class="fw-bold mb-1">Salim Mweru</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Safari Serengeti & Ngorongoro</p>
+                        <p class="small text-muted">Avec plus de 15 ans d'expérience, Salim est un pisteur hors pair capable de vous dénicher les "Big Five".</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:salim@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Salim</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Isaac+Kili&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Isaac">
+                        <h5 class="fw-bold mb-1">Isaac Mollel</h5>
+                        <p class="text-primary small fw-bold mb-3">Chef Guide Kilimandjaro</p>
+                        <p class="small text-muted">Isaac a gravi le Kili plus de 300 fois. Sa priorité est votre sécurité et la réussite de votre ascension vers le sommet.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:isaac@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Isaac</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Tanzanie, l'aventure sublime. Explorez les parcs mythiques et les îles paradisiaques avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Tanzanie</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +255 22 000 0000</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> tanzania@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Tanzanie - L'Aventure Sublime</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/tanzanie.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: burundi.html
+    DESCRIPTION: Page pays premium standardisée pour le Burundi.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Burundi, le pays aux mille collines et aux tambours sacrés. Des rives du lac Tanganyika aux sommets de la Ruvubu, explorez un paradis vert au cœur de l'Afrique.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Burundi (Le Cœur de l'Afrique)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/burundi.jpg" alt="Le Burundi" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Burundi</h1>
+            <p class="hero-subtitle">Le pays aux mille collines et aux eaux sacrées du Tanganyika</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Émeraude d'Afrique Centrale</h2>
+            <p class="section-description">
+                Petit par sa taille mais immense par sa beauté, le Burundi est une perle nichée au cœur de l'Afrique. Surnommé "Le pays aux mille collines", il offre des paysages d'une luxuriance exceptionnelle, dominés par les eaux majestueuses du lac Tanganyika, le deuxième lac le plus profond au monde. C'est une terre de traditions vivantes, illustrées par les tambours sacrés de Gishora, et une nature sauvage préservée dans les parcs de la Ruvubu et de la Kibira. Le Burundi vous accueille avec la chaleur de son peuple et la promesse d'une aventure intime et authentique.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 sites emblématiques du patrimoine burundais</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une merveille...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="lac">Lac & Plages</span>
+                <span class="filter-tag" data-filter="nature">Parcs & Nature</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="burundi-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Lac Tanganyika (Saga Beach) -->
+            <article class="attraction" data-category="lac">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Lake Tanganyika">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bujumbura</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Tanganyika</h3>
+                        <p class="location-text">Eaux bleues et plages de sable blanc pour la détente et le Mukeke</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tanganyika">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Tambours de Gishora -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Gishora Drums">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Gitega</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tambours de Gishora</h3>
+                        <p class="location-text">Patrimoine immatériel de l'UNESCO, le rythme sacré de la nation</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gishora">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Parc National de la Ruvubu -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Ruvubu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Muyinga</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de la Ruvubu</h3>
+                        <p class="location-text">Le plus grand parc du pays, refuge pour les buffles et les hippopotames</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="ruvubu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Chutes de la Karera -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Karera">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Rutana</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de la Karera</h3>
+                        <p class="location-text">Un ensemble spectaculaire de cascades au milieu d'une forêt luxuriante</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="karera">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Source du Nil (Rutovu) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Source du Nil">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bururi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Source du Nil</h3>
+                        <p class="location-text">La source la plus méridionale du fleuve mythique, marquée par une pyramide</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nil_source">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Forêt de Kibira -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Kibira">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord-Ouest</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de Kibira</h3>
+                        <p class="location-text">Forêt de montagne primaire abritant des chimpanzés et des cercopithèques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kibira">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Gitega (Musée National) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Gitega">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Gitega</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Gitega</h3>
+                        <p class="location-text">Capitale politique et siège du Musée National abritant les reliques royales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gitega">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Pierre de Livingstone et Stanley -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Livingstone Stanley">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mugere</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Pierre de Livingstone-Stanley</h3>
+                        <p class="location-text">Lieu historique de la rencontre des deux célèbres explorateurs en 1871</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="livingstone_rock">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Parc National de la Rusizi -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Rusizi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bujumbura</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National de la Rusizi</h3>
+                        <p class="location-text">Zones humides et observation de crocodiles et d'oiseaux à deux pas de Bujumbura</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="rusizi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Faille de Nyakazu -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Nyakazu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Karuzi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 12k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Faille de Nyakazu</h3>
+                        <p class="location-text">Le "Gouffre d'Allemagne", faille spectaculaire offrant une vue plongeante sur la Kumoso</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nyakazu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Mont Heha -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Mount Heha">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bujumbura Rural</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Heha</h3>
+                        <p class="location-text">Le point culminant du Burundi (2 670m), paradis des randonneurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="heha">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Lacs aux Oiseaux (Kirundo) -->
+            <article class="attraction" data-category="lac">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Bird Lakes">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kirundo</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lacs aux Oiseaux</h3>
+                        <p class="location-text">Lac Rwihinda : sanctuaire pour des milliers d'oiseaux migrateurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kirundo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Réserve Naturelle de Vyanda -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Vyanda">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bururi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 10k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve de Vyanda</h3>
+                        <p class="location-text">Observation privilégiée des chimpanzés dans un cadre forestier préservé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="vyanda">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Sanctuaire des Reptiles -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Reptiles">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bujumbura</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vivre avec les Reptiles</h3>
+                        <p class="location-text">Musée Vivant de Bujumbura : zoo et jardin botanique historique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="vivant_museum">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Bujumbura (Monuments) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Bujumbura">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Centre-ville</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monuments de Bujumbura</h3>
+                        <p class="location-text">Place de l'indépendance et monuments royaux de l'ancienne capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bujumbura_monuments">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Le battement de cœur sacré du Burundi.</p>
+                    <p>La culture burundaise est indissociable du tambour (Ingoma), véritable âme de la nation. Autrefois symbole du pouvoir royal, le tambour est aujourd'hui classé au patrimoine mondial de l'UNESCO. Les tambourinaires de Gishora perpétuent un art de la scène athlétique et musical unique au monde. L'identité du pays est aussi forgée par son histoire royale, ses contes transmis oralement et ses danses gracieuses qui célèbrent la beauté des mille collines et l'hospitalité légendaire du peuple burundais.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-drum text-warning me-2"></i>Tambours Sacrés</h6>
+                                <p class="small text-muted mb-0">Le battement rituel de l'Ingoma, symbole d'unité, de fertilité et de souveraineté nationale.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-crown text-info me-2"></i>Dynastie Royale</h6>
+                                <p class="small text-muted mb-0">L'héritage des rois (Bami) qui ont gouverné le Burundi pendant des siècles avec sagesse et tradition.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mountain text-danger me-2"></i>Mille Collines</h6>
+                                <p class="small text-muted mb-0">Une géographie sacrée où chaque colline a son histoire, son clan et son identité propre.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Hospitalité Ubushingantahe</h6>
+                                <p class="small text-muted mb-0">La tradition de la sagesse et de la justice locale portée par les notables respectés de la communauté.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Burundi" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique des Mille Collines</h2>
+        <p>L'artisanat d'exception du Burundi. Des cafés de haute altitude aux vanneries royales Agaseke.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/agaseke_basket.png" alt="Agaseke" onerror="this.src='https://ui-avatars.com/api/?name=Agaseke&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier Royal Agaseke</h3>
+                    <p class="product-desc">Vannerie traditionnelle emblématique à couvercle pointu, symbole de paix et d'élégance féminine.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/burundi_coffee.png" alt="Cafe Burundi" onerror="this.src='https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Café de Kayanza</h3>
+                    <p class="product-desc">Café Arabica de haute altitude primé mondialement pour ses notes florales et sa finesse aromatique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/teza_tea.png" alt="Tea Teza" onerror="this.src='https://ui-avatars.com/api/?name=Tea&background=006400&color=fff&size=200'">
+                    <span class="stock-badge">Bio</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Thé de Teza Premium</h3>
+                    <p class="product-desc">Thé noir pur issu des plantations d'altitude en bordure de la forêt de Kibira, riche en saveurs.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">10 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Drum&background=8b0000&color=fff&size=200" alt="Mini Tambour">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tambour Miniature Gishora</h3>
+                    <p class="product-desc">Réplique artisanale du tambour sacré en bois local et peau tendue, objet de décoration unique.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">30 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Palm+Oil&background=ff4500&color=fff&size=200" alt="Huile Palme">
+                    <span class="stock-badge">Local</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Palme de Rumonge</h3>
+                    <p class="product-desc">Huile de palme rouge artisanale pure, essentielle pour la cuisine authentique burundaise.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200" alt="Sculpture">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture sur Bois "Karyenda"</h3>
+                    <p class="product-desc">Statue finement sculptée représentant les symboles de la monarchie et de l'unité nationale.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/burundi.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Détente au bord du <span>Lac</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels et resorts de Bujumbura et Gitega.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où dormir ?</option>
+                            <option value="club_lac">Hotel Club du Lac Tanganyika</option>
+                            <option value="kiriri">Kiriri Garden Hotel</option>
+                            <option value="roca">Roca Golf Hotel</option>
+                            <option value="star">Hotel Star</option>
+                            <option value="dolce_vita">Dolce Vita Resort</option>
+                            <option value="sun_safari">Sun Safari Hotel</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Dates</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Club du Lac"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Club du Lac</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bujumbura, Bord du Lac</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Kiriri"></div>
+                    <div class="hotel-content">
+                        <h4>Kiriri Garden Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bujumbura, Vue Panoramique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Roca Golf"></div>
+                    <div class="hotel-content">
+                        <h4>Roca Golf Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bujumbura, Luxe & Sport</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Dolce Vita"></div>
+                    <div class="hotel-content">
+                        <h4>Dolce Vita Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bujumbura, Charme intime</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Sun Safari"></div>
+                    <div class="hotel-content">
+                        <h4>Sun Safari Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bujumbura, Business & Confort</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Hotel Star"></div>
+                    <div class="hotel-content">
+                        <h4>Hotel Star</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Gitega, Confort au Centre</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine burundaise est une fête pour les sens, mettant à l'honneur les trésors du lac Tanganyika et les produits généreux de la terre.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mukeke&background=00008b&color=fff&size=200" alt="Mukeke"></div>
+                <div class="plat-content"><h4>Le Mukeke</h4><p>Le poisson noble du lac Tanganyika, grillé avec soin, une spécialité incontournable de Bujumbura.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ndagala&background=00008b&color=fff&size=200" alt="Ndagala"></div>
+                <div class="plat-content"><h4>Ndagala Frits</h4><p>Petites sardines du lac, frites pour être croustillantes, servies avec une sauce piquante.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sangala&background=00008b&color=fff&size=200" alt="Sangala"></div>
+                <div class="plat-content"><h4>Sangala Fumé</h4><p>Gros poisson du lac, fumé artisanalement pour une saveur boisée intense.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bananes&background=daa520&color=fff&size=200" alt="Bouchees"></div>
+                <div class="plat-content"><h4>Bouchées de Bananes</h4><p>Bananes plantains frites ou grillées, le goûter ou l'accompagnement préféré.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Beans&background=8b4513&color=fff&size=200" alt="Ibiharage"></div>
+                <div class="plat-content"><h4>Ibiharage</h4><p>Haricots rouges mijotés longuement avec des oignons et de l'huile de palme.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Manioc&background=006400&color=fff&size=200" alt="Isombe"></div>
+                <div class="plat-content"><h4>L'Isombe</h4><p>Feuilles de manioc pilées et cuites avec du poisson séché ou de la viande.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ragout&background=8b4513&color=fff&size=200" alt="Bananes Vertes"></div>
+                <div class="plat-content"><h4>Ragoût de Bananes Vertes</h4><p>Plat consistant de bananes à cuire mijotées avec de la viande de chèvre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Goat&background=8b4513&color=fff&size=200" alt="Chevre"></div>
+                <div class="plat-content"><h4>Chèvre à la Broche</h4><p>Viande de chèvre marinée et rôtie lentement au-dessus des braises (Brochettes).</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Rice&background=daa520&color=fff&size=200" alt="Riz Poisson"></div>
+                <div class="plat-content"><h4>Riz au Poisson</h4><p>Riz parfumé servi avec un poisson du lac cuisiné en sauce tomate épicée.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Avocat&background=006400&color=fff&size=200" alt="Avocat"></div>
+                <div class="plat-content"><h4>Avocats Géants</h4><p>Les avocats du Burundi sont réputés pour leur taille et leur onctuosité incomparable.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Passion&background=8b0000&color=fff&size=200" alt="Fruit"></div>
+                <div class="plat-content"><h4>Fruits de la Passion</h4><p>Dégustés frais ou en jus, une explosion de fraîcheur tropicale.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banana+Beer&background=daa520&color=fff&size=200" alt="Bière"></div>
+                <div class="plat-content"><h4>Bière de Banane (Urwarwa)</h4><p>Boisson traditionnelle fermentée, servie dans les cérémonies et les fêtes.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vibrez au rythme des tambours et célébrez les traditions millénaires du Burundi.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Festival des Tambours</h4>
+                    <p>Grand rassemblement des tambourinaires à Gitega pour célébrer l'Ingoma (Novembre).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Défilés culturels et festivités nationales dans toutes les provinces (1er Juillet).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Art</span>
+                    <h4>Bujumbura Arts Festival</h4>
+                    <p>Célébration annuelle de la musique, du théâtre et des arts plastiques burundais.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Juin à Septembre)</h5>
+                    <p class="small mb-0">La période idéale pour le tourisme. Le ciel est dégagé, les températures sont agréables et les routes sont faciles d'accès pour visiter les parcs nationaux.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Octobre à Mai)</h5>
+                    <p class="small mb-0">Le paysage devient intensément vert. C'est la période idéale pour admirer les cascades de la Karera à leur débit maximum et pour l'observation des oiseaux.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Le Burundi est accueillant. Vigilance normale requise à Bujumbura. Évitez les déplacements nocturnes en province sans guide.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Zone de paludisme. Prophylaxie recommandée. Vaccin Fièvre Jaune obligatoire. Buvez de l'eau en bouteille.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa obligatoire. Peut être obtenu à l'arrivée (Visa on arrival) ou en ligne (e-Visa) selon votre nationalité.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc Burundais (BIF). Le Dollar US est largement accepté. Les cartes de crédit sont utilisables dans les grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Jean+Tambour&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Jean">
+                        <h5 class="fw-bold mb-1">Jean-Claude Nizeye</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Culture & Tambours</p>
+                        <p class="small text-muted">Passionné par le patrimoine de Gishora, Jean-Claude vous fera découvrir la force spirituelle des tambours sacrés.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:jean@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Jean</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Alice+Nature&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Alice">
+                        <h5 class="fw-bold mb-1">Alice Irakoze</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Parcs & Randonnée</p>
+                        <p class="small text-muted">Spécialiste de la forêt de Kibira et de la Ruvubu, Alice vous guidera sur les sentiers les plus secrets du Burundi.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:alice@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Alice</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Samuel+Lac&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Samuel">
+                        <h5 class="fw-bold mb-1">Samuel Bucumi</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Lac & Gastronomie</p>
+                        <p class="small text-muted">Natif des rives du Tanganyika, Samuel vous fera découvrir les meilleurs spots de Bujumbura et les secrets du Mukeke.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:samuel@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Samuel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Le Burundi, le cœur battant de l'Afrique. Découvrez la magie des mille collines et l'âme des tambours sacrés avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Burundi</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +257 22 22 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> bujumbura@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Burundi - Heart of Africa</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/burundi.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: comores.html
+    DESCRIPTION: Page pays premium standardisée pour les Comores.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez les Comores, les îles de la Lune et du Parfum. Des volcans de la Grande Comore aux tortues de Mohéli, explorez un archipel sauvage et parfumé.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Les Comores (L'Archipel des Parfums)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Est/comores.jpg" alt="Les Comores" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Les Comores</h1>
+            <p class="hero-subtitle">Parfums d'Ylang-Ylang et mystères des îles de la Lune</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Un Archipel Préservé entre Volcans et Lagon</h2>
+            <p class="section-description">
+                L'Union des Comores, nichée au cœur du canal du Mozambique, est un secret bien gardé de l'océan Indien. Surnommé l'archipel des parfums pour ses plantations d'Ylang-Ylang, de vanille et de girofle, le pays se compose de trois îles principales : la Grande Comore avec son volcan actif majestueux, le Karthala ; Mohéli, paradis de la biodiversité marine et sanctuaire des tortues vertes ; et Anjouan, l'île aux mille cascades et aux médinas historiques. Entre traditions séculaires, hospitalité généreuse et paysages d'une beauté sauvage, les Comores offrent une évasion authentique pour les voyageurs en quête de sérénité et de découvertes naturelles uniques.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles de l'archipel comorien</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Incontournables</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une aventure...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="nature">Volcans & Nature</span>
+                <span class="filter-tag" data-filter="mer">Mer & Lagons</span>
+                <span class="filter-tag" data-filter="culture">Culture & Histoire</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="comores-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Le Karthala -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Karthala">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Karthala</h3>
+                        <p class="location-text">L'un des plus grands cratères actifs au monde, offrant des paysages lunaires</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="karthala">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Parc Marin de Mohéli -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Moheli">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Mohéli</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 65k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc Marin de Mohéli</h3>
+                        <p class="location-text">Sanctuaire des baleines, dauphins et tortues vertes (Nioumachoua)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="moheli_park">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Médina de Moroni -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Moroni">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moroni</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Vieille ville de Moroni</h3>
+                        <p class="location-text">Ruelles labyrinthiques, portes sculptées et Mosquée du Vendredi</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="moroni_medina">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Lac Salé -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Lac Sale">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 38k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Salé (Bangoi Kouni)</h3>
+                        <p class="location-text">Ancien cratère volcanique rempli d'eau de mer turquoise, entouré de légendes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="lac_sale">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Chiroroni -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Chiroroni">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île d'Anjouan</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Chiroroni</h3>
+                        <p class="location-text">Une des plus belles plages d'Anjouan, idéale pour la détente et le snorkeling</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="chiroroni">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Mitsamiouli (Plages) -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Mitsamiouli">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 50k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plages de Mitsamiouli</h3>
+                        <p class="location-text">Sable blanc et rochers de lave noire, spot de plongée exceptionnel</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mitsamiouli">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Dziani Boudouni -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Dziani">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Mohéli</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Lac Dziani Boudouni</h3>
+                        <p class="location-text">Lac de cratère au cœur de Mohéli, refuge pour de nombreuses espèces d'oiseaux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dziani">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Mutsamudu (Médina) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Mutsamudu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île d'Anjouan</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Médina de Mutsamudu</h3>
+                        <p class="location-text">La citadelle et les ruelles médiévales de la "Perle de l'Océan Indien"</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mutsamudu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Iconi (Histoire) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Iconi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité Royale d'Iconi</h3>
+                        <p class="location-text">Ancienne capitale historique et ses falaises témoins de l'époque des sultans</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="iconi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Trou du Prophète -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Trou Prophete">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Trou du Prophète</h3>
+                        <p class="location-text">Une baie abritée aux eaux calmes et cristallines, idéale pour le canoë</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="trou_prophete">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Nioumachoua -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Nioumachoua">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île de Mohéli</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Îlots de Nioumachoua</h3>
+                        <p class="location-text">Paradis du snorkeling au milieu d'îlots volcaniques sauvages</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="nioumachoua">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Parc National de Coelacanthe -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="Coelacanthe">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc du Coelacanthe</h3>
+                        <p class="location-text">Espace protégé dédié au célèbre "poisson fossile" vivant dans les eaux comoriennes</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="coelacanthe">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Domoni (Architecture) -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Domoni">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Île d'Anjouan</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ville de Domoni</h3>
+                        <p class="location-text">Ancienne cité des sultans et ses palais de corail magnifiquement sculptés</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="domoni">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Plage de Bouni -->
+            <article class="attraction" data-category="mer">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Bouni">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Est Grande Comore</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 20k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Bouni</h3>
+                        <p class="location-text">Une vaste étendue de sable blanc bordée de cocotiers sur la côte est</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bouni">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Mosquée du Vendredi -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Mosquee">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Moroni</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ancienne Mosquée de Moroni</h3>
+                        <p class="location-text">Emblème de la capitale, joyau de l'architecture religieuse swahilie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="friday_mosque">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'archipel des sultans et les parfums du canal du Mozambique.</p>
+                    <p>La culture comorienne est un carrefour fascinant où se mêlent influences arabes, africaines, malgaches et françaises. Surnommées les "Îles de la Lune", les Comores conservent des traditions fortes, comme le "Grand Mariage" (Anda), pilier de la structure sociale. L'art de vivre y est paisible, rythmé par les senteurs de l'ylang-ylang et de la vanille qui embaument l'air. L'hospitalité comorienne est légendaire, ancrée dans des valeurs de respect et de partage. Chaque île possède son propre caractère, mais toutes partagent une foi profonde et une fierté pour leur patrimoine swahili millénaire.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-ring text-warning me-2"></i>Le Grand Mariage</h6>
+                                <p class="small text-muted mb-0">L'Anda, une institution sociale majeure qui définit le statut et le respect d'un homme dans la cité.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-leaf text-info me-2"></i>Îles aux Parfums</h6>
+                                <p class="small text-muted mb-0">Premier producteur mondial d'ylang-ylang, les Comores distillent l'âme des parfums les plus célèbres.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-history text-danger me-2"></i>Civilisation Swahilie</h6>
+                                <p class="small text-muted mb-0">Un héritage millénaire visible dans l'architecture des médinas et la langue comorienne.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-fish text-success me-2"></i>Mystère du Coelacanthe</h6>
+                                <p class="small text-muted mb-0">Le poisson "fossile" légendaire qui a fait des Comores un site de renommée scientifique mondiale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Comores" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique des Parfums</h2>
+        <p>L'artisanat précieux des Comores. Huiles essentielles, épices rares et vanneries fines.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/ylang_oil.png" alt="Ylang Ylang" onerror="this.src='https://ui-avatars.com/api/?name=Ylang&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Pur</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile d'Ylang-Ylang</h3>
+                    <p class="product-desc">Essence pure distillée traditionnellement sur l'île d'Anjouan, réputée pour ses vertus apaisantes.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/comoros_vanilla.png" alt="Vanille" onerror="this.src='https://ui-avatars.com/api/?name=Vanilla&background=3e2723&color=fff&size=200'">
+                    <span class="stock-badge">Gourmet</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Vanille Bourbon des Comores</h3>
+                    <p class="product-desc">Gousses de vanille charnues et parfumées, cultivées biologiquement dans les sous-bois comoriens.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/comoros_clove.png" alt="Girofle" onerror="this.src='https://ui-avatars.com/api/?name=Clove&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Épices</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Clous de Girofle d'Anjouan</h3>
+                    <p class="product-desc">Girofle de haute qualité, séché au soleil, indispensable pour les ragoûts et thés épicés.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">8 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Kofia&background=fff&color=000&size=200" alt="Kofia">
+                    <span class="stock-badge">Icone</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Kofia Brodé Main</h3>
+                    <p class="product-desc">Bonnets traditionnels masculins, finement brodés de motifs géométriques par les artisans locaux.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200" alt="Vannerie">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Panier en Raphia de Mohéli</h3>
+                    <p class="product-desc">Vannerie fine et colorée réalisée par les coopératives de femmes de l'île de Mohéli.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200" alt="Sculpture">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Miniature de Boutre en Bois</h3>
+                    <p class="product-desc">Maquette artisanale des voiliers traditionnels comoriens, sculptée en bois local.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 EUR</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Est/comores.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Escale <span>Sereine</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels, des resorts de luxe de Moroni aux éco-lodges de Mohéli.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="golden_tulip">Golden Tulip Grande Comore</option>
+                            <option value="retaj">Retaj Moroni Hotel</option>
+                            <option value="laka_lodge">Laka Lodge Mohéli</option>
+                            <option value="jardin_paix">Jardin de la Paix</option>
+                            <option value="vanilla_lodge">Vanilla Lodge Anjouan</option>
+                            <option value="moheli_laka">Moheli Laka Lodge</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Golden Tulip"></div>
+                    <div class="hotel-content">
+                        <h4>Golden Tulip</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Moroni, Luxe & Plage</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Retaj"></div>
+                    <div class="hotel-content">
+                        <h4>Retaj Moroni</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Moroni, Vue sur Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Laka Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Laka Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mohéli, Éco-paradis</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Jardin Paix"></div>
+                    <div class="hotel-content">
+                        <h4>Jardin de la Paix</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Moroni, Charme & Calme</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Vanilla Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Vanilla Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Anjouan, Nature Tropicale</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Moheli Laka"></div>
+                    <div class="hotel-content">
+                        <h4>Moheli Laka Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Mohéli, Aventure Marine</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine comorienne est un festin d'épices, de coco et de produits de la mer fraîchement pécés.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Vanille&background=3e2723&color=fff&size=200" alt="Vanille"></div>
+                <div class="plat-content"><h4>Langouste à la Vanille</h4><p>Le plat signature des Comores : langouste fraîche nappée d'une sauce crémeuse à la vanille.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Pilao&background=daa520&color=fff&size=200" alt="Pilao"></div>
+                <div class="plat-content"><h4>Le Pilao</h4><p>Riz épicé parfumé aux clous de girofle et cardamome, servi avec de la viande de bœuf ou de chèvre.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coco&background=f5f5dc&color=000&size=200" alt="Coco"></div>
+                <div class="plat-content"><h4>Poisson au Lait de Coco</h4><p>Poisson du jour mijoté dans une sauce onctueuse au lait de coco frais et curcuma.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Madaba&background=006400&color=fff&size=200" alt="Madaba"></div>
+                <div class="plat-content"><h4>Le Madaba</h4><p>Feuilles de manioc pilées et cuites longuement dans le lait de coco, un plat traditionnel nourrissant.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Poulet&background=daa520&color=fff&size=200" alt="Poulet"></div>
+                <div class="plat-content"><h4>Curry de Poulet Comorien</h4><p>Poulet mariné dans un mélange d'épices locales et cuit avec des légumes frais.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banane&background=daa520&color=fff&size=200" alt="Banane"></div>
+                <div class="plat-content"><h4>Bananes Mûres Frites</h4><p>Accompagnement sucré-salé incontournable pour tous les repas de fête.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ambrevades&background=daa520&color=fff&size=200" alt="Ambrevades"></div>
+                <div class="plat-content"><h4>Ambrevades au Coco</h4><p>Pois d'angole cuisinés dans une sauce coco parfumée, une spécialité de Grande Comore.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Corossol&background=006400&color=fff&size=200" alt="Corossol"></div>
+                <div class="plat-content"><h4>Jus de Corossol</h4><p>Boisson fraîche et crémeuse réalisée à partir du fruit du corossolier.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Coffee&background=3e2723&color=fff&size=200" alt="Coffee"></div>
+                <div class="plat-content"><h4>Café à la Cardamome</h4><p>Café noir infusé avec des graines de cardamome, servi traditionnellement.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Honey&background=daa520&color=fff&size=200" alt="Honey"></div>
+                <div class="plat-content"><h4>Pâtisseries au Miel</h4><p>Petites douceurs frites et généreusement trempées dans le miel local.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Sorbet&background=f5f5dc&color=000&size=200" alt="Sorbet"></div>
+                <div class="plat-content"><h4>Sorbet Coco</h4><p>Glace artisanale rafraîchissante réalisée avec la pulpe de coco fraîche.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Seafood&background=ff4500&color=fff&size=200" alt="Seafood"></div>
+                <div class="plat-content"><h4>Plateau de Fruits de Mer</h4><p>Calamars, crevettes et poissons grillés au feu de bois sur la plage.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Découvrez la joie et les traditions comoriennes à travers ses célébrations uniques.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-ring"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Saisons du Grand Mariage</h4>
+                    <p>Périodes festives (souvent en juillet-août) où les villages s'animent pour célébrer l'Anda.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Fête de l'Indépendance</h4>
+                    <p>Festivités nationales célébrant la souveraineté des Comores (6 Juillet).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-om"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Religion</span>
+                    <h4>Maoulida</h4>
+                    <p>Célébration de la naissance du Prophète avec chants religieux et repas communautaires.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Avril à Novembre)</h5>
+                    <p class="small mb-0">Le meilleur moment pour visiter. Le climat est frais et sec, idéal pour l'ascension du Karthala et l'observation des baleines à Mohéli (juillet-octobre).</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison Chaude (Décembre à Mars)</h5>
+                    <p class="small mb-0">Saison plus humide avec des pluies tropicales. La végétation est luxuriante et c'est la période de ponte des tortues marines sur les plages de Mohéli.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Archipel très calme et accueillant. Vigilance normale dans les marchés. Respectez les coutumes religieuses et les tenues décentes.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Prévention antipaludique recommandée. Buvez de l'eau en bouteille. Protection solaire indispensable. Équipements de secours limités sur Mohéli.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa délivré à l'arrivée pour la plupart des nationalités (environ 30€). Prévoyez de l'espèce en Euros ou Dollars.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Franc Comorien (KMF). L'Euro est accepté dans les grands établissements (taux fixe : 1€ ≈ 492 KMF). Peu de distributeurs automatiques.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Ibrahim+Karthala&background=8b4513&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Ibrahim">
+                        <h5 class="fw-bold mb-1">Ibrahim Saïd</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Volcan & Trekking</p>
+                        <p class="small text-muted">Guide chevronné pour l'ascension du Karthala, Ibrahim connaît chaque sentier et légende du volcan.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:ibrahim@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Ibrahim</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Salma+Moheli&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Salma">
+                        <h5 class="fw-bold mb-1">Salma Ahmed</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Biodiversité & Mohéli</p>
+                        <p class="small text-muted">Spécialiste du parc marin, Salma vous fera découvrir les secrets des tortues et des récifs de Nioumachoua.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:salma@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Salma</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Amir+Culture&background=00008b&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Amir">
+                        <h5 class="fw-bold mb-1">Amir Abdou</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culturel & Médinas</p>
+                        <p class="small text-muted">Passionné par l'histoire des sultans, Amir vous guidera dans les dédales des médinas de Moroni et Mutsamudu.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:amir@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Amir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Les Comores, l'archipel des parfums. Plongez dans une nature sauvage et une culture millénaire avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Comores</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +269 773 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> moroni@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Comoros - Perfume Islands</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/comores.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: gambie.html
+    DESCRIPTION: Page pays premium standardisée pour la Gambie.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la Gambie, la Côte Souriante de l'Afrique. Du fleuve Gambie aux plages dorées de l'Atlantique, explorez un paradis pour les ornithologues et les amoureux de culture.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - La Gambie (The Smiling Coast)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/gambie.jpg" alt="La Gambie" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">La Gambie</h1>
+            <p class="hero-subtitle">La Côte Souriante de l'Afrique et les méandres du grand fleuve</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>Un Havre de Paix au Fil de l'Eau</h2>
+            <p class="section-description">
+                La Gambie, le plus petit pays du continent africain, est une destination d'une richesse surprenante, surnommée "The Smiling Coast" pour l'accueil légendaire de ses habitants. Enclavée au cœur du Sénégal, elle s'étire le long du majestueux fleuve Gambie, véritable artère de vie. Entre les plages dorées de l'Atlantique, les forêts de mangroves abritant des centaines d'espèces d'oiseaux et les cercles mégalithiques mystérieux de Wassu, la Gambie offre une immersion totale entre nature et culture. De l'histoire poignante de Kunta Kinteh Island aux rituels sacrés du bassin aux crocodiles de Kachikally, chaque étape est une invitation à la découverte.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Explorez les 15 merveilles de la Côte Souriante</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Répertoriés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher une escale...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="fleuve">Fleuve & Histoire</span>
+                <span class="filter-tag" data-filter="nature">Nature & Oiseaux</span>
+                <span class="filter-tag" data-filter="plage">Plages & Côte</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="gambie-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Kunta Kinteh Island -->
+            <article class="attraction" data-category="fleuve">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800" alt="Kunta Kinteh">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Fleuve Gambie</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 75k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Île de Kunta Kinteh</h3>
+                        <p class="location-text">Site historique majeur lié à la traite (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kuntainteh">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Cercles de Pierres de Wassu -->
+            <article class="attraction" data-category="fleuve">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Wassu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Central River</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 45k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cercles de Wassu</h3>
+                        <p class="location-text">Vestiges mégalithiques mystérieux et sacrés (UNESCO)</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="wassu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Kachikally Crocodile Pool -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Kachikally">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bakau</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 60k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kachikally</h3>
+                        <p class="location-text">Bassin sacré aux crocodiles dociles, symbole de fertilité</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kachikally">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Bijilo Forest Park -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Bijilo">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kololi</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 38k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monkey Park de Bijilo</h3>
+                        <p class="location-text">Forêt côtière idéale pour observer les singes et les oiseaux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="bijilo">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Plage de Kololi -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800" alt="Kololi">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Senegambia Strip</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 90k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Kololi</h3>
+                        <p class="location-text">Le cœur battant du tourisme gambien, animation et farniente</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kololi">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Banjul (Arc 22) -->
+            <article class="attraction" data-category="fleuve">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&q=80&w=800" alt="Arc 22">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Banjul</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 40k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Arc 22</h3>
+                        <p class="location-text">Monument emblématique offrant une vue panoramique sur la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="arc22">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Makasutu Culture Forest -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&q=80&w=800" alt="Makasutu">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Brikama</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 32k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Forêt de Makasutu</h3>
+                        <p class="location-text">Écotourisme entre mangrove, savane et traditions locales</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="makasutu">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Tanji Fish Market -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559586616-361e18714958?auto=format&fit=crop&q=80&w=800" alt="Tanji">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Tanji</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 55k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Village de Pêcheurs de Tanji</h3>
+                        <p class="location-text">Spectacle coloré du retour des pirogues et fumage du poisson</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tanji">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Abuko Nature Reserve -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Abuko">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Serrekunda</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 25k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Réserve d'Abuko</h3>
+                        <p class="location-text">La plus ancienne réserve du pays, riche en reptiles et oiseaux</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="abuko">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Kotu Creek (Birdwatching) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Kotu Creek">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kotu</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 30k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Kotu Creek</h3>
+                        <p class="location-text">Paradis mondial pour l'observation des oiseaux en pirogue</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="kotu_creek">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Janjanbureh (Georgetown) -->
+            <article class="attraction" data-category="fleuve">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Janjanbureh">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> MacCarthy Island</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 18k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Janjanbureh</h3>
+                        <p class="location-text">Ville historique coloniale au cœur du fleuve Gambie</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="janjanbureh">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Parc National du Fleuve Gambie -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800" alt="River Gambia NP">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Baboon Island</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 22k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc des Îles aux Babouins</h3>
+                        <p class="location-text">Sanctuaire de réhabilitation des chimpanzés en milieu sauvage</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="river_np">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Plage de Sanyang -->
+            <article class="attraction" data-category="plage">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Sanyang">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> South Coast</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 35k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Plage de Sanyang</h3>
+                        <p class="location-text">"Paradise Beach", calme, authentique et idéale pour le poisson grillé</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sanyang">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Gunjur (Village Éco) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800" alt="Gunjur">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kombo South</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 15k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Gunjur</h3>
+                        <p class="location-text">Plages sauvages, mosquée sur le sable et projets écologiques</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gunjur">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Albreda & Juffureh -->
+            <article class="attraction" data-category="fleuve">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=800" alt="Albreda">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> North Bank</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 28k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Albreda & Juffureh</h3>
+                        <p class="location-text">Le village natal de Kunta Kinteh, au cœur de l'histoire de Roots</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="juffureh">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">L'harmonie de la Côte Souriante.</p>
+                    <p>La Gambie est une mosaïque culturelle pacifique où se côtoient les Mandinka, les Wolof, les Fula et les Jola. Cette diversité s'exprime dans la musique Kora envoûtante, les danses énergiques et les rituels sacrés comme ceux du bassin Kachikally. L'histoire du pays est marquée par l'héritage colonial britannique et la lutte pour la liberté, immortalisée par le personnage de Kunta Kinteh. Aujourd'hui, la Gambie est fière de son identité "Souriante", offrant une hospitalité sans égale et une sérénité qui imprègne chaque village le long du fleuve.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-warning me-2"></i>Musique Kora</h6>
+                                <p class="small text-muted mb-0">L'instrument sacré des griots Mandinka, dont les cordes racontent l'histoire des ancêtres.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-book text-info me-2"></i>Héritage "Roots"</h6>
+                                <p class="small text-muted mb-0">L'histoire de Kunta Kinteh qui a fait de la Gambie un lieu de pèlerinage pour la diaspora.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-danger me-2"></i>Danse Jola</h6>
+                                <p class="small text-muted mb-0">Les rituels de masques et les danses de récolte vibrantes de la Casamance gambienne.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-users text-success me-2"></i>Hospitalité Teranga</h6>
+                                <p class="small text-muted mb-0">Une culture du partage et du sourire qui a valu au pays son surnom international.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1541410965313-d53b3c16ef17?auto=format&fit=crop&q=80&w=600" alt="Culture Gambie" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique de Banjul</h2>
+        <p>L'artisanat d'exception de la Gambie. Des batiks colorés aux sculptures en bois précieux.</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/gambia_batik.png" alt="Batik" onerror="this.src='https://ui-avatars.com/api/?name=Batik&background=8b0000&color=fff&size=200'">
+                    <span class="stock-badge">Artisanat</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Batik Fait Main</h3>
+                    <p class="product-desc">Vêtements et tableaux en batik teints à la cire avec des motifs traditionnels gambiens vibrants.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/gambia_wood.png" alt="Sculpture" onerror="this.src='https://ui-avatars.com/api/?name=Wood&background=8b4513&color=fff&size=200'">
+                    <span class="stock-badge">Art</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture en Bois de Teck</h3>
+                    <p class="product-desc">Statuettes et masques finement sculptés représentant la faune et les symboles culturels de la région.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/gambia_basket.png" alt="Panier" onerror="this.src='https://ui-avatars.com/api/?name=Basket&background=daa520&color=fff&size=200'">
+                    <span class="stock-badge">Bio</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Paniers de Brikama</h3>
+                    <p class="product-desc">Vannerie robuste et décorative tissée avec des fibres végétales naturelles de la vallée du fleuve.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">20 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Shea&background=f5f5dc&color=000&size=200" alt="Shea Butter">
+                    <span class="stock-badge">Soin</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Beurre de Karité Pur</h3>
+                    <p class="product-desc">Soin naturel pour la peau extrait artisanalement dans les villages de l'intérieur du pays.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">10 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Silver&background=c0c0c0&color=000&size=200" alt="Bijou">
+                    <span class="stock-badge">Luxe</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Bijoux en Argent Filigrané</h3>
+                    <p class="product-desc">Travail d'orfèvrerie délicat en argent, spécialité des bijoutiers de Serrekunda.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">65 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Coconut&background=006400&color=fff&size=200" alt="Coconut Oil">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Huile de Coco Vierge</h3>
+                    <p class="product-desc">Huile pressée à froid issue des plantations côtières, idéale pour la cuisine et les soins.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">12 USD</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/gambie.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Évasion sur la <span>Smiling Coast</span></h2>
+                    <p>Découvrez notre sélection des meilleurs hôtels de plage et d'éco-lodges flottants en Gambie.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Réserver mon séjour</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Où loger ?</option>
+                            <option value="ocean_bay">Ocean Bay Resort</option>
+                            <option value="senegambia">Senegambia Beach Hotel</option>
+                            <option value="ngala">Ngala Lodge</option>
+                            <option value="kairaba">Kairaba Beach Hotel</option>
+                            <option value="leo">Leo's Beach Hotel</option>
+                            <option value="mandina">Mandina Lodges (Makasutu)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Dates</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Vérifier</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Ocean Bay"></div>
+                    <div class="hotel-content">
+                        <h4>Ocean Bay Resort</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Cape Point, Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Ngala Lodge"></div>
+                    <div class="hotel-content">
+                        <h4>Ngala Lodge</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Fajara, Boutique & Vue Mer</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Kairaba"></div>
+                    <div class="hotel-content">
+                        <h4>Kairaba Beach Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kololi, Iconique</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Leo Beach"></div>
+                    <div class="hotel-content">
+                        <h4>Leo's Beach Hotel</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Brufut, Intimité & Design</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Mandina"></div>
+                    <div class="hotel-content">
+                        <h4>Mandina Lodges</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Makasutu, Eco-Luxe</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Senegambia"></div>
+                    <div class="hotel-content">
+                        <h4>Senegambia Beach</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kololi, Convivial & Oiseaux</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine gambienne est un régal pour les papilles, mettant à l'honneur les produits frais du fleuve et de l'océan Atlantique.
+        </p>
+        <div class="gastronomie-grid">
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Benachin&background=8b0000&color=fff&size=200" alt="Benachin"></div>
+                <div class="plat-content"><h4>Le Benachin</h4><p>Version gambienne du riz Jollof, cuit en une seule marmite avec viandes et légumes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Domoda&background=daa520&color=fff&size=200" alt="Domoda"></div>
+                <div class="plat-content"><h4>Le Domoda</h4><p>Ragoût crémeux à base d'arachide servi avec du riz blanc, le plat préféré des locaux.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Yassa&background=daa520&color=fff&size=200" alt="Yassa"></div>
+                <div class="plat-content"><h4>Yassa au Poulet</h4><p>Poulet mariné au citron et oignons caramélisés, un délice fondant.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Kanja&background=006400&color=fff&size=200" alt="Superkanja"></div>
+                <div class="plat-content"><h4>Superkanja</h4><p>Un ragoût d'okra (gombo) riche en légumes verts, poissons et fruits de mer.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Mbahal&background=daa520&color=fff&size=200" alt="Mbahal"></div>
+                <div class="plat-content"><h4>Le Mbahal</h4><p>Riz mélangé avec du poisson fumé et des arachides pilées, très savoureux.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fish&background=00008b&color=fff&size=200" alt="Poisson Grille"></div>
+                <div class="plat-content"><h4>Poisson grillé (Ladyfish)</h4><p>Poisson fraîchement pécé, grillé sur la plage avec une sauce épicée.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Banana&background=daa520&color=fff&size=200" alt="Beignets"></div>
+                <div class="plat-content"><h4>Beignets de Banane</h4><p>Bananes plantains mûres frites, servies chaudes pour le goûter.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Baobab&background=f5f5dc&color=000&size=200" alt="Baobab"></div>
+                <div class="plat-content"><h4>Jus de Baobab (Bouye)</h4><p>Boisson onctueuse et vitaminée extraite du fruit du "arbre de vie".</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Wonjo&background=8b0000&color=fff&size=200" alt="Wonjo"></div>
+                <div class="plat-content"><h4>Jus de Wonjo (Bissap)</h4><p>Rafraîchissement national à base de fleurs d'hibiscus rouges.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ditakh&background=006400&color=fff&size=200" alt="Ditakh"></div>
+                <div class="plat-content"><h4>Jus de Ditakh</h4><p>Jus vert riche et original issu d'un fruit tropical local.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Bread&background=daa520&color=fff&size=200" alt="Tapalapa"></div>
+                <div class="plat-content"><h4>Pain Tapalapa</h4><p>Pain traditionnel croustillant, idéal pour accompagner les sauces et omelettes.</p></div>
+            </div>
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Prawns&background=ff4500&color=fff&size=200" alt="Crevettes"></div>
+                <div class="plat-content"><h4>Crevettes de l'Atlantique</h4><p>Grosses crevettes grillées à l'ail et piment, une spécialité de côte.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Évènements & festivals</h2>
+        <p>Vivez le rythme de la Gambie à travers ses carnavals colorés et ses fêtes traditionnelles.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-mask"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Carnaval</span>
+                    <h4>Banjul Demba Cultural Festival</h4>
+                    <p>Grand défilé de masques (Zimba) et danses traditionnelles dans les rues de la capitale (Janvier).</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-flag"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">National</span>
+                    <h4>Independence Day</h4>
+                    <p>Célébrations massives le 18 février avec défilés militaires et culturels à Banjul.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-drum"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Tradition</span>
+                    <h4>Roots Homecoming Festival</h4>
+                    <p>Festival biennal célébrant l'héritage africain et le retour à la terre natale (Juffureh).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Sèche (Novembre à Mai)</h5>
+                    <p class="small mb-0">La période idéale pour le tourisme. Le temps est sec et ensoleillé, avec des températures agréables grâce aux alizés. Parfait pour l'observation des oiseaux et les croisières sur le fleuve.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-rain text-primary me-2"></i>Saison des Pluies (Juin à Octobre)</h5>
+                    <p class="small mb-0">La nature devient incroyablement verte. C'est la période la plus chaude et humide. Quelques averses tropicales rafraîchissantes surviennent, surtout en août.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Pays très sûr. Attention aux "bumsters" sur les plages touristiques qui cherchent à offrir leurs services de guide avec insistance.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Traitement antipaludéen recommandé. Buvez exclusivement de l'eau en bouteille. Protection solaire indispensable.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-passport fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Visa</h6>
+                    <p class="small text-muted">Visa non requis pour de nombreux pays européens pour des séjours courts. Vérifiez les dernières réglementations avant le départ.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-money-bill-wave fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Monnaie</h6>
+                    <p class="small text-muted">Le Dalasi (GMD). Le change est facile dans les zones touristiques. Les cartes bancaires sont acceptées dans les grands hôtels.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Lamin+Bird&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Lamin">
+                        <h5 class="fw-bold mb-1">Lamin Jobe</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Ornithologue</p>
+                        <p class="small text-muted">Lamin est l'un des meilleurs guides pour identifier les centaines d'espèces d'oiseaux le long du fleuve Gambie.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:lamin@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Lamin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Isatou+Culture&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Isatou">
+                        <h5 class="fw-bold mb-1">Isatou Touray</h5>
+                        <p class="text-primary small fw-bold mb-3">Experte Histoire & Patrimoine</p>
+                        <p class="small text-muted">Spécialiste de l'île de Kunta Kinteh, Isatou vous fera revivre l'histoire profonde et émouvante de son peuple.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:isatou@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Isatou</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Mustapha+Eco&background=006400&color=fff&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Mustapha">
+                        <h5 class="fw-bold mb-1">Mustapha Njie</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Écotourisme & Fleuve</p>
+                        <p class="small text-muted">Expert des méandres du fleuve et de la forêt de Makasutu, Mustapha vous guidera vers les spots les plus sauvages.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:mustapha@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Réserver avec Mustapha</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">La Gambie, la Côte Souriante de l'Afrique. Plongez dans une nature préservée et une hospitalité unique avec nos experts passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Gambie</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +220 44 000 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> banjul@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Gambia - The Smiling Coast</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/gambie.js"></script>
+</body>
+
+</html>

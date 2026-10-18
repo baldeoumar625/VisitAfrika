@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<!--
+    PROJET: VISIT AFRIKA
+    FICHIER: mali.html
+    DESCRIPTION: Page pays premium standardisée pour Le Mali.
+-->
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez le Mali, terre d'empires et de savoir. Explorez les mosquées en terre de Djenné, les falaises du pays Dogon et les manuscrits de Tombouctou.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/vendors/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css?v=21">
+    <link rel="stylesheet" href="../css/pays/les_differents_pays.css?v=21">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <title>Visit Afrika - Le Mali (Terre d'Empires)</title>
+    <link rel="icon" type="image/jpg" href="../images/logo/logo.png">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="../index.html" class="logo-link">
+                    <img src="../images/logo/carte-afrique.jpg" alt="Logo" class="logo-img">
+                    <span class="logo-text">VISIT AFRIKA</span>
+                </a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="navbar-menu" id="navbarMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a href="../pays.html" class="nav-link active"><i class="fas fa-globe"></i> Pays</a></li>
+                    
+                    <li class="nav-item"><a href="../blogs.html" class="nav-link"><i class="fas fa-blog"></i> Blogs</a></li>
+                    <li class="nav-item"><a href="../galerie.html" class="nav-link"><i class="fas fa-images"></i> Galerie</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <img src="../images/pays/Afrique_Ouest/mali.jpg" alt="Le Mali" onerror="this.src='../images/pays/default.jpg'">
+        <div class="hero-overlay"></div>
+        <a href="../pays.html" class="btn-retour"><i class="fas fa-arrow-left"></i> Retour</a>
+        <div class="hero-content">
+            <h1 class="hero-title">Le Mali</h1>
+            <p class="hero-subtitle">Berceau des grands empires et carrefour des savoirs saheliens</p>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="content">
+        <!-- 1. PRÉSENTATION -->
+        <div class="presentation-section">
+            <h2>L'Éclat du Sahel</h2>
+            <p class="section-description">
+                Le Mali est un pays d'une richesse historique et culturelle exceptionnelle. Traversé par le majestueux fleuve Niger, il a été le cœur de puissants empires (Ghana, Mali, Songhaï). Aujourd'hui, ses cités de terre, ses traditions Dogon et sa musique envoûtante continuent de fasciner les voyageurs en quête d'authenticité et de spiritualité.
+            </p>
+        </div>
+
+        <!-- 2. ATTRACTIONS (15 SITES) -->
+        <div class="section-header d-flex justify-content-between align-items-end mb-4">
+            <div>
+                <h2>Top attractions</h2>
+                <p class="text-muted">Découvrez les 15 merveilles du Mali</p>
+            </div>
+            <div class="stats-badge">
+                <span class="badge bg-primary rounded-pill px-3 py-2">15 Sites Classés</span>
+            </div>
+        </div>
+
+        <div class="filter-bar-simplified">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" id="attractionSearch" placeholder="Rechercher...">
+            </div>
+            <div class="filter-tags">
+                <span class="filter-tag active" data-filter="all">Tous</span>
+                <span class="filter-tag" data-filter="culture">Culture</span>
+                <span class="filter-tag" data-filter="histoire">Histoire</span>
+                <span class="filter-tag" data-filter="architecture">Architecture</span>
+            </div>
+            <a href="#" class="btn-show-map" id="toggleMap"><i class="fas fa-map"></i> <span class="btn-text">Carte</span></a>
+        </div>
+
+        <div id="map-container" style="display:none;" class="mb-5 shadow rounded-4 overflow-hidden">
+            <div id="mali-map" style="height: 450px; width: 100%;"></div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 1. Djenné -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=800" alt="Mosquée de Djenné">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Djenné</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 14.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mosquée de Djenné</h3>
+                        <p class="location-text">Plus grand édifice en terre au monde</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="djenne">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 2. Pays Dogon -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&q=80&w=800" alt="Pays Dogon">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bandiagara</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 11.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Falaises de Bandiagara</h3>
+                        <p class="location-text">Mystères et traditions du Pays Dogon</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="dogon">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 3. Tombouctou -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Tombouctou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Nord</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 9.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Cité de Tombouctou</h3>
+                        <p class="location-text">La perle du désert et ses manuscrits</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="tombouctou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 4. Mopti -->
+            <article class="attraction" data-category="architecture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Mopti">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Fleuve Niger</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mopti (La Venise Malienne)</h3>
+                        <p class="location-text">Port fluvial et carrefour des cultures</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="mopti">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 5. Bamako (Parc National) -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&q=80&w=800" alt="Parc National Bamako">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bamako</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 8.4k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc National du Mali</h3>
+                        <p class="location-text">Oasis de verdure dans la capitale</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="parcbamako">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 6. Siby -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?auto=format&fit=crop&q=80&w=800" alt="Siby">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mandé</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Monts de Siby</h3>
+                        <p class="location-text">L'Arche de Kamadjan et les falaises</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="siby">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 7. Ségou -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800" alt="Ségou">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Ségou</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 5.3k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Ségou (Cité des Balanzans)</h3>
+                        <p class="location-text">Capitale de l'ancien royaume bambara</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="segou">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 8. Chutes de Gouina -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544124499-58912cbddaad?auto=format&fit=crop&q=80&w=800" alt="Chutes de Gouina">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kayes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.1k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Chutes de Gouina</h3>
+                        <p class="location-text">Les "Chutes du Niagara" du Mali</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="gouina">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 9. Hombori -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=800" alt="Main de Fatma">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mopti</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 3.7k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Mont Hombori</h3>
+                        <p class="location-text">La Main de Fatma, défi des grimpeurs</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="hombori">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 10. Gao -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512100356132-db7f5c4e319e?auto=format&fit=crop&q=80&w=800" alt="Tombeau des Askia">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Gao</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 4.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tombeau des Askia</h3>
+                        <p class="location-text">Témoignage de l'Empire Songhaï</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="askia">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 11. Sikasso -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1528498033053-35608b21c67c?auto=format&fit=crop&q=80&w=800" alt="Tata de Sikasso">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Sud</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.9k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Tata de Sikasso</h3>
+                        <p class="location-text">Remparts historiques contre le colon</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="sikasso">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 12. Boucle du Baoulé -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1547407139-3c921a66005c?auto=format&fit=crop&q=80&w=800" alt="Boucle Baoule">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kayes/Koulikoro</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.5k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Parc de la Boucle du Baoulé</h3>
+                        <p class="location-text">Peintures rupestres et faune sauvage</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="baoule">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 13. Musée National -->
+            <article class="attraction" data-category="culture">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=800" alt="Musee National Bamako">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Bamako</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 6.8k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Musée National du Mali</h3>
+                        <p class="location-text">L'un des plus beaux musées d'Afrique</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="museemali">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 14. Falaises de Douentza -->
+            <article class="attraction" data-category="nature">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?auto=format&fit=crop&q=80&w=800" alt="Douentza">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Mopti</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 1.2k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Éléphants du Gourma</h3>
+                        <p class="location-text">La migration des éléphants du désert</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="douentza">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- 15. Kayes (Fort de Médine) -->
+            <article class="attraction" data-category="histoire">
+                <div class="attraction-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&q=80&w=800" alt="Fort de Medine">
+                    <div class="attraction-overlay"></div>
+                    <div class="badge-location"><i class="fas fa-map-marker-alt"></i> Kayes</div>
+                    <div class="badge-views"><i class="fas fa-eye"></i> 2.3k</div>
+                    <div class="attraction-info-on-img">
+                        <h3>Fort de Médine</h3>
+                        <p class="location-text">Sentinelle du fleuve Sénégal</p>
+                    </div>
+                </div>
+                <div class="attraction-footer">
+                    <a href="#" class="btn-decouvrir visit-btn" data-site="medine">Découvrir <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- 3. CULTURE & HISTOIRE -->
+        <div class="history-culture-section mt-5">
+            <h2>Culture & Histoire</h2>
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-8">
+                    <p class="lead fw-bold text-primary mb-3">Terre des Manuscrits et de la Charte du Manden.</p>
+                    <p>Le Mali est le gardien d'une sagesse ancestrale. C'est ici que fut proclamée la Charte du Manden (l'une des premières déclarations des droits de l'homme) au XIIIe siècle. Terre de griots et de musique blues, le Mali vibre au son de la kora et du balafon, portant l'écho des empires disparus.</p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-scroll text-warning me-2"></i>Manuscrits de Tombouctou</h6>
+                                <p class="small text-muted mb-0">Un trésor intellectuel inestimable couvrant l'astronomie, le droit et la médecine du Moyen Âge.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-mask text-info me-2"></i>Masques Dogons</h6>
+                                <p class="small text-muted mb-0">La danse des masques et la cosmogonie Dogon, une connexion fascinante entre l'homme et les étoiles.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-music text-danger me-2"></i>Musique du Fleuve</h6>
+                                <p class="small text-muted mb-0">Du blues d'Ali Farka Touré aux mélodies d'Oumou Sangaré, la musique malienne est l'âme du pays.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-4 bg-white rounded-4 shadow-sm h-100 border-0">
+                                <h6 class="fw-bold"><i class="fas fa-monument text-success me-2"></i>Savoir-faire du Banco</h6>
+                                <p class="small text-muted mb-0">L'architecture unique en terre crue (banco), un exemple parfait d'écologie et d'esthétique saharienne.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="ps-lg-4">
+                        <img src="https://images.unsplash.com/photo-1590603784844-0ca8066f14b6?auto=format&fit=crop&q=80&w=600" alt="Culture Mali" class="img-fluid rounded-4 shadow-sm w-100" style="object-fit: cover; height: 400px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. BOUTIQUE (6 PRODUITS) -->
+        <h2 class="mt-5">Boutique d'Artisanat Local</h2>
+        <p>Emportez l'élégance du Sahel. Des objets chargés de sens créés par les meilleurs artisans maliens (Bogolan, Touareg, Dogon).</p>
+        <div class="ecommerce-grid">
+            <!-- Produit 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/tissu.png" alt="Bogolan" onerror="this.src='https://ui-avatars.com/api/?name=Bogolan&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Tissu Bogolan Authentique</h3>
+                    <p class="product-desc">Tissu teint avec de la terre et des plantes selon une méthode ancestrale bambara.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">15 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/bijoux.png" alt="Bijoux Touareg" onerror="this.src='https://ui-avatars.com/api/?name=Bijou&background=c0c0c0&color=000&size=200'">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Croix d'Agadez / Bijoux Argent</h3>
+                    <p class="product-desc">Bijoux en argent massif ciselés par les forgerons touaregs du désert.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">25 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="../images/products/statue.png" alt="Statue Dogon" onerror="this.src='https://ui-avatars.com/api/?name=Dogon&background=4b2c20&color=fff&size=200'">
+                    <span class="stock-badge">Sur commande</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Sculpture Dogon</h3>
+                    <p class="product-desc">Statue en bois noble représentant les ancêtres ou la fertilité.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">35 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Cuir&background=8b4513&color=fff&size=200" alt="Cuir Mopti">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Maroquinerie de Mopti</h3>
+                    <p class="product-desc">Sacs et sandales en cuir souple travaillé au bord du fleuve.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">18 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Masque&background=000&color=fff&size=200" alt="Masque Bambara">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Masque Ciwara</h3>
+                    <p class="product-desc">Le célèbre masque antilope, emblème de l'agriculture malienne.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">45 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Produit 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://ui-avatars.com/api/?name=Musique&background=FFD700&color=000&size=200" alt="Kora/Kamale">
+                    <span class="stock-badge">En stock</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Instruments Traditionnels</h3>
+                    <p class="product-desc">Koras, balafons et djembés fabriqués par les maîtres luthiers du Mali.</p>
+                    <div class="product-price-row">
+                        <div><span class="price-new">60 000 FCFA</span></div>
+                    </div>
+                    <div class="product-actions">
+                        <a href="#" class="btn-voir">Voir <i class="fas fa-arrow-right"></i></a>
+                        <button class="btn-ajouter"><i class="fas fa-plus"></i> Ajouter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. HÔTELS (6 OPTIONS) -->
+        <section class="hotels-section mt-5">
+            <div class="hotels-banner">
+                <div class="hotels-banner-bg" style="background-image: url('../images/pays/Afrique_Ouest/mali.jpg');"></div>
+                <div class="hotels-banner-content">
+                    <h2>Séjours <span>Authentiques</span></h2>
+                    <p>Découvrez notre sélection exclusive d'hôtels de luxe et de campements de charme au Mali.</p>
+                    <a href="#hotel-booking-form" class="btn-explorer">Voir les options</a>
+                </div>
+            </div>
+
+            <div class="booking-panel mt-4">
+                <form id="hotel-booking-form" class="booking-form">
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-hotel"></i> Établissement</label>
+                        <select id="hotel-select" required>
+                            <option value="" disabled selected>Choisir un hôtel...</option>
+                            <option value="amit">Hôtel de l'Amitié (Bamako)</option>
+                            <option value="azalai">Azalaï Salam (Bamako)</option>
+                            <option value="radisson">Radisson Blu (Bamako)</option>
+                            <option value="djenne">Hôtel Campement (Djenné)</option>
+                            <option value="mopti">Hôtel Kanaga (Mopti)</option>
+                            <option value="segou">Hôtel de la Réserve (Ségou)</option>
+                        </select>
+                    </div>
+                    <div class="booking-input-group">
+                        <label><i class="fas fa-calendar-alt"></i> Période</label>
+                        <input type="text" placeholder="Check-in - Check-out" required>
+                    </div>
+                    <button type="submit" class="btn-book-now">Réserver ma chambre</button>
+                </form>
+            </div>
+
+            <div class="hotels-grid mt-4">
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600" alt="Amitie"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel de l'Amitié</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Quartier du Fleuve, Bamako</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=600" alt="Azalai"></div>
+                    <div class="hotel-content">
+                        <h4>Azalaï Salam</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Cité administrative, Bamako</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=600" alt="Radisson"></div>
+                    <div class="hotel-content">
+                        <h4>Radisson Blu Bamako</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> ACI 2000, Bamako</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=600" alt="Kanaga"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Kanaga</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Bord du Niger, Mopti</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&q=80&w=600" alt="Segou"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel de la Réserve</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Ségou, Cité coloniale</p>
+                    </div>
+                </div>
+                <div class="hotel-card">
+                    <div class="hotel-image"><img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&q=80&w=600" alt="Djenne"></div>
+                    <div class="hotel-content">
+                        <h4>Hôtel Campement</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Face à la Mosquée, Djenné</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. GASTRONOMIE (12 PLATS) -->
+        <h2 class="mt-5">Gastronomie</h2>
+        <p class="section-description">
+            La cuisine malienne est généreuse et parfumée. Basée sur les céréales locales et les poissons du fleuve Niger, elle offre des plats conviviaux comme le Tigadeguena (sauce arachide).
+        </p>
+        <div class="gastronomie-grid">
+            <!-- Plat 1 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/sauce-feille.png" alt="Tigadeguena" onerror="this.src='https://ui-avatars.com/api/?name=Arachide&background=FFD700&color=000&size=200'"></div>
+                <div class="plat-content"><h4>Tigadeguena</h4><p>Onctueuse sauce à la pâte d'arachide servie avec du riz blanc.</p></div>
+            </div>
+            <!-- Plat 2 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="../images/gastronomie/poisson-braise.png" alt="Capitaine Sangha" onerror="this.src='https://ui-avatars.com/api/?name=Poisson&background=FFD700&color=000&size=200'"></div>
+                <div class="plat-content"><h4>Capitaine Sangha</h4><p>Filet de poisson Capitaine du Niger, grillé et épicé.</p></div>
+            </div>
+            <!-- Plat 3 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Fakoye&background=006400&color=fff&size=200" alt="Fakoye"></div>
+                <div class="plat-content"><h4>Fakoye</h4><p>Spécialité du nord, sauce noire à base de feuilles de corète séchées.</p></div>
+            </div>
+            <!-- Plat 4 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Djouka&background=FFD700&color=000&size=200" alt="Djouka"></div>
+                <div class="plat-content"><h4>Djouka</h4><p>Mélange savoureux de fonio et d'arachide pilée.</p></div>
+            </div>
+            <!-- Plat 5 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Widjila&background=FFD700&color=000&size=200" alt="Widjila"></div>
+                <div class="plat-content"><h4>Widjila</h4><p>Petits pains à la vapeur servis avec une sauce à la tomate et viande.</p></div>
+            </div>
+            <!-- Plat 6 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Ngonni&background=FFD700&color=000&size=200" alt="Ngonni"></div>
+                <div class="plat-content"><h4>Ngonni</h4><p>Beignets de haricots croustillants, le snack favori des maliens.</p></div>
+            </div>
+            <!-- Plat 7 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=To&background=FFD700&color=000&size=200" alt="To"></div>
+                <div class="plat-content"><h4>Le Tô</h4><p>Pâte de mil ou de maïs servie avec une sauce gombo ou oseille.</p></div>
+            </div>
+            <!-- Plat 8 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Zaban&background=FFD700&color=000&size=200" alt="Zaban"></div>
+                <div class="plat-content"><h4>Jus de Zaban</h4><p>Boisson acidulée issue de la liane Saba senegalensis.</p></div>
+            </div>
+            <!-- Plat 9 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Dibi&background=FFD700&color=000&size=200" alt="Dibi"></div>
+                <div class="plat-content"><h4>Dibi Bamako</h4><p>Viande d'agneau grillée à la malienne, un régal nocturne.</p></div>
+            </div>
+            <!-- Plat 10 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Larroh&background=FFD700&color=000&size=200" alt="Larroh"></div>
+                <div class="plat-content"><h4>Larroh</h4><p>Bouillie de mil sucrée et onctueuse pour le petit-déjeuner.</p></div>
+            </div>
+            <!-- Plat 11 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gnomi&background=FFD700&color=000&size=200" alt="Gnomi"></div>
+                <div class="plat-content"><h4>Gnomi</h4><p>Galettes de mil frites, souvent consommées avec du lait caillé.</p></div>
+            </div>
+            <!-- Plat 12 -->
+            <div class="plat-card">
+                <div class="plat-image"><img src="https://ui-avatars.com/api/?name=Gingembre&background=FFD700&color=000&size=200" alt="Gingembre"></div>
+                <div class="plat-content"><h4>Jus de Gingembre</h4><p>Boisson piquante et rafraîchissante, très populaire.</p></div>
+            </div>
+        </div>
+
+        <!-- 7. ÉVÉNEMENTS & FESTIVALS -->
+        <h2 class="mt-5">Événements & festivals</h2>
+        <p>Vibrez au rythme des traditions millénaires et de la modernité malienne.</p>
+        <div class="events-board">
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-brush"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-culture">Tradition</span>
+                    <h4>Crépissage de la Mosquée</h4>
+                    <p>Fête communautaire annuelle de restauration de la mosquée de Djenné.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-music"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Musique</span>
+                    <h4>Festival sur le Niger</h4>
+                    <p>Célèbre festival de musique et d'art contemporain sur les berges de Ségou.</p>
+                </div>
+            </div>
+            <div class="event-card">
+                <div class="event-icon-wrapper"><i class="fas fa-guitar"></i></div>
+                <div class="event-info">
+                    <span class="event-category cat-music">Blues</span>
+                    <h4>Festival au Désert</h4>
+                    <p>Rencontre mythique des cultures touarègues au cœur des dunes (Essakane/Tombouctou).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. MEILLEURE PÉRIODE -->
+        <h2 class="mt-5">Meilleure période</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-warning border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-sun text-warning me-2"></i>Saison Fraîche (Nov. à Fév.)</h5>
+                    <p class="small mb-0">La période idéale pour visiter. Les températures sont clémentes (25-30°C) et le ciel est dégagé. Idéal pour les croisières sur le Niger.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 bg-light rounded-4 h-100 border-start border-primary border-4 shadow-sm">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-cloud-sun text-primary me-2"></i>Hivernage (Juin à Sept.)</h5>
+                    <p class="small mb-0">Saison des pluies. Le pays verdit et le fleuve Niger est à son niveau le plus haut, offrant des paysages spectaculaires.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. CONSEILS & SÉCURITÉ -->
+        <h2 class="mt-5">Conseils & sécurité</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-shield-halved fa-2x text-success mb-3"></i>
+                    <h6 class="fw-bold">Sécurité</h6>
+                    <p class="small text-muted">Vérifiez les conseils officiels. Privilégiez le sud et l'axe Bamako-Ségou. Accompagnement local recommandé.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-hospital fa-2x text-danger mb-3"></i>
+                    <h6 class="fw-bold">Santé</h6>
+                    <p class="small text-muted">Vaccin Fièvre Jaune obligatoire. Traitement antipaludéen requis. Ne buvez que de l'eau capsulée.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-comments fa-2x text-info mb-3"></i>
+                    <h6 class="fw-bold">Langues</h6>
+                    <p class="small text-muted">Le Bambara est la langue nationale. Le Français est utilisé pour l'administration.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="h-100 p-4 border rounded-4 text-center hover-shadow transition-all">
+                    <i class="fas fa-plug fa-2x text-warning mb-3"></i>
+                    <h6 class="fw-bold">Énergie</h6>
+                    <p class="small text-muted">Prises de type C/E (220V). Prévoyez des batteries solaires pour les excursions en brousse.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. GUIDES EXPERTS -->
+        <h2 class="mt-5">Nos Guides Experts</h2>
+        <div class="row g-4 mt-2">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Oumar+Traore&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Oumar">
+                        <h5 class="fw-bold mb-1">Oumar Traoré</h5>
+                        <p class="text-primary small fw-bold mb-3">Historien des Empires</p>
+                        <p class="small text-muted">Oumar est passionné par l'épopée Mandingue et vous guidera sur les traces de Soundiata Keïta.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:oumar@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Oumar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Aminata+Keita&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Aminata">
+                        <h5 class="fw-bold mb-1">Aminata Keïta</h5>
+                        <p class="text-primary small fw-bold mb-3">Guide Culture & Artisanat</p>
+                        <p class="small text-muted">Spécialiste du Bogolan et des arts maliens, elle vous fera découvrir les ateliers des meilleurs créateurs.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:aminata@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Aminata</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 hover-shadow transition-all">
+                    <div class="p-4 text-center">
+                        <img src="https://ui-avatars.com/api/?name=Modibo+Diallo&background=FFD700&color=000&size=128" class="rounded-circle mb-3 border border-4 border-white shadow-sm" alt="Modibo">
+                        <h5 class="fw-bold mb-1">Modibo Diallo</h5>
+                        <p class="text-primary small fw-bold mb-3">Expert Pays Dogon</p>
+                        <p class="small text-muted">Originaire des falaises, Modibo vous fera comprendre la complexité des rituels et de l'astronomie Dogon.</p>
+                    </div>
+                    <div class="card-footer bg-white border-top-0 p-4">
+                        <a href="mailto:modibo@visitafrika.com" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">Contacter Modibo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL -->
+        <div id="visit-modal" class="visit-modal" style="display:none;">
+            <div class="visit-modal-content">
+                <span class="visit-modal-close">&times;</span>
+                <div id="visit-modal-body"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4 class="footer-title"><i class="fas fa-globe"></i> Visit Afrika</h4>
+                <p class="footer-desc">Partageons la richesse du continent. Découvrez l'Afrique à travers les yeux de ceux qui l'aiment.</p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Explorer</h4>
+                <ul class="footer-list">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../pays.html">Destinations</a></li>
+                    <li><a href="../galerie.html">Galerie Photo</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact Mali</h4>
+                <div class="contact-info">
+                    <p class="contact-item"><i class="fas fa-phone-alt"></i> +223 20 00 00 00</p>
+                    <p class="contact-item"><i class="fas fa-envelope"></i> mali@visitafrika.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Visit Afrika. Tous droits réservés. | Mali - Terre d'Empires</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/vendors/bootstrap.js"></script>
+    <script src="../js/vendors/jquery-3.7.1.min.js"></script>
+    <script src="../js/les differents pays/mali.js"></script>
+</body>
+
+</html>
